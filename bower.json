@@ -1,0 +1,31 @@
+{
+  "name": "freedomotic-polymer-webapp",
+  "version": "0.3.0",
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#^0.5.5",
+    "paper-elements": "Polymer/paper-elements#^0.5.5",
+    "polymer": "Polymer/polymer#^0.5.5",
+    "flatiron-director": "https://github.com/PolymerLabs/flatiron-director.git#~0.3.0",
+    "x-websocket": "~0.2.0",
+    "google-chart": "~0.0.1",
+    "voice-elements": "~0.1.3",
+    "fd-polymer-rest-service": "~0.2.6",
+    "fd-polymer-ws-service": "^0.2.0",
+    "fd-polymer-elements": "^0.11.0",
+    "fd-polymer-generics": "~0.2.8",
+    "fd-polymer-card": "~0.5.8",
+    "fd-polymer-environments": "~0.8.1",
+    "fd-polymer-ispermitted": "~0.2.0",
+    "fd-polymer-i18next-translate": "0.2.4",
+    "fd-polymer-api-settings": "~0.2.3"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "polymer": "^0.5.0",
+    "core-ajax": "~0.5.2",
+    "core-shared-lib": "^0.5",
+    "platform": "~0.3.1",
+    "webcomponentsjs": "^0.7.2",
+    "core-component-page": "^0.5"
+  }
+}
