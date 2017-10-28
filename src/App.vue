@@ -1,31 +1,31 @@
 <template>
   <div id="app">
-    <h1>Freedomotic Web Client</h1>
-    <ul>
-      <li>
-        <router-link v-if="loggedIn" to="/logout">Log out</router-link>
-        <router-link v-if="!loggedIn" to="/login">Log in</router-link>
-      </li>
-      <li>
-        <router-link to="/about">About</router-link>
-      </li>
-      <li>
-        <router-link to="/dashboard">Dashboard</router-link>
-        (authenticated)
-      </li>
-    </ul>
+    <div v-if="!loggedIn">
+        <login></login> 
+    </div>
+    <div v-else>
+        <dashboard></dashboard>
+    </div>
     <template v-if="$route.matched.length">
       <router-view></router-view>
     </template>
     <template v-else>
       <p>You are logged {{ loggedIn ? 'in' : 'out' }}</p>
+      <router-link v-if="loggedIn" to="/logout">Log out</router-link>
     </template>
   </div>
 </template>
 
 <script>
 import auth from './auth'
+import Login from './components/Login.vue'
+import Dashboard from './components/Dashboard.vue'
+
 export default {
+  name: 'app',
+  components: {
+    Login, Dashboard
+  },
   data () {
     return {
       loggedIn: auth.loggedIn()
