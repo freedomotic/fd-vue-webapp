@@ -1,5 +1,9 @@
 # fd-vue-webapp
 
+# Developmment
+ In order to contribute, clone the repository https://github.com/freedomotic/fd-vue-webapp and create a pull request after submitting your changes
+ Web application client for Freedomotic developed using Vue.js
+
 > A Vue.js web application for Freedomotic
 
 ## Build Setup
