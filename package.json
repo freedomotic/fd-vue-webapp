@@ -17,6 +17,7 @@
     "axios": "^0.16.2",
     "vue": "^2.4.2",
     "vue-axios": "^2.0.2",
+    "vue-material": "^0.8.1",
     "vue-router": "^2.7.0"
   },
   "devDependencies": {

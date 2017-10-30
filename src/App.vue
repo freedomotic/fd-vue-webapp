@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="!loggedIn">
-        <login></login> 
-    </div>
+    <login v-if="!loggedIn"></login> 
     <div v-else>
         <dashboard></dashboard>
     </div>
@@ -17,9 +15,14 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import auth from './auth'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
+
+Vue.use(VueMaterial)
 
 export default {
   name: 'app',
@@ -43,10 +46,20 @@ export default {
   html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #2c3e50;
+    margin: 0;
+    height: 100%;
   }
 
-  #app {
-    padding: 0 20px;
+  html {
+    min-height: 100%;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+  }
+
+  #app, [data-page] {
+    height: 100%;
   }
 
   ul {
