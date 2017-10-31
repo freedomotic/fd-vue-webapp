@@ -16,7 +16,7 @@
 
 <script>
 import Vue from 'vue'
-import auth from './auth'
+import auth from './auth/auth'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import Login from './components/Login.vue'
