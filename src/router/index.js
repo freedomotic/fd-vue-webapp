@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import auth from '@/auth'
+import auth from '@/auth/auth'
 import About from '@/components/About.vue'
 import Dashboard from '@/components/Dashboard.vue'
 import Login from '@/components/Login.vue'

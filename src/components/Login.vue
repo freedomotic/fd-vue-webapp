@@ -25,13 +25,13 @@
           </md-input-container>
 
           <md-input-container>
-            <label>Email</label>
-            <md-input required="true" v-model="email"></md-input>
+            <label>Username</label>
+            <md-input required="true" v-model="username"></md-input>
           </md-input-container>
 
           <md-input-container>
             <label>Password</label>
-            <md-input type="password" required="true" v-model="pass"></md-input>
+            <md-input type="password" required="true" v-model="password"></md-input>
           </md-input-container>
 
           <md-checkbox v-model="remember">Remember me</md-checkbox>
@@ -54,13 +54,13 @@
 </template>
 
 <script>
-  import auth from '../auth'
+  import auth from '../auth/auth'
   import logoImg from '../assets/freedomotic-logo-light-transparent.png'
   export default {
     data () {
       return {
-        email: '',
-        pass: '',
+        username: '',
+        password: '',
         logoImg: logoImg,
         error: false,
         backgroundStyle: {
@@ -87,13 +87,13 @@
       }
       img.src = imgSrc
       if (window.location.href.includes('localhost')) {
-        this.email = 'joe@example.com'
-        this.pass = 'password1'
+        this.username = 'admin'
+        this.password = 'admin'
       }
     },
     methods: {
       login () {
-        auth.login(this.email, this.pass, loggedIn => {
+        auth.login(this.username, this.password, loggedIn => {
           if (!loggedIn) {
             this.error = true
           } else {
