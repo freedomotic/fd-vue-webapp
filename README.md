@@ -1,6 +1,8 @@
 # fd-vue-webapp
 
-> A Vue.js web application for Freedomotic
+A Vue.js web application for Freedomotic
+
+[![Build Status](https://travis-ci.org/freedomotic/fd-vue-webapp.svg?branch=master)](https://travis-ci.org/freedomotic/fd-vue-webapp)
 
 ## Build Setup
 
