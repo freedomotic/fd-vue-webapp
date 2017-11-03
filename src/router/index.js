@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from '@/auth/auth'
-import About from '@/components/About.vue'
+import Plugin from '@/components/Plugin.vue'
 import Dashboard from '@/components/Dashboard.vue'
 import Login from '@/components/Login.vue'
 
@@ -11,7 +11,7 @@ export default new Router({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/about', component: About },
+    { path: '/plugin', component: Plugin },
     { path: '/dashboard', component: Dashboard, beforeEnter: requireAuth },
     { path: '/login', component: Login },
     { path: '/logout',
