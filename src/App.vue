@@ -21,7 +21,10 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
+import VueAxios from 'vue-axios'
+import axios from './utils/fd-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 
 export default {
