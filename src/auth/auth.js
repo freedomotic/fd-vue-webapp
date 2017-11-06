@@ -42,7 +42,7 @@ function pretendRequest (username, password, cb) {
     if (username === 'admin' && password === 'admin') {
       cb({
         authenticated: true,
-        token: Math.random().toString(36).substring(7)
+        token: btoa(username + ':' + password)
       })
     } else {
       cb({ authenticated: false })
