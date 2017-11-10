@@ -20,8 +20,13 @@
         <form @submit.prevent="login" autocomplete="off">
 
           <md-input-container>
-            <label>Server</label>
-            <md-input required="true" v-model="server"></md-input>
+            <label>Server Address</label>
+            <md-input required="true" v-model="serverAddress"></md-input>
+          </md-input-container>
+          
+          <md-input-container>
+            <label>Server Port</label>
+            <md-input required="true" v-model="serverPort"></md-input>
           </md-input-container>
 
           <md-input-container>
@@ -59,6 +64,8 @@
   export default {
     data () {
       return {
+        serverAddress: '',
+        serverPort: '',
         username: '',
         password: '',
         logoImg: logoImg,
