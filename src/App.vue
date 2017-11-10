@@ -8,7 +8,7 @@
       <router-view></router-view>
     </template>
     <template v-else>
-      <p>You are logged {{ loggedIn ? 'in' : 'out' }}</p>
+      <p><br><br><br><br><br>You are logged {{ loggedIn ? 'in' : 'out' }}</p>
       <router-link v-if="loggedIn" to="/logout">Log out</router-link>
     </template>
   </div>

@@ -1,12 +1,18 @@
 <template>
-  <div>
-     <corner-button class="top-left" orientation="top-left"></corner-button>
-     <corner-button class="bottom-left" orientation="bottom-left"></corner-button>
-     <plugin title="Plugin Title" description="plugin description" icon="../assets/varioussensors-running.png"></plugin>
-     <corner-button class="top-right" orientation="top-right"></corner-button>
-     <corner-button class="bottom-right" orientation="bottom-right"></corner-button>
-  </div>
-  
+  <div id="background">
+    <div id="top-left">
+       <corner-button class="top-left" orientation="top-left" icon="people"></corner-button>
+     </div>
+    <div id="bottom-left">
+       <corner-button class="bottom-left" orientation="bottom-left"></corner-button>
+    </div>
+    <div id="top-right">
+       <corner-button class="top-right" orientation="top-right"></corner-button>
+    </div> 
+    <div id="bottom-right">
+      <corner-button class="bottom-right" orientation="bottom-right"></corner-button>
+    </div>  
+</div>
 </template>
 
 <script>
@@ -122,27 +128,27 @@ export default {
         color: #fff;
         z-index: 140;
       }
-      .top-right {
+      #top-right {
         position: fixed;
         top: 0px;
         right: 0px;
       }
-      .top-left {
+      #top-left {
         position: fixed;
         top: 0px;
         left: 0px;
       }
-      .bottom-right {
+      #bottom-right {
         position: fixed;
         bottom: 0px;
         right: 0px;
       }
-      .bottom-left {
+        #bottom-left {
         position: fixed;
         bottom: 0px;
         left: 0px;
       }
-      .background {
+      #background {
         width: 100%;
         height: 100%;
         background-color: lightgray;
