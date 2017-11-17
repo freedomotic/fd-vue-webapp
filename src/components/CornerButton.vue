@@ -1,18 +1,28 @@
 <template>
-    <div id="corner">
-      <md-icon :md-src="icon"></md-icon>
+    <div>
+      <md-button class="md-icon-button md-primary">
+        <i class="material-icons white">{{icon}}</i>
+        <md-tooltip :md-direction="tooltipDirection">{{tooltip}}</md-tooltip>
+      </md-button>
     </div>
 </template>
 
 <script>
   export default {
     props: {
-      orientation: String,
-      icon: String
+      tooltip: String,
+      tooltipDirection: String,
+      icon: String,
+      action: String
     },
-    orientationChanged: function () {
-      if (this.orientation) {
-        this.$.corner.classList.add(this.orientation)
+    methods: {
+      test: function () {
+        alert('Test')
+      },
+      orientationChanged: function () {
+        if (this.orientation) {
+          this.$.corner.classList.add(this.orientation)
+        }
       }
     }
 }
@@ -63,25 +73,25 @@
         border-width: 90px 90px 0px 0px;
         border-color: #b33 transparent transparent transparent;
       }
-      paper-icon-button::shadow #icon {
-        position: relative;
+      paper-button {
+        position: fixed;
         width: 40px;
         height: 40px;
         color: #fff;
       }
-      .top-right paper-icon-button {
-        top: 0px;
+      .top-right button {
+        top:  0px;
         left: 45px;
       }
-      .bottom-right paper-icon-button {
+      .bottom-right button {
         top: -53px;
         left: 37px;
       }
-      .top-left paper-icon-button {
-        top: -90px;
+      .top-left button {
+        top: -85px;
         left: 0px;
       }
-      .bottom-left paper-icon-button {
+      .bottom-left button {
         top: -53px;
         left: -90px;
       }

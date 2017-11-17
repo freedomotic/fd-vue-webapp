@@ -1,18 +1,23 @@
 <template>
   <div id="background">
-    <div id="top-left">
-       <corner-button class="top-left" orientation="top-left" icon="people"></corner-button>
+    <div id="corner-top-left">
+       <corner-button class="top-left" tooltipDirection="right" tooltip="Profile" icon="account_box"></corner-button>
      </div>
-    <div id="bottom-left">
-       <corner-button class="bottom-left" orientation="bottom-left"></corner-button>
+    <div id="corner-bottom-left">
+       <corner-button class="bottom-left" tooltipDirection="right" tooltip="Info" icon="info" ></corner-button>
     </div>
-    <div id="top-right">
-       <corner-button class="top-right" orientation="top-right"></corner-button>
+    <div id="corner-top-right">
+       <corner-button class="top-right" tooltipDirection="left" tooltip="Alerts" icon="mic"></corner-button>
     </div> 
-    <div id="bottom-right">
-      <corner-button class="bottom-right" orientation="bottom-right"></corner-button>
+    <div id="corner-bottom-right">
+      <corner-button class="bottom-right" tooltipDirection="left" tooltip="Settings" icon="settings"></corner-button>
     </div>  
-</div>
+    <template v-if="displayInfo">
+       <div class="section">
+          <p>Called Info section</p>
+       </div>
+    </template>   
+  </div>  
 </template>
 
 <script>
@@ -23,57 +28,67 @@ export default {
   components: {
     'corner-button': CornerButton, Plugin
   },
-  displaySettings: false,
-  displayInfo: false,
-  displayAlerts: false,
-  blur: false,
-  hideBottomSection: function () {
-    if (this.expanded) {
-      this.expanded = false
+  data () {
+    return {
+      displaySettings: false,
+      displayInfo: false,
+      displayAlerts: false,
+      blur: false
     }
   },
-  hideAll: function () {
-    this.hideBottomSection()
-    this.displaySettings = false
-    this.displayAlerts = false
-    this.displayInfo = false
-  },
-  showSetup: function () {
-    this.hideAll()
-    this.displaySettings = true
-    this.blur = !this.blur
-  },
-  showAlerts: function () {
-    this.hideAll()
-    if (!('webkitSpeechRecognition' in window)) {
-      this.setToast("Current browser doesn't support WebSpeeck API")
-    } else {
-      this.displayAlerts = true
+  methods: {
+    hideBottomSection: function () {
+      if (this.expanded) {
+        this.expanded = false
+      }
+    },
+    hideAll: function () {
+      this.hideBottomSection()
+      this.displaySettings = false
+      this.displayAlerts = false
+      this.displayInfo = false
+    },
+    showSetup: function () {
+      this.hideAll()
+      this.displaySettings = true
       this.blur = !this.blur
-    }
-  },
-  showInfo: function () {
-    this.hideAll()
-    this.displayInfo = true
-    this.blur = !this.blur
-  },
-  closeSection: function () {
-    this.hideAll()
-    this.blur = false
-  },
-  ready: function () {},
-  doLogout: function () {
-    this.$.logoutService.go()
-    this.fire('logout', null)
-  },
-  updateToast: function (e) {
-    var msg = e.detail
-    this.setToast(msg.message)
-  },
-  setToast: function (msg) {
+    },
+    showAlerts: function () {
+      this.hideAll()
+      if (!('webkitSpeechRecognition' in window)) {
+        this.setToast("Current browser doesn't support WebSpeeck API")
+      } else {
+        this.displayAlerts = true
+        this.blur = !this.blur
+      }
+    },
+    showInfo: function () {
+      this.hideAll()
+      this.displayInfo = true
+      this.blur = !this.blur
+      console.log('Called showInfo')
+    },
+    closeSection: function () {
+      this.hideAll()
+      this.blur = false
+    },
+    ready: function () {},
+    doLogout: function () {
+      this.$.logoutService.go()
+      this.fire('logout', null)
+    },
+    updateToast: function (e) {
+      var msg = e.detail
+      this.setToast(msg.message)
+    },
+    setToast: function (msg) {
     // console.log("CALLOUT",msg);
-    this.$.toast.text = msg
-    this.$.toast.opened = true
+      this.$.toast.text = msg
+      this.$.toast.opened = true
+    },
+    test: function () {
+      alert('Test')
+    }
   }
 }
 </script>
@@ -128,22 +143,22 @@ export default {
         color: #fff;
         z-index: 140;
       }
-      #top-right {
+      #corner-top-right {
         position: fixed;
         top: 0px;
         right: 0px;
       }
-      #top-left {
+      #corner-top-left {
         position: fixed;
         top: 0px;
         left: 0px;
       }
-      #bottom-right {
+      #corner-bottom-right {
         position: fixed;
         bottom: 0px;
         right: 0px;
       }
-        #bottom-left {
+      #corner-bottom-left {
         position: fixed;
         bottom: 0px;
         left: 0px;
@@ -157,5 +172,34 @@ export default {
         z-index: 120;
         top: 10px;
         left: 10px;
+      }
+      .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 30px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+      
+      }
+      .material-icons.white
+      {
+        color: #FFFFFF;
       }
 </style> 
