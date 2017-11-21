@@ -21,22 +21,22 @@
 
           <md-input-container>
             <label>Server Address</label>
-            <md-input required="true" v-model="serverAddress"></md-input>
+            <md-input required v-model="serverAddress"></md-input>
           </md-input-container>
           
           <md-input-container>
             <label>Server Port</label>
-            <md-input required="true" v-model="serverPort"></md-input>
+            <md-input required v-model="serverPort"></md-input>
           </md-input-container>
 
           <md-input-container>
             <label>Username</label>
-            <md-input required="true" v-model="username"></md-input>
+            <md-input required v-model="username"></md-input>
           </md-input-container>
 
           <md-input-container>
             <label>Password</label>
-            <md-input type="password" required="true" v-model="password"></md-input>
+            <md-input type="password" required v-model="password"></md-input>
           </md-input-container>
 
           <md-checkbox v-model="remember">Remember me</md-checkbox>
@@ -64,10 +64,12 @@
   export default {
     data () {
       return {
-        serverAddress: '',
-        serverPort: '',
+        serverAddress: 'localhost',
+        serverPort: '9111',
         username: '',
         password: '',
+        ssl: false,
+        remember: false,
         logoImg: logoImg,
         error: false,
         backgroundStyle: {
