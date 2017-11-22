@@ -1,7 +1,7 @@
 <template>
   <div id="background">
     <div id="corner-top-left">
-       <corner-button class="top-left" tooltipDirection="right" tooltip="Profile" icon="account_box"></corner-button>
+       <corner-button class="top-left" tooltipDirection="right" tooltip="Users" icon="account_box"></corner-button>
      </div>
     <div id="corner-bottom-left">
        <corner-button class="bottom-left" tooltipDirection="right" tooltip="Info" icon="info" ></corner-button>

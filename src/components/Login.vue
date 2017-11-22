@@ -39,13 +39,13 @@
             <md-input type="password" required v-model="password"></md-input>
           </md-input-container>
 
-          <md-checkbox v-model="remember">Remember me</md-checkbox>
+          <md-checkbox v-model="remember">{{ $t('remember_me')}}</md-checkbox>
 
-          <md-checkbox v-model="ssl">Use SSL</md-checkbox>
+          <md-checkbox v-model="ssl">{{ $t('use_ssl')}}</md-checkbox>
 
-          <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+          <md-button type="submit" class="md-raised md-primary">{{ $t('submit')}}</md-button>
           
-          <p v-if="error" class="error">Bad login information</p>
+          <p v-if="error" class="error">{{ $t('bad_login_information')}}</p>
         </form>
 
       </div>
@@ -53,6 +53,11 @@
     </div>
 
   </div>
+
+<div>
+  <md-button type="submit" class="md-raised md-primary" @click="$i18n.set('it')">IT</md-button>
+  <md-button type="submit" class="md-raised md-primary" @click="$i18n.set('en')">EN</md-button>
+</div>
 
 </div>
 
