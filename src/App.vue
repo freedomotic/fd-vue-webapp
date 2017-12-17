@@ -7,25 +7,14 @@
     <template v-if="$route.matched.length">
       <router-view></router-view>
     </template>
-    <template v-else>
-      <p><br><br><br><br><br>You are logged {{ loggedIn ? 'in' : 'out' }}</p>
-      <router-link v-if="loggedIn" to="/logout">Log out</router-link>
-    </template>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import auth from './auth/auth'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+// Components import
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
-import VueAxios from 'vue-axios'
-import axios from './utils/fd-axios'
-
-Vue.use(VueAxios, axios)
-Vue.use(VueMaterial)
 
 export default {
   name: 'app',
@@ -63,6 +52,9 @@ export default {
 
   #app, [data-page] {
     height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
   }
 
   ul {

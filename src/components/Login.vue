@@ -1,64 +1,40 @@
 <template>
 <div data-page="Login">
-  
-  <div id="background" v-bind:style="backgroundStyle" v-bind:class="{active: !!backgroundStyle.backgroundImage}"></div>
-  
+  <background/>
   <div id="body">
-    
     <div id="login-box">
-      
       <div id="login-header">
         <img alt="freedomotic" v-bind:src="logoImg">
       </div>
-
       <div id="login-body">
-        
         <p v-if="$route.query.redirect">
           You need to login first.
         </p>
-
         <form @submit.prevent="login" autocomplete="off">
-
-          <md-input-container>
+          <md-field>
             <label>Server Address</label>
             <md-input required v-model="serverAddress"></md-input>
-          </md-input-container>
-          
-          <md-input-container>
+          </md-field>
+          <md-field>
             <label>Server Port</label>
             <md-input required v-model="serverPort"></md-input>
-          </md-input-container>
-
-          <md-input-container>
+          </md-field>
+          <md-field>
             <label>Username</label>
             <md-input required v-model="username"></md-input>
-          </md-input-container>
-
-          <md-input-container>
+          </md-field>
+          <md-field>
             <label>Password</label>
             <md-input type="password" required v-model="password"></md-input>
-          </md-input-container>
-
-          <md-checkbox v-model="remember">{{ $t('remember_me')}}</md-checkbox>
-
-          <md-checkbox v-model="ssl">{{ $t('use_ssl')}}</md-checkbox>
-
-          <md-button type="submit" class="md-raised md-primary">{{ $t('submit')}}</md-button>
-          
-          <p v-if="error" class="error">{{ $t('bad_login_information')}}</p>
+          </md-field>
+          <md-switch v-model="remember" class="md-primary">{{$t('remember_me')}}</md-switch>
+          <md-switch v-model="ssl" class="md-primary">{{$t('use_ssl')}}</md-switch>
+          <md-button type="submit" class="md-raised md-primary">{{$t('submit')}}</md-button>
+          <p v-if="error" class="error">{{$t('bad_login_information')}}</p>
         </form>
-
       </div>
-
     </div>
-
   </div>
-
-<div>
-  <md-button type="submit" class="md-raised md-primary" @click="$i18n.set('it')">IT</md-button>
-  <md-button type="submit" class="md-raised md-primary" @click="$i18n.set('en')">EN</md-button>
-</div>
-
 </div>
 
 </template>
@@ -66,7 +42,12 @@
 <script>
   import auth from '../auth/auth'
   import logoImg from '../assets/freedomotic-logo-light-transparent.png'
+  import Background from './Background.vue'
+
   export default {
+    components: {
+      'background': Background
+    },
     data () {
       return {
         serverAddress: 'localhost',
@@ -76,30 +57,10 @@
         ssl: false,
         remember: false,
         logoImg: logoImg,
-        error: false,
-        backgroundStyle: {
-          backgroundColor: '#ddd',
-          backgroundImage: ''
-        },
-        backgrounds: [
-          'https://c1.staticflickr.com/1/38/104792456_71001aaea2_b_d.jpg',
-          'https://c2.staticflickr.com/6/5552/15171955576_612f79e75d_h_d.jpg',
-          'https://c1.staticflickr.com/1/178/472387994_8bee2dfbee_b_d.jpg',
-          'https://c1.staticflickr.com/9/8389/8505463101_fac8481473_h_d.jpg',
-          'https://c2.staticflickr.com/6/5159/13983804179_a5b92250d3_o_d.jpg',
-          'https://c1.staticflickr.com/3/2788/4517193518_c8cebf5f2e_o_d.jpg',
-          'https://c1.staticflickr.com/5/4099/4911433144_e6b761b3f9_b_d.jpg',
-          'https://c2.staticflickr.com/6/5065/5577311905_eb2940ac89_b_d.jpg'
-        ]
+        error: false
       }
     },
     created () {
-      const img = document.createElement('img')
-      const imgSrc = this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]
-      img.onload = () => {
-        this.backgroundStyle.backgroundImage = 'url(' + imgSrc + ')'
-      }
-      img.src = imgSrc
       if (window.location.href.includes('localhost')) {
         this.username = 'admin'
         this.password = 'admin'
@@ -119,34 +80,12 @@
   }
 </script>
 
-<style>
+<style scoped>
   #body {
     position: relative;
     height: 100%;
   }
-  #background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-  }
-  #background:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #ddd;
-    transition: opacity 0.5s linear;
-    width: 100%;
-    height: 100%;
-    display: block;
-    content: "";
-  }
-
-  #background.active:after {
-    opacity: 0;
-  }
-
+  
   #login-box {
     position: absolute;
     top: 50%;
@@ -171,5 +110,4 @@
   #login-body {
     padding: 1em 2em;
   }
-
 </style>
