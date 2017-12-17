@@ -5,8 +5,8 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 
-import axios from 'axios'
 import VueAxios from 'vue-axios'
+import axios from './utils/fd-axios'
 
 // load vuex i18n module
 import vuexI18n from 'vuex-i18n'
@@ -15,6 +15,12 @@ import vuexI18n from 'vuex-i18n'
 import en from './i18n/en.json'
 import it from './i18n/it_IT.json'
 
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+import 'vue-material/dist/theme/default.css'
+
+Vue.use(VueAxios, axios)
+Vue.use(VueMaterial)
 Vue.use(Vuex)
 
 // initialize the vuex store using the vuex module. note that you can change the

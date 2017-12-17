@@ -11,6 +11,7 @@ export default {
     pretendRequest(username, password, (res) => {
       if (res.authenticated) {
         localStorage.token = res.token
+        localStorage.username = username
         if (cb) cb(true)
         this.onChange(true)
       } else {
