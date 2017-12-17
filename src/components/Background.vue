@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<<script>
+<script>
 import Bugs from './Bugs.vue'
 
 export default {
