@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Vuex from 'vuex'
 
 import VueAxios from 'vue-axios'
 import axios from './utils/fd-axios'
@@ -19,13 +18,10 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
 
+import store from './store'
+
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
-Vue.use(Vuex)
-
-// initialize the vuex store using the vuex module. note that you can change the
-//  name of the module if you wish
-const store = new Vuex.Store()
 
 // initialize the internationalization plugin on the vue instance. note that
 // the store must be passed to the plugin. the plugin will then generate some

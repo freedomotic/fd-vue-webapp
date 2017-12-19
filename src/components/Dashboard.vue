@@ -51,55 +51,34 @@ export default {
     'logout': Logout
   },
   data () {
-    return {
-      displaySettings: false,
-      displayInfo: false,
-      displayAlerts: false,
-      displayLogout: false,
-      blur: false
+    return {}
+  },
+  created () {
+    this.$store.commit('hideAll')
+  },
+  computed: {
+    displaySettings () {
+      return this.$store.state.displaySettings
+    },
+    displayAlerts () {
+      return this.$store.state.displayAlerts
+    },
+    displayInfo () {
+      return this.$store.state.displayInfo
+    },
+    displayLogout () {
+      return this.$store.state.displayLogout
+    },
+    blur () {
+      return this.$store.state.blur
     }
   },
   methods: {
-    hideBottomSection: function () {
-      if (this.expanded) {
-        this.expanded = false
-      }
-    },
-    hideAll: function () {
-      this.hideBottomSection()
-      this.displaySettings = false
-      this.displayAlerts = false
-      this.displayInfo = false
-      this.displayLogout = false
-    },
-    showSetup: function () {
-      this.hideAll()
-      this.displaySettings = true
-      this.blur = !this.blur
-    },
-    showLogout: function () {
-      this.hideAll()
-      this.displayLogout = true
-      this.blur = !this.blur
-    },
-    showAlerts: function () {
-      this.hideAll()
-      if (!('webkitSpeechRecognition' in window)) {
-        this.setToast("Current browser doesn't support WebSpeeck API")
-      } else {
-        this.displayAlerts = true
-        this.blur = !this.blur
-      }
-    },
-    showInfo: function () {
-      this.hideAll()
-      this.displayInfo = true
-      this.blur = !this.blur
-    },
-    closeSection: function () {
-      this.hideAll()
-      this.blur = false
-    },
+    hideAll () { this.$store.commit('hideAll') },
+    showSetup () { this.$store.commit('showSetup') },
+    showLogout () { this.$store.commit('showLogout') },
+    showInfo () { this.$store.commit('showInfo') },
+    closeSection () { this.$store.commit('closeSection') },
     ready: function () {},
     updateToast: function (e) {
       var msg = e.detail
@@ -108,6 +87,14 @@ export default {
     setToast: function (msg) {
       this.$.toast.text = msg
       this.$.toast.opened = true
+    },
+    showAlerts: function () {
+      this.hideAll()
+      if (!('webkitSpeechRecognition' in window)) {
+        this.setToast("Current browser doesn't support WebSpeeck API")
+      } else {
+        this.$store.commit('showAlerts')
+      }
     }
   }
 }

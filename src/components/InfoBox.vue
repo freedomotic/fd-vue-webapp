@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div @click="openWindow">
     <md-card>
-      <md-card-content class="inner-text" :style="dataColor" @click="openWindow">
+      <md-card-content class="inner-text" :style="dataColor">
           <md-icon class="md-size-5x">{{icon}}</md-icon>
           <md-card-content>{{action}}</md-card-content>
       </md-card-content>
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     openWindow () {
-      alert('window opened')
+      this.$store.dispatch('open' + this.action)
     }
   }
 }
@@ -41,6 +41,7 @@ export default {
     text-align: center;
     position: sticky;
     top: 20%;
+    cursor: pointer;
   }
   
   .md-icon.md-theme-default.md-icon-font {
