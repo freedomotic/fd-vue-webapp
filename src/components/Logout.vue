@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     closeWindow: function () {
-      this.$emit('close-logout')
+      this.$store.commit('closeSection')
     },
     doLogout: function () {
       this.$router.push('logout')

@@ -1,15 +1,20 @@
 export const openPlugins = (context) => {
-  console.log(context)
+  context.commit('closeSection')
 }
 
 export const openSettings = (context) => {
-  console.log(context)
+  context.commit('closeSection')
+  context.commit('showSystemPanel')
 }
 
 export const openUsers = (context) => {
-  console.log(context)
+  context.commit('closeSection')
 }
 
 export const openRoles = (context) => {
-  console.log(context)
+  context.commit('closeSection')
+}
+
+export const shutdownFD = (context) => {
+  console.log('Implement this')
 }

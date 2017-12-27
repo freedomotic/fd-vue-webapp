@@ -13,23 +13,22 @@
     <div id="corner-bottom-right" @click="showSetup">
       <corner-button class="bottom-right" tooltipDirection="left" tooltip="Settings" icon="settings"></corner-button>
     </div>  
-
     <div v-if="displayLogout">
        <div class="modalPopup">
-          <logout @close-logout="closeSection"/>
+          <logout/>
        </div>
     </div>
-
     <div v-else-if="displaySettings">
        <div class="section">
-          <settings @close-settings="closeSection"/>
+          <settings/>
        </div>
     </div>
     <div v-else-if="displayInfo">
        <div class="section">
-          <app-info @close-info="closeSection"/>
+          <app-info/>
        </div>
-    </div>   
+    </div>
+    <system/> 
   </div>  
 </template>
 
@@ -40,6 +39,7 @@ import Settings from './Settings.vue'
 import AppInfo from './AppInfo.vue'
 import Background from './Background.vue'
 import Logout from './Logout.vue'
+import System from './System.vue'
 
 export default {
   components: {
@@ -48,7 +48,8 @@ export default {
     'plugin': Plugin,
     'app-info': AppInfo,
     'background': Background,
-    'logout': Logout
+    'logout': Logout,
+    'system': System
   },
   data () {
     return {}

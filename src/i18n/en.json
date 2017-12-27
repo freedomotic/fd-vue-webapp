@@ -2,5 +2,7 @@
   "bad_login_information" : "Bad login information",
   "remember_me": "Remember me",
   "submit" : "Submit",
-  "use_ssl" : "Use SSL"
+  "use_ssl" : "Use SSL",
+  "shutdown": "Shutdown Freedomotic",
+  "system_shutdown": "System settings"
 }

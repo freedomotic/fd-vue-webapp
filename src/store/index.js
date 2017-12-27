@@ -12,8 +12,9 @@ export default new Vuex.Store({
     displayInfo: false,
     displayAlerts: false,
     displayLogout: false,
-    blur: false
+    blur: false,
     // end of dashboard state
+    systemOpen: false
   },
   actions,
   mutations

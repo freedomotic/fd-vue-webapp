@@ -2,5 +2,7 @@
   "bad_login_information" : "Credenziali errate",
   "remember_me" : "Ricordami",
   "submit" : "Invia",
-  "use_ssl" : "Usa SSL"
+  "use_ssl" : "Usa SSL",
+  "shutdown": "Spegni Freedomotic",
+  "system_shutdown": "Configurazione di sistema"
 }
