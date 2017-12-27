@@ -2,16 +2,19 @@
   <div>
     <bugs/>
     <div id="img-background" :style="backgroundStyle" :class="{active: !!backgroundStyle.backgroundImage}"/>
+    <bottom-menu/>
   </div>
 </template>
 
 <script>
 import Bugs from './Bugs.vue'
+import BottomMenu from './BottomMenu.vue'
 
 export default {
   name: 'Background',
   components: {
-    'bugs': Bugs
+    'bugs': Bugs,
+    'bottom-menu': BottomMenu
   },
   data () {
     return {
