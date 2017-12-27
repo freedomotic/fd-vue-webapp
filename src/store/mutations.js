@@ -31,9 +31,15 @@ export const closeSection = state => {
   state.blur = false
 }
 
+export const showSystemPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.systemOpen = true
+}
+
 function hideAllDashboardDisplays (state) {
   state.displaySettings = false
   state.displayAlerts = false
   state.displayInfo = false
   state.displayLogout = false
+  state.systemOpen = false
 }

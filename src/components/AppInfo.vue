@@ -1,8 +1,6 @@
 <template>
     <div id="info-area">
-        <md-content class="close-button" @click="closeWindow">
-            <md-icon>close</md-icon>
-        </md-content>
+    <close-button class="color-red"/>
     <div id="info-flex-container">    
         <md-content class="info-text">
             <div class="bold-title">Freedomotic Vue Dashboard 0.0.1</div>
@@ -31,15 +29,14 @@
 </template>
 
 <script>
+import CloseButton from './CloseButton.vue'
+
 export default {
+  components: {
+    'close-button': CloseButton
+  },
   data () {
     return {}
-  },
-
-  methods: {
-    closeWindow: function () {
-      this.$emit('close-info')
-    }
   }
 }
 </script>
@@ -49,7 +46,9 @@ export default {
         background-color: transparent;
         color: white;
     }
-
+    .color-red {
+        background-color: red;
+    }
     .md-icon.md-theme-default.md-icon-font {
         color: white;
     }
@@ -83,22 +82,4 @@ export default {
         font-weight: bolder; 
         font-size: larger;
     }
-
-    .close-button {
-        background-color: red;
-        border-radius: 50%;
-	    width: 50px;
-	    height: 50px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        color:white;
-        text-align: center;
-        padding: 12px 3px 0 3px;
-        font-size: small;
-        font-weight: bolder;
-        box-shadow: 1px 1px 1px #444;
-        border: 2px solid white;
-    } 
 </style>

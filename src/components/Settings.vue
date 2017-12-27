@@ -1,8 +1,6 @@
 <template>
     <div id="settings-area">
-        <md-content class="close-button" @click="closeWindow">
-            <md-icon>close</md-icon>
-        </md-content>
+    <close-button/>
     <div id="flex-container">    
         <div class="settings-boxes">
          <info-box color="ff6666" icon="dashboard" action="Plugins"/>
@@ -18,19 +16,15 @@
 
 <script>
 import InfoBox from './InfoBox.vue'
+import CloseButton from './CloseButton.vue'
 
 export default {
   components: {
-    'info-box': InfoBox
+    'info-box': InfoBox,
+    'close-button': CloseButton
   },
   data () {
     return {}
-  },
-
-  methods: {
-    closeWindow: function () {
-      this.$emit('close-settings')
-    }
   }
 }
 </script>
@@ -64,25 +58,5 @@ export default {
         width: inherit;
         height: inherit;
         display: flex;
-    }
-
-    .close-button {
-        background-color: red;
-        border-radius: 50%;
-	    width: 50px;
-	    height: 50px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        color:white;
-        text-align: center;
-        padding: 12px 3px 0 3px;
-        font-size: small;
-        font-weight: bolder;
-        box-shadow: 1px 1px 1px #444;
-        border: 2px solid white;
-    }
-
-   
+    } 
 </style>
