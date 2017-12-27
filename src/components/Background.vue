@@ -7,6 +7,7 @@
 
 <script>
 import Bugs from './Bugs.vue'
+import bkg from '../assets/bkgnd.jpg'
 
 export default {
   name: 'Background',
@@ -18,22 +19,11 @@ export default {
       backgroundStyle: {
         backgroundColor: '#ddd',
         backgroundImage: ''
-      },
-      backgrounds: [
-        'https://c1.staticflickr.com/1/38/104792456_71001aaea2_b_d.jpg',
-        'https://c2.staticflickr.com/6/5552/15171955576_612f79e75d_h_d.jpg',
-        'https://c1.staticflickr.com/1/178/472387994_8bee2dfbee_b_d.jpg',
-        'https://c1.staticflickr.com/9/8389/8505463101_fac8481473_h_d.jpg',
-        'https://c2.staticflickr.com/6/5159/13983804179_a5b92250d3_o_d.jpg',
-        'https://c1.staticflickr.com/3/2788/4517193518_c8cebf5f2e_o_d.jpg',
-        'https://c1.staticflickr.com/5/4099/4911433144_e6b761b3f9_b_d.jpg',
-        'https://c2.staticflickr.com/6/5065/5577311905_eb2940ac89_b_d.jpg'
-      ]
+      }
     }
   },
   created () {
-    let imgSrc = this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]
-    this.backgroundStyle.backgroundImage = 'url(' + imgSrc + ')'
+    this.backgroundStyle.backgroundImage = 'url(' + bkg + ')'
   }
 }
 </script>
