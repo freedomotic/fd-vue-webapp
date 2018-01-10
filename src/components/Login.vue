@@ -8,23 +8,23 @@
       </div>
       <div id="login-body">
         <p v-if="$route.query.redirect">
-          You need to login first.
+          {{$t('login_first_message')}}
         </p>
         <form @submit.prevent="login" autocomplete="off">
           <md-field>
-            <label>Server Address</label>
+            <label>{{$t('server_address')}}</label>
             <md-input required v-model="serverAddress"></md-input>
           </md-field>
           <md-field>
-            <label>Server Port</label>
+            <label>{{$t('server_port')}}</label>
             <md-input required v-model="serverPort"></md-input>
           </md-field>
           <md-field>
-            <label>Username</label>
+            <label>{{$t('username')}}</label>
             <md-input required v-model="username"></md-input>
           </md-field>
           <md-field>
-            <label>Password</label>
+            <label>{{$t('password')}}</label>
             <md-input type="password" required v-model="password"></md-input>
           </md-field>
           <md-switch v-model="remember" class="md-primary">{{$t('remember_me')}}</md-switch>

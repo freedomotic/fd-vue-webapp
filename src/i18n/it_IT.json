@@ -9,7 +9,10 @@
   "login_first_message" : "Devi prima effettuare il login",
   "logout" : "Logout",
   "password" : "Password",
+  "plugin" : "Plugin",
+  "plugins" : "Plugin",
   "remember_me": "Ricordami",
+  "roles" : "Ruoli",
   "server_address" : "Indirizzo Server",
   "server_port" : "Porta Server",
   "settings" : "Impostazioni",
@@ -18,6 +21,7 @@
   "system_shutdown": "Impostazioni di sistema",
   "uninstall" : "Disinstalla",
   "use_ssl" : "Usa SSL",
+  "users" : "Utenti",
   "user_account" : "Account utente",
   "username" : "Nome utente"
 }

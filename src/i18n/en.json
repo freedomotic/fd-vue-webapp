@@ -9,7 +9,10 @@
   "login_first_message" : "You need to login first",
   "logout" : "Logout",
   "password" : "Password",
+  "plugin" : "Plugin",
+  "plugins" : "Plugins",
   "remember_me": "Remember me",
+  "roles" : "Roles",
   "server_address" : "Server Address",
   "server_port" : "Server Port",
   "settings" : "Settings",
@@ -18,6 +21,7 @@
   "system_shutdown": "System settings",
   "uninstall" : "Uninstall",
   "use_ssl" : "Use SSL",
+  "users" : "Users",
   "user_account" : "User account",
   "username" : "Username"
 }

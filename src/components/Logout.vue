@@ -5,8 +5,8 @@
         Hi {{username}}, do you wanna exit?
     </md-content>
   
-    <md-button class="md-raised md-accent cancel-button" @click="closeWindow">Cancel</md-button>
-    <md-button class="md-raised md-accent logout-button" @click="doLogout">Logout</md-button>
+    <md-button class="md-raised md-accent cancel-button" @click="closeWindow">{{$t('cancel')}}</md-button>
+    <md-button class="md-raised md-accent logout-button" @click="doLogout">{{$t('logout')}}</md-button>
     
   </div> 
 </template>
