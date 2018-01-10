@@ -1,8 +1,23 @@
 {
+  "alerts" : "Alerts",
   "bad_login_information" : "Bad login information",
+  "cancel" : "Cancel",
+  "connection_parameters" : "Connection parameters",
+  "credits" : "Credits",
+  "freedomotic_information" : "Freedomotic Information",
+  "info" : "Info",
+  "login_first_message" : "You need to login first",
+  "logout" : "Logout",
+  "password" : "Password",
   "remember_me": "Remember me",
-  "submit" : "Submit",
-  "use_ssl" : "Use SSL",
+  "server_address" : "Server Address",
+  "server_port" : "Server Port",
+  "settings" : "Settings",
   "shutdown": "Shutdown Freedomotic",
-  "system_shutdown": "System settings"
+  "submit" : "Submit",
+  "system_shutdown": "System settings",
+  "uninstall" : "Uninstall",
+  "use_ssl" : "Use SSL",
+  "user_account" : "User account",
+  "username" : "Username"
 }

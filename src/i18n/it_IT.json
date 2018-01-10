@@ -1,8 +1,23 @@
 {
+  "alerts" : "Avvisi",
   "bad_login_information" : "Credenziali errate",
-  "remember_me" : "Ricordami",
-  "submit" : "Invia",
-  "use_ssl" : "Usa SSL",
+  "cancel" : "Cancella",
+  "connection_parameters" : "Parametri di connessione",
+  "credits" : "Crediti",
+  "freedomotic_information" : "Informazioni su Freedomotic",
+  "info" : "Informazioni",
+  "login_first_message" : "Devi prima effettuare il login",
+  "logout" : "Logout",
+  "password" : "Password",
+  "remember_me": "Ricordami",
+  "server_address" : "Indirizzo Server",
+  "server_port" : "Porta Server",
+  "settings" : "Impostazioni",
   "shutdown": "Spegni Freedomotic",
-  "system_shutdown": "Configurazione di sistema"
+  "submit" : "Invia",
+  "system_shutdown": "Impostazioni di sistema",
+  "uninstall" : "Disinstalla",
+  "use_ssl" : "Usa SSL",
+  "user_account" : "Account utente",
+  "username" : "Nome utente"
 }
