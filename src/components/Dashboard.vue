@@ -2,16 +2,16 @@
   <div id="background">
     <background></background>
     <div id="corner-top-left" @click="showLogout">
-       <corner-button class="top-left" tooltipDirection="right" tooltip="Users" icon="account_box"></corner-button>
+       <corner-button class="top-left" tooltipDirection="right" :tooltip="$t('user_account')" icon="account_box"></corner-button>
      </div>
     <div id="corner-bottom-left" @click="showInfo">
-       <corner-button class="bottom-left" tooltipDirection="right" tooltip="Info" icon="info" ></corner-button>
+       <corner-button class="bottom-left" tooltipDirection="right" :tooltip="$t('info')" icon="info" ></corner-button>
     </div>
     <div id="corner-top-right">
-       <corner-button class="top-right" tooltipDirection="left" tooltip="Alerts" icon="mic"></corner-button>
+       <corner-button class="top-right" tooltipDirection="left" :tooltip="$t('alerts')" icon="mic"></corner-button>
     </div> 
     <div id="corner-bottom-right" @click="showSetup">
-      <corner-button class="bottom-right" tooltipDirection="left" tooltip="Settings" icon="settings"></corner-button>
+      <corner-button class="bottom-right" tooltipDirection="left" :tooltip="$t('settings')" icon="settings"></corner-button>
     </div>  
     <div v-if="displayLogout">
        <div class="modalPopup">
