@@ -14,15 +14,15 @@
         </md-content>
 
         <md-content class="info-text">
-            <div class="bold-title">Connection parameters</div>
+            <div class="bold-title">{{$t('connection_parameters')}}</div>
         </md-content>
 
         <md-content class="info-text">
-            <div class="bold-title">Freedomotic Information</div>
+            <div class="bold-title">{{$t('freedomotic_information')}}</div>
         </md-content>
 
         <md-content class="info-text">
-            <div class="bold-title">Credits</div>
+            <div class="bold-title">{{$t('credits')}}</div>
         </md-content>
     </div>
     </div>

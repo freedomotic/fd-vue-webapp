@@ -13,8 +13,8 @@
     </md-card-header-text>
   </md-card-header>
   <md-card-actions>
-     <md-button>Settings</md-button>
-     <md-button>Uninstall</md-button>
+     <md-button>{{$t('settings')}}</md-button>
+     <md-button>{{$t('uninstall')}}</md-button>
   </md-card-actions> 
  </md-card>
 </template>
