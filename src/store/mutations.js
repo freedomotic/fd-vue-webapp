@@ -34,6 +34,37 @@ export const closeSection = state => {
 export const showSystemPanel = state => {
   hideAllDashboardDisplays(state)
   state.systemOpen = true
+  console.log('Opening System panel')
+}
+
+export const showAutomationsPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.automationsOpen = true
+  console.log('Opening Automations panel')
+}
+
+export const showLanguagesPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.languagesOpen = true
+  console.log('Opening Languages panel')
+}
+
+export const showPluginsPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.pluginsOpen = true
+  console.log('Opening Plugins panel')
+}
+
+export const showRolesPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.rolesOpen = true
+  console.log('Opening Roles panel')
+}
+
+export const showUsersPanel = state => {
+  hideAllDashboardDisplays(state)
+  state.usersOpen = true
+  console.log('Opening Users panel')
 }
 
 function hideAllDashboardDisplays (state) {
@@ -42,4 +73,9 @@ function hideAllDashboardDisplays (state) {
   state.displayInfo = false
   state.displayLogout = false
   state.systemOpen = false
+  state.automationsOpen = false
+  state.languagesOpen = false
+  state.pluginsOpen = false
+  state.rolesOpen = false
+  state.usersOpen = false
 }

@@ -40,6 +40,11 @@ import AppInfo from './AppInfo.vue'
 import Background from './Background.vue'
 import Logout from './Logout.vue'
 import System from './System.vue'
+import PluginsPanel from './PluginsPanel.vue'
+import AutomationsPanel from './AutomationsPanel.vue'
+import LanguagesPanel from './LanguagesPanel.vue'
+import RolesPanel from './RolesPanel.vue'
+import UsersPanel from './UsersPanel.vue'
 
 export default {
   components: {
@@ -49,7 +54,12 @@ export default {
     'app-info': AppInfo,
     'background': Background,
     'logout': Logout,
-    'system': System
+    'system': System,
+    'plugins-panel': PluginsPanel,
+    'automations-panel': AutomationsPanel,
+    'languageas-panel': LanguagesPanel,
+    'roles-panel': RolesPanel,
+    'users-panel': UsersPanel
   },
   data () {
     return {}
