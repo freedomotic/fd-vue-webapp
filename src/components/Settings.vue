@@ -4,11 +4,13 @@
     <div id="flex-container">    
         <div class="settings-boxes">
          <info-box color="ff6666" icon="dashboard" action="Plugins"/>
-         <info-box color="eeee77" icon="settings" action="Settings"/>
+         <info-box color="eeee77" icon="extension" action="Automations"/>   
+         <info-box color="ffffff" icon="settings_applications" action="System"/>
         </div>
         <div class="settings-boxes">
-         <info-box color="ffbbff" icon="perm_identity" action="Users"/>
+         <info-box color="77dd77" icon="perm_identity" action="Users"/>
          <info-box color="ffbbff" icon="supervisor_account" action="Roles"/>
+            <info-box color="5291ef" icon="language" action="Languages"/>
         </div>
     </div>
     </div>
@@ -60,3 +62,4 @@ export default {
         display: flex;
     } 
 </style>
+

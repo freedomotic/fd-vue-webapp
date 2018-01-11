@@ -4,6 +4,10 @@ export const openPlugins = (context) => {
 
 export const openSettings = (context) => {
   context.commit('closeSection')
+}
+
+export const openSystem = (context) => {
+  context.commit('closeSection')
   context.commit('showSystemPanel')
 }
 
