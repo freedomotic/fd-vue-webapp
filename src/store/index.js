@@ -13,8 +13,15 @@ export default new Vuex.Store({
     displayAlerts: false,
     displayLogout: false,
     blur: false,
-    // end of dashboard state
-    systemOpen: false
+    // end of Dashboard state
+    // Settings state
+    systemOpen: false,
+    automationsOpen: false,
+    languagesOpen: false,
+    pluginsOpen: false,
+    rolesOpen: false,
+    usersOpen: false
+    // end of Settings state
   },
   actions,
   mutations
