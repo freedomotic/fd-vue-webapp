@@ -3,7 +3,7 @@
     <md-card>
       <md-card-content class="inner-text" :style="dataColor">
           <md-icon class="md-size-5x">{{icon}}</md-icon>
-          <md-card-content>{{action}}</md-card-content>
+          <md-card-content>{{title}}</md-card-content>
       </md-card-content>
     </md-card>
    </div> 
@@ -14,7 +14,7 @@ export default {
   data () {
     return {}
   },
-  props: ['color', 'action', 'icon'],
+  props: ['color', 'action', 'icon', 'title'],
   computed: {
     dataColor: function () {
       return 'color: #' + this.color

@@ -3,14 +3,14 @@
     <close-button/>
     <div id="flex-container">    
         <div class="settings-boxes">
-         <info-box color="ff6666" icon="dashboard" action="Plugins"/>
-         <info-box color="eeee77" icon="extension" action="Automations"/>   
-         <info-box color="ffffff" icon="settings_applications" action="System"/>
+         <info-box color="ff6666" icon="dashboard" action="Plugins" :title="$t('plugins')"/>
+         <info-box color="eeee77" icon="extension" action="Automations" :title="$t('automations')"/>   
+         <info-box color="ffffff" icon="settings_applications" action="System" :title="$t('system')"/>
         </div>
         <div class="settings-boxes">
-         <info-box color="77dd77" icon="perm_identity" action="Users"/>
-         <info-box color="ffbbff" icon="supervisor_account" action="Roles"/>
-            <info-box color="5291ef" icon="language" action="Languages"/>
+         <info-box color="77dd77" icon="perm_identity" action="Users" :title="$t('users')"/>
+         <info-box color="ffbbff" icon="supervisor_account" action="Roles" :title="$t('roles')"/>
+         <info-box color="5291ef" icon="language" action="Languages" :title="$t('languages')"/>
         </div>
     </div>
     </div>
