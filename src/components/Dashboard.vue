@@ -29,6 +29,11 @@
        </div>
     </div>
     <system/> 
+    <languages-panel/>
+    <automations-panel/>
+    <plugins-panel/>
+    <roles-panel/> 
+    <users-panel/> 
   </div>  
 </template>
 
@@ -57,7 +62,7 @@ export default {
     'system': System,
     'plugins-panel': PluginsPanel,
     'automations-panel': AutomationsPanel,
-    'languageas-panel': LanguagesPanel,
+    'languages-panel': LanguagesPanel,
     'roles-panel': RolesPanel,
     'users-panel': UsersPanel
   },
