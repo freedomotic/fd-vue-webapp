@@ -7,7 +7,7 @@
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
           </md-content> 
-          <h3 class="md-title">Automations</h3>
+          <h3 class="md-title">{{$t('automations')}}</h3>
         </md-toolbar>
         
     </div>    
