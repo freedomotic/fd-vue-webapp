@@ -23,9 +23,9 @@ import store from './store'
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 
-// initialize the internationalization plugin on the vue instance. note that
-// the store must be passed to the plugin. the plugin will then generate some
-// helper functions for components (i.e. this.$i18n.set, this.$t) and on the vue
+// Initialize the internationalization plugin on the Vue instance.
+// Note that the store must be passed to the plugin. the plugin will then generate some
+// helper functions for components (i.e. this.$i18n.set, this.$t) and on the Vue
 // instance (i.e. Vue.i18n.set).
 Vue.use(vuexI18n.plugin, store)
 
@@ -33,8 +33,11 @@ Vue.use(vuexI18n.plugin, store)
 Vue.i18n.add('en', en)
 Vue.i18n.add('it', it)
 
-// set the start locale to use
+// Set the start locale to use
 Vue.i18n.set('en')
+
+// Set English also as fallback locale
+Vue.i18n.fallback('en')
 
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false

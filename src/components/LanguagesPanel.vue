@@ -9,7 +9,11 @@
           </md-content> 
           <h3 class="md-title">{{$t('languages')}}</h3>
         </md-toolbar>
-        
+        <div>
+		    	 <button type="submit" @click="changeLanguage('en')">Set EN</button>
+		    	 <button type="submit" @click="changeLanguage('it')">Set IT</button>
+			     <p>{{$t('current_language')}}: {{ $i18n.locale() }}</p>
+        </div>
     </div>    
 </template>
 
@@ -21,7 +25,9 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      language: 'en'
+    }
   },
   methods: {
     openSettings: function () {
@@ -29,7 +35,8 @@ export default {
     },
     closeWindow: function () {
       this.$store.commit('closeSection')
-    }
+    },
+    changeLanguage (language) { this.$i18n.set(language) }
   }
 }
 </script>

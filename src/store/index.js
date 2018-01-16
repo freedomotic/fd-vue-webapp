@@ -14,6 +14,7 @@ export default new Vuex.Store({
     displayLogout: false,
     blur: false,
     // end of Dashboard state
+    language: 'en',
     // Settings state
     systemOpen: false,
     automationsOpen: false,
