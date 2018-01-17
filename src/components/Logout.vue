@@ -2,7 +2,7 @@
   <div class="logout">
     <md-content class="md-title">Logout</md-content>
     <md-content class="content">
-        Hi {{username}}, do you wanna exit?
+        {{$t('logout_message')}}
     </md-content>
   
     <md-button class="md-raised md-accent cancel-button" @click="closeWindow">{{$t('cancel')}}</md-button>

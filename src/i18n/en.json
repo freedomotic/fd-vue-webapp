@@ -11,6 +11,7 @@
   "languages" : "Languages",
   "login_first_message" : "You need to login first",
   "logout" : "Logout",
+  "logout_message" : "Do you really wanna exit?",
   "password" : "Password",
   "plugin" : "Plugin",
   "plugins" : "Plugins",
