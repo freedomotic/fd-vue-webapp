@@ -1,4 +1,5 @@
 {
+  "advanced_mode": "Modalità avanzata",
   "alerts" : "Avvisi",
   "automations" : "Automazioni",
   "bad_login_information" : "Credenziali errate",
@@ -6,6 +7,8 @@
   "connection_parameters" : "Parametri di connessione",
   "credits" : "Crediti",
   "current_language" : "Lingua attuale",
+  "disable" : "Disabilita",
+  "enable" : "Abilita",
   "freedomotic_information" : "Informazioni su Freedomotic",
   "info" : "Informazioni",
   "languages" : "Lingue",

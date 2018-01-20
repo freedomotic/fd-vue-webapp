@@ -1,4 +1,5 @@
 {
+  "advanced_mode": "Advanced mode",
   "alerts" : "Alerts",
   "automations" : "Automations",
   "bad_login_information" : "Bad login information",
@@ -6,6 +7,8 @@
   "connection_parameters" : "Connection parameters",
   "credits" : "Credits",
   "current_language": "Current language",
+  "disable" : "Disable",
+  "enable" : "Enable",
   "freedomotic_information" : "Freedomotic Information",
   "info" : "Info",
   "languages" : "Languages",

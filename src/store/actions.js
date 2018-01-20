@@ -35,3 +35,7 @@ export const openUsers = (context) => {
 export const shutdownFD = (context) => {
   console.log('Implement this')
 }
+
+export const setAdvancedMode = (context) => {
+  context.commit('setAdvancedMode')
+}

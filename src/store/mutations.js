@@ -67,6 +67,10 @@ export const showUsersPanel = state => {
   console.log('Opening Users panel')
 }
 
+export const setAdvancedMode = state => {
+  state.advancedMode = !state.advancedMode
+}
+
 function hideAllDashboardDisplays (state) {
   state.displaySettings = false
   state.displayAlerts = false
