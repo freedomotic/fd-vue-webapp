@@ -21,8 +21,9 @@ export default new Vuex.Store({
     languagesOpen: false,
     pluginsOpen: false,
     rolesOpen: false,
-    usersOpen: false
+    usersOpen: false,
     // end of Settings state
+    advancedMode: false
   },
   actions,
   mutations
