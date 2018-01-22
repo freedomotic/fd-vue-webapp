@@ -9,12 +9,21 @@
           </md-content> 
           <h3 class="md-title">{{$t('plugins')}}</h3>
         </md-toolbar>
-        
-    </div>    
+    <div class="parent-box">    
+      <div class="item" v-for="n in 10">
+         <plugin title="Webserver" description="Webserver plugin"></plugin>
+      </div>
+    </div>  
+   </div>    
 </template>
 
 <script>
+import Plugin from './Plugin.vue'
+
 export default {
+  components: {
+    'plugin': Plugin
+  },
   computed: {
     pluginsOpen: function () {
       return this.$store.state.pluginsOpen
@@ -41,16 +50,30 @@ export default {
         bottom: 1%;
         left: 1%;
         right: 1%;
-        background:white;
+        background: white;
         border-radius: 4px;
         z-index: 130;
         color: black;
         display: flex;
-        align-items: center;
         flex-direction: column;
+        align-items: flex-start;
+        overflow-y: scroll;
         margin: auto;
       }
+ 
+   .item {
+	      flex-grow: 1;
+        width: 30;
+        margin: 5px;
+      }
 
+   .parent-box {
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       flex-wrap: wrap;
+      }
+   
    #action-container {
        text-align: center;
        cursor: pointer;
@@ -63,5 +86,6 @@ export default {
       margin: 1%;
       cursor: pointer;
       background:transparent;
-   } 
+   }
+   
 </style>
