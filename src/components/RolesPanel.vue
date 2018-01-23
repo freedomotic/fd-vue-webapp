@@ -7,7 +7,7 @@
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
           </md-content> 
-          <h3 class="md-title">{{$t('roles')}}</h3>
+          <h3 class="md-title">{{$t('roles').toUpperCase()}}</h3>
         </md-toolbar>
         
     </div>    

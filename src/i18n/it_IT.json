@@ -19,6 +19,7 @@
   "plugin" : "Plugin",
   "plugins" : "Plugin",
   "remember_me": "Ricordami",
+  "report_bug": "Segnala un bug",
   "roles" : "Ruoli",
   "server_address" : "Indirizzo Server",
   "server_port" : "Porta Server",

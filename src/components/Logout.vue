@@ -1,22 +1,18 @@
 <template>
   <div class="logout">
-    <md-content class="md-title">Logout</md-content>
+    <md-content class="md-title">{{$t('logout')}}</md-content>
     <md-content class="content">
         {{$t('logout_message')}}
     </md-content>
-  
     <md-button class="md-raised md-accent cancel-button" @click="closeWindow">{{$t('cancel')}}</md-button>
     <md-button class="md-raised md-accent logout-button" @click="doLogout">{{$t('logout')}}</md-button>
-    
   </div> 
 </template>
 
 <script>
 export default {
   data () {
-    return {
-      username: localStorage.username
-    }
+    return {}
   },
   methods: {
     closeWindow: function () {

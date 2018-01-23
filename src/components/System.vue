@@ -7,13 +7,19 @@
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
           </md-content> 
-          <h3 class="md-title">{{$t('system')}}</h3>
+          <h3 class="md-title">{{$t('system').toUpperCase()}}</h3>
         </md-toolbar>
         <md-content class="big-container">
             <div id="action-container" @click="setAdvancedMode">
                 <md-icon class="md-size-5x">developer_board</md-icon>
                 <md-content v-if="advancedMode">{{$t('enable')}} {{$t('advanced_mode')}}</md-content>
                 <md-content v-else>{{$t('disable')}} {{$t('advanced_mode')}}</md-content>
+            </div>
+        </md-content>
+        <md-content class="big-container">
+            <div id="action-container">
+                <a href="https://goo.gl/forms/CqZZfBCHNx" target="_blank"><md-icon class="md-size-5x">bug_report</md-icon></a>
+                <md-content>{{$t('report_bug')}}</md-content>
             </div>
         </md-content>
         <md-content class="big-container">

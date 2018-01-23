@@ -7,7 +7,7 @@
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
           </md-content> 
-          <h3 class="md-title">{{$t('plugins')}}</h3>
+          <h3 class="md-title">{{$t('plugins').toUpperCase()}}</h3>
         </md-toolbar>
     <div class="parent-box">    
       <div class="item" v-for="n in 10">
@@ -63,7 +63,7 @@ export default {
  
    .item {
 	      flex-grow: 1;
-        width: 30;
+        width: 30%;
         margin: 5px;
       }
 

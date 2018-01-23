@@ -8,7 +8,7 @@
 
         <md-content class="info-text">
             <div class="bold-title">Main contributors</div>
-            <div>M. Cicolella</div>
+            <div>Mauro Cicolella</div>
             <div>P3trur0</div>
             <a href="https://github.com/freedomotic/fd-vue-webapp/graphs/contributors" target="_blank">GitHub contributors</a>
         </md-content>

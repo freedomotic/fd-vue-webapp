@@ -7,7 +7,7 @@
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
           </md-content> 
-          <h3 class="md-title">{{$t('languages')}}</h3>
+          <h3 class="md-title">{{$t('languages').toUpperCase()}}</h3>
         </md-toolbar>
         <div>
 		    	 <button type="submit" @click="changeLanguage('en')">Set EN</button>
