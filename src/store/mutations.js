@@ -40,7 +40,6 @@ export const showSystemPanel = state => {
 export const showAutomationsPanel = state => {
   hideAllDashboardDisplays(state)
   state.automationsOpen = true
-  console.log('Opening Automations panel')
 }
 
 export const showLanguagesPanel = state => {
