@@ -34,6 +34,7 @@
     <plugins-panel/>
     <roles-panel/> 
     <users-panel/> 
+    <vue-snotify/>
   </div>  
 </template>
 
@@ -93,7 +94,15 @@ export default {
     hideAll () { this.$store.commit('hideAll') },
     showSetup () { this.$store.commit('showSetup') },
     showLogout () { this.$store.commit('showLogout') },
-    showInfo () { this.$store.commit('showInfo') },
+    showInfo () {
+      this.$snotify.success('Opening Info', 'INFO', {
+        timeout: 5000,
+        showProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true
+      })
+      this.$store.commit('showInfo')
+    },
     closeSection () { this.$store.commit('closeSection') },
     ready: function () {},
     updateToast: function (e) {

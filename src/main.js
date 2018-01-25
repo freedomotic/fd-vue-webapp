@@ -7,6 +7,8 @@ import router from './router'
 import VueAxios from 'vue-axios'
 import axios from './utils/fd-axios'
 
+import Snotify from 'vue-snotify'
+
 // load vuex i18n module
 import vuexI18n from 'vuex-i18n'
 
@@ -17,11 +19,13 @@ import it from './i18n/it_IT.json'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
+import 'vue-snotify/styles/material.css'
 
 import store from './store'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
+Vue.use(Snotify)
 
 // Initialize the internationalization plugin on the Vue instance.
 // Note that the store must be passed to the plugin. the plugin will then generate some
