@@ -15,6 +15,10 @@ The aim of this project is to reproduce all features already integrated in our J
 
 To have a broad idea about its features you can have a look at our [YouTube channel](https://www.youtube.com/freedomotic).
 
+## Live demo
+
+A live demo of this client is available at https://fd-vue-webapp.herokuapp.com/. Check it out!
+
 ## Prerequirements
 
 In order to execute this `fd-vue-webapp` client, first you need to download and launch an instance of Freedomotic on your machine.
@@ -42,6 +46,11 @@ Polymer client source code is hosted [here](https://github.com/freedomotic/fd-po
 **WARNING**: At the moment that project is almost abandoned.
 
 ## `fd-vue-webapp`
+
+### Technical notes
+
+The scaffolding of this front end application has been done using `vue-cli`.
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ### How to launch it
 
@@ -88,12 +97,6 @@ npm test
 ![alt tag](https://user-images.githubusercontent.com/4079634/35033806-4e478818-fb6c-11e7-904b-49fb072aa7ab.png)
 
 We have a free [Automate account](https://www.browserstack.com/automate) with [BrowserStack](https://www.browserstack.com) offered to us for free since we're an open source project. This makes it very easy for us to test the project on tons of different browsers on various platforms including real mobile devices.
-
-### Technical notes
-
-The scaffolding of this front end application has been done using `vue-cli`.
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
 
 # Contributing
 
