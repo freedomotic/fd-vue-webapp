@@ -5,7 +5,7 @@ A Vue.js client for Freedomotic
 ---
 
 [![Build Status](https://travis-ci.org/freedomotic/fd-vue-webapp.svg?branch=master)](https://travis-ci.org/freedomotic/fd-vue-webapp)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=fd-vue-webapp)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=fd-vue-webapp)](https://fd-vue-webapp.herokuapp.com/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa58b9cb1ca94be0aba76c2c217542df)](https://www.codacy.com/app/mcicolella/fd-vue-webapp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=freedomotic/fd-vue-webapp&amp;utm_campaign=Badge_Grade)
 [![Code Triagers Badge](https://www.codetriage.com/freedomotic/fd-vue-webapp/badges/users.svg)](https://www.codetriage.com/freedomotic/fd-vue-webapp)
 
