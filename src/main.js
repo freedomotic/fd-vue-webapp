@@ -7,12 +7,15 @@ import router from './router'
 import VueAxios from 'vue-axios'
 import axios from './utils/fd-axios'
 
+// This already imports 'onsenui'
+import VueOnsen from 'vue-onsenui'
+
 import Snotify from 'vue-snotify'
 
-// load vuex i18n module
+// Load vuex i18n module
 import vuexI18n from 'vuex-i18n'
 
-// import translation files
+// Import translation files
 import en from './i18n/en.json'
 import it from './i18n/it_IT.json'
 
@@ -21,11 +24,15 @@ import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
 import 'vue-snotify/styles/material.css'
 
+import 'onsenui/css/onsenui.css'
+import 'onsenui/css/onsen-css-components.css'
+
 import store from './store'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
+Vue.use(VueOnsen)
 
 // Initialize the internationalization plugin on the Vue instance.
 // Note that the store must be passed to the plugin. the plugin will then generate some
