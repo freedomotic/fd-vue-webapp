@@ -1,6 +1,6 @@
 <template>
     <div id="settings-area">
-    <close-button/>
+    <close-button class="color-red"/>
     <div id="flex-container">    
         <div class="settings-boxes">
          <info-box color="ff6666" icon="dashboard" action="Plugins" :title="$t('plugins')"/>
@@ -33,9 +33,14 @@ export default {
 
 <style scoped>
 
-    .md-content {
+    .md-content,
+    .md-icon.md-theme-default {
         background-color: transparent;
         color: white;
+    }
+
+    .color-red {
+        background-color: red;
     }
 
     .md-icon.md-theme-default.md-icon-font {

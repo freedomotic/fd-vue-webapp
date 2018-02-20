@@ -34,7 +34,8 @@ export default {
     padding: 10px;
   }
 
-  .md-content {
+  .md-content,
+  .md-icon.md-theme-default {
     background-color: transparent;
   }
 

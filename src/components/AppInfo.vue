@@ -42,7 +42,8 @@ export default {
 </script>
 
 <style scoped>
-    .md-content {
+    .md-content,
+    .md-icon.md-theme-default {
         background-color: transparent;
         color: white;
     }
