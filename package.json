@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "npm run dev",
+    "start": "node server.js",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -51,7 +52,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.14.1",
+    "express": "^4.16.2",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.11.1",
     "friendly-errors-webpack-plugin": "^1.1.3",
