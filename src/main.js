@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import MobileCustomToolbar from './components/mobile/MobileCustomToolbar.vue'
 import router from './router'
 
 import VueAxios from 'vue-axios'
@@ -32,7 +33,9 @@ import store from './store'
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
+
 Vue.use(VueOnsen)
+Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
 
 // Initialize the internationalization plugin on the Vue instance.
 // Note that the store must be passed to the plugin. the plugin will then generate some
