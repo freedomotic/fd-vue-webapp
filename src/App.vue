@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <login v-if="!loggedIn"></login> 
+    <login v-if="!loggedIn"></login>
+    <div v-else-if="this.$ons.platform.isAndroid() || this.$ons.platform.isIOS()">
+        <mobile-app-navigator></mobile-app-navigator>
+    </div>
     <div v-else>
         <dashboard></dashboard>
     </div>
