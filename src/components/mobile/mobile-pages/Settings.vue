@@ -1,14 +1,9 @@
 <template>
   <v-ons-page>
-    <p class="intro">
-      Settings<br><br>
-    </p>
-
-      <v-ons-card v-for="page of pages" :key="page.label"
+     <v-ons-card v-for="page of pages" :key="page.label"
         @click="push(page.component, page.label)"
       >
-        <div class="title">{{ page.label }}</div>
-        <div class="content">{{ page.desc }}</div>
+        <div class="title">{{ $t(page.label) }}</div>
       </v-ons-card>
   </v-ons-page>
 </template>
@@ -29,32 +24,32 @@ export default {
       pages: [
         {
           component: Plugins,
-          label: 'Plugins',
+          label: 'plugins',
           desc: 'Manage all plugins.'
         },
         {
           component: Automations,
-          label: 'Automations',
+          label: 'automations',
           desc: 'Description.'
         },
         {
           component: System,
-          label: 'System',
+          label: 'system',
           desc: 'Description.'
         },
         {
           component: Users,
-          label: 'Users',
+          label: 'users',
           desc: 'Description.'
         },
         {
           component: Roles,
-          label: 'Roles',
+          label: 'roles',
           desc: 'Description.'
         },
         {
           component: Languages,
-          label: 'Languages',
+          label: 'languages',
           desc: 'Description.'
         }
       ]
