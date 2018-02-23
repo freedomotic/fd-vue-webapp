@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar>
-      {{ title }}
+      {{ $t(title) }}
       <v-ons-toolbar-button slot="right" @click="toggleMenu()">
         <v-ons-icon icon="ion-navicon, material:md-menu"></v-ons-icon>
       </v-ons-toolbar-button>
@@ -27,25 +27,25 @@ export default {
     return {
       tabs: [
         {
-          label: 'Home',
+          label: 'home',
           icon: this.md() ? null : 'ion-home',
           page: Home,
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'Settings',
+          label: 'settings',
           icon: this.md() ? null : 'ion-gear-b',
           page: Settings,
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'Users',
+          label: 'users',
           icon: this.md() ? null : 'ion-person-stalker',
           page: Users,
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'Info',
+          label: 'info',
           icon: this.md() ? null : 'ion-information-circled',
           page: Info,
           props: {
@@ -65,7 +65,7 @@ export default {
 
   computed: {
     title () {
-      return this.md() ? 'Freedomotic Mobile Client' : this.tabs[this.index].label
+      return this.md() ? 'Freedomotic Mobile' : this.tabs[this.index].label
     },
     index: {
       get () {

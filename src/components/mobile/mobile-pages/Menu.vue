@@ -12,12 +12,12 @@
           <v-ons-icon fixed-width class="list-item__icon" :icon="item.icon"></v-ons-icon>
         </div>
         <div class="center">
-          {{ item.title }}
+          {{ $t(item.title) }}
         </div>
       </v-ons-list-item>
     </v-ons-list>
 
-    <v-ons-list-title style="margin-top: 10px">Resources</v-ons-list-title>
+    <v-ons-list-title style="margin-top: 10px">{{$t('online_resources')}}</v-ons-list-title>
     <v-ons-list>
       <v-ons-list-item v-for="item in links" :key="item.title"
         @click="loadLink(item.url)"
@@ -26,7 +26,7 @@
           <v-ons-icon fixed-width class="list-item__icon" :icon="item.icon"></v-ons-icon>
         </div>
         <div class="center">
-          {{ item.title }}
+          {{ $t(item.title) }}
         </div>
         <div class="right">
           <v-ons-icon icon="fa-external-link"></v-ons-icon>
@@ -53,46 +53,46 @@ export default {
     return {
       links: [
         {
-          title: 'Official site',
+          title: 'official_site',
           icon: 'ion-navigate',
           url: 'http://www.freedomotic.com'
         },
         {
-          title: 'Docs',
+          title: 'docs',
           icon: 'ion-document-text',
           url: 'https://http://freedomotic-user-manual.readthedocs.io'
         },
         {
-          title: 'Github',
+          title: 'source_code',
           icon: 'ion-social-github',
-          url: 'https://github.com/freedomotic'
+          url: 'https://github.com/freedomotic/fd-vue-webapp'
         },
         {
-          title: 'Community',
+          title: 'community',
           icon: 'ion-chatboxes',
           url: 'https://groups.google.com/forum/#!forum/freedom-domotics'
         },
         {
-          title: 'Report a bug',
+          title: 'report_bug',
           icon: 'ion-bug',
           url: 'https://goo.gl/forms/CqZZfBCHNx'
         }
       ],
       access: [
         {
-          title: 'Home',
+          title: 'home',
           icon: 'ion-home, material:md-home'
         },
         {
-          title: 'Settings',
+          title: 'settings',
           icon: 'ion-gear-b, material:md-settings'
         },
         {
-          title: 'Users',
+          title: 'users',
           icon: 'ion-person-stalker'
         },
         {
-          title: 'Info',
+          title: 'info',
           icon: 'ion-information-circled, material:md-info'
         }
       ]

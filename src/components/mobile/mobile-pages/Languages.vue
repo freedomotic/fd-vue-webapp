@@ -4,7 +4,7 @@
 
     <v-ons-list>
      
-      <v-ons-list-header>Select a language</v-ons-list-header>
+      <v-ons-list-header>{{$t('select_language')}}</v-ons-list-header>
       <v-ons-list-item v-for="(language, $index) in languages" :key="language"
         tappable
         :modifier="($index === languages.length - 1) ? 'longdivider' : ''"
@@ -13,7 +13,8 @@
           <v-ons-radio
             :input-id="'radio-' + $index"
             :value="language"
-            v-model=" selectedLanguage"
+            v-model="selectedLanguage"
+            @change="changeLanguage(language)"
           >
           </v-ons-radio>
         </label>
@@ -23,7 +24,7 @@
       </v-ons-list-item>
       <v-ons-list-item>
         <div class="center">
-          Current language {{ selectedLanguage }}
+          {{$t('current_language')}}: {{ $i18n.locale() }}
         </div>
       </v-ons-list-item>
 
@@ -35,9 +36,12 @@
 export default {
   data () {
     return {
-      languages: ['EN', 'IT'],
-      selectedLanguage: 'EN'
+      languages: ['en', 'it'],
+      selectedLanguage: this.$i18n.locale()
     }
+  },
+  methods: {
+    changeLanguage (language) { this.$i18n.set(language) }
   }
 }
 </script>

@@ -1,14 +1,9 @@
 <template>
   <v-ons-page>
-    <p class="intro">
-      Freedomotic Mobile Client<br><br>
-    </p>
-
       <v-ons-card v-for="page of pages" :key="page.label"
         @click="push(page.component, page.label)"
       >
-        <div class="title">{{ page.label }}</div>
-        <div class="content">{{ page.desc }}</div>
+        <div class="title">{{$t(page.label)}}</div>
       </v-ons-card>
   </v-ons-page>
 </template>
@@ -24,8 +19,7 @@ export default {
       pages: [
         {
           component: Environments,
-          label: 'Environments',
-          desc: '.'
+          label: 'environments'
         }
       ]
     }

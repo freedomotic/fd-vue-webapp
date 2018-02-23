@@ -1,10 +1,8 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-
     <v-ons-list>
-     
-      <v-ons-list-header>Select an environment</v-ons-list-header>
+      <v-ons-list-header>{{$t('select_environment')}}</v-ons-list-header>
       <v-ons-list-item v-for="(environment, $index) in environments" :key="environment"
         tappable
         :modifier="($index === environments.length - 1) ? 'longdivider' : ''"
@@ -23,7 +21,7 @@
       </v-ons-list-item>
       <v-ons-list-item>
         <div class="center">
-          Current environment {{ selectedEnvironment }}
+          {{$t('current_environment')}} {{ selectedEnvironment }}
         </div>
       </v-ons-list-item>
 

@@ -3,11 +3,11 @@
     <div class="left">
       <slot name="left">
         <v-ons-back-button v-if="backLabel">
-          {{ backLabel }}
+          {{ $t(backLabel) }}
         </v-ons-back-button>
       </slot>
     </div>
-    <div class="center"><slot>{{ title }}</slot></div>
+    <div class="center"><slot>{{ $t(title) }}</slot></div>
     <div class="right"><slot name="right"></slot></div>
   </v-ons-toolbar>
 </template>
