@@ -13,6 +13,9 @@ import VueOnsen from 'vue-onsenui'
 
 import Snotify from 'vue-snotify'
 
+// Manage modal components
+import VModal from 'vue-js-modal'
+
 // Load vuex i18n module
 import vuexI18n from 'vuex-i18n'
 
@@ -33,6 +36,7 @@ import store from './store'
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
+Vue.use(VModal, { dynamic: true })
 
 Vue.use(VueOnsen)
 Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
