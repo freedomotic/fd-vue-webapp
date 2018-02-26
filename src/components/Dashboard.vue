@@ -35,6 +35,7 @@
     <roles-panel/> 
     <users-panel/> 
     <vue-snotify/>
+    <modals-container/>
   </div>  
 </template>
 
