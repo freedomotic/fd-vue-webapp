@@ -9,16 +9,25 @@
           </md-content> 
           <h3 class="md-title">{{$t('automations').toUpperCase()}}</h3>
         </md-toolbar>
+        <!-- This should be replaced by a AddButton component at the right bottom corner -->
+        <button @click="showDynamicComponentModal">
+          Add a new automation
+       </button>
         
-    </div>    
+    </div> 
 </template>
 
 <script>
+import AddAutomation from './AddAutomation.vue'
+
 export default {
   computed: {
     automationsOpen: function () {
       return this.$store.state.automationsOpen
     }
+  },
+  components: {
+    AddAutomation
   },
   data () {
     return {}
@@ -29,6 +38,18 @@ export default {
     },
     closeWindow: function () {
       this.$store.commit('closeSection')
+    },
+    showDynamicComponentModal () {
+      this.$modal.show(AddAutomation, {
+        text: 'This text is passed as a property'
+      },
+        { draggable: true,
+          adaptive: true,
+          resizable: true,
+          clickToClose: true,
+          width: '65%',
+          height: '40%'
+        })
     }
   }
 }
@@ -63,5 +84,10 @@ export default {
       margin: 1%;
       cursor: pointer;
       background:transparent;
+      
    } 
+   
+   .v--modal-overlay {
+      background: red;
+  }
 </style>
