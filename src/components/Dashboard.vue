@@ -36,7 +36,7 @@
     <users-panel/> 
     <vue-snotify/>
     <modals-container/>
-  </div>  
+   </div>  
 </template>
 
 <script>
