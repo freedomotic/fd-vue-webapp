@@ -9,12 +9,33 @@
           </md-content> 
           <h3 class="md-title">{{$t('automations').toUpperCase()}}</h3>
         </md-toolbar>
+        
+    <div>   
+    <md-list class="md-dense">
+      
+      <md-list-item v-for="automation in lstAutomations" :key="automation.uuid">
+        
+        <span class="md-list-item-text">{{ automation.name }}</span>
+        <md-button class="md-icon-button md-list-action">
+          <md-icon class="md-primary">edit</md-icon>
+        </md-button>
+        <md-button class="md-icon-button md-list-action" 
+        @click="showDeleteAutomationDialog($event)"
+        v-bind:automation-uuid="automation.uuid">
+          <md-icon class="md-primary">delete</md-icon>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </div>  
+  <div>
         <!-- This should be replaced by a AddButton component at the right bottom corner -->
         <button @click="showDynamicComponentModal">
           Add a new automation
        </button>
-        
-    </div> 
+  </div> 
+  
+  
+ </div> 
 </template>
 
 <script>
@@ -30,7 +51,14 @@ export default {
     AddAutomation
   },
   data () {
-    return {}
+    return {
+      // TODO this list should be managed by Vuex
+      lstAutomations: [
+           {name: 'When an electric device is clicked', uuid: '2345-222-222'},
+           {name: 'Every five seconds', uuid: '2345-123-456'},
+           {name: 'Very very very long name of automation', uuid: '4788-333-445'}
+      ]
+    }
   },
   methods: {
     openSettings: function () {
@@ -38,6 +66,36 @@ export default {
     },
     closeWindow: function () {
       this.$store.commit('closeSection')
+    },
+    showDeleteAutomationDialog (event) {
+      var id = event.target.getAttribute('automation-uuid')
+      this.$modal.show('dialog', {
+        title: 'Delete automation',
+        text: 'Do you want to delete this automation?',
+        buttons: [
+          {
+            title: 'CANCEL',
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: 'CONFIRM',
+            default: true,
+            handler: () => {
+              this.$snotify.success('Automation ' + id + ' deleted', 'INFO', {
+                timeout: 3000,
+                showProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true
+              })
+              // TODO call the method to remove the automation
+              this.$modal.hide('dialog')
+              // TODO refresh current list of automations
+            }
+          }
+        ]
+      })
     },
     showDynamicComponentModal () {
       this.$modal.show(AddAutomation, {
@@ -87,7 +145,8 @@ export default {
       
    } 
    
-   .v--modal-overlay {
-      background: red;
+   .md-list {
+      display: inline-block;
+      vertical-align: top;
   }
 </style>
