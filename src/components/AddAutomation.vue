@@ -46,7 +46,7 @@
       third: false,
       selectedTrigger: '',
       selectedTriggerName: '',
-      selectedCommandsName: '',
+      selectedCommandsName: [],
       selectedCommands: [],
       // it'd be replaced by a call to '/triggers' API
       lstTriggers: [

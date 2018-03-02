@@ -36,7 +36,7 @@ import store from './store'
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
-Vue.use(VModal, { dynamic: true })
+Vue.use(VModal, { dialog: true, dynamic: true })
 
 Vue.use(VueOnsen)
 Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
