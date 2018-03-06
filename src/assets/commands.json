@@ -1,0 +1,1541 @@
+[
+  {
+    "name": "Turn on Kitchen Light-145",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "8f5dd969-ae92-4a6e-94c6-7a854d379a15",
+    "delay": 0,
+    "description": "Kitchen Light-145 turns on",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "powered",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Create a new User with the same name",
+    "receiver": "app.objects.create",
+    "uuid": "d8694e48-8bd6-4a5f-8cef-4c595305a0b6",
+    "delay": 0,
+    "description": "create a new user Thing",
+    "stopIf": null,
+    "tags": [
+      "the",
+      "a",
+      "new",
+      "with",
+      "same",
+      "name",
+      "create",
+      "user"
+    ],
+    "hardwareLevel": false,
+    "editable": true,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "object.address": "unknown",
+        "object.name": "@event.account.subject",
+        "object.class": "User",
+        "object.protocol": "unknown",
+        "autodiscovery.allow-clones": "false"
+      }
+    }
+  },
+  {
+    "name": "turn off devices tagged useless",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "40a233bc-922a-469c-9107-8a1946c3f3a3",
+    "delay": 0,
+    "description": "turn off all devices with tag 'useless'",
+    "stopIf": null,
+    "tags": [
+      "tagged",
+      "devices",
+      "useless",
+      "turn",
+      "off"
+    ],
+    "hardwareLevel": false,
+    "editable": true,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "behavior": "powered",
+        "object.includetags": "useless",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Close Kitchen door",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "3b5f3e99-5a3c-4179-9ea4-8f6c9d8730c5",
+    "delay": 0,
+    "description": "gate closes",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "open",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Decrease Kitchen door openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "ce23922a-184d-4488-b657-7608873b1aba",
+    "delay": 0,
+    "description": "decreases Kitchen door openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Increase Kitchen door openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "e6b4b1e3-dc14-498a-aa38-4e0c8580a705",
+    "delay": 0,
+    "description": "increases Kitchen door openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "switch power for all lights",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "7caa9992-52f1-4e73-a079-c50661a54909",
+    "delay": 0,
+    "description": "switch power for all lights",
+    "stopIf": null,
+    "tags": [
+      "all",
+      "for",
+      "asdasd",
+      "power",
+      "lights",
+      "switch"
+    ],
+    "hardwareLevel": false,
+    "editable": true,
+    "executed": true,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "behavior": "powered",
+        "object.class": "EnvObject.ElectricDevice.Light",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Ask something with dialog",
+    "receiver": "command.jfrontend.user.callout",
+    "uuid": "be4018b6-6709-422f-b435-36ffdb4c8f3b",
+    "delay": 0,
+    "description": "a yes/no dialog box is promped on the screen and wait for an user input",
+    "stopIf": null,
+    "tags": [
+      "with",
+      "dialog",
+      "ask",
+      "something"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 10000,
+    "props": {
+      "tuples": null,
+      "props": {
+        "question": "insert here a question?",
+        "options": "reply1, reply2, reply3, reply4"
+      }
+    }
+  },
+  {
+    "name": "Set its openness to the value in the event",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "72d2d2b5-b775-4978-9987-85aedbdffc04",
+    "delay": 0,
+    "description": "set its openness to the value in the event",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "openness",
+        "value": "@event.value"
+      }
+    }
+  },
+  {
+    "name": "Turn off Kitchen Light-145",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "2557c586-4de4-4292-98c2-ddd7770834a8",
+    "delay": 0,
+    "description": "Kitchen Light-145 turns off",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "powered",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Turn it on",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "8b4c1377-24d7-45ce-8f1f-3a632bc3ad27",
+    "delay": 0,
+    "description": "Object turns on",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "powered",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Set Bedroom door openness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "58c39845-7891-48ee-9c53-0b1967bd9325",
+    "delay": 0,
+    "description": "the Bedroom door changes its openness",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Open Bedroom door",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "278d8a0d-4c69-4dd3-bfa8-b092681dc63f",
+    "delay": 0,
+    "description": "gate opens",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "open",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Turn on Lights General Switch",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "07ffd093-db07-4ddb-973f-7392a3673f06",
+    "delay": 0,
+    "description": "Lights General Switch turns on",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Lights General Switch",
+        "type": "command",
+        "behavior": "powered",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Decrease its brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "4f6bbab4-d4cb-4f63-ac75-e7633ac11c45",
+    "delay": 0,
+    "description": "decreases its brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Switch Livingroom light power",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "b309e5e7-20ad-4626-964a-7292e6aa9775",
+    "delay": 0,
+    "description": "switches the power of Livingroom light",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Inverse luminosity for Light in the entrance",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "32f11c65-b130-43ae-9090-c9e3256256d8",
+    "delay": 0,
+    "description": "dimms the light as the inverse of indoor luminosity",
+    "stopIf": null,
+    "tags": [
+      "the",
+      "inverse",
+      "light",
+      "in",
+      "for",
+      "luminosity",
+      "entrance"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "object": "Light",
+        "behavior": "brightness",
+        "value": "100 - @event.luminosity"
+      }
+    }
+  },
+  {
+    "name": "Switch its power",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "75531949-db05-4b86-a8fe-2a04550c74cc",
+    "delay": 0,
+    "description": "Object switches its power",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "powered",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Increase its openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "ac9b4643-da8c-4039-95c3-a0bebff13f8d",
+    "delay": 0,
+    "description": "increases its openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "openness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Switch Bedroom door open state",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "3237f456-f4cf-4165-9bab-88c291f523b6",
+    "delay": 0,
+    "description": "closes/opens Bedroom door",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "open",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Decrease its openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "f5629330-dcf2-4144-9e5c-303dba2f8444",
+    "delay": 0,
+    "description": "decreases its openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "openness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Turn off Kitchen Light",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "b0aae0a9-5a58-4e6f-ad4d-d2eeb3d79481",
+    "delay": 0,
+    "description": "Kitchen Light turns off",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Increase Kitchen Light brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "de6e5af9-3c72-477e-942c-9b2b8191ae57",
+    "delay": 0,
+    "description": "increases Kitchen Light brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Increase its brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "47dbef87-144f-4be0-b9d6-5e44848efb79",
+    "delay": 0,
+    "description": "increases its brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Increase Livingroom light brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "448ead37-a5b5-4a40-85d5-6c254a611c6f",
+    "delay": 0,
+    "description": "increases Livingroom light brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Decrease Livingroom light brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "a82090ce-2da7-42e4-8bc0-ab6fb8c5b4c4",
+    "delay": 0,
+    "description": "decreases Livingroom light brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Open this gate",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "e53a56bd-4a09-4166-a0ef-aebc38a2d46a",
+    "delay": 0,
+    "description": "this gate is opened",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "open",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Switch Kitchen Light power",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "953c86f2-823b-401e-a80e-f648cf026a09",
+    "delay": 0,
+    "description": "switches the power of Kitchen Light",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Turn off Livingroom light",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "bb79a4da-fd20-4359-af6c-d586b4e9752b",
+    "delay": 0,
+    "description": "Livingroom light turns off",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Decrease Bedroom door openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "0bb2d671-24f9-4b2e-992c-8cbd10049b55",
+    "delay": 0,
+    "description": "decreases Bedroom door openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Increase Bedroom door openness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "d46c0103-2a1d-428a-982f-a3d08359a451",
+    "delay": 0,
+    "description": "increases Bedroom door openness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Open Kitchen door",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "c0ef3a1c-772a-4bfe-94e0-52f33afec408",
+    "delay": 0,
+    "description": "gate opens",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "open",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "turn off all lights",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "93327f3d-9caf-4f35-b15e-d7e65eab58af",
+    "delay": 0,
+    "description": "turn off all lights",
+    "stopIf": null,
+    "tags": [
+      "all",
+      "turn",
+      "off",
+      "lights"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "behavior": "powered",
+        "value": "false",
+        "object.class": "EnvObject.ElectricDevice.Light"
+      }
+    }
+  },
+  {
+    "name": "Switch Kitchen door open state",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "03763356-2f79-4939-bb2c-0cb13ab515ca",
+    "delay": 0,
+    "description": "closes/opens Kitchen door",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "open",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Increase Kitchen Light-145 brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "292a5e40-a2b1-4ea7-a2c1-8363e05921f0",
+    "delay": 0,
+    "description": "increases Kitchen Light-145 brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "next"
+      }
+    }
+  },
+  {
+    "name": "Show sensors simulator plugin GUI",
+    "receiver": "app.actuators.plugins.controller.in",
+    "uuid": "0b85f489-5190-458e-9f1d-9b853919ef61",
+    "delay": 0,
+    "description": "make a the sensor simulator plugin show its GUI",
+    "stopIf": null,
+    "tags": [
+      "sensors",
+      "simulator",
+      "plugin",
+      "show",
+      "gui"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "plugin": "Sensors Simulator",
+        "action": "show"
+      }
+    }
+  },
+  {
+    "name": "Restart Jfrontend Plugin",
+    "receiver": "app.actuators.plugins.controller.in",
+    "uuid": "d9c27ddd-66ba-4b3a-bc2c-511f5881b714",
+    "delay": 0,
+    "description": "Restarts Java Desktop plugin",
+    "stopIf": null,
+    "tags": [
+      "plugin",
+      "restart",
+      "jfrontend"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "plugin": "Desktop Frontend",
+        "action": "restart"
+      }
+    }
+  },
+  {
+    "name": "turn on all lights",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "3c37ca1a-e7fd-439e-96c4-093c1c8ccb54",
+    "delay": 0,
+    "description": "turn on all lights",
+    "stopIf": null,
+    "tags": [
+      "all",
+      "turn",
+      "lights",
+      "on"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "behavior": "powered",
+        "value": "true",
+        "object.class": "EnvObject.ElectricDevice.Light"
+      }
+    }
+  },
+  {
+    "name": "Notify event by mail with attachment",
+    "receiver": "app.actuators.messaging.mail.in",
+    "uuid": "03f71a6a-ea10-4bff-81b9-de84381d1314",
+    "delay": 0,
+    "description": "send a mail",
+    "stopIf": null,
+    "tags": [
+      "with",
+      "mail",
+      "attachment",
+      "by",
+      "event",
+      "notify"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "subject": "A notification from your home",
+        "message": "Event notified: @current.object.name clicked",
+        "attachment": "/home/mauro/Desktop/fd/plugins/devices/mailer/data/cmd/index.txt"
+      }
+    }
+  },
+  {
+    "name": "Switch Lights General Switch power",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "28107291-819b-49a0-9053-7fe6e8e2104b",
+    "delay": 0,
+    "description": "switches the power of Lights General Switch",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Lights General Switch",
+        "type": "command",
+        "behavior": "powered",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Set its brightness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "00053446-f34d-44ad-8e01-ef77eaeae6b9",
+    "delay": 0,
+    "description": "Set its brightness to 50%",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Turn on Livingroom light",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "9b3983d9-53f2-4c82-881b-1f08228a67d7",
+    "delay": 0,
+    "description": "Livingroom light turns on",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Close this gate",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "637888ba-8893-41f3-ae57-4f6a02a62902",
+    "delay": 0,
+    "description": "this gate is closed",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "open",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Turn off Lights General Switch",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "c95954ad-8683-4efd-86fd-d7e377390ebf",
+    "delay": 0,
+    "description": "Lights General Switch turns off",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Lights General Switch",
+        "type": "command",
+        "behavior": "powered",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Set Kitchen Light brightness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "f44c6075-b506-4ce9-afd3-d993b7f942b5",
+    "delay": 0,
+    "description": "the light Kitchen Light changes its brightness",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Wait five seconds",
+    "receiver": "app.actuators.automation.delayer.in",
+    "uuid": "3a82834f-023d-4aad-b7cc-3a79e6dbf2e4",
+    "delay": 0,
+    "description": "delays next command of five seconds",
+    "stopIf": null,
+    "tags": [
+      "wait",
+      "seconds",
+      "five"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 7000,
+    "props": {
+      "tuples": null,
+      "props": {
+        "delay": "5000"
+      }
+    }
+  },
+  {
+    "name": "Turn it off",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "3ecaa610-1e0c-4d91-b3ae-145be97322b6",
+    "delay": 0,
+    "description": "Object turns off",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "powered",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Set Kitchen Light-145 brightness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "bdaac06a-49e2-43a8-9cc8-abfea4c048fb",
+    "delay": 0,
+    "description": "the light Kitchen Light-145 changes its brightness",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Switch Kitchen Light-145 power",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "1d9a9903-f9fb-4c9f-81f6-691b5fe4993e",
+    "delay": 0,
+    "description": "switches the power of Kitchen Light-145",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "powered",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Switch its open state",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "1cc9d58d-1511-4633-8f84-5df0986a0217",
+    "delay": 0,
+    "description": "opens/closes the gate in the event",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "open",
+        "value": "opposite"
+      }
+    }
+  },
+  {
+    "name": "Set its brightness to the value in the event",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "f44d5c89-8221-4ed2-95f1-4e70d8c400c0",
+    "delay": 0,
+    "description": "set its brightness to the value in the event",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "@event.value"
+      }
+    }
+  },
+  {
+    "name": "Set Livingroom light brightness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "aedab191-0d92-4512-82e8-3ece8585c920",
+    "delay": 0,
+    "description": "the light Livingroom light changes its brightness",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Livingroom light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Set its openness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "01ef6b4c-bdbb-497a-8ff5-26c3bf70ce8a",
+    "delay": 0,
+    "description": "set its openness to 50%",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "@event.object.name",
+        "type": "command",
+        "behavior": "openness",
+        "value": "50"
+      }
+    }
+  },
+  {
+    "name": "Decrease Kitchen Light brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "5c215fb8-7db5-48d6-b2e7-936ab5b89967",
+    "delay": 0,
+    "description": "decreases Kitchen Light brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "Decrease Kitchen Light-145 brightness",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "ec425a32-7586-4efa-b876-9c9e866abd2c",
+    "delay": 0,
+    "description": "decreases Kitchen Light-145 brightness of one step",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light-145",
+        "type": "command",
+        "behavior": "brightness",
+        "value": "previous"
+      }
+    }
+  },
+  {
+    "name": "switch power of all lights",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "38ffb650-c547-4d34-b77d-4ada1f1b9f5d",
+    "delay": 0,
+    "description": "switch power for all lights",
+    "stopIf": null,
+    "tags": [
+      "all",
+      "of",
+      "power",
+      "lights",
+      "switch"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "behavior": "powered",
+        "value": "opposite",
+        "object.class": "EnvObject.ElectricDevice.Light"
+      }
+    }
+  },
+  {
+    "name": "Close Bedroom door",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "07d988e5-a8b5-4a3c-b16e-60ff99cdab0c",
+    "delay": 0,
+    "description": "gate closes",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Bedroom door",
+        "type": "command",
+        "behavior": "open",
+        "value": "false"
+      }
+    }
+  },
+  {
+    "name": "Notify event by mail",
+    "receiver": "app.actuators.messaging.mail.in",
+    "uuid": "315017cf-73fa-48b0-af15-07f0aee0183a",
+    "delay": 0,
+    "description": "send a mail",
+    "stopIf": null,
+    "tags": [
+      "mail",
+      "by",
+      "event",
+      "notify"
+    ],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": null,
+      "props": {
+        "subject": "A notification from your home",
+        "message": "Event notified: thing @current.object.name clicked",
+        "attachment": "no-attachment"
+      }
+    }
+  },
+  {
+    "name": "Turn on Kitchen Light",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "f763b97c-bc04-472a-a430-67e1be575f25",
+    "delay": 0,
+    "description": "Kitchen Light turns on",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen Light",
+        "type": "command",
+        "behavior": "powered",
+        "value": "true"
+      }
+    }
+  },
+  {
+    "name": "Set Kitchen door openness to 50%",
+    "receiver": "app.events.sensors.behavior.request.objects",
+    "uuid": "df30427e-accb-4072-9bee-bb561e180ff5",
+    "delay": 0,
+    "description": "the Kitchen door changes its openness",
+    "stopIf": null,
+    "tags": [],
+    "hardwareLevel": false,
+    "editable": false,
+    "executed": false,
+    "type": "command",
+    "replyTimeout": 0,
+    "props": {
+      "tuples": {
+        "tuples": []
+      },
+      "props": {
+        "object": "Kitchen door",
+        "type": "command",
+        "behavior": "openness",
+        "value": "50"
+      }
+    }
+  }
+]

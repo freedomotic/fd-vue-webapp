@@ -16,7 +16,7 @@
 
 <script>
 import Home from '../mobile/mobile-pages/Home.vue'
-import Users from '../mobile/mobile-pages/Users.vue'
+import Plugins from '../mobile/mobile-pages/Plugins.vue'
 import Settings from '../mobile/mobile-pages/Settings.vue'
 import Info from '../mobile/mobile-pages/Info.vue'
 
@@ -39,9 +39,9 @@ export default {
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'users',
-          icon: this.md() ? null : 'ion-person-stalker',
-          page: Users,
+          label: 'plugins',
+          icon: this.md() ? null : 'ion-cube',
+          page: Plugins,
           props: { pageStack: this.pageStack }
         },
         {

@@ -1,10 +1,9 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-    <v-ons-list-header>Roles</v-ons-list-header>
-      <ons-list-item v-for="role in getRolesList" :key="role.name">
+      <ons-list-item v-for="temperature in getThingsList" v-if="searchType(temperature.type)" :key="temperature.uuid">
         <label class="center">
-          {{ role.name }}
+          {{ temperature.name }}
         </label>
       </ons-list-item>
     
@@ -14,11 +13,17 @@
 <script>
 export default {
   computed: {
-    getRolesList: function () {
-      return this.$store.state.rolesList
+    getThingsList: function () {
+      return this.$store.state.thingsList
     },
     data () {
       return {}
+    }
+  },
+  methods: {
+    searchType: function (thingType) {
+      var match = thingType.match(/Thermometer|Thermostat/)
+      return match
     }
   }
 }

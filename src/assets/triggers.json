@@ -1,0 +1,1363 @@
+[
+              {
+                "name": "At 8:00AM",
+                "description": "at 8:00 in the morning",
+                "uuid": "67cd65c3-a509-44a9-8608-870fa47b697d",
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "EQUALS",
+                      "value": "8"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "time.minute",
+                      "operand": "EQUALS",
+                      "value": "0"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "time.second",
+                      "operand": "EQUALS",
+                      "value": "0"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Bedroom door becomes closed",
+                "description": null,
+                "uuid": "40ac26d4-e68e-4048-b3bb-a11c01fabb65",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Bedroom door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.open",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Bedroom door becomes open",
+                "description": null,
+                "uuid": "9d6b1b42-ff6d-4360-a0d1-97849399e8fe",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Bedroom door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.open",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every five seconds",
+                "description": "schedule actions to be executed at a fixed interval of 5 second",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 5000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every hour",
+                "description": "schedule actions to be executed at a fixed interval of 60 minutes",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 3600000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every minute",
+                "description": "schedule actions to be executed at a fixed interval of 60 seconds",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 60000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every minute while is morning",
+                "description": "execute a command every 60 second from 8:00 to 12:00",
+                "uuid": "2b5e349e-02bb-4eb4-a290-1381d380f947",
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "GREATER_THAN",
+                      "value": "7"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "LESS_THAN",
+                      "value": "13"
+                    }
+                  ]
+                },
+                "suspensionTime": 60000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every one minute",
+                "description": "schedule actions to be executed at a fixed interval of 60 second",
+                "uuid": "d30ce79d-072d-4a1e-8da9-e272eeebdc32",
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 60000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every one second",
+                "description": "schedule actions to be executed at a fixed interval of 1 second",
+                "uuid": "f8108dc3-289a-428e-b635-00eaaea6e973",
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 1000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every second",
+                "description": "schedule actions to be executed at a fixed interval of 1 second",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 1000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Every ten seconds",
+                "description": "schedule actions to be executed at a fixed interval of 10 second",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": []
+                },
+                "suspensionTime": 10000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "It's afternoon",
+                "description": "it is afternoon (between 13:00 and 19:00)",
+                "uuid": "3a612c7a-ee61-4b44-bd05-eb9604584365",
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "GREATER_THAN",
+                      "value": "13"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "LESS_THAN",
+                      "value": "19"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "It's night time",
+                "description": "it is night (it starts at 22:00)",
+                "uuid": null,
+                "channel": "app.event.sensor.calendar.event.schedule",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "time.hour",
+                      "operand": "GREATER_THAN",
+                      "value": "21"
+                    },
+                    {
+                      "logical": "OR",
+                      "attribute": "time.hour",
+                      "operand": "LESS_THAN",
+                      "value": "8"
+                    }
+                  ]
+                },
+                "suspensionTime": 39600000,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen Light turns off",
+                "description": null,
+                "uuid": "66c865f2-93c7-4b9a-9384-6457dbd97c06",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen Light turns on",
+                "description": null,
+                "uuid": "979bc706-0c21-47ff-b96d-e05d302d6db5",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen Light-145 turns off",
+                "description": null,
+                "uuid": "c94b2780-ec68-4543-a5b8-3935679a703a",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light-145"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen Light-145 turns on",
+                "description": null,
+                "uuid": "a136f16d-e907-40eb-8150-446c9729e069",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light-145"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen door becomes closed",
+                "description": null,
+                "uuid": "3026e3ef-d9e8-4a88-8e20-5f5b4e48de1c",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.open",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Kitchen door becomes open",
+                "description": null,
+                "uuid": "13cfeb7b-939f-4b09-8d02-a82c35a8d997",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.open",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Lights General Switch turns off",
+                "description": null,
+                "uuid": "bc71b827-7bfb-47ce-b1b9-8823b2f5da59",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Lights General Switch"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Lights General Switch turns on",
+                "description": null,
+                "uuid": "385234f1-85c5-4108-b195-59006d0ec4e4",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Lights General Switch"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Livingroom light turns off",
+                "description": null,
+                "uuid": "1b1f96bc-a223-479e-b3d4-0b8399e8f619",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Livingroom light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Livingroom light turns on",
+                "description": null,
+                "uuid": "a1663776-0771-4cf9-abf2-9af7b622c2d9",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Livingroom light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.powered",
+                      "operand": "EQUALS",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "Simulate a powered change",
+                "description": "Simulate a powered change",
+                "uuid": null,
+                "channel": "app.event.sensor.protocol.read.test",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "protocol",
+                      "operand": "EQUALS",
+                      "value": "test"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "address",
+                      "operand": "EQUALS",
+                      "value": "test"
+                    },
+                    {
+                      "logical": "SET",
+                      "attribute": "behaviorValue",
+                      "operand": "EQUALS",
+                      "value": "@event.value"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": true,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 1517822957560
+              },
+              {
+                "name": "When Bedroom door is clicked",
+                "description": null,
+                "uuid": "fe8e69a6-c4ad-4c1e-a337-873b6f696ab5",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Bedroom door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Clock is clicked",
+                "description": null,
+                "uuid": "b6631360-73f2-42fe-8ada-d6245a4587aa",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Clock"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Kitchen Light is clicked",
+                "description": null,
+                "uuid": "9b01698d-b850-48c7-9b6f-05511e57dc9b",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Kitchen Light-145 is clicked",
+                "description": null,
+                "uuid": "5cba4760-43ce-4ef5-a47c-c0e86871bc5c",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen Light-145"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Kitchen door is clicked",
+                "description": null,
+                "uuid": "6c5b332b-395b-4ab6-9485-5ab808668204",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen door"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Lights General Switch is clicked",
+                "description": "When Lights General Switch is clicked",
+                "uuid": "6bf81b08-fd1a-4d9c-80df-00129a686316",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Lights General Switch"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 4,
+                "suspensionStart": 1518628593897
+              },
+              {
+                "name": "When Livingroom light is clicked",
+                "description": null,
+                "uuid": "05725cce-5d10-48ca-b818-d8df4d5303c9",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Livingroom light"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Thermometer is clicked",
+                "description": null,
+                "uuid": "975d401d-5d70-4cc4-a284-a6a96756c4c2",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Thermometer"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Thermometer temperature is greater than 20 C",
+                "description": null,
+                "uuid": "27569670-dfc6-4b09-b426-9dbaa3b81416",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Thermometer"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.temperature",
+                      "operand": "GREATER_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Thermometer temperature is less than 20 C",
+                "description": null,
+                "uuid": "8983eb5e-4f13-4520-b397-7a0ccc925e61",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Thermometer"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "object.behavior.temperature",
+                      "operand": "LESS_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When Thermostat is clicked",
+                "description": null,
+                "uuid": "b45a5f42-f1a3-4e73-aef1-947d31a5335a",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.name",
+                      "operand": "EQUALS",
+                      "value": "Thermostat"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": 0,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When a door is clicked",
+                "description": "When a door is clicked",
+                "uuid": "a1b02741-dcbb-4919-a5ec-3aa91b8dac64",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.type",
+                      "operand": "REGEX",
+                      "value": "^EnvObject.Gate(.*)"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 3,
+                "suspensionStart": 1519281055745
+              },
+              {
+                "name": "When a generic sensor behavior has changed",
+                "description": "When a generic sensor behavior has changed",
+                "uuid": "8da01e8f-8d2e-4608-bd36-af4720f3c024",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.type",
+                      "operand": "REGEX",
+                      "value": "^EnvObject.GenericSensor\\.(.*)"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When a plugin fails",
+                "description": "When a plugin fails",
+                "uuid": "24bc05eb-3744-40c4-95ab-01d1841f9b87",
+                "channel": "app.event.sensor.plugin.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "plugin.status",
+                      "operand": "EQUALS",
+                      "value": "FAILED"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When a plugin starts",
+                "description": "When a plugin starts",
+                "uuid": "3fb7a4d6-d65d-447f-9f83-dd6672174939",
+                "channel": "app.event.sensor.plugin.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "plugin.status",
+                      "operand": "EQUALS",
+                      "value": "RUNNING"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 11,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When a plugin stops",
+                "description": "When a plugin stops",
+                "uuid": "fa9e232e-db3f-4f97-b65e-01666ec8a4d4",
+                "channel": "app.event.sensor.plugin.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "plugin.status",
+                      "operand": "EQUALS",
+                      "value": "STOPPED"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 9,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When a temperature has changed",
+                "description": "When a temperature has changed",
+                "uuid": "44d1dd66-ce1c-4f38-9ced-907176c903d8",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.type",
+                      "operand": "EQUALS",
+                      "value": "EnvObject.Thermometer"
+                    },
+                    {
+                      "logical": "OR",
+                      "attribute": "object.type",
+                      "operand": "EQUALS",
+                      "value": "EnvObject.Thermostat"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 3,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When an account logs in",
+                "description": "When an account logs in",
+                "uuid": "71b9759e-cffb-49d5-91fd-531106dc4652",
+                "channel": "app.event.sensor.account.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "account.action",
+                      "operand": "EQUALS",
+                      "value": "LOGIN"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 1517822965320
+              },
+              {
+                "name": "When an electric device behavior has changed",
+                "description": "When an electric device behavior has changed",
+                "uuid": "a160952f-3575-4841-af4e-05e339aaf840",
+                "channel": "app.event.sensor.object.behavior.change",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.type",
+                      "operand": "REGEX",
+                      "value": "^EnvObject.ElectricDevice\\.(.*)"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When an electric device is clicked",
+                "description": "When an electric device is clicked",
+                "uuid": "b935db7d-b44c-4ee5-891b-33fefdc814b4",
+                "channel": "app.event.sensor.object.behavior.clicked",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "object.type",
+                      "operand": "REGEX",
+                      "value": "^EnvObject.ElectricDevice\\.(.*)"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "click",
+                      "operand": "EQUALS",
+                      "value": "SINGLE_CLICK"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": true,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 41,
+                "suspensionStart": 1519492878480
+              },
+              {
+                "name": "When luminosity is greater than 20 %",
+                "description": "When luminosity is greater than 20 %",
+                "uuid": null,
+                "channel": "app.event.sensor.luminosity",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "luminosity",
+                      "operand": "GREATER_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When luminosity is less than 20 %",
+                "description": "When luminosity is less than 20 %",
+                "uuid": null,
+                "channel": "app.event.sensor.luminosity",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "luminosity",
+                      "operand": "LESS_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When someone enters the kitchen",
+                "description": "When someone enters the kitchen area",
+                "uuid": "a1b02741-dcbb-4919-a5ec-3aa91b8dac34",
+                "channel": "app.event.sensor.person.zone.enter",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "zone.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "person.id",
+                      "operand": "EQUALS",
+                      "value": "ANY"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When someone goes out of the Kitchen",
+                "description": "Someone goes out of the kitchen area",
+                "uuid": "a1b02741-dcbb-4919-a5ec-3aa91b8dac34",
+                "channel": "app.event.sensor.person.zone.exit",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "zone.name",
+                      "operand": "EQUALS",
+                      "value": "Kitchen"
+                    },
+                    {
+                      "logical": "AND",
+                      "attribute": "person.id",
+                      "operand": "EQUALS",
+                      "value": "ANY"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When temperature is greater than 20 Celsius degrees",
+                "description": "When temperature is greater than 20 Celsius degrees",
+                "uuid": null,
+                "channel": "app.event.sensor.temperature",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "temperature",
+                      "operand": "GREATER_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              },
+              {
+                "name": "When temperature is less than 20 Celsius degrees",
+                "description": "When temperature is less than 20 Celsius degrees",
+                "uuid": null,
+                "channel": "app.event.sensor.temperature",
+                "payload": {
+                  "payloadLst": [
+                    {
+                      "logical": "AND",
+                      "attribute": "temperature",
+                      "operand": "LESS_THAN",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "suspensionTime": 0,
+                "hardwareLevel": false,
+                "persistence": false,
+                "delay": 0,
+                "priority": 0,
+                "maxExecutions": -1,
+                "numberOfExecutions": 0,
+                "suspensionStart": 0
+              }
+]

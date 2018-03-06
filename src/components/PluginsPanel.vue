@@ -10,8 +10,15 @@
           <h3 class="md-title">{{$t('plugins').toUpperCase()}}</h3>
         </md-toolbar>
     <div class="parent-box">    
-      <div class="item" v-for="n in 10">
-         <plugin title="Webserver" description="Webserver plugin"></plugin>
+      <div class="item" v-for="plugin in getPluginsList">
+         <plugin
+         :name="plugin.pluginName" 
+         :description="plugin.description"
+         :uuid="plugin.uuid"
+         :currentStatus="plugin.currentPluginStatus"
+         :category="plugin.category"
+         >
+         </plugin>
       </div>
     </div>  
    </div>    
@@ -27,6 +34,9 @@ export default {
   computed: {
     pluginsOpen: function () {
       return this.$store.state.pluginsOpen
+    },
+    getPluginsList: function () {
+      return this.$store.state.pluginsList
     }
   },
   data () {

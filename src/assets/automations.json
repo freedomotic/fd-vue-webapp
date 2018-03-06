@@ -1,0 +1,58 @@
+[
+  {
+    "conditions": [],
+    "shortDescription": "WHEN  [When Lights General Switch is clicked]  THEN (switch power for all lights)",
+    "uuid": "c55f56d4-b1d5-4a73-9d33-8f714499c6a8",
+    "description": "When Lights General Switch is clicked then switch power for all lights",
+    "triggerURI": "triggers/6bf81b08-fd1a-4d9c-80df-00129a686316",
+    "triggerUuid": "6bf81b08-fd1a-4d9c-80df-00129a686316",
+    "commands": [
+      {
+        "uuid": "7caa9992-52f1-4e73-a079-c50661a54909",
+        "uri": "commands/user/7caa9992-52f1-4e73-a079-c50661a54909"
+      }
+    ]
+  },
+  {
+    "conditions": [],
+    "shortDescription": "WHEN  [When a door is clicked]  THEN (Switch its open state)",
+    "uuid": "4a46c93d-5781-4527-bf96-f833021d44be",
+    "description": "When a door is clicked then opens/closes the gate in the event",
+    "triggerURI": "triggers/a1b02741-dcbb-4919-a5ec-3aa91b8dac64",
+    "triggerUuid": "a1b02741-dcbb-4919-a5ec-3aa91b8dac64",
+    "commands": [
+      {
+        "uuid": "d46804cc-8b20-48fa-b0b0-09e8c8beeb1c",
+        "uri": "commands/user/d46804cc-8b20-48fa-b0b0-09e8c8beeb1c"
+      }
+    ]
+  },
+  {
+    "conditions": [],
+    "shortDescription": "WHEN  [When an account logs in]  THEN (Create a new User with the same name)",
+    "uuid": "fe450e14-325b-41f6-ba67-c2fc5470700c",
+    "description": "When an account logs in then create a new user Thing",
+    "triggerURI": "triggers/71b9759e-cffb-49d5-91fd-531106dc4652",
+    "triggerUuid": "71b9759e-cffb-49d5-91fd-531106dc4652",
+    "commands": [
+      {
+        "uuid": "d8694e48-8bd6-4a5f-8cef-4c595305a0b6",
+        "uri": "commands/user/d8694e48-8bd6-4a5f-8cef-4c595305a0b6"
+      }
+    ]
+  },
+  {
+    "conditions": [],
+    "shortDescription": "WHEN  [When an electric device is clicked]  THEN (Switch its power)",
+    "uuid": "85ee5542-fb74-4a66-833d-e16aa831fbf6",
+    "description": "When an electric device is clicked then Object switches its power",
+    "triggerURI": "triggers/b935db7d-b44c-4ee5-891b-33fefdc814b4",
+    "triggerUuid": "b935db7d-b44c-4ee5-891b-33fefdc814b4",
+    "commands": [
+      {
+        "uuid": "75531949-db05-4b86-a8fe-2a04550c74cc",
+        "uri": "commands/user/75531949-db05-4b86-a8fe-2a04550c74cc"
+      }
+    ]
+  }
+]

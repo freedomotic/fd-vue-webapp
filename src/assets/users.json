@@ -1,0 +1,32 @@
+[
+  {
+    "name": "system",
+    "password": "p9aAW+vW4EWkTHsfNWWJcTGBOhUya1ORvu/dvU/A+0g=",
+    "roles": [
+      "administrators"
+    ],
+    "props": {
+      "language": "auto"
+    }
+  },
+  {
+    "name": "admin",
+    "password": "rfx9xwecAlh7Z45fUK+Gi+CSOirq1U2IdmQBTHXoeCw=",
+    "roles": [
+      "administrators"
+    ],
+    "props": {
+      "language": "auto"
+    }
+  },
+  {
+    "name": "guest",
+    "password": "TRN2QAmWB9oPk2E9JSZOcQxDmOZU/G1BGrjB92KQfPA=",
+    "roles": [
+      "guests"
+    ],
+    "props": {
+      "language": "auto"
+    }
+  }
+]
