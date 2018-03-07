@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import Plugins from './Plugins.vue'
 import Automations from './Automations.vue'
 import System from './System.vue'
 import Users from './Users.vue'
@@ -22,11 +21,6 @@ export default {
   data () {
     return {
       pages: [
-        {
-          component: Plugins,
-          label: 'plugins',
-          desc: 'Manage all plugins.'
-        },
         {
           component: Automations,
           label: 'automations',

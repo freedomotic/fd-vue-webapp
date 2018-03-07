@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-      <ons-list-item v-for="actuator in getThingsList" v-if="searchType(actuator.type)" :key="actuator.uuid">
+      <ons-list-item v-for="actuator in getThingsList" v-if="searchType(actuator.type)" :key="actuator.uuid" modifier="chevron" tappable>
         <label class="center">
           {{ actuator.name }}
         </label>

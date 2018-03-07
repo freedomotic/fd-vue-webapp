@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-     <ons-list-item v-for="light in getThingsList" v-if="searchType(light.type)" :key="light.uuid">
+     <ons-list-item v-for="light in getThingsList" v-if="searchType(light.type)" :key="light.uuid" modifier="chevron" tappable>
         <label class="center">
           {{ light.name }}
         </label>

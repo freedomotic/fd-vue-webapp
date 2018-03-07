@@ -82,3 +82,28 @@ function hideAllDashboardDisplays (state) {
   state.rolesOpen = false
   state.usersOpen = false
 }
+
+// mutations for API
+export const setEnvironmentsList = (state, {list}) => {
+  state.environments = list
+}
+
+export const setCommandsList = (state, {list}) => {
+  state.commands = list
+}
+
+export const setTriggersList = (state, {list}) => {
+  state.triggers = list
+}
+
+export const setAutomationsList = (state, {list}) => {
+  state.automations = list
+}
+
+export const setUsersList = (state, {list}) => {
+  state.users = list
+}
+
+export const setRolesList = (state, {list}) => {
+  state.roles = list
+}

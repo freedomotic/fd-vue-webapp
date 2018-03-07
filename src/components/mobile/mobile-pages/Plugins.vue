@@ -1,7 +1,6 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-     <v-ons-list-header>Plugins</v-ons-list-header>
       <ons-list-item v-for="plugin in getPluginsList" :key="plugin.uuid">
         <label class="center">
           {{ plugin.pluginName }}

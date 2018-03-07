@@ -1,8 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-    <v-ons-list-header>Automations</v-ons-list-header>
-      <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid">
+     <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid" modifier="longdivider" tappable>
         <label class="center">
           {{ automation.shortDescription }}
         </label>

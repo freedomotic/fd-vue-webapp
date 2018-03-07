@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
-      <ons-list-item v-for="temperature in getThingsList" v-if="searchType(temperature.type)" :key="temperature.uuid">
+      <ons-list-item v-for="temperature in getThingsList" v-if="searchType(temperature.type)" :key="temperature.uuid" modifier="chevron" tappable>
         <label class="center">
           {{ temperature.name }}
         </label>
