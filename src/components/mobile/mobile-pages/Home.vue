@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import Actuators from './Actuators.vue'
+import Actuators from './ActuatorsPanel.vue'
 import Environments from './Environments.vue'
-import Lights from './Lights.vue'
-import Sensors from './Sensors.vue'
-import Temperature from './Temperature.vue'
+import Lights from './LightsPanel.vue'
+import Sensors from './SensorsPanel.vue'
+import Temperature from './TemperaturePanel.vue'
 
 export default {
   props: ['pageStack'],

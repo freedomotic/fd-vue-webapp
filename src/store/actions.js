@@ -89,7 +89,12 @@ export const getMarketplaceCategoriesList = (context) => {
   console.log('Executing getMarketplaceCategoriesList')
 }
 
-export const startPlugin = (context, {item}) => {
+export const startPlugin = (context, pluginId) => {
   // mapped to  API
-  console.log('Executing startPlugin')
+  console.log('Executing startPlugin ' + pluginId)
+}
+
+export const stopPlugin = (context, pluginId) => {
+  // mapped to  API
+  console.log('Executing stopPlugin ' + pluginId)
 }

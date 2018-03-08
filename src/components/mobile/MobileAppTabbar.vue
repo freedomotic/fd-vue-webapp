@@ -16,7 +16,7 @@
 
 <script>
 import Home from '../mobile/mobile-pages/Home.vue'
-import Plugins from '../mobile/mobile-pages/Plugins.vue'
+import PluginsPanel from '../mobile/mobile-pages/PluginsPanel.vue'
 import Settings from '../mobile/mobile-pages/Settings.vue'
 import Info from '../mobile/mobile-pages/Info.vue'
 
@@ -41,8 +41,11 @@ export default {
         {
           label: 'plugins',
           icon: this.md() ? null : 'ion-cube',
-          page: Plugins,
-          props: { pageStack: this.pageStack }
+          page: PluginsPanel,
+          props: {
+            pageStack: this.pageStack,
+            setOptions: this.setOptions
+          }
         },
         {
           label: 'info',
