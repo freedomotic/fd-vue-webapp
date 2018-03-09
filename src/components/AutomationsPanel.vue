@@ -30,7 +30,7 @@
     </md-list>
   </div>  
   <div>
-        <!-- This should be replaced by a AddButton component at the right bottom corner -->
+        <!-- This should be replaced by an AddButton component at the right bottom corner -->
         <button @click="showDynamicComponentModal">
           Add a new automation
        </button>
@@ -100,10 +100,12 @@ export default {
       this.$modal.show(AddAutomation, {
         text: 'This text is passed as a property'
       },
-        { draggable: true,
+        {
+          name: 'addAutomationModal',
+          draggable: true,
           adaptive: true,
           resizable: true,
-          clickToClose: true,
+          clickToClose: false,
           width: '65%',
           height: '40%'
         })

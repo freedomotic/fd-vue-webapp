@@ -1,5 +1,11 @@
 <template>
   <div>
+    <md-toolbar class="md-accent">
+       <md-content class="small-icon" @click="$emit('close')">
+            <md-icon>clear</md-icon>
+       </md-content> 
+          <h4 class="md-title">New automation</h4>
+    </md-toolbar>
     <md-steppers :md-active-step.sync="active" md-linear>
       <md-step id="first" :md-label="$t('select_trigger')" :md-done.sync="first">
          <div>

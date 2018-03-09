@@ -13,10 +13,18 @@
     </md-card-header-text>
   </md-card-header>
   <md-card-actions>
-     <md-button v-if="isPluginRunning(currentStatus)" @click="stopPlugin(uuid)">{{$t('stop')}}</md-button>
-     <md-button v-else @click="startPlugin(uuid)">{{$t('start')}}</md-button>
-     <md-button>{{$t('settings')}}</md-button>
-     <md-button>{{$t('uninstall')}}</md-button>
+     <md-button class="md-icon-button" v-if="isPluginRunning(currentStatus)" @click="stopPlugin(uuid)">
+       <md-icon>pause</md-icon>
+     </md-button>
+     <md-button class="md-icon-button" v-else @click="startPlugin(uuid)">
+       <md-icon>play_arrow</md-icon>
+     </md-button>
+     <md-button class="md-icon-button" >
+       <md-icon>settings</md-icon>
+     </md-button>
+     <md-button class="md-icon-button">
+       <md-icon>delete</md-icon>
+     </md-button>
   </md-card-actions> 
  </md-card>
 </template>

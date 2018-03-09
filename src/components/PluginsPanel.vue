@@ -9,8 +9,14 @@
           </md-content> 
           <h3 class="md-title">{{$t('plugins').toUpperCase()}}</h3>
         </md-toolbar>
-    <div class="parent-box">    
-      <div class="item" v-for="plugin in getPluginsList">
+    <div>
+        <!-- This should be replaced by an AddButton component at the right bottom corner -->
+        <button @click="showDynamicComponentModal">
+          Add a new plugin
+       </button>
+    </div>         
+    <div class="parent-box">
+       <div class="item" v-for="plugin in getPluginsList">
          <plugin
          :name="plugin.pluginName" 
          :description="plugin.description"
@@ -26,10 +32,12 @@
 
 <script>
 import Plugin from './Plugin.vue'
+import Marketplace from './Marketplace.vue'
 
 export default {
   components: {
-    'plugin': Plugin
+    'plugin': Plugin,
+    'marketplace': Marketplace
   },
   computed: {
     pluginsOpen: function () {
@@ -48,6 +56,21 @@ export default {
     },
     closeWindow: function () {
       this.$store.commit('closeSection')
+    },
+    showDynamicComponentModal () {
+      this.$modal.show(Marketplace, {
+        text: 'This text is passed as a property'
+      },
+        {
+          name: 'marketplaceModal',
+          draggable: true,
+          adaptive: true,
+          resizable: true,
+          scrollable: true,
+          clickToClose: false,
+          width: '45%',
+          height: '60%'
+        })
     }
   }
 }

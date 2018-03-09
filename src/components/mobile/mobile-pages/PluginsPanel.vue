@@ -6,7 +6,13 @@
         @click="transition('default', plugin)"
         tappable
       >
-        {{ plugin.pluginName }}
+        <div class="left">
+          <v-ons-icon v-if="plugin.currentPluginStatus == 'RUNNING'" style="color: green;" icon="md-check" class="list-item__icon"></v-ons-icon>
+          <v-ons-icon v-else icon="md-stop" class="list-item__icon"></v-ons-icon>
+        </div>
+        <div class="center">
+         {{ plugin.pluginName}}
+        </div>
       </v-ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right" :style="spdStyle">
@@ -16,20 +22,31 @@
 </template>
 
 <script>
+import Plugin from './Plugin.vue'
+
 const transitionPage = {
   template: `
     <v-ons-page>
       <custom-toolbar backLabel="Plugins">
         {{ plugin.pluginName }}
       </custom-toolbar>
-     
-    </v-ons-page>
+      <plugin-component
+         :name="plugin.pluginName" 
+         :description="plugin.description"
+         :uuid="plugin.uuid"
+         :currentStatus="plugin.currentPluginStatus"
+         :category="plugin.category"
+       >
+       </plugin-component>
+     </v-ons-page>
     `
 }
 
 export default {
   props: ['pageStack', 'setOptions'],
-
+  components: {
+    'plugin-component': Plugin
+  },
   data () {
     return {}
   },
