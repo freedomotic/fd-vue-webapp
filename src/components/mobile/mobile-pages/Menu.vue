@@ -88,6 +88,10 @@ export default {
           icon: 'ion-gear-b, material:md-settings'
         },
         {
+          title: 'plugins',
+          icon: 'ion-cube, material:md-dashboard'
+        },
+        {
           title: 'users',
           icon: 'ion-person-stalker'
         },

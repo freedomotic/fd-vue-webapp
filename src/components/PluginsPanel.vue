@@ -17,14 +17,7 @@
     </div>         
     <div class="parent-box">
        <div class="item" v-for="plugin in getPluginsList">
-         <plugin
-         :name="plugin.pluginName" 
-         :description="plugin.description"
-         :uuid="plugin.uuid"
-         :currentStatus="plugin.currentPluginStatus"
-         :category="plugin.category"
-         >
-         </plugin>
+         <plugin :plugin="plugin"></plugin>
       </div>
     </div>  
    </div>    
@@ -68,8 +61,10 @@ export default {
           resizable: true,
           scrollable: true,
           clickToClose: false,
-          width: '45%',
-          height: '60%'
+          width: '65%',
+          height: 'auto',
+          minHeight: 300,
+          minWidth: 500
         })
     }
   }

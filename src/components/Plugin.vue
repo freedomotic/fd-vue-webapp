@@ -8,15 +8,15 @@
       
   <md-card-header>    
     <md-card-header-text>
-      <div class="md-title">{{ name }}</div>
-      <div class="md-subhead">{{ description }}</div>
+      <div class="md-title">{{ plugin.pluginName }}</div>
+      <div class="md-subhead">{{ plugin.description }}</div>
     </md-card-header-text>
   </md-card-header>
   <md-card-actions>
-     <md-button class="md-icon-button" v-if="isPluginRunning(currentStatus)" @click="stopPlugin(uuid)">
+     <md-button class="md-icon-button" v-if="isPluginRunning(plugin.currentPluginStatus)" @click="stopPlugin(plugin.uuid)">
        <md-icon>pause</md-icon>
      </md-button>
-     <md-button class="md-icon-button" v-else @click="startPlugin(uuid)">
+     <md-button class="md-icon-button" v-else @click="startPlugin(plugin.uuid)">
        <md-icon>play_arrow</md-icon>
      </md-button>
      <md-button class="md-icon-button" >
@@ -32,12 +32,7 @@
 <script>
   export default {
     props: {
-      name: String,
-      description: String,
-      icon: String,
-      category: String,
-      uuid: String,
-      currentStatus: String
+      plugin: {}
     },
     methods: {
       isPluginRunning: function (currentStatus) {
