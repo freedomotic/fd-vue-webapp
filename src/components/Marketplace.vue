@@ -9,14 +9,14 @@
      <!-- This should be replaced by md-select components -->
      <select v-model="selectedCategory">
         <option v-for="category in getMarketplaceCategories" v-bind:value="category.name" 
-        v-on:change="getMarketplaceCategoryPlugins(category.name)"
+        v-on:change="getMarketplaceCategoryPlugins(category.name)" 
         >
            {{ category.name }}
         </option>
      </select>
      <div>
        <md-list class="md-triple-line">
-         <md-list-item v-for="plugin in getMarketplaceCategoryPlugins" >
+         <md-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.uuid">
             <md-avatar>
               <img :src="plugin.field_icon[0].filepath" :alt="plugin.title">
             </md-avatar>

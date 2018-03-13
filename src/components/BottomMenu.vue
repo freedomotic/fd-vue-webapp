@@ -1,5 +1,5 @@
 <template>
-  <md-content id="bottom-btn">
+  <md-content id="bottom-btn" @click="showThings">
     <md-icon id="bottom-btn-icon" class="md-size-2x">keyboard_arrow_up</md-icon>
   </md-content>
 </template>
@@ -9,6 +9,11 @@ export default {
   name: 'BottomMenu',
   data () {
     return {}
+  },
+  methods: {
+    showThings () {
+      this.$store.commit('showThings')
+    }
   }
 }
 </script>

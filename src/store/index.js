@@ -23,6 +23,7 @@ export default new Vuex.Store({
     displayInfo: false,
     displayAlerts: false,
     displayLogout: false,
+    displayThings: false,
     blur: false,
     // end of Dashboard state
     language: 'en',

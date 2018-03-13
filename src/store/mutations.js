@@ -20,6 +20,12 @@ export const showInfo = state => {
   state.blur = !state.blur
 }
 
+export const showThings = state => {
+  hideAllDashboardDisplays(state)
+  state.displayThings = true
+  state.blur = !state.blur
+}
+
 export const showAlerts = state => {
   hideAllDashboardDisplays(state)
   state.displayAlerts = true
@@ -75,6 +81,7 @@ function hideAllDashboardDisplays (state) {
   state.displayAlerts = false
   state.displayInfo = false
   state.displayLogout = false
+  state.displayThings = false
   state.systemOpen = false
   state.automationsOpen = false
   state.languagesOpen = false

@@ -28,11 +28,16 @@
           <app-info/>
        </div>
     </div>
+    <div v-else-if="displayThings">
+       <div class="section">
+          <things-panel/>
+       </div>
+    </div>
     <system/> 
     <languages-panel/>
     <automations-panel/>
     <plugins-panel/>
-    <roles-panel/> 
+    <roles-panel/>
     <users-panel/> 
     <vue-snotify/>
     <modals-container/>
@@ -53,6 +58,7 @@ import AutomationsPanel from './AutomationsPanel.vue'
 import LanguagesPanel from './LanguagesPanel.vue'
 import RolesPanel from './RolesPanel.vue'
 import UsersPanel from './UsersPanel.vue'
+import ThingsPanel from './ThingsPanel.vue'
 
 export default {
   components: {
@@ -67,7 +73,8 @@ export default {
     'automations-panel': AutomationsPanel,
     'languages-panel': LanguagesPanel,
     'roles-panel': RolesPanel,
-    'users-panel': UsersPanel
+    'users-panel': UsersPanel,
+    'things-panel': ThingsPanel
   },
   data () {
     return {}
@@ -87,6 +94,9 @@ export default {
     },
     displayLogout () {
       return this.$store.state.displayLogout
+    },
+    displayThings () {
+      return this.$store.state.displayThings
     },
     blur () {
       return this.$store.state.blur
@@ -118,7 +128,7 @@ export default {
     showAlerts: function () {
       this.hideAll()
       if (!('webkitSpeechRecognition' in window)) {
-        this.setToast("Current browser doesn't support WebSpeeck API")
+        this.setToast("Current browser doesn't support WebSpeech API")
       } else {
         this.$store.commit('showAlerts')
       }

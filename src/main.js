@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import MobileCustomToolbar from './components/mobile/MobileCustomToolbar.vue'
 import router from './router'
 
 import VueAxios from 'vue-axios'
@@ -15,6 +14,10 @@ import Snotify from 'vue-snotify'
 
 // Manage modal components
 import VModal from 'vue-js-modal'
+
+// Manage tabs
+import VueTabs from 'vue-nav-tabs'
+import 'vue-nav-tabs/themes/vue-tabs.css'
 
 // Load vuex i18n module
 import vuexI18n from 'vuex-i18n'
@@ -33,10 +36,13 @@ import 'onsenui/css/onsen-css-components.css'
 
 import store from './store'
 
+import MobileCustomToolbar from './components/mobile/MobileCustomToolbar.vue'
+
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
 Vue.use(VModal, { dialog: true, dynamic: true })
+Vue.use(VueTabs)
 
 Vue.use(VueOnsen)
 Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
