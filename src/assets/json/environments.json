@@ -1,0 +1,406 @@
+[
+  {
+    "name": "Ground Floor",
+    "width": 1500,
+    "height": 1324,
+    "renderer": "photo",
+    "backgroundColor": {
+      "red": 255,
+      "green": 255,
+      "blue": 255,
+      "alpha": 255
+    },
+    "backgroundImage": "map2.png",
+    "zones": [
+      {
+        "name": "Indoor",
+        "description": "",
+        "room": false,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 20,
+              "y": 240
+            },
+            {
+              "x": 1460,
+              "y": 240
+            },
+            {
+              "x": 1460,
+              "y": 730
+            },
+            {
+              "x": 1195,
+              "y": 730
+            },
+            {
+              "x": 1195,
+              "y": 1165
+            },
+            {
+              "x": 300,
+              "y": 1165
+            },
+            {
+              "x": 300,
+              "y": 905
+            },
+            {
+              "x": 20,
+              "y": 905
+            }
+          ]
+        },
+        "texture": null,
+        "uuid": "c394786a-d0e9-46ef-afa3-7cd658d89ae2"
+      },
+      {
+        "name": "Bedroom",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 20,
+              "y": 240
+            },
+            {
+              "x": 390,
+              "y": 240
+            },
+            {
+              "x": 390,
+              "y": 680
+            },
+            {
+              "x": 305,
+              "y": 680
+            },
+            {
+              "x": 305,
+              "y": 620
+            },
+            {
+              "x": 20,
+              "y": 620
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "882d76f5-13e7-40a2-b478-97c5a6f146ee"
+      },
+      {
+        "name": "Office",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 20,
+              "y": 620
+            },
+            {
+              "x": 305,
+              "y": 620
+            },
+            {
+              "x": 305,
+              "y": 905
+            },
+            {
+              "x": 20,
+              "y": 905
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "3953ef28-a01f-4c27-97da-55d4dc924bd8"
+      },
+      {
+        "name": "Livingroom",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 305,
+              "y": 680
+            },
+            {
+              "x": 390,
+              "y": 680
+            },
+            {
+              "x": 390,
+              "y": 730
+            },
+            {
+              "x": 1195,
+              "y": 730
+            },
+            {
+              "x": 1195,
+              "y": 1170
+            },
+            {
+              "x": 900,
+              "y": 1170
+            },
+            {
+              "x": 900,
+              "y": 910
+            },
+            {
+              "x": 730,
+              "y": 910
+            },
+            {
+              "x": 730,
+              "y": 1170
+            },
+            {
+              "x": 305,
+              "y": 1170
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "31ae2947-6111-497c-9003-ba32d7b9d5bb"
+      },
+      {
+        "name": "Kitchen",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 595,
+              "y": 730
+            },
+            {
+              "x": 595,
+              "y": 240
+            },
+            {
+              "x": 860,
+              "y": 240
+            },
+            {
+              "x": 860,
+              "y": 440
+            },
+            {
+              "x": 905,
+              "y": 440
+            },
+            {
+              "x": 905,
+              "y": 645
+            },
+            {
+              "x": 855,
+              "y": 645
+            },
+            {
+              "x": 855,
+              "y": 730
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "85b48160-6de6-4f36-a394-f9707908f060"
+      },
+      {
+        "name": "Bathroom",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 390,
+              "y": 240
+            },
+            {
+              "x": 595,
+              "y": 240
+            },
+            {
+              "x": 595,
+              "y": 505
+            },
+            {
+              "x": 390,
+              "y": 505
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "7e60b848-a1f7-4c2b-a4dd-22d953c88ba3"
+      },
+      {
+        "name": "Dress room",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 390,
+              "y": 505
+            },
+            {
+              "x": 595,
+              "y": 505
+            },
+            {
+              "x": 595,
+              "y": 730
+            },
+            {
+              "x": 390,
+              "y": 730
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "cae1ace8-e8dd-4a26-9e6a-b5b79eafdf6a"
+      },
+      {
+        "name": "Garage",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 990,
+              "y": 240
+            },
+            {
+              "x": 1460,
+              "y": 240
+            },
+            {
+              "x": 1460,
+              "y": 730
+            },
+            {
+              "x": 990,
+              "y": 730
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "81c3a325-5d93-4713-9db3-ab578e6e02b0"
+      },
+      {
+        "name": "Bathroom Small",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 855,
+              "y": 645
+            },
+            {
+              "x": 905,
+              "y": 645
+            },
+            {
+              "x": 905,
+              "y": 570
+            },
+            {
+              "x": 990,
+              "y": 570
+            },
+            {
+              "x": 990,
+              "y": 730
+            },
+            {
+              "x": 855,
+              "y": 730
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "87e79a1a-045e-444b-a3f1-e2c46810ec29"
+      },
+      {
+        "name": "Utility room",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 905,
+              "y": 440
+            },
+            {
+              "x": 860,
+              "y": 440
+            },
+            {
+              "x": 860,
+              "y": 240
+            },
+            {
+              "x": 990,
+              "y": 240
+            },
+            {
+              "x": 990,
+              "y": 570
+            },
+            {
+              "x": 905,
+              "y": 570
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "0592882e-4471-4beb-b036-559a107869b9"
+      },
+      {
+        "name": "Upstairs",
+        "description": "",
+        "room": true,
+        "shape": {
+          "@class": "com.freedomotic.model.geometry.FreedomPolygon",
+          "points": [
+            {
+              "x": 730,
+              "y": 910
+            },
+            {
+              "x": 900,
+              "y": 910
+            },
+            {
+              "x": 900,
+              "y": 1170
+            },
+            {
+              "x": 730,
+              "y": 1170
+            }
+          ]
+        },
+        "texture": "wood.jpg",
+        "uuid": "7d00fe60-a856-44c4-a120-7053d08d512f"
+      }
+    ],
+    "uuid": "df28cda0-a866-11e2-9e96-0800200c9a66"
+  }
+]

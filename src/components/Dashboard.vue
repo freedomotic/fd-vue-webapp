@@ -1,6 +1,9 @@
 <template>
   <div id="background">
     <background></background>
+    <div id="environments">
+      <environments></environments>
+    </div>      
     <div id="corner-top-left" @click="showLogout">
        <corner-button class="top-left" tooltipDirection="right" :tooltip="$t('user_account')" icon="account_box"></corner-button>
      </div>
@@ -34,47 +37,47 @@
        </div>
     </div>
     <system/> 
-    <languages-panel/>
-    <automations-panel/>
-    <plugins-panel/>
+    <languages/>
+    <automations/>
+    <plugins/>
     <roles-panel/>
     <users-panel/> 
     <vue-snotify/>
     <modals-container/>
     <v-dialog/>
-   </div>  
+ </div>
 </template>
 
 <script>
 import CornerButton from './CornerButton.vue'
-import Plugin from './Plugin.vue'
 import Settings from './Settings.vue'
 import AppInfo from './AppInfo.vue'
 import Background from './Background.vue'
 import Logout from './Logout.vue'
 import System from './System.vue'
-import PluginsPanel from './PluginsPanel.vue'
-import AutomationsPanel from './AutomationsPanel.vue'
-import LanguagesPanel from './LanguagesPanel.vue'
+import Plugins from './PluginsPanel.vue'
+import Automations from './AutomationsPanel.vue'
+import Languages from './LanguagesPanel.vue'
 import RolesPanel from './RolesPanel.vue'
 import UsersPanel from './UsersPanel.vue'
 import ThingsPanel from './ThingsPanel.vue'
+import Environments from './EnvironmentsPanel.vue'
 
 export default {
   components: {
     'corner-button': CornerButton,
     'settings': Settings,
-    'plugin': Plugin,
     'app-info': AppInfo,
     'background': Background,
     'logout': Logout,
     'system': System,
-    'plugins-panel': PluginsPanel,
-    'automations-panel': AutomationsPanel,
-    'languages-panel': LanguagesPanel,
+    'plugins': Plugins,
+    'automations': Automations,
+    'languages': Languages,
     'roles-panel': RolesPanel,
     'users-panel': UsersPanel,
-    'things-panel': ThingsPanel
+    'things-panel': ThingsPanel,
+    'environments': Environments
   },
   data () {
     return {}
@@ -210,6 +213,14 @@ export default {
       #background {
         width: 100%;
         height: 100%;
+      }
+      #environments {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
       .dropdown{
         z-index: 120;
