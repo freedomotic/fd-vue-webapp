@@ -47,6 +47,12 @@ export const getEnvironmentsList = (context) => {
   console.log('Executing getEnvironmentsList')
 }
 
+export const getEnvironmentThingsList = (context, envId) => {
+  // mapped to /environments/{{envId}}/things
+  // commit setEnvironmentThingsList mutation
+  console.log('Executing getEnvironmentThingsList')
+}
+
 export const getCommandsList = (context) => {
   // mapped to  /commands/user
   // commit setCommandsList mutation

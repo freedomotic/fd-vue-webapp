@@ -20,8 +20,9 @@ export default {
     environment: {}
   },
   computed: {
-    getEnvironmentThings: function (envUUID) {
-      return this.$store.state.environmentThings
+    getEnvironmentThingsList: function (envId) {
+      // should be mapped to action getEnvironmentThingsList
+      return this.$store.state.environmentThingsList
     }
   },
   data () {

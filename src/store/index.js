@@ -11,10 +11,10 @@ import pluginsList from '../assets/json/plugins.json'
 import rolesList from '../assets/json/roles.json'
 import thingsList from '../assets/json/things.json'
 import usersList from '../assets/json/users.json'
-import marketplaceCategories from '../assets/json/marketplace_categories.json'
-import marketplaceCategoriesPlugins from '../assets/json/automation_protocols_plugins.json'
+import marketplaceCategoriesList from '../assets/json/marketplace_categories.json'
+import marketplaceCategoriesPluginsList from '../assets/json/automation_protocols_plugins.json'
 import environmentsList from '../assets/json/environments.json'
-import environmentThings from '../assets/json/environment_things.json'
+import environmentThingsList from '../assets/json/environment_things.json'
 
 Vue.use(Vuex)
 
@@ -42,9 +42,9 @@ export default new Vuex.Store({
     automationsList,
     commandsList,
     environmentsList,
-    environmentThings,
-    marketplaceCategories,
-    marketplaceCategoriesPlugins,
+    environmentThingsList,
+    marketplaceCategoriesList,
+    marketplaceCategoriesPluginsList,
     pluginsList,
     rolesList,
     thingsList,

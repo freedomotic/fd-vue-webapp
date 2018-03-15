@@ -8,15 +8,15 @@
     </md-toolbar>
      <!-- This should be replaced by md-select components -->
      <select v-model="selectedCategory">
-        <option v-for="category in getMarketplaceCategories" v-bind:value="category.name" 
-        v-on:change="getMarketplaceCategoryPlugins(category.name)" 
+        <option v-for="category in getMarketplaceCategoriesList" v-bind:value="category.name" 
+        v-on:change="getMarketplaceCategoryPluginsList(category.name)" 
         >
            {{ category.name }}
         </option>
      </select>
      <div>
        <md-list class="md-triple-line">
-         <md-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.uuid">
+         <md-list-item v-for="plugin in getMarketplaceCategoryPluginsList" :key="plugin.uuid">
             <md-avatar>
               <img :src="plugin.field_icon[0].filepath" :alt="plugin.title">
             </md-avatar>
@@ -38,11 +38,11 @@
 export default {
   name: 'Marketplace',
   computed: {
-    getMarketplaceCategories: function () {
-      return this.$store.state.marketplaceCategories
+    getMarketplaceCategoriesList: function () {
+      return this.$store.state.marketplaceCategoriesList
     },
-    getMarketplaceCategoryPlugins: function (category) {
-      return this.$store.state.marketplaceCategoriesPlugins
+    getMarketplaceCategoryPluginsList: function (category) {
+      return this.$store.state.marketplaceCategoriesPluginsList
     }
   },
   data () {

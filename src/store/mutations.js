@@ -92,25 +92,29 @@ function hideAllDashboardDisplays (state) {
 
 // mutations for API
 export const setEnvironmentsList = (state, {list}) => {
-  state.environments = list
+  state.environmentsList = list
 }
 
 export const setCommandsList = (state, {list}) => {
-  state.commands = list
+  state.commandsList = list
 }
 
 export const setTriggersList = (state, {list}) => {
-  state.triggers = list
+  state.triggersList = list
 }
 
 export const setAutomationsList = (state, {list}) => {
-  state.automations = list
+  state.automationsList = list
 }
 
 export const setUsersList = (state, {list}) => {
-  state.users = list
+  state.usersList = list
 }
 
 export const setRolesList = (state, {list}) => {
-  state.roles = list
+  state.rolesList = list
+}
+
+export const setEnvironmentThingsList = (state, {list}) => {
+  state.environmentThingsList = list
 }
