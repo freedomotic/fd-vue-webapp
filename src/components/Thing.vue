@@ -4,17 +4,23 @@
       <md-card-header>
         <md-card-header-text>
           <div class="md-title">{{thing.name}}</div>
-          <div class="md-subhead">Normal size</div>
+          <div class="md-subhead">{{thing.type.split(/[. ]+/).pop()}}</div>
         </md-card-header-text>
 
         <md-card-media>
           <img src="../assets/plugin-running.png" alt="People">
         </md-card-media>
       </md-card-header>
+      
+      <div>
+        <md-content v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
+          {{thing.behaviors[0].value/thing.behaviors[0].scale}}
+        </md-content>
+      </div>
 
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
-         <md-button class="md-icon-button" @click="showEditThingModal">
+         <md-button class="md-icon-button" @click="showThingsEditorModal">
             <md-icon>settings</md-icon>
          </md-button>
 
@@ -46,10 +52,15 @@ export default {
     ThingsEditor
   },
   methods: {
-    showEditThingModal () {
+    showThingsEditorModal () {
       this.$modal.show(ThingsEditor, {
         thing: this.thing
       }, {
+        adaptive: true,
+        resizable: true,
+        clickToClose: false,
+        width: '50%',
+        height: '60%'
       })
     }
   }
