@@ -1,6 +1,6 @@
 [
   {
-    "name": "Thermometer",
+    "name": "Thermometer Livingroom",
     "description": "Collects temperature events",
     "uuid": "873597c2-54b6-4f6e-8340-44ac9f5574a7",
     "protocol": "unknown",
@@ -1017,7 +1017,7 @@
         "active": true,
         "priority": -1,
         "readOnly": false,
-        "value": false
+        "value": true
       },
       {
         "@class": "com.freedomotic.model.object.RangedIntBehavior",
@@ -1026,7 +1026,7 @@
         "active": true,
         "priority": -1,
         "readOnly": false,
-        "value": 0,
+        "value": 100,
         "max": 100,
         "min": 0,
         "scale": 1,
