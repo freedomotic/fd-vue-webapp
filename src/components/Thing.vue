@@ -12,12 +12,20 @@
         </md-card-media>
       </md-card-header>
       
-      <div>
-        <md-content v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
-          {{thing.behaviors[0].value/thing.behaviors[0].scale}}
-        </md-content>
+      <div class="light-status" v-if="thing.type =='EnvObject.ElectricDevice.Light'">
+          <img v-if="thing.behaviors[0].value == true" class="center" src="../assets/icons/led-green.png"/>
+          <img v-else class="center" src="../assets/icons/led-grey.png"/>
+          <div class="behavior">brightness {{thing.behaviors[1].value}}%</div>
       </div>
 
+      <div class="setpoint" v-if="thing.type =='EnvObject.Thermostat'">
+           Set point {{thing.behaviors[1].value}}°
+      </div>
+
+      <div class="temperature" v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
+           {{thing.behaviors[0].value/thing.behaviors[0].scale}}°
+      </div>
+      
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
          <md-button class="md-icon-button" @click="showThingsEditorModal">
@@ -78,5 +86,41 @@ export default {
   .md-card-media {
       width: 64px;
       height: 64px;
+  }
+
+  .setpoint {
+      text-align: center;
+      font-size: 12px;
+  }
+
+  .temperature {
+      position: relative;
+      width: 90px;
+      height: 50px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 18px;
+      padding: 15px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      background: rgba(148,237,31,0.6);
+      -webkit-box-shadow: #B3B3B3 12px 12px 12px;
+      -moz-box-shadow: #B3B3B3 12px 12px 12px;
+      box-shadow: #B3B3B3 12px 12px 12px;
+  }
+
+  img.center {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  .behavior {
+    display: block;
+    margin: 0 auto;
+    text-align: center
   }
 </style>
