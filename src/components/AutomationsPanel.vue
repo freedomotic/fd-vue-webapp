@@ -105,6 +105,7 @@ export default {
           draggable: true,
           adaptive: true,
           resizable: true,
+          scrollable: true,
           clickToClose: false,
           width: '65%',
           height: '40%'

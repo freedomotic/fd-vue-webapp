@@ -1,6 +1,6 @@
 <template>
   <div>
-   <md-toolbar class="md-accent">
+    <md-toolbar class="md-accent">
        <md-content class="small-icon" @click="$emit('close')">
             <md-icon>clear</md-icon>
        </md-content> 
@@ -33,7 +33,7 @@
         </md-field>
         <md-field>
             <label>{{$t('address')}}</label>
-            <md-input v-model="address"></md-input>
+            <md-input v-model="phisicalAddress"></md-input>
         </md-field>
         <md-field>
             <label>{{$t('tags')}}</label>
@@ -44,7 +44,10 @@
            <md-button id="delete-thing-button" class="md-raised">{{$t('delete_thing')}}</md-button>
         </div>
        </v-tab>
-      <v-tab :title="$t('appearance')">
+       <v-tab :title="$t('appearance')">
+        Second tab content
+       </v-tab>
+       <v-tab :title="$t('data_source')">
         Second tab content
        </v-tab>
        <v-tab :title="$t('control_panel')">
@@ -59,7 +62,10 @@
        </v-tab>
       </vue-tabs>
      </form> 
-    </div>  
+    </div>
+    <md-toolbar class="md-dense md-toolbar-section-end" md-elevation="1">
+       <md-button class="md-primary" @click="updateThing">{{$t('update')}}</md-button>
+    </md-toolbar>
   </div>
 </template>
 
@@ -79,7 +85,7 @@ export default {
     this.name = this.thing.name
     this.description = this.thing.description
     this.protocol = this.thing.protocol
-    this.address = this.thing.physicalAddress
+    this.phisicalAddress = this.thing.phisicalAddress
     this.tags = this.thing.tags
   },
   data () {
@@ -88,11 +94,25 @@ export default {
       name: '',
       description: '',
       protocol: '',
-      address: '',
+      phisicalAddress: '',
       tags: []
     }
   },
-  methods: {}
+  methods: {
+    updateThing () {
+      // retrieve data from Properties tab
+      this.thing.name = this.name
+      this.thing.description = this.description
+      this.thing.protocol = this.protocol
+      this.thing.phisicalAddress = this.phisicalAddress
+      this.thing.tags = this.tags
+      // call API store action
+      this.$store.dispatch('updateThing', this.thing.uuid, this.thing)
+      // DEBUG
+      alert(JSON.stringify(this.thing, null, 2))
+      this.$emit('close')
+    }
+  }
 }
 </script>
 
