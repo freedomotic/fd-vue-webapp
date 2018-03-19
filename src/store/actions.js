@@ -120,7 +120,7 @@ export const deleteThing = (context, thingId) => {
   console.log('Executing deleteThing ' + thingId)
 }
 
-export const updateThing = (context, thingId) => {
+export const updateThing = (context, thingId, thing) => {
   // mapped to  API /things/{thingId}/copy - PUT
   console.log('Executing updateThing ' + thingId)
 }
@@ -133,4 +133,10 @@ export const moveThing = (context, thingId, x, y) => {
 export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) => {
   // mapped to  API /things/{thingId}/behaviorchange/{behaviorId}/{newBehaviorValue} - POST
   console.log('Executing moveThing ' + thingId)
+}
+
+export const addAutomation = (context, automation) => {
+  // mapped to  API /reactions - POST
+  console.log('Executing addAutomation ' + automation)
+  // commit automationsList update
 }

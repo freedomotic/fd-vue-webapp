@@ -10,8 +10,8 @@
       <md-step id="first" :md-label="$t('select_trigger')" :md-done.sync="first">
          <div>
            <!-- This should be replaced by md-select components -->
-           <select v-model="selectedTrigger" v-on:change="getTextFromSelectTrigger">
-              <option v-for="trigger in getTriggersList" v-bind:value="trigger.uuid">
+           <select v-model="selectedTrigger">
+              <option v-for="trigger in getTriggersList" v-bind:value="trigger">
                   {{ trigger.name }}
               </option>
            </select>
@@ -23,8 +23,8 @@
       <md-step id="second" :md-label="$t('select_one_more_commands')" :md-error="secondStepError" :md-done.sync="second">
         <div>
            <!-- This should be replaced by md-select components -->
-           <select v-model="selectedCommands" multiple v-on:change="getTextFromSelectCommands">
-              <option v-for="command in getCommandsList" v-bind:value="command.uuid">
+           <select v-model="selectedCommands" multiple>
+              <option v-for="command in getCommandsList" v-bind:value="command">
                   {{ command.name }}
               </option>
            </select>
@@ -34,9 +34,13 @@
        </md-step>
 
       <md-step id="third" :md-label="$t('review_confirm')" :md-done.sync="third">
-        <div>Selected trigger: {{ selectedTrigger }}</div>
-        <div>Selected commands: {{ selectedCommands }}</div>
-        <md-button class="md-raised md-primary" @click="sendToAPI">{{$t('confirm')}}</md-button>
+        <div>Selected trigger: {{ selectedTrigger['name'] }}</div>
+        <div>Selected commands: 
+          <li v-for="command in selectedCommands">
+             {{ command['name'] }}
+          </li>
+        </div>  
+        <md-button class="md-raised md-primary" @click="addNewAutomation">{{$t('confirm')}}</md-button>
       </md-step>
     </md-steppers>
   </div>
@@ -45,7 +49,7 @@
 <script>
 
 export default {
-  name: 'StepperLinear',
+  name: 'AddAutomation',
   computed: {
     getCommandsList: function () {
       return this.$store.state.commandsList
@@ -59,10 +63,17 @@ export default {
     first: false,
     second: false,
     third: false,
-    selectedTrigger: '',
-    selectedTriggerName: '',
-    selectedCommandsName: [],
-    selectedCommands: []
+    selectedTrigger: {},
+    selectedCommands: [],
+    newAutomation: {
+      conditions: [],
+      shortDescription: '',
+      uuid: '',
+      description: '',
+      triggerURI: '',
+      triggerUuid: '',
+      commands: []
+    }
   }),
   methods: {
     setDone (id, index) {
@@ -76,18 +87,21 @@ export default {
         this.$modal.hide('add-automation')
       }
     },
-    getTextFromSelectTrigger () {
-      var values = this.triggersList.map(function (o) { return o.value })
-      var index = values.indexOf(this.selected)
-      this.selectedTriggerName = this.triggersList[index].name
-    },
-    getTextFromSelectCommands () {
-      var values = this.commandsList.map(function (o) { return o.value })
-      var index = values.indexOf(this.selected)
-      this.selectedCommandsName = this.commandsList[index].name
-    },
-    sendToAPI () {
+    addNewAutomation () {
       this.third = true
+      this.newAutomation.shortDescription = 'WHEN  ' + '[' + this.selectedTrigger.name + ']  THEN (' + this.selectedCommands[0].name + ')'
+      if (this.selectedCommands.length > 1) {
+        for (var i = 1; i < this.selectedCommands.length; i++) {
+          this.addNewAutomation.shortDescription = this.newAutomation.shortDescription + ' AFTER THAT (' + this.selectedCommands[i].name + ')'
+        }
+      }
+      this.newAutomation.triggerURI = 'triggers/' + this.selectedTrigger.uuid
+      this.newAutomation.triggerUuid = this.selectedTrigger.uuid
+      for (i = 0; i < this.selectedCommands.length; i++) {
+        this.newAutomation.commands.push({'uuid': this.selectedCommands[i].uuid, 'uri': 'commands/user/' + this.selectedCommands[i].uuid})
+      }
+      alert(JSON.stringify(this.newAutomation, null, 2))
+      this.$store.dispatch('addAutomation', this.newAutomation)
       this.$emit('close')
     }
   }

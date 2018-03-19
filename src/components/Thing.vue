@@ -67,8 +67,9 @@ export default {
         adaptive: true,
         resizable: true,
         clickToClose: false,
+        scrollable: true,
         width: '50%',
-        height: '60%'
+        height: 'auto'
       })
     }
   }
