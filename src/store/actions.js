@@ -104,3 +104,33 @@ export const stopPlugin = (context, pluginId) => {
   // mapped to  API
   console.log('Executing stopPlugin ' + pluginId)
 }
+
+export const getResource = (context, resourceId) => {
+  // mapped to  API /resource/{resourceId}
+  console.log('Executing getResource ' + resourceId)
+}
+
+export const cloneThing = (context, thingId) => {
+  // mapped to  API /things/{thingId}/copy - POST
+  console.log('Executing cloneThing ' + thingId)
+}
+
+export const deleteThing = (context, thingId) => {
+  // mapped to  API /things/{thingId} - DELETE
+  console.log('Executing deleteThing ' + thingId)
+}
+
+export const updateThing = (context, thingId) => {
+  // mapped to  API /things/{thingId}/copy - PUT
+  console.log('Executing updateThing ' + thingId)
+}
+
+export const moveThing = (context, thingId, x, y) => {
+  // mapped to  API /things/{thingId}/move/{x}/{y} - POST
+  console.log('Executing moveThing ' + thingId)
+}
+
+export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) => {
+  // mapped to  API /things/{thingId}/behaviorchange/{behaviorId}/{newBehaviorValue} - POST
+  console.log('Executing moveThing ' + thingId)
+}
