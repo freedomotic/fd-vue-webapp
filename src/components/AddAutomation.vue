@@ -78,8 +78,6 @@ export default {
   methods: {
     setDone (id, index) {
       this[id] = true
-      this.secondStepError = null
-
       if (index) {
         this.active = index
       }
@@ -109,7 +107,5 @@ export default {
 </script>
 
 <style scoped>
-  .md-steppers {
-
-  }
+  
 </style>

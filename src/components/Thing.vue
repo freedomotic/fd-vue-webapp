@@ -12,10 +12,10 @@
         </md-card-media>
       </md-card-header>
       
-      <div class="light-status" v-if="thing.type =='EnvObject.ElectricDevice.Light'">
+      <div v-if="thing.type.includes('ElectricDevice')">
           <img v-if="thing.behaviors[0].value == true" class="center" src="../assets/icons/led-green.png"/>
           <img v-else class="center" src="../assets/icons/led-grey.png"/>
-          <div class="behavior">brightness {{thing.behaviors[1].value}}%</div>
+          <div v-if="thing.type.includes('Light')" class="behavior">brightness {{thing.behaviors[1].value}}%</div>
       </div>
 
       <div class="setpoint" v-if="thing.type =='EnvObject.Thermostat'">
@@ -41,7 +41,7 @@
 
         <md-card-expand-content>
           <md-card-content>
-            <div v-for="behavior in thing.behaviors">
+            <div v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false">
               {{behavior.name}}
             </div> 
           </md-card-content>

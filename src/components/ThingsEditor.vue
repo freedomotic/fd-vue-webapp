@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-toolbar class="md-accent">
+    <md-toolbar>
        <md-content class="small-icon" @click="$emit('close')">
             <md-icon>clear</md-icon>
        </md-content> 
@@ -41,14 +41,50 @@
         </md-field>
         <div id="properties-tab-buttons">
            <md-button id="create-copy-button" class="md-raised">{{$t('create_copy')}}</md-button>
-           <md-button id="delete-thing-button" class="md-raised">{{$t('delete_thing')}}</md-button>
+           <md-button id="delete-thing-button" class="md-raised"
+           @click="showDeleteThingDialog($event)"
+           v-bind:uuid="thing.uuid"
+           v-bind:name="thing.name" 
+           >{{$t('delete_thing')}}</md-button>
         </div>
        </v-tab>
        <v-tab :title="$t('appearance')">
-        Second tab content
+        <md-field>
+         <label>{{$t('position_x')}}</label>
+         <md-input v-model="positionX" type="number"></md-input>
+        </md-field>
+        <md-field>
+         <label>{{$t('position_y')}}</label>
+         <md-input v-model="positionY" type="number"></md-input>
+        </md-field>
+        <md-field>
+         <label>{{$t('rotation')}}</label>
+         <md-input v-model="rotation" type="number"></md-input>
+        </md-field>
+        <md-field>
+         <label>{{$t('width')}}</label>
+         <md-input v-model="width" type="number" disabled></md-input>
+        </md-field>
+        <md-field>
+         <label>{{$t('height')}}</label>
+         <md-input v-model="height" type="number" disabled></md-input>
+        </md-field>
+        <md-field>
+          <label for="font">{{$t('environment')}}</label>
+          <md-select v-model="environment" name="environment" id="environment">
+            <md-option v-for="env in getEnvironmentsList" :value="env.uuid" :key="env.uuid">{{env.name}}</md-option>
+          </md-select>
+        </md-field>
        </v-tab>
        <v-tab :title="$t('data_source')">
-        Second tab content
+        <div v-for="(value, key) in thing.triggers.propertyList">
+           {{value}}
+        </div>
+       </v-tab>
+       <v-tab :title="$t('actions')">
+        <div v-for="(value, key) in thing.actions.propertyList">
+           {{key}}
+        </div>
        </v-tab>
        <v-tab :title="$t('control_panel')">
           <div v-for="behavior in thing.behaviors">
@@ -79,7 +115,11 @@ export default {
     VueTabs,
     VTab
   },
-  computed: {},
+  computed: {
+    getEnvironmentsList: function () {
+      return this.$store.state.environmentsList
+    }
+  },
   created () {
     this.uuid = this.thing.uuid
     this.name = this.thing.name
@@ -87,6 +127,12 @@ export default {
     this.protocol = this.thing.protocol
     this.phisicalAddress = this.thing.phisicalAddress
     this.tags = this.thing.tags
+    this.positionX = this.thing.representation[this.thing.currentRepresentation].offset.x
+    this.positionY = this.thing.representation[this.thing.currentRepresentation].offset.y
+    this.rotation = this.thing.representation[this.thing.currentRepresentation].rotation
+    this.width = this.thing.representation[this.thing.currentRepresentation].scaleX
+    this.height = this.thing.representation[this.thing.currentRepresentation].scaleY
+    this.environment = this.thing.envUUID
   },
   data () {
     return {
@@ -95,7 +141,13 @@ export default {
       description: '',
       protocol: '',
       phisicalAddress: '',
-      tags: []
+      tags: [],
+      positionX: '',
+      positionY: '',
+      rotation: '',
+      width: '',
+      height: '',
+      environment: ''
     }
   },
   methods: {
@@ -106,11 +158,49 @@ export default {
       this.thing.protocol = this.protocol
       this.thing.phisicalAddress = this.phisicalAddress
       this.thing.tags = this.tags
+      // retrieve data from Appearance tab
+      this.thing.envUUID = this.environment
       // call API store action
       this.$store.dispatch('updateThing', this.thing.uuid, this.thing)
       // DEBUG
       alert(JSON.stringify(this.thing, null, 2))
       this.$emit('close')
+    },
+    cloneThing () {
+      // call API store action
+      this.$store.dispatch('cloneThing', this.thing.uuid)
+    },
+    showDeleteThingDialog (event) {
+      // var uuid = event.target.getAttribute('uuid')
+      var name = event.target.getAttribute('name')
+      this.$modal.show('dialog', {
+        title: this.$t('delete_thing'),
+        text: this.$t('delete_message') + ' " ' + name + '"?',
+        buttons: [
+          {
+            title: this.$t('cancel'),
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: this.$t('confirm'),
+            default: true,
+            handler: () => {
+              this.$snotify.success('Thing "' + name + '" deleted', 'INFO', {
+                timeout: 3000,
+                showProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true
+              })
+              // TODO call the action to remove the thing
+              this.$store.dispatch('deleteThing', this.thing.uuid)
+              this.$modal.hide('dialog')
+              this.$emit('close')
+            }
+          }
+        ]
+      })
     }
   }
 }
