@@ -76,4 +76,8 @@ export default {
   a:hover {
     color: #4fc08d;
   }
+
+  .md-menu-content {
+    z-index: 1000;
+  }
 </style>

@@ -98,7 +98,7 @@ export default {
     },
     showDynamicComponentModal () {
       this.$modal.show(AddAutomation, {
-        text: 'This text is passed as a property'
+        text: ''
       },
         {
           name: 'addAutomationModal',
@@ -108,7 +108,7 @@ export default {
           scrollable: true,
           clickToClose: false,
           width: '65%',
-          height: '40%'
+          height: 'auto'
         })
     }
   }

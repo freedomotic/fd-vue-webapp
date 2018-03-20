@@ -1,4 +1,5 @@
 {
+  "actions": "Actions",
   "actuators": "Actuators",
   "advanced_mode": "Advanced mode",
   "address" : "Address",
@@ -18,6 +19,7 @@
   "current_language": "Current language",
   "data_source" : "Data source",
   "description" : "Description",
+  "delete_message" : "Do you want to delete",
   "delete_thing" : "Delete thing",
   "disable": "Disable",
   "docs": "Docs",
@@ -63,6 +65,7 @@
   "system_shutdown": "System settings",
   "temperature" : "Temperature",
   "tags" : "Tags",
+  "triggers" : "Triggers",
   "uninstall": "Uninstall",
   "use_ssl": "Use SSL",
   "users": "Users",
