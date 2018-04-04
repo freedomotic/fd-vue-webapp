@@ -16,7 +16,7 @@
         "permissions": "*",
         "package.name": "webserver",
         "ssl-port": "9443",
-        "webapp-dir": "/data/fd-polymer-webapp",
+        "webapp-dir": "/data/dist",
         "keystore-type": "JKS",
         "category": "webserver",
         "framework.required.version": "5.6.x",
@@ -33,8 +33,38 @@
     "shortName": "jetty",
     "listenOn": "app.actuators.webserver.jetty.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/webserver/applicationserver-manifest.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/webserver/applicationserver-manifest.xml",
     "uuid": "applicationserver"
+  },
+  {
+    "pluginName": "Automations Editor",
+    "currentPluginStatus": "RUNNING",
+    "configuration": {
+      "tuples": null,
+      "props": {
+        "framework.required.version": "5.6.x",
+        "startup-time": "on load",
+        "category": "nlautomationseditor",
+        "package.name": "frontend-java",
+        "framework.required.minor": "6",
+        "package.nodeid": "783",
+        "version": "40",
+        "required": "40",
+        "framework.required.major": "5",
+        "framework.required.build": "x",
+        "description": "Editor for Freedomotic automations",
+        "short-name": "nlautomationseditor"
+      }
+    },
+    "description": "Editor for Freedomotic automations",
+    "version": null,
+    "requiredVersion": null,
+    "category": "nlautomationseditor",
+    "shortName": "nlautomationseditor",
+    "listenOn": "app.actuators.nlautomationseditor.nlautomationseditor.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/frontend-java/automations-editor.xml",
+    "uuid": "automationseditor"
   },
   {
     "pluginName": "Delayer",
@@ -62,8 +92,66 @@
     "shortName": "delayer",
     "listenOn": "app.actuators.automation.delayer.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/essential/delayer.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/essential/delayer.xml",
     "uuid": "delayer"
+  },
+  {
+    "pluginName": "JFrontend",
+    "currentPluginStatus": "RUNNING",
+    "configuration": {
+      "tuples": null,
+      "props": {
+        "framework.required.version": "5.6.x",
+        "startup-time": "on load",
+        "category": "frontend",
+        "package.name": "frontend-java",
+        "enable-sensors-widget": "true",
+        "framework.required.minor": "6",
+        "package.nodeid": "783",
+        "framework.required.major": "5",
+        "automatic-reply-to-commands": "false",
+        "enable-i18n": "true",
+        "framework.required.build": "x",
+        "description": "A Java desktop frontend",
+        "short-name": "javadesktop"
+      }
+    },
+    "description": "A Java desktop frontend",
+    "version": null,
+    "requiredVersion": null,
+    "category": "frontend",
+    "shortName": "javadesktop",
+    "listenOn": "app.actuators.frontend.javadesktop.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/frontend-java/desktop-frontend.xml",
+    "uuid": "javadesktopfrontend"
+  },
+  {
+    "pluginName": "Log Viewer",
+    "currentPluginStatus": "STOPPED",
+    "configuration": {
+      "tuples": null,
+      "props": {
+        "framework.required.version": "5.6.x",
+        "category": "log",
+        "package.name": "frontend-java",
+        "framework.required.minor": "6",
+        "package.nodeid": "783",
+        "framework.required.major": "5",
+        "framework.required.build": "x",
+        "description": "Log Viewer",
+        "short-name": "viewer"
+      }
+    },
+    "description": "Log Viewer",
+    "version": null,
+    "requiredVersion": null,
+    "category": "log",
+    "shortName": "viewer",
+    "listenOn": "app.actuators.log.viewer.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/frontend-java/logviewer-manifest.xml",
+    "uuid": "logviewer"
   },
   {
     "pluginName": "Mailer",
@@ -96,8 +184,129 @@
     "shortName": "mail",
     "listenOn": "app.actuators.messaging.mail.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/mailer/mailer-manifest.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/mailer/mailer-manifest.xml",
     "uuid": "mailer"
+  },
+  {
+    "pluginName": "Modbus",
+    "currentPluginStatus": "STOPPED",
+    "configuration": {
+      "tuples": {
+        "tuples": [
+          {
+            "DataType": "TWO_BYTE_INT_UNSIGNED",
+            "EventName": "TemperatureZone1",
+            "SlaveId": "2",
+            "RegisterRange": "HOLDING_REGISTER",
+            "Bit": "1",
+            "NumberOfRegisters": "1",
+            "Name": "TemperatureZone1",
+            "Offset": "37"
+          },
+          {
+            "Additive": "0",
+            "Multiplier": "1",
+            "DataType": "BINARY",
+            "EventName": "BitTest",
+            "SlaveId": "2",
+            "RegisterRange": "HOLDING_REGISTER",
+            "Bit": "3",
+            "NumberOfRegisters": "1",
+            "Name": "BitTest",
+            "Offset": "37"
+          }
+        ]
+      },
+      "props": {
+        "encapsulated": "true",
+        "retries": "2",
+        "package.nodeid": "394",
+        "polling-time": "1000",
+        "short-name": "modbus",
+        "framework.required.minor": "6",
+        "stop-bits": "1",
+        "modbus-protocol": "TCP",
+        "package.name": "modbus",
+        "timeout": "250",
+        "port": "/dev/ttyUSB10",
+        "host": "cloud.bestmazzo.it",
+        "NumRegisters": "5",
+        "parity": "2",
+        "framework.required.version": "5.6.x",
+        "category": "protocol",
+        "baudrate": "19200",
+        "description": "Plugin for Modbus protocol",
+        "framework.required.build": "x",
+        "framework.required.major": "5",
+        "data-bits": "8",
+        "protocol.name": "modbus",
+        "tcp-port": "4001"
+      }
+    },
+    "description": "Plugin for Modbus protocol",
+    "version": null,
+    "requiredVersion": null,
+    "category": "protocol",
+    "shortName": "modbus",
+    "listenOn": "app.actuators.protocol.modbus.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/modbus/modbus-manifest.xml",
+    "uuid": "modbus"
+  },
+  {
+    "pluginName": "MySensors",
+    "currentPluginStatus": "STOPPED",
+    "configuration": {
+      "tuples": {
+        "tuples": [
+          {
+            "turn on": "Turn ON MySensors light",
+            "powered": "MySensors reads light status",
+            "turn off": "Turn OFF MySensors light",
+            "object.class": "Light"
+          },
+          {
+            "temperature": "MySensors reads celsius temperature",
+            "object.class": "Thermostat"
+          },
+          {
+            "luminosity": "MySensors reads luminosity",
+            "object.class": "Light Sensor"
+          }
+        ]
+      },
+      "props": {
+        "package.nodeid": "1345",
+        "short-name": "mysensors",
+        "V_TEMP": "Thermometer",
+        "serial.databits": "8",
+        "framework.required.minor": "6",
+        "V_LIGHT": "Light",
+        "V_HUM": "Hygrometer",
+        "serial.port": "COM2",
+        "V_PRESSURE": "Barometer",
+        "package.name": "mysensors",
+        "serial.stopbits": "1",
+        "category": "protocol",
+        "framework.required.version": "5.6.x",
+        "description": "MySensors plugin",
+        "framework.required.build": "x",
+        "serial.parity": "0",
+        "framework.required.major": "5",
+        "protocol.name": "mysensors",
+        "serial.baudrate": "9600",
+        "name": "mysensors"
+      }
+    },
+    "description": "MySensors plugin",
+    "version": null,
+    "requiredVersion": null,
+    "category": "protocol",
+    "shortName": "mysensors",
+    "listenOn": "app.actuators.protocol.mysensors.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/mysensors/mysensors-manifest.xml",
+    "uuid": "mysensors"
   },
   {
     "pluginName": "Plugins Remote Controller",
@@ -124,7 +333,7 @@
     "shortName": "controller",
     "listenOn": "app.actuators.plugins.controller.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/essential/plugins-remote-controller.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/essential/plugins-remote-controller.xml",
     "uuid": "pluginremotecontroller"
   },
   {
@@ -164,7 +373,7 @@
     "shortName": "restapi-v3",
     "listenOn": "app.actuators.devel.restapi-v3.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/restapi-v3/restapiv3-manifest.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/restapi-v3/restapiv3-manifest.xml",
     "uuid": "restapiv3"
   },
   {
@@ -193,7 +402,7 @@
     "shortName": "clock",
     "listenOn": "app.actuators.clock.clock.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/essential/scheduler.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/essential/scheduler.xml",
     "uuid": "scheduler"
   },
   {
@@ -220,7 +429,7 @@
     "shortName": "sensor",
     "listenOn": "app.actuators.simulator.sensor.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/simulation/sensors-simulator.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/simulation/sensors-simulator.xml",
     "uuid": "varioussensors"
   },
   {
@@ -249,7 +458,7 @@
     "shortName": "success",
     "listenOn": "app.actuators.simulator.success.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/essential/successful.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/essential/successful.xml",
     "uuid": "successful"
   },
   {
@@ -277,7 +486,7 @@
     "shortName": "random",
     "listenOn": "app.actuators.tracking.random.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/simulation/tracking-simulator-random.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/simulation/tracking-simulator-random.xml",
     "uuid": "trackingrandomposition"
   },
   {
@@ -309,7 +518,7 @@
     "shortName": "socket",
     "listenOn": "app.actuators.tracking.socket.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/simulation/tracking-simulator-read-socket.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/simulation/tracking-simulator-read-socket.xml",
     "uuid": "trackingreadsocket"
   },
   {
@@ -338,7 +547,78 @@
     "shortName": "tracking-from-file",
     "listenOn": "app.actuators.tracking.tracking-from-file.in",
     "sendOn": "undefined",
-    "path": "/srv/freedomotic/plugins/devices/simulation/tracking-simulator-read-file.xml",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/simulation/tracking-simulator-read-file.xml",
     "uuid": "trackingreadfile"
+  },
+  {
+    "pluginName": "Twilight",
+    "currentPluginStatus": "RUNNING",
+    "configuration": {
+      "tuples": null,
+      "props": {
+        "framework.required.version": "5.6.x",
+        "polling-time": "30000",
+        "longitude": "11.0233",
+        "startup-time": "on load",
+        "name": "twilight",
+        "category": "logging",
+        "package.name": "twilight",
+        "framework.required.minor": "6",
+        "package.nodeid": "1220",
+        "framework.required.major": "5",
+        "latitude": "43.7776",
+        "provider": "openweathermap",
+        "framework.required.build": "x",
+        "description": "Sends events about sunrise and sunset",
+        "short-name": "twilight"
+      }
+    },
+    "description": "Sunrise: 05:51:59.000 Sunset: 18:46:27.000",
+    "version": null,
+    "requiredVersion": null,
+    "category": "logging",
+    "shortName": "twilight",
+    "listenOn": "app.actuators.logging.twilight.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/twilight/twilight-manifest.xml",
+    "uuid": "twilight"
+  },
+  {
+    "pluginName": "USB4RelayBrd",
+    "currentPluginStatus": "STOPPED",
+    "configuration": {
+      "tuples": {
+        "tuples": [
+          {
+            "turn on": "Turn on a relay on Usb4Relay device",
+            "powered": "Usb4RelayBrd reads relay state",
+            "turn off": "Turn off a relay on Usb4Relay device",
+            "object.class": "Light"
+          }
+        ]
+      },
+      "props": {
+        "polling-time": "1000",
+        "framework.required.version": "5.6.x",
+        "category": "protocol",
+        "package.name": "usb4relaybrd",
+        "framework.required.minor": "6",
+        "package.nodeid": "1184",
+        "framework.required.major": "5",
+        "protocol.name": "usb4relaybrd",
+        "framework.required.build": "x",
+        "description": "A plugin for Usb4RelayBrd",
+        "short-name": "usb4relaybrd"
+      }
+    },
+    "description": "A plugin for Usb4RelayBrd",
+    "version": null,
+    "requiredVersion": null,
+    "category": "protocol",
+    "shortName": "usb4relaybrd",
+    "listenOn": "app.actuators.protocol.usb4relaybrd.in",
+    "sendOn": "undefined",
+    "path": "/home/emmecilab/Scrivania/last/plugins/devices/usb4relaybrd/usb4relaybrd-manifest.xml",
+    "uuid": "usb4relaybrd"
   }
 ]
