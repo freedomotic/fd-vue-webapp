@@ -87,12 +87,16 @@
         </div>
        </v-tab>
        <v-tab :title="$t('control_panel')">
-          <div v-for="behavior in thing.behaviors">
-            <span>{{behavior.name}}</span>
-            <span v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">add slider</span>
-            <span v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">add switch</span>
-          </div> 
-       </v-tab>
+          <md-list>
+            <md-list-item v-for="behavior in thing.behaviors" :key="behavior.name">
+              <span class="md-list-item-text">{{behavior.name}} ({{behavior.value}})</span>
+              <span class="md-list-item-text" v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">add slider</span>
+              <span class="md-list-item-text" v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">
+                <md-button class="md-dense md-raised">Set {{behavior.name}} True</md-button>
+              </span>
+            </md-list-item>
+          </md-list>
+        </v-tab>
        <v-tab :title="$t('automations')">
         Third tab content
        </v-tab>
@@ -207,5 +211,11 @@ export default {
 </script>
 
 <style scoped>
-  
+.md-list {
+    width: 450px;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid rgba(#000, .12);
+  }  
 </style>

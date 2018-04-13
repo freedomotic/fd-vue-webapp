@@ -25,6 +25,10 @@
       <div class="temperature" v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
            {{thing.behaviors[0].value/thing.behaviors[0].scale}}°
       </div>
+
+      <div class="sensor" v-if="thing.type.includes('GenericSensor')">
+           {{thing.behaviors[0].value/thing.behaviors[0].scale}}
+      </div>
       
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
@@ -41,7 +45,7 @@
 
         <md-card-expand-content>
           <md-card-content>
-            <div v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false">
+            <div v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               {{behavior.name}}
             </div> 
           </md-card-content>
@@ -95,6 +99,25 @@ export default {
   }
 
   .temperature {
+      position: relative;
+      width: 90px;
+      height: 50px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 18px;
+      padding: 15px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      background: rgba(148,237,31,0.6);
+      -webkit-box-shadow: #B3B3B3 12px 12px 12px;
+      -moz-box-shadow: #B3B3B3 12px 12px 12px;
+      box-shadow: #B3B3B3 12px 12px 12px;
+  }
+
+  .sensor {
       position: relative;
       width: 90px;
       height: 50px;
