@@ -11,7 +11,7 @@
         </md-toolbar>
         
     <div>   
-    <md-list class="md-dense">
+    <md-list class="md-double-line">
       
       <md-list-item v-for="automation in getAutomationsList" :key="automation.uuid">
         
@@ -66,11 +66,11 @@ export default {
       this.$store.commit('closeSection')
     },
     showDeleteAutomationDialog (event) {
-      // var uuid = event.target.getAttribute('uuid')
-      var name = event.target.getAttribute('name')
+      var automationUuid = event.target.getAttribute('uuid')
+      var automationName = event.target.getAttribute('name')
       this.$modal.show('dialog', {
         title: 'Delete automation',
-        text: 'Do you want to delete "' + name + '" automation?',
+        text: 'Do you want to delete "' + automationName + '" automation?',
         buttons: [
           {
             title: 'CANCEL',
@@ -82,15 +82,14 @@ export default {
             title: 'CONFIRM',
             default: true,
             handler: () => {
-              this.$snotify.success('Automation "' + name + '" deleted', 'INFO', {
+              this.$snotify.success('Automation "' + automationName + '" deleted', 'INFO', {
                 timeout: 3000,
                 showProgressBar: false,
                 closeOnClick: false,
                 pauseOnHover: true
               })
-              // TODO call the method to remove the automation
+              this.$store.dispatch('deleteAutomation', automationUuid)
               this.$modal.hide('dialog')
-              // TODO refresh current list of automations
             }
           }
         ]
@@ -130,6 +129,7 @@ export default {
         align-items: center;
         flex-direction: column;
         margin: auto;
+        overflow-y: scroll; 
       }
 
    #action-container {
@@ -148,7 +148,9 @@ export default {
    } 
    
    .md-list {
-      display: inline-block;
-      vertical-align: top;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid rgba(#000, .12);
   }
 </style>

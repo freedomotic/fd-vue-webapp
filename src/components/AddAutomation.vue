@@ -4,32 +4,30 @@
        <md-content class="small-icon" @click="$emit('close')">
             <md-icon>clear</md-icon>
        </md-content> 
-          <h4 class="md-title">New automation</h4>
+          <h4 class="md-title">Add a new automation</h4>
     </md-toolbar>
     <md-steppers :md-active-step.sync="active" md-linear>
       <md-step id="first" :md-label="$t('select_trigger')" :md-done.sync="first">
-         <div>
-           <!-- This should be replaced by md-select components -->
+        <div>
+           <!-- This should be replaced by md-select component -->
            <select v-model="selectedTrigger">
               <option v-for="trigger in getTriggersList" v-bind:value="trigger">
                   {{ trigger.name }}
               </option>
            </select>
-           
-         </div>
+        </div>
          <md-button class="md-raised md-primary" :disabled="selectedTrigger == ''"  @click="setDone('first', 'second')">{{$t('continue')}}</md-button>
       </md-step>
 
-      <md-step id="second" :md-label="$t('select_one_more_commands')" :md-error="secondStepError" :md-done.sync="second">
+      <md-step id="second" :md-label="$t('select_one_more_commands')" :md-done.sync="second">
         <div>
-           <!-- This should be replaced by md-select components -->
+           <!-- This should be replaced by md-select component -->
            <select v-model="selectedCommands" multiple>
-              <option v-for="command in getCommandsList" v-bind:value="command">
+              <option v-for="command in getCommandsList" v-bind:value="command" :key="command.uuid">
                   {{ command.name }}
               </option>
            </select>
-           
-         </div>
+        </div>
          <md-button class="md-raised md-primary" :disabled="selectedCommands == ''"  @click="setDone('second', 'third')">{{$t('continue')}}</md-button>
        </md-step>
 
@@ -63,7 +61,7 @@ export default {
     first: false,
     second: false,
     third: false,
-    selectedTrigger: {},
+    selectedTrigger: [],
     selectedCommands: [],
     newAutomation: {
       conditions: [],

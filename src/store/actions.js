@@ -137,6 +137,10 @@ export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) =
 
 export const addAutomation = (context, automation) => {
   // mapped to  API /reactions - POST
-  console.log('Executing addAutomation ' + automation)
-  // commit automationsList update
+  console.log('Executing addAutomation ' + JSON.stringify(automation))
+}
+
+export const deleteAutomation = (context, automationId) => {
+  // mapped to  API /reactions/automationId - DELETE
+  console.log('Executing deleteAutomation ' + automationId)
 }
