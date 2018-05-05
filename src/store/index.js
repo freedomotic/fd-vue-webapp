@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
 import * as mutations from './mutations'
+import * as getters from './getters'
 
 // Temporarly populated from static json
 import automationsList from '../assets/json/automations.json'
@@ -52,5 +53,6 @@ export default new Vuex.Store({
     usersList
   },
   actions,
-  mutations
+  mutations,
+  getters
 })
