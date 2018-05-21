@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  import auth from '../auth/auth'
+  // import auth from '../auth/auth'
   import logoImg from '../assets/freedomotic-logo-light-transparent.png'
   import Background from './Background.vue'
 
@@ -68,12 +68,11 @@
     },
     methods: {
       login () {
-        auth.login(this.username, this.password, loggedIn => {
-          if (!loggedIn) {
-            this.error = true
-          } else {
-            this.$router.replace(this.$route.query.redirect || '/')
-          }
+        const payload = {'username': this.username, 'password': this.password}
+        this.$store.dispatch('login', payload).then(() => {
+          this.$router.replace(this.$route.query.redirect || '/')
+        }).catch(() => {
+          this.error = true
         })
       }
     }

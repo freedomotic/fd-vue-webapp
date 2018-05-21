@@ -144,3 +144,29 @@ export const deleteAutomation = (context, automationId) => {
   // mapped to  API /reactions/automationId - DELETE
   console.log('Executing deleteAutomation ' + automationId)
 }
+
+// actions for authentication
+export const login = (context, payload) => {
+  return new Promise((resolve, reject) => {
+    // mapped to  API
+    if (payload.username === 'admin' && payload.password === 'admin') {
+      // create token
+      var token = btoa(payload.username + ':' + payload.password)
+      localStorage.setItem('user-token', token)
+      context.commit('authSuccess', token)
+      resolve()
+    } else {
+      context.commit('authError')
+      localStorage.removeItem('user-token')
+      reject()
+    }
+  })
+}
+
+export const logout = (context) => {
+  // mapped to  API
+  console.log('Executing logout ')
+  context.commit('authLogout')
+  localStorage.removeItem('user-token')
+}
+

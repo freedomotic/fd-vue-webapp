@@ -21,6 +21,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    // Authentication state
+    token: localStorage.getItem('user-token') || '',
+    status: '',
+    // end of Authentication state
     // Dashboard state
     displaySettings: false,
     displayInfo: false,

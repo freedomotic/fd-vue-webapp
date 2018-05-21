@@ -118,3 +118,23 @@ export const setRolesList = (state, {list}) => {
 export const setEnvironmentThingsList = (state, {list}) => {
   state.environmentThingsList = list
 }
+// end of mutations for API
+
+// mutations for Authentication
+export const authRequest = (state) => {
+  state.status = 'loading'
+}
+
+export const authError = (state) => {
+  state.status = 'error'
+}
+
+export const authSuccess = (state, token) => {
+  state.status = 'success'
+  state.token = token
+}
+
+export const authLogout = (state) => {
+  state.token = ''
+}
+// end of mutations for Authentication

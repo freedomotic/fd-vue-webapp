@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import auth from './auth/auth'
-// Components import
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
 import MobileAppNavigator from './components/mobile/MobileAppNavigator.vue'
@@ -28,13 +26,12 @@ export default {
     'mobile-app-navigator': MobileAppNavigator
   },
   data () {
-    return {
-      loggedIn: auth.loggedIn()
-    }
+    return {}
   },
-  created () {
-    auth.onChange = loggedIn => {
-      this.loggedIn = loggedIn
+  created () {},
+  computed: {
+    loggedIn () {
+      return !!this.$store.state.token
     }
   }
 }
