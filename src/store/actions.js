@@ -1,3 +1,5 @@
+import axios from '@/utils/fd-axios'
+
 export const openAutomations = (context) => {
   context.commit('closeSection')
   context.commit('showAutomationsPanel')
@@ -146,27 +148,51 @@ export const deleteAutomation = (context, automationId) => {
 }
 
 // actions for authentication
-export const login = (context, payload) => {
+
+// simulate login
+export const pretendLogin = (context, payload) => {
   return new Promise((resolve, reject) => {
     // mapped to  API
     if (payload.username === 'admin' && payload.password === 'admin') {
       // create token
       var token = btoa(payload.username + ':' + payload.password)
-      localStorage.setItem('user-token', token)
+      localStorage.setItem('token', token)
       context.commit('authSuccess', token)
       resolve()
     } else {
       context.commit('authError')
-      localStorage.removeItem('user-token')
+      localStorage.removeItem('token')
       reject()
     }
   })
 }
 
-export const logout = (context) => {
+export const login = (context, payload) => {
+  return new Promise((resolve, reject) => {
+    axios.post('/users/_/login', {name: payload.username, password: payload.password, rememberMe: payload.remember},
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+    .then(response => {
+      // create token
+      console.log(response)
+      var token = btoa(payload.username + ':' + payload.password)
+      localStorage.setItem('token', token)
+      context.commit('authSuccess', token)
+      resolve()
+    })
+    .catch(e => {
+      console.log(e)
+      context.commit('authError')
+      localStorage.removeItem('token')
+      reject()
+    })
+  })
+}
+
+// simulate logout
+export const pretendLogout = (context) => {
   // mapped to  API
   console.log('Executing logout ')
   context.commit('authLogout')
-  localStorage.removeItem('user-token')
+  localStorage.removeItem('token')
 }
 

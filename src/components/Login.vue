@@ -1,6 +1,7 @@
 <template>
 <div data-page="Login">
   <background/>
+  <vue-snotify/>
   <div id="body">
     <div id="login-box">
       <div id="login-header">
@@ -30,7 +31,6 @@
           <md-switch v-model="remember" class="md-primary">{{$t('remember_me')}}</md-switch>
           <md-switch v-model="ssl" class="md-primary">{{$t('use_ssl')}}</md-switch>
           <md-button type="submit" class="md-raised md-primary">{{$t('submit')}}</md-button>
-          <p v-if="error" class="error">{{$t('bad_login_information')}}</p>
         </form>
       </div>
     </div>
@@ -56,8 +56,8 @@
         password: '',
         ssl: false,
         remember: false,
-        logoImg: logoImg,
-        error: false
+        logoImg: logoImg
+        // error: false
       }
     },
     created () {
@@ -68,11 +68,17 @@
     },
     methods: {
       login () {
-        const payload = {'username': this.username, 'password': this.password}
-        this.$store.dispatch('login', payload).then(() => {
+        const payload = {'username': this.username, 'password': this.password, 'rememberMe': this.remember}
+        this.$store.dispatch('pretendLogin', payload).then(() => {
           this.$router.replace(this.$route.query.redirect || '/')
         }).catch(() => {
-          this.error = true
+          // this.error = true
+          this.$snotify.error(this.$t('bad_login_information'), 'ERROR', {
+            timeout: 0,
+            showProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true
+          })
         })
       }
     }

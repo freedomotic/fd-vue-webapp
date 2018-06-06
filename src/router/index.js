@@ -14,7 +14,7 @@ export default new Router({
     { path: '/login', component: Login },
     { path: '/logout',
       beforeEnter (to, from, next) {
-        store.dispatch('logout')
+        store.dispatch('pretendLogout')
         next('/')
       }
     }
