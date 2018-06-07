@@ -64,6 +64,12 @@ Vue.i18n.set('en')
 Vue.i18n.fallback('en')
 
 Vue.use(VueAxios, axios)
+
+const token = localStorage.getItem('token')
+if (token) {
+  axios.defaults.headers.common['Authorization'] = 'Basic + ' + token
+}
+
 Vue.config.productionTip = false
 
 Vue.directive('focus', {

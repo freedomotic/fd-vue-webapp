@@ -169,12 +169,17 @@ export const pretendLogin = (context, payload) => {
 
 export const login = (context, payload) => {
   return new Promise((resolve, reject) => {
-    axios.post('/users/_/login', {name: payload.username, password: payload.password, rememberMe: payload.remember},
+    var body = new URLSearchParams()
+    body.append('name', payload.password)
+    body.append('password', payload.password)
+    body.append('rememberMe', payload.remember)
+    axios.post('/users/_/login', body,
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     .then(response => {
       // create token
-      console.log(response)
       var token = btoa(payload.username + ':' + payload.password)
+      // add axios default header
+      axios.defaults.headers.common['Authorization'] = 'Basic ' + token
       localStorage.setItem('token', token)
       context.commit('authSuccess', token)
       resolve()
@@ -194,5 +199,19 @@ export const pretendLogout = (context) => {
   console.log('Executing logout ')
   context.commit('authLogout')
   localStorage.removeItem('token')
+}
+
+export const logout = (context) => {
+  axios.post('/users/_/logout')
+  .then(response => {
+    context.commit('authLogout')
+    localStorage.removeItem('token')
+    // remove axios default header
+    delete axios.defaults.headers.common['Authorization']
+  })
+  .catch(e => {
+    console.log(e)
+  })
+  // mapped to  API
 }
 

@@ -69,7 +69,7 @@
     methods: {
       login () {
         const payload = {'username': this.username, 'password': this.password, 'rememberMe': this.remember}
-        this.$store.dispatch('pretendLogin', payload).then(() => {
+        this.$store.dispatch('login', payload).then(() => {
           this.$router.replace(this.$route.query.redirect || '/')
         }).catch(() => {
           // this.error = true

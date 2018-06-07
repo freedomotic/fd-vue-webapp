@@ -14,7 +14,7 @@ export default new Router({
     { path: '/login', component: Login },
     { path: '/logout',
       beforeEnter (to, from, next) {
-        store.dispatch('pretendLogout')
+        store.dispatch('logout')
         next('/')
       }
     }
@@ -22,7 +22,7 @@ export default new Router({
 })
 
 function requireAuth (to, from, next) {
-  if (!store.state.isLoggedIn) {
+  if (store.state.token === '') {
     next({
       path: '/login',
       query: { redirect: to.fullPath }
