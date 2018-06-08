@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import ws from '../utils/websocket'
 export default {
   data () {
     return {}
@@ -19,6 +20,7 @@ export default {
       this.$store.commit('closeSection')
     },
     doLogout: function () {
+      ws.closeWebSockets()
       this.$router.push('logout')
     }
   }

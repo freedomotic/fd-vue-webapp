@@ -202,16 +202,15 @@ export const pretendLogout = (context) => {
 }
 
 export const logout = (context) => {
-  axios.post('/users/_/logout')
-  .then(response => {
-    context.commit('authLogout')
-    localStorage.removeItem('token')
+// axios.post('/users/_/logout')
+//  .then(response => {
+  context.commit('authLogout')
+  localStorage.removeItem('token')
     // remove axios default header
-    delete axios.defaults.headers.common['Authorization']
-  })
-  .catch(e => {
-    console.log(e)
-  })
-  // mapped to  API
+  delete axios.defaults.headers.common['Authorization']
+//  })
+//  .catch(e => {
+//    console.log(e)
+//  })
 }
 
