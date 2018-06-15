@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import ws from '../utils/websocket'
 import CornerButton from './CornerButton.vue'
 import Settings from './Settings.vue'
 import AppInfo from './AppInfo.vue'
@@ -84,6 +85,8 @@ export default {
   },
   created () {
     this.$store.commit('hideAll')
+    console.log(localStorage.getItem('token'))
+    ws.openWebSockets()
   },
   computed: {
     displaySettings () {

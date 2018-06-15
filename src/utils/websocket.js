@@ -1,6 +1,6 @@
 /* globals localStorage */
 
-var ws = null
+var messageCalloutWS = null
 var url = null
 
 export default {
@@ -8,17 +8,23 @@ export default {
   openWebSockets () {
     console.log('Opening websockets')
     url = 'ws://174.138.4.3:9111/v3/ws/messagecallout/'
-    ws = new WebSocket(url)
+    messageCalloutWS = new WebSocket(url)
     // Show a connected message when the WebSocket is opened.
-    ws.addEventListener('open', function (e) {
+    messageCalloutWS.addEventListener('open', function (e) {
       console.log('open', e)
     })
-    ws.addEventListener('message', function (e) {
+    messageCalloutWS.addEventListener('message', function (e) {
       console.log('msg', e)
     })
+    messageCalloutWS.onerror = function () {
+     // notify user about connection error
+      console.log('websocket error')
+    }
   },
   closeWebSockets () {
-    console.log('close ws')
-    ws.close()
+    console.log('Closing messageCalloutWS')
+    if (messageCalloutWS !== null) {
+      messageCalloutWS.close()
+    }
   }
 }

@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  import ws from '../utils/websocket'
+// import ws from '../utils/websocket'
   import logoImg from '../assets/freedomotic-logo-light-transparent.png'
   import Background from './Background.vue'
 
@@ -70,7 +70,7 @@
       login () {
         const payload = {'username': this.username, 'password': this.password, 'rememberMe': this.remember}
         this.$store.dispatch('login', payload).then(() => {
-          ws.openWebSockets()
+          // ws.openWebSockets()
           this.$router.replace(this.$route.query.redirect || '/')
         }).catch(() => {
           // this.error = true
