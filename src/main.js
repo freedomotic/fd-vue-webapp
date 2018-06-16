@@ -65,9 +65,12 @@ Vue.i18n.fallback('en')
 
 Vue.use(VueAxios, axios)
 
-const token = localStorage.getItem('token')
+// Set authentication token
+const token = store.state.token
 if (token) {
-  axios.defaults.headers.common['Authorization'] = 'Basic + ' + token
+  axios.defaults.headers.common['Authorization'] = 'Basic ' + token
+} else {
+  console.log('No authentication token found')
 }
 
 Vue.config.productionTip = false

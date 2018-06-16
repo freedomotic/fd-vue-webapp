@@ -85,7 +85,6 @@ export default {
   },
   created () {
     this.$store.commit('hideAll')
-    console.log(localStorage.getItem('token'))
     ws.openWebSockets()
   },
   computed: {

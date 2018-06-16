@@ -79,6 +79,15 @@ export const getUsersList = (context) => {
   console.log('Executing getUsersList')
 }
 
+export const getPluginsList = (context) => {
+  axios.get('/plugins').then((response) => {
+    // commit setPluginsList mutation
+    context.commit('setPluginsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+
 export const getRolesList = (context) => {
   // mapped to  /system/roles
   // commit setRolesList mutation
@@ -179,7 +188,7 @@ export const login = (context, payload) => {
       // create token
       var token = btoa(payload.username + ':' + payload.password)
       // add axios default header
-      // axios.defaults.headers.common['Authorization'] = 'Basic ' + token
+      axios.defaults.headers.common['Authorization'] = 'Basic ' + token
       localStorage.setItem('token', token)
       context.commit('authSuccess', token)
       resolve()

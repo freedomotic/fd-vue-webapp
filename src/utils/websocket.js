@@ -13,9 +13,12 @@ export default {
     messageCalloutWS.addEventListener('open', function (e) {
       console.log('open', e)
     })
-    messageCalloutWS.addEventListener('message', function (e) {
-      console.log('msg', e)
-    })
+    // messageCalloutWS.addEventListener('message', function (e) {
+    //  console.log('msg', e)
+    // })
+    messageCalloutWS.onmessage = function (event) {
+      console.log(event.data)
+    }
     messageCalloutWS.onerror = function () {
      // notify user about connection error
       console.log('websocket error')

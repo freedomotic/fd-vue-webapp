@@ -32,6 +32,9 @@ export default {
     'plugin': Plugin,
     'marketplace': Marketplace
   },
+  mounted: function () {
+    this.$store.dispatch('getPluginsList')
+  },
   computed: {
     pluginsOpen: function () {
       return this.$store.state.pluginsOpen
