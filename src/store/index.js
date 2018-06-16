@@ -8,7 +8,6 @@ import * as getters from './getters'
 import automationsList from '../assets/json/automations.json'
 import triggersList from '../assets/json/triggers.json'
 import commandsList from '../assets/json/commands.json'
-import pluginsList from '../assets/json/plugins.json'
 import rolesList from '../assets/json/roles.json'
 import thingsList from '../assets/json/things.json'
 import usersList from '../assets/json/users.json'
@@ -50,7 +49,7 @@ export default new Vuex.Store({
     environmentThingsList,
     marketplaceCategoriesList,
     marketplaceCategoriesPluginsList,
-    pluginsList,
+    pluginsList: '',
     rolesList,
     thingsList,
     triggersList,

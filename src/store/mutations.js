@@ -107,6 +107,10 @@ export const setAutomationsList = (state, {list}) => {
   state.automationsList = list
 }
 
+export const setPluginsList = (state, {list}) => {
+  state.pluginsList = list
+}
+
 export const setUsersList = (state, {list}) => {
   state.usersList = list
 }
@@ -132,11 +136,9 @@ export const authError = (state) => {
 export const authSuccess = (state, token) => {
   state.status = 'success'
   state.token = token
-  console.log('TOKEN: ' + state.token)
 }
 
 export const authLogout = (state) => {
   state.token = ''
-  console.log('TOKEN: ' + state.token)
 }
 // end of mutations for Authentication
