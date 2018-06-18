@@ -74,9 +74,13 @@ export const getTriggersList = (context) => {
 }
 
 export const getUsersList = (context) => {
-  // mapped to  /users
-  // commit setUsersList mutation
-  console.log('Executing getUsersList')
+  axios.get('/users').then((response) => {
+    console.log('Retrieving Users list')
+    // commit setUsersList mutation
+    context.commit('setUsersList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const getPluginsList = (context) => {
