@@ -106,9 +106,13 @@ export const getPluginsList = (context) => {
 }
 
 export const getRolesList = (context) => {
-  // mapped to  /system/roles
-  // commit setRolesList mutation
-  console.log('Executing getRolesList')
+  axios.get('/system/roles').then((response) => {
+    console.log('Retrieving Roles list')
+    // commit setRolesList mutation
+    context.commit('setRolesList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const getThingsList = (context) => {
