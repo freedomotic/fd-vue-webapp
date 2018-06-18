@@ -81,6 +81,7 @@ export const getUsersList = (context) => {
 
 export const getPluginsList = (context) => {
   axios.get('/plugins').then((response) => {
+    console.log('Retrieving Plugins list')
     // commit setPluginsList mutation
     context.commit('setPluginsList', { list: response.data })
   }, (err) => {
@@ -95,9 +96,13 @@ export const getRolesList = (context) => {
 }
 
 export const getThingsList = (context) => {
-  // mapped to  /things
-  // commit setThingsList mutation
-  console.log('Executing getThingsList')
+  axios.get('/things').then((response) => {
+    console.log('Retrieving Things list')
+    // commit setThingsList mutation
+    context.commit('setThingsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const getMarketplaceCategoriesList = (context) => {

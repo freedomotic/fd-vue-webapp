@@ -87,6 +87,9 @@ export default {
     this.$store.commit('hideAll')
     ws.openWebSockets()
   },
+  mounted () {
+    this.$store.dispatch('getThingsList')
+  },
   computed: {
     displaySettings () {
       return this.$store.state.displaySettings
