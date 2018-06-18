@@ -54,6 +54,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getAutomationsList')
+    this.$store.dispatch('getTriggersList')
   },
   components: {
     AddAutomation
