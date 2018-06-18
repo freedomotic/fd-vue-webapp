@@ -20,6 +20,9 @@ export default {
       return this.$store.state.usersOpen
     }
   },
+  mounted () {
+    this.$store.dispatch('getUsersList')
+  },
   data () {
     return {}
   },
