@@ -111,6 +111,10 @@ export const setPluginsList = (state, {list}) => {
   state.pluginsList = list
 }
 
+export const setThingsList = (state, {list}) => {
+  state.thingsList = list
+}
+
 export const setUsersList = (state, {list}) => {
   state.usersList = list
 }

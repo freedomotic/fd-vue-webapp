@@ -9,7 +9,6 @@ import automationsList from '../assets/json/automations.json'
 import triggersList from '../assets/json/triggers.json'
 import commandsList from '../assets/json/commands.json'
 import rolesList from '../assets/json/roles.json'
-import thingsList from '../assets/json/things.json'
 import usersList from '../assets/json/users.json'
 import marketplaceCategoriesList from '../assets/json/marketplace_categories.json'
 import marketplaceCategoriesPluginsList from '../assets/json/automation_protocols_plugins.json'
@@ -51,7 +50,7 @@ export default new Vuex.Store({
     marketplaceCategoriesPluginsList,
     pluginsList: '',
     rolesList,
-    thingsList,
+    thingsList: '',
     triggersList,
     usersList
   },
