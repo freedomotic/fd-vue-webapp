@@ -21,8 +21,7 @@ addons:
 # Building for a specific set of node versions
 node_js:
           - '8'
-          - '7'
-          - '6'
+
 # the following step should start the virtual X frame buffer: Xvfb process         
 before_script:
   - "sh -e /etc/init.d/xvfb start"
