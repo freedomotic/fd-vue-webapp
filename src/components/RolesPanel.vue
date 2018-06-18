@@ -20,6 +20,9 @@ export default {
       return this.$store.state.rolesOpen
     }
   },
+  mounted () {
+    this.$store.dispatch('getRolesList')
+  },
   data () {
     return {}
   },
