@@ -56,9 +56,13 @@ export const getEnvironmentThingsList = (context, envId) => {
 }
 
 export const getCommandsList = (context) => {
-  // mapped to  /commands/user
-  // commit setCommandsList mutation
-  console.log('Executing getCommandsList')
+  axios.get('/commands/user').then((response) => {
+    console.log('Retrieving Commands list')
+    // commit setCommandsList mutation
+    context.commit('setCommandsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const getAutomationsList = (context) => {
