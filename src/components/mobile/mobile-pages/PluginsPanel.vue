@@ -15,7 +15,7 @@
         </div>
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right" :style="spdStyle">
+    <v-ons-fab position="bottom right" class>
         <v-ons-icon  style="color: green;" icon="md-add_circle"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
@@ -50,13 +50,14 @@ export default {
   data () {
     return {}
   },
-
+  mounted () {
+    this.$store.dispatch('getPluginsList')
+  },
   computed: {
     getPluginsList: function () {
       return this.$store.state.pluginsList
     }
   },
-
   methods: {
     transition (name, item) {
       this.setOptions({
@@ -78,3 +79,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.button-margin {
+  margin: 6px 0;
+}
+</style>

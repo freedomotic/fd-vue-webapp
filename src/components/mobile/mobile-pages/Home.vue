@@ -44,7 +44,9 @@ export default {
       ]
     }
   },
-
+  mounted () {
+    this.$store.dispatch('getThingsList')
+  },
   methods: {
     push (page, key) {
       this.pageStack.push({
