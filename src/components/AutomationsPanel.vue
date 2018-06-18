@@ -52,6 +52,9 @@ export default {
       return this.$store.state.automationsList
     }
   },
+  mounted () {
+    this.$store.dispatch('getAutomationsList')
+  },
   components: {
     AddAutomation
   },

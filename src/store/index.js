@@ -5,11 +5,9 @@ import * as mutations from './mutations'
 import * as getters from './getters'
 
 // Temporarly populated from static json
-import automationsList from '../assets/json/automations.json'
 import triggersList from '../assets/json/triggers.json'
 import commandsList from '../assets/json/commands.json'
 import rolesList from '../assets/json/roles.json'
-// import usersList from '../assets/json/users.json'
 import marketplaceCategoriesList from '../assets/json/marketplace_categories.json'
 import marketplaceCategoriesPluginsList from '../assets/json/automation_protocols_plugins.json'
 import environmentsList from '../assets/json/environments.json'
@@ -42,7 +40,7 @@ export default new Vuex.Store({
     // end of Settings state
     advancedMode: false,
     // API state
-    automationsList,
+    automationsList: '',
     commandsList,
     environmentsList,
     environmentThingsList,

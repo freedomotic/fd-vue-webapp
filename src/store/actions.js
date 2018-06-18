@@ -62,9 +62,13 @@ export const getCommandsList = (context) => {
 }
 
 export const getAutomationsList = (context) => {
-  // mapped to  /reactions
-  // commit setAutomationsList mutation
-  console.log('Executing getAutomationsList')
+  axios.get('/reactions').then((response) => {
+    console.log('Retrieving Automations list')
+    // commit setAutomationsList mutation
+    context.commit('setAutomationsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const getTriggersList = (context) => {
