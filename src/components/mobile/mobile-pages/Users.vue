@@ -1,6 +1,5 @@
 <template>
   <v-ons-page>
-    <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
       <ons-list-item v-for="user in getUsersList" :key="user.name">
         <label class="center">
           {{ user.name }}
@@ -19,6 +18,9 @@ export default {
     data () {
       return {}
     }
+  },
+  mounted () {
+    this.$store.dispatch('getUsersList')
   }
 }
 </script>

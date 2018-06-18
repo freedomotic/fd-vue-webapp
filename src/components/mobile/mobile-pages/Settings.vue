@@ -11,7 +11,6 @@
 <script>
 import Automations from './Automations.vue'
 import System from './System.vue'
-import Users from './Users.vue'
 import Roles from './Roles.vue'
 import Languages from './Languages.vue'
 
@@ -29,11 +28,6 @@ export default {
         {
           component: System,
           label: 'system',
-          desc: 'Description.'
-        },
-        {
-          component: Users,
-          label: 'users',
           desc: 'Description.'
         },
         {
