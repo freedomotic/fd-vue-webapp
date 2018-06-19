@@ -1,5 +1,7 @@
 /* globals localStorage */
 
+import store from '../store'
+
 var messageCalloutWS = null
 var url = null
 
@@ -13,10 +15,12 @@ export default {
     messageCalloutWS.addEventListener('open', function (e) {
       console.log('open', e)
     })
-    // messageCalloutWS.addEventListener('message', function (e) {
-    //  console.log('msg', e)
-    // })
     messageCalloutWS.onmessage = function (event) {
+      if (store.isMobile) {
+        console.log('mobile')
+      } else {
+        console.log('desktop')
+      }
       console.log(event.data)
     }
     messageCalloutWS.onerror = function () {

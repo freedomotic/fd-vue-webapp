@@ -28,7 +28,9 @@ export default {
   data () {
     return {}
   },
-  created () {},
+  created () {
+    this.$store.isMobile = this.$ons.platform.isAndroid() || this.$ons.platform.isIOS()
+  },
   computed: {
     loggedIn () {
       return !!this.$store.state.token

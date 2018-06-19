@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import ws from '@/utils/websocket'
 import Actuators from './ActuatorsPanel.vue'
 import Environments from './Environments.vue'
 import Lights from './LightsPanel.vue'
@@ -43,6 +44,9 @@ export default {
         }
       ]
     }
+  },
+  created () {
+    ws.openWebSockets()
   },
   mounted () {
     this.$store.dispatch('getThingsList')
