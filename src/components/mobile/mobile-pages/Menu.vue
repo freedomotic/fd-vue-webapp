@@ -92,8 +92,8 @@ export default {
           icon: 'ion-cube, material:md-dashboard'
         },
         {
-          title: 'info',
-          icon: 'ion-information-circled, material:md-info'
+          title: 'logout',
+          icon: 'ion-log-out, material:md-exit_to_app'
         }
       ]
     }
