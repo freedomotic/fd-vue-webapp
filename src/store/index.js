@@ -19,6 +19,7 @@ export default new Vuex.Store({
     status: '',
     // end of Authentication state
     // Dashboard state
+    isMobile: '',
     displaySettings: false,
     displayInfo: false,
     displayAlerts: false,
