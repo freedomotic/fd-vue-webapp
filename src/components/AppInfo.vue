@@ -37,6 +37,9 @@ export default {
   },
   data () {
     return {}
+  },
+  mounted () {
+    this.$store.dispatch('getSystemInfo')
   }
 }
 </script>

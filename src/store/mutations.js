@@ -90,7 +90,8 @@ function hideAllDashboardDisplays (state) {
   state.usersOpen = false
 }
 
-// mutations for API
+// Mutations for API
+
 export const setEnvironmentsList = (state, {list}) => {
   state.environmentsList = list
 }
@@ -123,12 +124,16 @@ export const setRolesList = (state, {list}) => {
   state.rolesList = list
 }
 
+export const setSystemInfo = (state, data) => {
+  state.systemInfo = data
+}
+
 export const setEnvironmentThingsList = (state, {list}) => {
   state.environmentThingsList = list
 }
 // end of mutations for API
 
-// mutations for Authentication
+// AUTHENTICATION
 export const authRequest = (state) => {
   state.status = 'loading'
 }
@@ -145,4 +150,4 @@ export const authSuccess = (state, token) => {
 export const authLogout = (state) => {
   state.token = ''
 }
-// end of mutations for Authentication
+// END AUTHENTICATION

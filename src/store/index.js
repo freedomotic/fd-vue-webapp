@@ -18,6 +18,9 @@ export default new Vuex.Store({
     token: localStorage.getItem('token') || '',
     status: '',
     // end of Authentication state
+    // System state
+    systemInfo: {},
+    // end system state
     // Dashboard state
     isMobile: '',
     displaySettings: false,
