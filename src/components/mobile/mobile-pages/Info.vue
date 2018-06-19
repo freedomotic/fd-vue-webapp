@@ -1,5 +1,6 @@
 <template>
   <v-ons-page>
+    <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <div class="bold-title">Freedomotic Vue Dashboard 0.0.1</div>
     <div class="info-text">
       <div class="bold-title">Main contributors</div>

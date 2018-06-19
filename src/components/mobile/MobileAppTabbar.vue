@@ -18,7 +18,7 @@
 import Home from '../mobile/mobile-pages/Home.vue'
 import PluginsPanel from '../mobile/mobile-pages/PluginsPanel.vue'
 import Settings from '../mobile/mobile-pages/Settings.vue'
-import Info from '../mobile/mobile-pages/Info.vue'
+import Logout from '../mobile/mobile-pages/Logout.vue'
 
 export default {
   props: ['pageStack', 'setOptions', 'toggleMenu', 'setIndex'],
@@ -48,9 +48,9 @@ export default {
           }
         },
         {
-          label: 'info',
+          label: 'logout',
           icon: this.md() ? null : 'ion-information-circled',
-          page: Info,
+          page: Logout,
           props: {
             pageStack: this.pageStack,
             setOptions: this.setOptions

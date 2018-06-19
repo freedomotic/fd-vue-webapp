@@ -30,6 +30,7 @@ export default {
   },
   created () {
     this.$store.isMobile = this.$ons.platform.isAndroid() || this.$ons.platform.isIOS()
+    console.log('Created ' + this.$store.isMobile)
   },
   computed: {
     loggedIn () {

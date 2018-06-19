@@ -12,7 +12,7 @@
         {{ temperature.name }}
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right" :style="spdStyle">
+    <v-ons-fab position="bottom right">
         <v-ons-icon  style="color: green;" icon="md-add_circle"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>

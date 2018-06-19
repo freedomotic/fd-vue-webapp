@@ -15,6 +15,7 @@ import Environments from './Environments.vue'
 import Lights from './LightsPanel.vue'
 import Sensors from './SensorsPanel.vue'
 import Temperature from './TemperaturePanel.vue'
+import Info from './Info.vue'
 
 export default {
   props: ['pageStack'],
@@ -41,6 +42,10 @@ export default {
         {
           component: Actuators,
           label: 'actuators'
+        },
+        {
+          component: Info,
+          label: 'info'
         }
       ]
     }
