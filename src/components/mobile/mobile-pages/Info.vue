@@ -16,6 +16,7 @@
     <div class="info-text">
       <div class="bold-title">{{$t('credits')}}</div>
     </div>
+    <div>{{systemInfo}}</div>
   </v-ons-page>
 </template>
 
@@ -25,6 +26,14 @@ export default {
 
   data () {
     return {}
+  },
+  mounted () {
+    this.$store.dispatch('getSystemInfo')
+  },
+  computed: {
+    systemInfo () {
+      return this.$store.state.systemInfo
+    }
   }
 }
 </script>

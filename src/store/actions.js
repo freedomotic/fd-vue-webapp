@@ -42,7 +42,9 @@ export const setAdvancedMode = (context) => {
   context.commit('setAdvancedMode')
 }
 
-// actions for API
+// Actions for API
+
+// ENVIRONMENTS
 export const getEnvironmentsList = (context) => {
   // mapped to /environments
   // commit setEnvironmentsList mutation
@@ -54,6 +56,7 @@ export const getEnvironmentThingsList = (context, envId) => {
   // commit setEnvironmentThingsList mutation
   console.log('Executing getEnvironmentThingsList')
 }
+// END ENVIRONMENTS
 
 export const getCommandsList = (context) => {
   axios.get('/commands/user').then((response) => {
@@ -181,7 +184,19 @@ export const deleteAutomation = (context, automationId) => {
   console.log('Executing deleteAutomation ' + automationId)
 }
 
-// actions for authentication
+// SYSTEM INFO
+export const getSystemInfo = (context) => {
+  axios.get('/system/info/framework').then((response) => {
+    console.log('Retrieving System info')
+    // commit setSystemInfo mutation
+    context.commit('setSystemInfo', { data: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+// END SYSTEM INFO
+
+// AUTHENTICATION
 
 // simulate login
 export const pretendLogin = (context, payload) => {
@@ -247,4 +262,4 @@ export const logout = (context) => {
 //    console.log(e)
 //  })
 }
-
+// END AUTHENTICATION

@@ -92,10 +92,6 @@ export default {
           icon: 'ion-cube, material:md-dashboard'
         },
         {
-          title: 'users',
-          icon: 'ion-person-stalker'
-        },
-        {
           title: 'info',
           icon: 'ion-information-circled, material:md-info'
         }

@@ -18,7 +18,7 @@
 import Home from '../mobile/mobile-pages/Home.vue'
 import PluginsPanel from '../mobile/mobile-pages/PluginsPanel.vue'
 import Settings from '../mobile/mobile-pages/Settings.vue'
-import Users from '../mobile/mobile-pages/Users.vue'
+import Info from '../mobile/mobile-pages/Info.vue'
 
 export default {
   props: ['pageStack', 'setOptions', 'toggleMenu', 'setIndex'],
@@ -48,9 +48,9 @@ export default {
           }
         },
         {
-          label: 'users',
-          icon: this.md() ? null : 'ion-person-stalker',
-          page: Users,
+          label: 'info',
+          icon: this.md() ? null : 'ion-information-circled',
+          page: Info,
           props: {
             pageStack: this.pageStack,
             setOptions: this.setOptions
