@@ -1,5 +1,5 @@
 <template>
-<div data-page="Login">
+<div v-if="!(this.$ons.platform.isAndroid() || this.$ons.platform.isIOS())" data-page="Login">
   <background/>
   <vue-snotify/>
   <div id="body">
@@ -36,11 +36,35 @@
     </div>
   </div>
 </div>
-
+<!-- Mobile Login -->
+<div v-else>
+  <v-ons-page>
+    <div class="login-form">
+      <label>{{$t('server_address')}}</label>
+      <br>
+      <v-ons-input v-model="serverAddress"></v-ons-input>
+      <br><br>
+      <label>{{$t('server_port')}}</label>
+      <br>
+      <v-ons-input v-model="serverPort"></v-ons-input>
+      <br><br>
+      <label>{{$t('username')}}</label>
+      <br>
+      <v-ons-input v-model="username"></v-ons-input>
+      <br><br>
+      <label>{{$t('password')}}</label>
+      <br>
+      <v-ons-input type="password" v-model="password"></v-ons-input>
+      <br><br>
+      <v-ons-button modifier="large" @click="login" class="login-button">{{$t('submit')}}</v-ons-button>
+      <br>
+      <v-ons-button modifier="quiet" class="forgot-password">Forgot password?</v-ons-button>
+     </div>
+  </v-ons-page>
+</div>
 </template>
 
 <script>
-// import ws from '../utils/websocket'
   import logoImg from '../assets/freedomotic-logo-light-transparent.png'
   import Background from './Background.vue'
 
@@ -57,7 +81,6 @@
         ssl: false,
         remember: false,
         logoImg: logoImg
-        // error: false
       }
     },
     created () {
@@ -70,16 +93,19 @@
       login () {
         const payload = {'username': this.username, 'password': this.password, 'rememberMe': this.remember}
         this.$store.dispatch('login', payload).then(() => {
-          // ws.openWebSockets()
           this.$router.replace(this.$route.query.redirect || '/')
         }).catch(() => {
-          // this.error = true
-          this.$snotify.error(this.$t('bad_login_information'), 'ERROR', {
-            timeout: 0,
-            showProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true
-          })
+          if (!(this.$ons.platform.isAndroid() || this.$ons.platform.isIOS())) {
+            this.$snotify.error(this.$t('bad_login_information'), 'ERROR', {
+              timeout: 0,
+              showProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true
+            })
+          } else {
+            this.$ons.notification.alert(this.$t('bad_login_information'))
+            // this.$ons.notification.toast(this.$t('bad_login_information'), {timeout: 5000})
+          }
         })
       }
     }
@@ -115,5 +141,31 @@
 
   #login-body {
     padding: 1em 2em;
+  }
+
+  .login-form {
+    text-align: left;
+    width: 80%;
+    margin: 60px auto 0;
+   }
+
+   input[type=email], input[type=password] {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    outline: none;
+    padding-top: 24px;
+    padding-bottom: 24px;
+   }
+
+  .login-button {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .forgot-password {
+    display: block;
+    margin: 8px auto 0 auto;
+    font-size: 14px;
   }
 </style>
