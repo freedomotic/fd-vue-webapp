@@ -37,6 +37,7 @@ import 'onsenui/css/onsen-css-components.css'
 import store from './store'
 
 import MobileCustomToolbar from './components/mobile/MobileCustomToolbar.vue'
+import MobilePlugin from './components/mobile/mobile-pages/Plugin.vue'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
@@ -44,8 +45,10 @@ Vue.use(Snotify)
 Vue.use(VModal, { dialog: true, dynamic: true })
 Vue.use(VueTabs)
 
+// VueOnsen components
 Vue.use(VueOnsen)
 Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
+Vue.component('mobile-plugin', MobilePlugin) // Mobile Plugin component
 
 // Initialize the internationalization plugin on the Vue instance.
 // Note that the store must be passed to the plugin. the plugin will then generate some
