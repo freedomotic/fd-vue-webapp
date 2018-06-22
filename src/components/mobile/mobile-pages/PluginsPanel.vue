@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import Plugin from './Plugin.vue'
 
 const transitionPage = {
   template: `
@@ -30,23 +29,13 @@ const transitionPage = {
       <custom-toolbar backLabel="Plugins">
         {{ plugin.pluginName }}
       </custom-toolbar>
-      <plugin-component
-         :name="plugin.pluginName" 
-         :description="plugin.description"
-         :uuid="plugin.uuid"
-         :currentStatus="plugin.currentPluginStatus"
-         :category="plugin.category"
-       >
-       </plugin-component>
+      <mobile-plugin :plugin="plugin"></mobile-plugin>
      </v-ons-page>
     `
 }
 
 export default {
   props: ['pageStack', 'setOptions'],
-  components: {
-    'plugin-component': Plugin
-  },
   data () {
     return {}
   },

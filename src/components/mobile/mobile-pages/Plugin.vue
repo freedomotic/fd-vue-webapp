@@ -1,18 +1,17 @@
 <template>
   <div>
-    PROVA TESTO
+    <div>{{plugin.description}}</div>
+    <v-ons-button v-if="!isPluginRunning(plugin.currentPluginStatus)" @click="startPlugin(plugin.uuid)" modifier="large">Start</v-ons-button>
+    <v-ons-button v-else @click="stopPlugin(plugin.uuid)" modifier="large">Stop</v-ons-button>
+    <div>{{plugin}}</div>
   </div>
+  
 </template>
 
 <script>
   export default {
     props: {
-      name: String,
-      description: String,
-      icon: String,
-      category: String,
-      uuid: String,
-      currentStatus: String
+      plugin: {}
     },
     methods: {
       isPluginRunning: function (currentStatus) {
