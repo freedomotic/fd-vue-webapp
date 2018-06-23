@@ -16,7 +16,7 @@
       </v-ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right" @click="transition('default', null, true)">
-        <v-ons-icon  style="color: green;" icon="md-add_circle"></v-ons-icon>
+        <v-ons-icon  style="color: green;" icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
 </template>
@@ -33,7 +33,7 @@ const transitionPage = {
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="Plugins">
-        Install new plugin
+        Install new plugin from marketplace
       </custom-toolbar>
       <mobile-plugin :plugin="plugin" :addMode="addMode"></mobile-plugin>
     </v-ons-page>

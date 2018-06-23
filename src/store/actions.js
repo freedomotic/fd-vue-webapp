@@ -144,6 +144,16 @@ export const uninstallPlugin = (context, pluginId) => {
   console.log('Executing uninstallPlugin ' + pluginId)
 }
 
+export const getMarketplaceCategoryPluginsList = (context, categoryId) => {
+  axios.get('/marketplace/categories/' + categoryId + '/plugins').then((response) => {
+    console.log('Retrieving Marketplace plugins list')
+    // commit setMarketplaceCategoryPluginsList mutation
+    context.commit('setMarketplaceCategoryPluginsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+
 export const getMarketplaceCategoriesList = (context) => {
   axios.get('/marketplace/categories').then((response) => {
     console.log('Retrieving Marketplace categories list')
