@@ -5,7 +5,6 @@ import * as mutations from './mutations'
 import * as getters from './getters'
 
 // Temporarly populated from static json
-import marketplaceCategoriesList from '../assets/json/marketplace_categories.json'
 import marketplaceCategoriesPluginsList from '../assets/json/automation_protocols_plugins.json'
 import environmentsList from '../assets/json/environments.json'
 import environmentThingsList from '../assets/json/environment_things.json'
@@ -45,7 +44,7 @@ export default new Vuex.Store({
     commandsList: '',
     environmentsList,
     environmentThingsList,
-    marketplaceCategoriesList,
+    marketplaceCategoriesList: '',
     marketplaceCategoriesPluginsList,
     pluginsList: '',
     rolesList: '',

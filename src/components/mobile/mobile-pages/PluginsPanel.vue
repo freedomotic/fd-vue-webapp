@@ -3,7 +3,7 @@
     <v-ons-list>
       <v-ons-list-item v-for="plugin in getPluginsList" :key="plugin.uuid"
         modifier="chevron"
-        @click="transition('default', plugin)"
+        @click="transition('default', plugin, false)"
         tappable
       >
         <div class="left">
@@ -15,7 +15,7 @@
         </div>
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right" class>
+    <v-ons-fab position="bottom right" @click="transition('default', null, true)">
         <v-ons-icon  style="color: green;" icon="md-add_circle"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
@@ -25,12 +25,18 @@
 
 const transitionPage = {
   template: `
-    <v-ons-page>
+    <v-ons-page v-if="addMode === false">
       <custom-toolbar backLabel="Plugins">
         {{ plugin.pluginName }}
       </custom-toolbar>
-      <mobile-plugin :plugin="plugin"></mobile-plugin>
-     </v-ons-page>
+      <mobile-plugin :plugin="plugin" :addMode="addMode"></mobile-plugin>
+    </v-ons-page>
+    <v-ons-page v-else>
+      <custom-toolbar backLabel="Plugins">
+        Install new plugin
+      </custom-toolbar>
+      <mobile-plugin :plugin="plugin" :addMode="addMode"></mobile-plugin>
+    </v-ons-page>
     `
 }
 
@@ -41,6 +47,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getPluginsList')
+    this.$store.dispatch('getMarketplaceCategoriesList')
   },
   computed: {
     getPluginsList: function () {
@@ -48,10 +55,11 @@ export default {
     }
   },
   methods: {
-    transition (name, item) {
+    transition (name, item, addMode) {
       this.setOptions({
         animation: name,
         plugin: item,
+        addMode: addMode,
         callback: () => this.setOptions({})
       })
 
@@ -60,7 +68,8 @@ export default {
         data () {
           return {
             animation: name,
-            plugin: item
+            plugin: item,
+            addMode: addMode
           }
         }
       })

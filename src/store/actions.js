@@ -128,12 +128,7 @@ export const getThingsList = (context) => {
   })
 }
 
-export const getMarketplaceCategoriesList = (context) => {
-  // mapped to /marketplace/categories
-  // commit setMarketplaceCategoriesList mutation
-  console.log('Executing getMarketplaceCategoriesList')
-}
-
+// PLUGINS
 export const startPlugin = (context, pluginId) => {
   // mapped to  API
   console.log('Executing startPlugin ' + pluginId)
@@ -143,6 +138,23 @@ export const stopPlugin = (context, pluginId) => {
   // mapped to  API
   console.log('Executing stopPlugin ' + pluginId)
 }
+
+export const uninstallPlugin = (context, pluginId) => {
+  // mapped to  API
+  console.log('Executing uninstallPlugin ' + pluginId)
+}
+
+export const getMarketplaceCategoriesList = (context) => {
+  axios.get('/marketplace/categories').then((response) => {
+    console.log('Retrieving Marketplace categories list')
+    // commit setMarketplaceCategoriesList mutation
+    context.commit('setMarketplaceCategoriesList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+
+// END PLUGINS
 
 export const getResource = (context, resourceId) => {
   // mapped to  API /resource/{resourceId}

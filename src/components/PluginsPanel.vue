@@ -34,6 +34,7 @@ export default {
   },
   mounted: function () {
     this.$store.dispatch('getPluginsList')
+    this.$store.dispatch('getMarketplaceCategoriesList')
   },
   computed: {
     pluginsOpen: function () {
