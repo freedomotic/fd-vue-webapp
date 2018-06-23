@@ -12,7 +12,7 @@
       </v-ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right" @click="transition('default', null, true)">
-        <v-ons-icon icon="md-add-circle"></v-ons-icon>
+        <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
 </template>

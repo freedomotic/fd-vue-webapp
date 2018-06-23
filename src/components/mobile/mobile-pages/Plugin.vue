@@ -9,14 +9,29 @@
   </div> 
   <div v-else>
     <v-ons-list>
-      <v-ons-list-header>Select a category</v-ons-list-header> 
-      <v-ons-list-item v-for="category in getMarketplaceCategoriesList" :key="category.id"
+      <v-ons-list-header>Select a category</v-ons-list-header>
+      <v-ons-list-item>
+        <div class="center">
+          <v-ons-select v-model="selectedCategory" v-on:change="getMarketplaceCategoryPluginsList()" style="width: 40%">
+            <option v-for="category in getMarketplaceCategoriesList" :key="category.id">
+              {{ category.name}}
+            </option>
+          </v-ons-select>
+
+        </div>
+      </v-ons-list-item>
+    </v-ons-list>
+  <br><br>
+  <v-ons-list>
+      <v-ons-list-header>Click on a plugin to download and install</v-ons-list-header>
+      <v-ons-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.nid"
         modifier="chevron"
         tappable
-       >
+      >
         <div class="left">
-          {{ category.name}}
+         <v-ons-icon icon="md-stop" class="list-item__icon"></v-ons-icon>
         </div>
+        <div class="center">{{plugin.title}}</div>
       </v-ons-list-item>
     </v-ons-list>
   </div>
@@ -29,9 +44,17 @@
       plugin: {},
       addMode: Boolean
     },
+    data () {
+      return {
+        selectedCategory: ''
+      }
+    },
     computed: {
       getMarketplaceCategoriesList: function () {
         return this.$store.state.marketplaceCategoriesList
+      },
+      getMarketplaceCategoryPlugins: function () {
+        return this.$store.state.marketplaceCategoryPluginsList
       }
     },
     methods: {
@@ -46,6 +69,9 @@
       },
       uninstallPlugin: function (pluginId) {
         this.$store.dispatch('uninstallPlugin', pluginId)
+      },
+      getMarketplaceCategoryPluginsList: function () {
+        this.$store.dispatch('getMarketplaceCategoryPluginsList', this.selectedCategory)
       }
     }
 }
