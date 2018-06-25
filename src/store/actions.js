@@ -139,6 +139,11 @@ export const stopPlugin = (context, pluginId) => {
   console.log('Executing stopPlugin ' + pluginId)
 }
 
+export const installPlugin = (context, pluginId) => {
+  // mapped to  API
+  console.log('Executing installPlugin ' + pluginId)
+}
+
 export const uninstallPlugin = (context, pluginId) => {
   // mapped to  API
   console.log('Executing uninstallPlugin ' + pluginId)

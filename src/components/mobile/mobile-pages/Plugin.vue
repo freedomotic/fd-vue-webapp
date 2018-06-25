@@ -27,6 +27,7 @@
       <v-ons-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.nid"
         modifier="chevron"
         tappable
+        @click="installPlugin(plugin.title, plugin.nid)"
       >
         <div class="left">
          <v-ons-icon icon="md-stop" class="list-item__icon"></v-ons-icon>
@@ -66,6 +67,23 @@
       },
       stopPlugin: function (pluginId) {
         this.$store.dispatch('stopPlugin', pluginId)
+      },
+      installPlugin: function (pluginName, pluginId) {
+        const self = this
+        this.$ons.notification.confirm({
+          title: 'Install new plugin',
+          message: 'Do you want to download and install "' + pluginName + "'?",
+          buttonLabels: ['Cancel', 'Install'],
+          callback: function (idx) {
+            switch (idx) {
+              case 0:
+                break
+              case 1:
+                self.$store.dispatch('installPlugin', pluginId)
+                break
+            }
+          }
+        })
       },
       uninstallPlugin: function (pluginId) {
         this.$store.dispatch('uninstallPlugin', pluginId)
