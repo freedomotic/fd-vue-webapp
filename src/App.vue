@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import axios from '@/utils/fd-axios'
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
 import MobileAppNavigator from './components/mobile/MobileAppNavigator.vue'
@@ -32,10 +31,6 @@ export default {
   created () {
     this.$store.isMobile = this.$ons.platform.isAndroid() || this.$ons.platform.isIOS()
     console.log('Created ' + this.$store.isMobile)
-    // used for online demo
-    if (window.location.href.includes('fd-vue-webapp.herokuapp.com')) {
-      axios.defaults.baseURL = process.env.FD_API_URL
-    }
   },
   computed: {
     loggedIn () {
