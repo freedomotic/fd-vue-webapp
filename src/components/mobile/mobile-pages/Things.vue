@@ -28,7 +28,7 @@ const transitionPage = {
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="All Things">
-        Add new thing
+        {{$t('add_new_thing')}}
       </custom-toolbar>
       <mobile-thing :thing="thing" :addMode="true"></mobile-thing>
     </v-ons-page>

@@ -1,15 +1,18 @@
 <template>
  <v-ons-page> 
   <div v-if="addMode === false">
+   <v-ons-card>
     <div>{{plugin.description}}</div>
-    <v-ons-button v-if="!isPluginRunning(plugin.currentPluginStatus)" @click="startPlugin(plugin.uuid)" modifier="large">Start</v-ons-button>
-    <v-ons-button v-else @click="stopPlugin(plugin.uuid)" modifier="large">Stop</v-ons-button>
     <br><br>
-    <v-ons-button @click="uninstallPlugin(plugin.uuid)" modifier="large">Uninstall</v-ons-button>
+    <v-ons-button v-if="!isPluginRunning(plugin.currentPluginStatus)" @click="startPlugin(plugin.uuid)" modifier="large">{{$t('start')}}</v-ons-button>
+    <v-ons-button v-else @click="stopPlugin(plugin.uuid)" modifier="large">{{$t('stop')}}</v-ons-button>
+    <br><br>
+    <v-ons-button @click="uninstallPlugin(plugin.uuid)" modifier="large">{{$t('uninstall')}}</v-ons-button>
+  </v-ons-card>
   </div> 
   <div v-else>
     <v-ons-list>
-      <v-ons-list-header>Select a category</v-ons-list-header>
+      <v-ons-list-header>{{$t('select_category')}}</v-ons-list-header>
       <v-ons-list-item>
         <div class="center">
           <v-ons-select v-model="selectedCategory" v-on:change="getMarketplaceCategoryPluginsList()" style="width: 40%">
@@ -23,7 +26,7 @@
     </v-ons-list>
   <br><br>
   <v-ons-list>
-      <v-ons-list-header>Click on a plugin to download and install</v-ons-list-header>
+      <v-ons-list-header>{{$t('click_plugin_download_install')}}</v-ons-list-header>
       <v-ons-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.nid"
         modifier="chevron"
         tappable

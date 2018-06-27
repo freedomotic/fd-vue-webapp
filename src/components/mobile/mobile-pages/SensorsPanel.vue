@@ -13,7 +13,7 @@
       </v-ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right">
-        <v-ons-icon  style="color: green;" icon="md-add_circle"></v-ons-icon>
+        <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
 </template>
