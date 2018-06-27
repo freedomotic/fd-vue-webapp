@@ -120,9 +120,15 @@ export const setMarketplaceCategoryPluginsList = (state, {list}) => {
   state.marketplaceCategoryPluginsList = list
 }
 
+// THINGS
 export const setThingsList = (state, {list}) => {
   state.thingsList = list
 }
+
+export const setThingTemplatesList = (state, {list}) => {
+  state.thingTemplatesList = list
+}
+// END THINGS
 
 export const setUsersList = (state, {list}) => {
   state.usersList = list

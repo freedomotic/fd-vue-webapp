@@ -68,6 +68,7 @@ export const getCommandsList = (context) => {
   })
 }
 
+// AUTOMATIONS
 export const getAutomationsList = (context) => {
   axios.get('/reactions').then((response) => {
     console.log('Retrieving Automations list')
@@ -78,6 +79,18 @@ export const getAutomationsList = (context) => {
   })
 }
 
+export const addAutomation = (context, automation) => {
+  // mapped to  API /reactions - POST
+  console.log('Executing addAutomation ' + JSON.stringify(automation))
+}
+
+export const deleteAutomation = (context, automationId) => {
+  // mapped to  API /reactions/automationId - DELETE
+  console.log('Executing deleteAutomation ' + automationId)
+}
+// END AUTOMATIONS
+
+// TRIGGERS
 export const getTriggersList = (context) => {
   axios.get('/triggers').then((response) => {
     console.log('Retrieving Triggers list')
@@ -87,7 +100,9 @@ export const getTriggersList = (context) => {
     console.log(err)
   })
 }
+// END TRIGGERS
 
+// USERS
 export const getUsersList = (context) => {
   axios.get('/users').then((response) => {
     console.log('Retrieving Users list')
@@ -97,7 +112,21 @@ export const getUsersList = (context) => {
     console.log(err)
   })
 }
+// END USERS
 
+// ROLES
+export const getRolesList = (context) => {
+  axios.get('/system/roles').then((response) => {
+    console.log('Retrieving Roles list')
+    // commit setRolesList mutation
+    context.commit('setRolesList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+// END ROLES
+
+// PLUGINS
 export const getPluginsList = (context) => {
   axios.get('/plugins').then((response) => {
     console.log('Retrieving Plugins list')
@@ -108,27 +137,6 @@ export const getPluginsList = (context) => {
   })
 }
 
-export const getRolesList = (context) => {
-  axios.get('/system/roles').then((response) => {
-    console.log('Retrieving Roles list')
-    // commit setRolesList mutation
-    context.commit('setRolesList', { list: response.data })
-  }, (err) => {
-    console.log(err)
-  })
-}
-
-export const getThingsList = (context) => {
-  axios.get('/things').then((response) => {
-    console.log('Retrieving Things list')
-    // commit setThingsList mutation
-    context.commit('setThingsList', { list: response.data })
-  }, (err) => {
-    console.log(err)
-  })
-}
-
-// PLUGINS
 export const startPlugin = (context, pluginId) => {
   // mapped to  API
   console.log('Executing startPlugin ' + pluginId)
@@ -168,12 +176,34 @@ export const getMarketplaceCategoriesList = (context) => {
     console.log(err)
   })
 }
-
 // END PLUGINS
 
+// RESOURCES
 export const getResource = (context, resourceId) => {
   // mapped to  API /resource/{resourceId}
   console.log('Executing getResource ' + resourceId)
+}
+// END RESOURCES
+
+// THINGS
+export const getThingsList = (context) => {
+  axios.get('/things').then((response) => {
+    console.log('Retrieving Things list')
+    // commit setThingsList mutation
+    context.commit('setThingsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+
+export const getThingTemplatesList = (context) => {
+  axios.get('/things/templates').then((response) => {
+    console.log('Retrieving Thing templates list')
+    // commit setThingTemplatesList mutation
+    context.commit('setThingTemplatesList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const cloneThing = (context, thingId) => {
@@ -200,16 +230,7 @@ export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) =
   // mapped to  API /things/{thingId}/behaviorchange/{behaviorId}/{newBehaviorValue} - POST
   console.log('Executing moveThing ' + thingId)
 }
-
-export const addAutomation = (context, automation) => {
-  // mapped to  API /reactions - POST
-  console.log('Executing addAutomation ' + JSON.stringify(automation))
-}
-
-export const deleteAutomation = (context, automationId) => {
-  // mapped to  API /reactions/automationId - DELETE
-  console.log('Executing deleteAutomation ' + automationId)
-}
+// END THINGS
 
 // SYSTEM INFO
 export const getSystemInfo = (context) => {

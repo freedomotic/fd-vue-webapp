@@ -48,6 +48,7 @@ export default new Vuex.Store({
     pluginsList: '',
     rolesList: '',
     thingsList: '',
+    thingTemplatesList: '',
     triggersList: '',
     usersList: ''
   },
