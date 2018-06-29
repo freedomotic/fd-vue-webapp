@@ -80,8 +80,8 @@
         color: #fff;
       }
       .top-right button {
-        top:  0px;
-        left: 45px;
+        top:  5px;
+        left: 30px;
       }
       .bottom-right button {
         top: -53px;
