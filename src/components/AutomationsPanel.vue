@@ -20,9 +20,7 @@
           <md-icon class="md-primary">edit</md-icon>
         </md-button>
         <md-button class="md-icon-button md-list-action" 
-        @click="showDeleteAutomationDialog($event)"
-        v-bind:uuid="automation.uuid"
-        v-bind:name="automation.shortDescription"
+        @click="showDeleteAutomationDialog(automation)"
         >
           <md-icon class="md-primary">delete</md-icon>
         </md-button>
@@ -70,9 +68,9 @@ export default {
     closeWindow: function () {
       this.$store.commit('closeSection')
     },
-    showDeleteAutomationDialog (event) {
-      var automationUuid = event.target.getAttribute('uuid')
-      var automationName = event.target.getAttribute('name')
+    showDeleteAutomationDialog (automation) {
+      var automationUuid = automation.uuid
+      var automationName = automation.shortDescription
       this.$modal.show('dialog', {
         title: 'Delete automation',
         text: 'Do you want to delete "' + automationName + '" automation?',

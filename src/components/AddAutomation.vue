@@ -10,7 +10,7 @@
       <md-step id="first" :md-label="$t('select_trigger')" :md-done.sync="first">
         <div>
            <!-- This should be replaced by md-select component -->
-           <select v-model="selectedTrigger">
+           <select id="trigger" v-model="selectedTrigger">
               <option v-for="trigger in getTriggersList" v-bind:value="trigger">
                   {{ trigger.name }}
               </option>
@@ -22,7 +22,7 @@
       <md-step id="second" :md-label="$t('select_one_more_commands')" :md-done.sync="second">
         <div>
            <!-- This should be replaced by md-select component -->
-           <select v-model="selectedCommands" multiple>
+           <select id="commands" v-model="selectedCommands" size="7" multiple>
               <option v-for="command in getCommandsList" v-bind:value="command" :key="command.uuid">
                   {{ command.name }}
               </option>
