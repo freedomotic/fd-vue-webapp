@@ -180,8 +180,11 @@ export const getMarketplaceCategoriesList = (context) => {
 
 // RESOURCES
 export const getResource = (context, resourceId) => {
-  // mapped to  API /resource/{resourceId}
-  console.log('Executing getResource ' + resourceId)
+  axios.get('/resources/' + resourceId).then((response) => {
+    console.log('Retrieving Resource ' + resourceId)
+  }, (err) => {
+    console.log(err)
+  })
 }
 // END RESOURCES
 

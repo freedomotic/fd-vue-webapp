@@ -2,7 +2,7 @@
  <md-card>
   <md-card-header>
     <md-card-media>
-     <img :src="icon">
+     <img :src="getPluginIcon(plugin.uuid + '-' + plugin.currentPluginStatus.toLowerCase() + '.png')">
     </md-card-media>  
   </md-card-header>
       
@@ -43,9 +43,12 @@
       },
       stopPlugin: function (pluginId) {
         this.$store.dispatch('stopPlugin', pluginId)
+      },
+      getPluginIcon: function (pluginIcon) {
+        return this.$store.dispatch('getResource', pluginIcon)
       }
     }
-}
+  }
 </script>
 <style scoped>
   .md-card .md-title {
