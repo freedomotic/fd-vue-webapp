@@ -40,7 +40,9 @@
             <md-input v-model="tags"></md-input>
         </md-field>
         <div id="properties-tab-buttons">
-           <md-button id="create-copy-button" class="md-raised">{{$t('create_copy')}}</md-button>
+           <md-button id="create-copy-button" class="md-raised"
+           @click="cloneThing(thing.uuid)"
+           >{{$t('create_copy')}}</md-button>
            <md-button id="delete-thing-button" class="md-raised"
            @click="showDeleteThingDialog($event)"
            v-bind:uuid="thing.uuid"
@@ -171,11 +173,9 @@ export default {
       this.$emit('close')
     },
     cloneThing () {
-      // call API store action
       this.$store.dispatch('cloneThing', this.thing.uuid)
     },
     showDeleteThingDialog (event) {
-      // var uuid = event.target.getAttribute('uuid')
       var name = event.target.getAttribute('name')
       this.$modal.show('dialog', {
         title: this.$t('delete_thing'),
@@ -188,7 +188,7 @@ export default {
             }
           },
           {
-            title: this.$t('confirm'),
+            title: this.$t('delete'),
             default: true,
             handler: () => {
               this.$snotify.success('Thing "' + name + '" deleted', 'INFO', {
@@ -197,7 +197,6 @@ export default {
                 closeOnClick: false,
                 pauseOnHover: true
               })
-              // TODO call the action to remove the thing
               this.$store.dispatch('deleteThing', this.thing.uuid)
               this.$modal.hide('dialog')
               this.$emit('close')

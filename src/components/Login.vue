@@ -30,7 +30,7 @@
           </md-field>
           <md-switch v-model="remember" class="md-primary">{{$t('remember_me')}}</md-switch>
           <md-switch v-model="ssl" class="md-primary">{{$t('use_ssl')}}</md-switch>
-          <md-button type="submit" class="md-raised md-primary">{{$t('submit')}}</md-button>
+          <md-button type="submit" class="md-raised md-primary">{{$t('login')}}</md-button>
         </form>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <br>
       <v-ons-input type="password" v-model="password"></v-ons-input>
       <br><br>
-      <v-ons-button modifier="large" @click="login" class="login-button">{{$t('submit')}}</v-ons-button>
+      <v-ons-button modifier="large" @click="login" class="login-button">{{$t('login')}}</v-ons-button>
       <br>
       <v-ons-button modifier="quiet" class="forgot-password">Forgot password?</v-ons-button>
      </div>
