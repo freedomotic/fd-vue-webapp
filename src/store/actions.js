@@ -210,13 +210,19 @@ export const getThingTemplatesList = (context) => {
 }
 
 export const cloneThing = (context, thingId) => {
-  // mapped to  API /things/{thingId}/copy - POST
-  console.log('Executing cloneThing ' + thingId)
+  axios.post('/things/' + thingId + '/copy').then((response) => {
+    console.log('Cloning Thing ' + thingId)
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const deleteThing = (context, thingId) => {
-  // mapped to  API /things/{thingId} - DELETE
-  console.log('Executing deleteThing ' + thingId)
+  axios.delete('/things/' + thingId).then((response) => {
+    console.log('Deleting Thing ' + thingId)
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const updateThing = (context, thingId, thing) => {
