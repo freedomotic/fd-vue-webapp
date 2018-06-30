@@ -1,21 +1,24 @@
 <template>
-  <div>
-    <div v-if="addMode">
-     <v-ons-list>
-       <v-ons-list-item v-for="thing in getThingTemplatesList" :key="thing.name"
+ <v-ons-page> 
+  <div v-if="addMode === false">
+   <v-ons-card>
+    <div>{{thing.name}}</div>
+  </v-ons-card>
+  </div> 
+  <div v-else>
+   <v-ons-list>
+      <v-ons-list-item v-for="thing in getThingTemplatesList" :key="thing.name"
         modifier="chevron"
         tappable
-        
       >
-        <div class="left">
+       <div class="left">
          <img src="../../../assets/plugin-running.png" alt="People">
-        </div>
+       </div>
         <div class="center">{{thing.name}}</div>
       </v-ons-list-item>
     </v-ons-list>
-    </div>
-    <div v-else>{{thing}}</div>
   </div>
+ </v-ons-page> 
 </template>
 
 <script>

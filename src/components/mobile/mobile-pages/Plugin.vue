@@ -33,9 +33,9 @@
         @click="installPlugin(plugin.title, plugin.nid)"
       >
         <div class="left">
-         <v-ons-icon icon="md-stop" class="list-item__icon"></v-ons-icon>
+         <img class="marketplace-icon" :src="plugin.field_icon[0].filepath" :alt="plugin.title">
         </div>
-        <div class="center">{{plugin.title}}</div>
+        <div class="right">{{plugin.title}}</div>
       </v-ons-list-item>
     </v-ons-list>
   </div>
@@ -98,5 +98,8 @@
 }
 </script>
 <style scoped>
-  
+   .marketplace-icon {
+      width: 24px;
+      margin: 1%;
+   }   
 </style>

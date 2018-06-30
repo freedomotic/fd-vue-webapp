@@ -20,7 +20,7 @@
 <script>
 const transitionPage = {
   template: `
-    <v-ons-page v-if="addThingMode === false">
+    <v-ons-page v-if="addMode === false">
       <custom-toolbar backLabel="All Things">
         {{ thing.name }}
       <mobile-thing :thing="thing" :addMode="false"></mobile-thing>
@@ -49,11 +49,11 @@ export default {
   },
 
   methods: {
-    transition (name, item, addThingMode) {
+    transition (name, item, addMode) {
       this.setOptions({
         animation: name,
         thing: item,
-        addThingMode: addThingMode,
+        addMode: addMode,
         callback: () => this.setOptions({})
       })
 
@@ -63,11 +63,10 @@ export default {
           return {
             animation: name,
             thing: item,
-            addThingMode: addThingMode
+            addMode: addMode
           }
         }
       })
-      console.log(this.name)
     }
   }
 }
