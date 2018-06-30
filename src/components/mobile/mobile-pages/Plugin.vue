@@ -99,7 +99,7 @@
 </script>
 <style scoped>
    .marketplace-icon {
-      width: 24px;
+      width: 30px;
       margin: 1%;
    }   
 </style>

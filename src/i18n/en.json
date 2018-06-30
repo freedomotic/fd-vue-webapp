@@ -1,6 +1,8 @@
 {
   "actions": "Actions",
   "actuators": "Actuators",
+  "add": "Add",
+  "add_new_automation": "Add new automation",
   "add_new_thing": "Add new thing", 
   "advanced_mode": "Advanced mode",
   "address" : "Address",
