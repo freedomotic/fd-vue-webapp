@@ -15,7 +15,7 @@ import Environments from './Environments.vue'
 import Lights from './LightsPanel.vue'
 import Sensors from './SensorsPanel.vue'
 import Temperature from './TemperaturePanel.vue'
-import Things from './Things.vue'
+import ThingsPanel from './ThingsPanel.vue'
 import Info from './Info.vue'
 
 export default {
@@ -45,7 +45,7 @@ export default {
           label: 'actuators'
         },
         {
-          component: Things,
+          component: ThingsPanel,
           label: 'all_things'
         },
         {

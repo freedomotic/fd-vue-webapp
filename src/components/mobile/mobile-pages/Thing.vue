@@ -12,7 +12,7 @@
         tappable
       >
        <div class="left">
-         <img src="../../../assets/plugin-running.png" alt="People">
+         <img src="../../../assets/plugin-running.png" class="template-icon" alt="thing.name">
        </div>
         <div class="center">{{thing.name}}</div>
       </v-ons-list-item>
@@ -40,5 +40,8 @@
 }
 </script>
 <style scoped>
-  
+  .template-icon {
+      width: 30px;
+      margin: 1%;
+   } 
 </style>

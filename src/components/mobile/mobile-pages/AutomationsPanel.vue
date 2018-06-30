@@ -2,14 +2,16 @@
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <v-ons-list>
-     <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid" modifier="longdivider" tappable>
+     <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid" 
+      modifier="chevron" tappable
+     >
         <label class="center">
           {{ automation.shortDescription }}
         </label>
       </ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right" @click="transition('default', null, true)">
-        <v-ons-icon  style="color: green;" icon="md-plus"></v-ons-icon>
+        <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>    
   </v-ons-page>
 </template>
@@ -25,7 +27,7 @@ const transitionPage = {
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="Automations">
-        Create new automation
+        {{$t('add_new_automation')}}
       </custom-toolbar>
       <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
     </v-ons-page>
@@ -44,6 +46,8 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getAutomationsList')
+    this.$store.dispatch('getTriggersList')
+    this.$store.dispatch('getCommandsList')
   },
   methods: {
     transition (name, item, addMode) {

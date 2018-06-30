@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Automations from './Automations.vue'
+import AutomationsPanel from './AutomationsPanel.vue'
 import System from './System.vue'
 import Roles from './Roles.vue'
 import Languages from './Languages.vue'
@@ -21,7 +21,7 @@ export default {
     return {
       pages: [
         {
-          component: Automations,
+          component: AutomationsPanel,
           label: 'automations',
           desc: 'Description.'
         },
