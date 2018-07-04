@@ -138,13 +138,19 @@ export const getPluginsList = (context) => {
 }
 
 export const startPlugin = (context, pluginId) => {
-  // mapped to  API
-  console.log('Executing startPlugin ' + pluginId)
+  axios.post('/plugins/' + pluginId + '/start').then((response) => {
+    console.log('Starting plugin ' + pluginId)
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const stopPlugin = (context, pluginId) => {
-  // mapped to  API
-  console.log('Executing stopPlugin ' + pluginId)
+  axios.post('/plugins/' + pluginId + '/stop').then((response) => {
+    console.log('Stopping plugin ' + pluginId)
+  }, (err) => {
+    console.log(err)
+  })
 }
 
 export const installPlugin = (context, pluginId) => {
@@ -204,6 +210,14 @@ export const getThingTemplatesList = (context) => {
     console.log('Retrieving Thing templates list')
     // commit setThingTemplatesList mutation
     context.commit('setThingTemplatesList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+}
+
+export const addNewThing = (context, template) => {
+  axios.post('/things/templates/' + template + '/instantiate').then((response) => {
+    console.log('Adding new Thing of type ' + template)
   }, (err) => {
     console.log(err)
   })
