@@ -10,6 +10,7 @@
       <v-ons-list-item v-for="thing in getThingTemplatesList" :key="thing.name"
         modifier="chevron"
         tappable
+        @click="addNewThing(thing.name)"
       >
        <div class="left">
          <img src="../../../assets/plugin-running.png" class="template-icon" alt="thing.name">
@@ -36,6 +37,9 @@
       }
     },
     methods: {
+      addNewThing: function (template) {
+        return this.$store.dispatch('addNewThing', template)
+      }
     }
 }
 </script>
