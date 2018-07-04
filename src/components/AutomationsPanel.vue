@@ -28,10 +28,9 @@
     </md-list>
   </div>  
   <div>
-        <!-- This should be replaced by an AddButton component at the right bottom corner -->
-        <button @click="showDynamicComponentModal">
-          Add a new automation
-       </button>
+        <md-button class="md-fab md-primary md-fab-bottom-right md-fixed" @click="showDynamicComponentModal">
+        <md-icon>add</md-icon>
+       </md-button>
   </div> 
   
   
