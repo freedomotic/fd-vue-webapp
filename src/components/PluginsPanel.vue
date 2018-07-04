@@ -10,10 +10,9 @@
           <h3 class="md-title">{{$t('plugins').toUpperCase()}}</h3>
         </md-toolbar>
     <div>
-        <!-- This should be replaced by an AddButton component at the right bottom corner -->
-        <button @click="showDynamicComponentModal">
-          Add a new plugin
-       </button>
+        <md-button class="md-fab md-primary md-fab-bottom-right md-fixed" @click="showDynamicComponentModal">
+        <md-icon>add</md-icon>
+       </md-button>
     </div>         
     <div class="parent-box">
        <div class="item" v-for="plugin in getPluginsList">
