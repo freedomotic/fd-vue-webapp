@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import EventBus from '@/utils/event-bus'
 import Login from './components/Login.vue'
 import Dashboard from './components/Dashboard.vue'
 import MobileAppNavigator from './components/mobile/MobileAppNavigator.vue'
@@ -36,6 +37,19 @@ export default {
     loggedIn () {
       return !!this.$store.state.token
     }
+  },
+  updated () {
+    EventBus.$on('snotifyMessage', function (message) {
+      this.$snotify.success(message, {
+        timeout: 5000,
+        showProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true
+      })
+    })
+    EventBus.$on('mobileNotification', function (message) {
+      this.$ons.notification.toast(message, {timeout: 2000})
+    })
   }
 }
 </script>
