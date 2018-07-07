@@ -25,7 +25,21 @@ export default {
       } else {
         console.log('desktop')
       }
-      console.log(event.data)
+      // Process message
+      var data = event.data.split('|').pop()
+      data = data.split('#')
+      var messageType = data[0]
+      var payload = data[1]
+      console.log(messageType + ' ' + payload)
+      switch (messageType) {
+        case 'plugin-started':
+          // store.dispatch('updatePlugin', JSON.parse(payload))
+          store.dispatch('getPluginsList')
+          break
+        case 'plugin-stopped':
+          store.dispatch('getPluginsList')
+          break
+      }
     }
     eventWS.onerror = function () {
      // notify user about connection error

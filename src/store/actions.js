@@ -137,6 +137,11 @@ export const getPluginsList = (context) => {
   })
 }
 
+export const updatePlugin = (context, plugin) => {
+  // commit updatePlugin mutation
+  context.commit('updatePlugin', plugin)
+}
+
 export const startPlugin = (context, pluginId) => {
   axios.post('/plugins/' + pluginId + '/start').then((response) => {
     console.log('Starting plugin ' + pluginId)

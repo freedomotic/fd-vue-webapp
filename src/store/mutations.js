@@ -108,8 +108,16 @@ export const setAutomationsList = (state, {list}) => {
   state.automationsList = list
 }
 
+// PLUGINS
 export const setPluginsList = (state, {list}) => {
   state.pluginsList = list
+}
+
+export const updatePlugin = (state, plugin) => {
+  var idx
+  console.log(plugin.pluginName)
+  idx = state.pluginsList.findIndex(item => item.pluginName === plugin.pluginName)
+  state.pluginsList[idx] = plugin
 }
 
 export const setMarketplaceCategoriesList = (state, {list}) => {
@@ -119,6 +127,7 @@ export const setMarketplaceCategoriesList = (state, {list}) => {
 export const setMarketplaceCategoryPluginsList = (state, {list}) => {
   state.marketplaceCategoryPluginsList = list
 }
+// END PLUGINS
 
 // THINGS
 export const setThingsList = (state, {list}) => {
