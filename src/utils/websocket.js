@@ -1,5 +1,6 @@
 /* globals localStorage */
 
+import EventBus from '@/utils/event-bus'
 import store from '../store'
 
 var eventWS = null
@@ -32,6 +33,13 @@ export default {
       var payload = data[1]
       console.log(messageType + ' ' + payload)
       switch (messageType) {
+        case 'message-callout':
+          if (store.isMobile) {
+            EventBus.$emit('mobileNotification', JSON.parse(payload).message)
+          } else {
+            EventBus.$emit('snotifyMessage', JSON.parse(payload).message)
+          }
+          break
         case 'plugin-started':
           // store.dispatch('updatePlugin', JSON.parse(payload))
           store.dispatch('getPluginsList')
