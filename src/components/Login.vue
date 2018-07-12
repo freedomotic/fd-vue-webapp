@@ -40,6 +40,7 @@
 <div v-else>
   <v-ons-page>
     <div class="login-form">
+     <v-ons-card>
       <label>{{$t('server_address')}}</label>
       <br>
       <v-ons-input v-model="serverAddress"></v-ons-input>
@@ -59,7 +60,8 @@
       <v-ons-button modifier="large" @click="login" class="login-button">{{$t('login')}}</v-ons-button>
       <br>
       <v-ons-button modifier="quiet" class="forgot-password">Forgot password?</v-ons-button>
-     </div>
+     </v-ons-card>  
+    </div>
   </v-ons-page>
 </div>
 </template>

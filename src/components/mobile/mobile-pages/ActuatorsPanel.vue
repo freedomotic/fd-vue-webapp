@@ -6,13 +6,13 @@
         v-if="searchType(actuator.type)" 
         :key="actuator.uuid"
         modifier="chevron"
-        @click="transition('default', actuator)"
+        @click="transition('default', actuator, false)"
         tappable
       >
         {{ actuator.name }}
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right">
+    <v-ons-fab position="bottom right" @click="transition('default', null, true)">
         <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
@@ -21,11 +21,17 @@
 <script>
 const transitionPage = {
   template: `
-    <v-ons-page>
-      <custom-toolbar backLabel="Actuator">
+    <v-ons-page v-if="addMode === false">
+      <custom-toolbar backLabel="Actuators">
         {{ actuator.name }}
       </custom-toolbar>
-     
+      <mobile-thing :thing="actuator" :addMode="false"></mobile-thing>
+    </v-ons-page>
+    <v-ons-page v-else>
+      <custom-toolbar backLabel="All Things">
+        {{$t('add_new_thing')}}
+      </custom-toolbar>
+      <mobile-thing :thing="actuator" :addMode="true"></mobile-thing>
     </v-ons-page>
     `
 }
@@ -48,10 +54,11 @@ export default {
       var match = thingType.match(/ElectricDevice/)
       return match
     },
-    transition (name, item) {
+    transition (name, item, addMode) {
       this.setOptions({
         animation: name,
         actuator: item,
+        addMode: addMode,
         callback: () => this.setOptions({})
       })
 
@@ -60,7 +67,8 @@ export default {
         data () {
           return {
             animation: name,
-            actuator: item
+            actuator: item,
+            addMode: addMode
           }
         }
       })
