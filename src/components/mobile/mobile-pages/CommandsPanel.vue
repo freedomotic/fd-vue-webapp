@@ -2,12 +2,12 @@
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <v-ons-list>
-     <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid" 
+     <ons-list-item v-for="command in getCommandsList" :key="command.uuid" 
       modifier="chevron" tappable
-      @click="transition('default', automation, false)"
+      @click="transition('default', command, false)"
      >
         <label class="center">
-          {{ automation.shortDescription }}
+          {{ command.name }}
         </label>
       </ons-list-item>
     </v-ons-list>
@@ -21,16 +21,16 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Automations">
-        {{ automation.shortDescription }}
+      <custom-toolbar backLabel="Commands">
+        {{ command.name }}
       </custom-toolbar>
-      <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
+      <mobile-command :command="command" :addMode="addMode"></mobile-command>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="Automations">
-        {{$t('add_new_automation')}}
+      <custom-toolbar backLabel="Commands">
+        {{$t('add_new_command')}}
       </custom-toolbar>
-      <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
+      <mobile-command :command="command" :addMode="addMode"></mobile-command>
     </v-ons-page>
     `
 }
@@ -41,20 +41,18 @@ export default {
     return {}
   },
   computed: {
-    getAutomationsList: function () {
-      return this.$store.state.automationsList
+    getCommandsList: function () {
+      return this.$store.state.commandsList
     }
   },
   mounted () {
-    this.$store.dispatch('getAutomationsList')
-    this.$store.dispatch('getTriggersList')
     this.$store.dispatch('getCommandsList')
   },
   methods: {
     transition (name, item, addMode) {
       this.setOptions({
         animation: name,
-        automation: item,
+        command: item,
         addMode: addMode,
         callback: () => this.setOptions({})
       })
@@ -64,7 +62,7 @@ export default {
         data () {
           return {
             animation: name,
-            automation: item,
+            command: item,
             addMode: addMode
           }
         }

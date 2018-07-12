@@ -2,12 +2,12 @@
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <v-ons-list>
-     <ons-list-item v-for="automation in getAutomationsList" :key="automation.uuid" 
+     <ons-list-item v-for="trigger in getTriggersList" :key="trigger.uuid" 
       modifier="chevron" tappable
-      @click="transition('default', automation, false)"
+      @click="transition('default', trigger, false)"
      >
         <label class="center">
-          {{ automation.shortDescription }}
+          {{ trigger.name }}
         </label>
       </ons-list-item>
     </v-ons-list>
@@ -21,16 +21,16 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Automations">
-        {{ automation.shortDescription }}
+      <custom-toolbar backLabel="Triggers">
+        {{ trigger.name }}
       </custom-toolbar>
-      <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
+      <mobile-trigger :trigger="trigger" :addMode="addMode"></mobile-trigger>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="Automations">
-        {{$t('add_new_automation')}}
+      <custom-toolbar backLabel="Triggers">
+        {{$t('add_new_trigger')}}
       </custom-toolbar>
-      <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
+      <mobile-trigger :trigger="trigger" :addMode="addMode"></mobile-trigger>
     </v-ons-page>
     `
 }
@@ -41,20 +41,18 @@ export default {
     return {}
   },
   computed: {
-    getAutomationsList: function () {
-      return this.$store.state.automationsList
+    getTriggersList: function () {
+      return this.$store.state.triggersList
     }
   },
   mounted () {
-    this.$store.dispatch('getAutomationsList')
     this.$store.dispatch('getTriggersList')
-    this.$store.dispatch('getCommandsList')
   },
   methods: {
     transition (name, item, addMode) {
       this.setOptions({
         animation: name,
-        automation: item,
+        trigger: item,
         addMode: addMode,
         callback: () => this.setOptions({})
       })
@@ -64,7 +62,7 @@ export default {
         data () {
           return {
             animation: name,
-            automation: item,
+            trigger: item,
             addMode: addMode
           }
         }

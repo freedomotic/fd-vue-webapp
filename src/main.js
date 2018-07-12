@@ -40,6 +40,7 @@ import MobileCustomToolbar from './components/mobile/MobileCustomToolbar.vue'
 import MobilePlugin from './components/mobile/mobile-pages/Plugin.vue'
 import MobileThing from './components/mobile/mobile-pages/Thing.vue'
 import MobileAutomation from './components/mobile/mobile-pages/Automation.vue'
+import MobileCommand from './components/mobile/mobile-pages/Command.vue'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
@@ -52,7 +53,8 @@ Vue.use(VueOnsen)
 Vue.component('custom-toolbar', MobileCustomToolbar) // Common toolbar
 Vue.component('mobile-plugin', MobilePlugin) // Mobile Plugin component
 Vue.component('mobile-thing', MobileThing) // Mobile Thing component
-Vue.component('mobile-automation', MobileAutomation) // Automation Thing component
+Vue.component('mobile-automation', MobileAutomation) // Mobile Automation component
+Vue.component('mobile-command', MobileCommand) // Mobile Command component
 
 // Initialize the internationalization plugin on the Vue instance.
 // Note that the store must be passed to the plugin. the plugin will then generate some

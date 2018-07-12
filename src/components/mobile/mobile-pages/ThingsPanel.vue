@@ -23,8 +23,8 @@ const transitionPage = {
     <v-ons-page v-if="addMode === false">
       <custom-toolbar backLabel="All Things">
         {{ thing.name }}
-      <mobile-thing :thing="thing" :addMode="false"></mobile-thing>
       </custom-toolbar>
+      <mobile-thing :thing="thing" :addMode="false"></mobile-thing>
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="All Things">

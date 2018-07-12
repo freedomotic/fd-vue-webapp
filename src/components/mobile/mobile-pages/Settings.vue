@@ -10,6 +10,8 @@
 
 <script>
 import AutomationsPanel from './AutomationsPanel.vue'
+import CommandsPanel from './CommandsPanel.vue'
+import TriggersPanel from './TriggersPanel.vue'
 import System from './System.vue'
 import Roles from './Roles.vue'
 import Languages from './Languages.vue'
@@ -23,6 +25,16 @@ export default {
         {
           component: AutomationsPanel,
           label: 'automations',
+          desc: 'Description.'
+        },
+        {
+          component: CommandsPanel,
+          label: 'commands',
+          desc: 'Description.'
+        },
+        {
+          component: TriggersPanel,
+          label: 'triggers',
           desc: 'Description.'
         },
         {
