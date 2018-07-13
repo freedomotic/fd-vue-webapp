@@ -2,12 +2,12 @@
  <v-ons-page> 
   <div v-if="addMode === false">
    <v-ons-card>
-    <div>{{plugin.description}}</div>
+    <div>{{getPluginFromStore.description}}</div>
     <br><br>
-    <v-ons-button v-if="!isPluginRunning(plugin.currentPluginStatus)" @click="startPlugin(plugin.uuid)" modifier="large">{{$t('start')}}</v-ons-button>
-    <v-ons-button v-else @click="stopPlugin(plugin.uuid)" modifier="large">{{$t('stop')}}</v-ons-button>
+    <v-ons-button v-if="!isPluginRunning(getPluginFromStore.currentPluginStatus)" @click="startPlugin(getPluginFromStore.uuid)" modifier="large">{{$t('start')}}</v-ons-button>
+    <v-ons-button v-else @click="stopPlugin(getPluginFromStore.uuid)" modifier="large">{{$t('stop')}}</v-ons-button>
     <br><br>
-    <v-ons-button @click="uninstallPlugin(plugin.uuid)" modifier="large">{{$t('uninstall')}}</v-ons-button>
+    <v-ons-button @click="uninstallPlugin(getPluginFromStore.uuid)" modifier="large">{{$t('uninstall')}}</v-ons-button>
   </v-ons-card>
   </div> 
   <div v-else>
@@ -45,8 +45,8 @@
 <script>
   export default {
     props: {
-      plugin: {},
-      addMode: Boolean
+      addMode: Boolean,
+      index: ''
     },
     data () {
       return {
@@ -59,6 +59,9 @@
       },
       getMarketplaceCategoryPlugins: function () {
         return this.$store.state.marketplaceCategoryPluginsList
+      },
+      getPluginFromStore: function () {
+        return this.$store.state.pluginsList[this.index]
       }
     },
     methods: {

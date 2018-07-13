@@ -1,9 +1,9 @@
 <template>
   <v-ons-page>
     <v-ons-list>
-      <v-ons-list-item v-for="plugin in getPluginsList" :key="plugin.uuid"
+      <v-ons-list-item v-for="(plugin, index) in getPluginsList" :key="plugin.uuid"
         modifier="chevron"
-        @click="transition('default', plugin, false)"
+        @click="transition('default', plugin, false, index)"
         tappable
       >
         <div class="left">
@@ -29,13 +29,13 @@ const transitionPage = {
       <custom-toolbar backLabel="Plugins">
         {{ plugin.pluginName }}
       </custom-toolbar>
-      <mobile-plugin :plugin="plugin" :addMode="addMode"></mobile-plugin>
+      <mobile-plugin :addMode="addMode" :index="index"></mobile-plugin>
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="Plugins">
         {{$t('install_plugin_from_marketplace')}}
       </custom-toolbar>
-      <mobile-plugin :plugin="plugin" :addMode="addMode"></mobile-plugin>
+      <mobile-plugin :addMode="addMode" :index="index"></mobile-plugin>
     </v-ons-page>
     `
 }
@@ -55,11 +55,12 @@ export default {
     }
   },
   methods: {
-    transition (name, item, addMode) {
+    transition (name, item, addMode, index) {
       this.setOptions({
         animation: name,
         plugin: item,
         addMode: addMode,
+        index: index,
         callback: () => this.setOptions({})
       })
 
@@ -69,7 +70,8 @@ export default {
           return {
             animation: name,
             plugin: item,
-            addMode: addMode
+            addMode: addMode,
+            index: index
           }
         }
       })
