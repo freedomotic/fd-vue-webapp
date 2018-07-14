@@ -61,18 +61,32 @@
      </v-ons-list-item>
     </v-ons-list>
    </v-ons-card>
+   <v-ons-card v-if="selectedSection ==='control_panel'">
+     <v-ons-list>
+      <v-ons-list-item v-for="behavior in getThingFromStore.behaviors" :key="behavior.name">
+        <div class="left">{{behavior.name}} ({{behavior.value}})</div>
+        <div class="right" v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">
+           <v-ons-range v-model="behavior.value" style="width: 100%;"></v-ons-range>
+        </div>
+        <div class="right" v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">
+          <v-ons-switch v-model="behavior.value"></v-ons-switch>
+        </div>
+
+      </v-ons-list-item>
+    </v-ons-list>
+   </v-ons-card>
   </div> 
   <div v-else>
    <v-ons-list>
-      <v-ons-list-item v-for="thing in getThingTemplatesList" :key="thing.name"
+      <v-ons-list-item v-for="templateThing in getThingTemplatesList" :key="templateThing.name"
         modifier="chevron"
         tappable
-        @click="addNewThing(thing.name)"
+        @click="addNewThing(templateThing.name)"
       >
        <div class="left">
-         <img src="../../../assets/plugin-running.png" class="template-icon" alt="thing.name">
+         <img src="../../../assets/plugin-running.png" class="template-icon" alt="templateThing.name">
        </div>
-        <div class="center">{{thing.name}}</div>
+        <div class="center">{{templateThing.name}}</div>
       </v-ons-list-item>
     </v-ons-list>
   </div>
@@ -85,7 +99,6 @@
 <script>
   export default {
     props: {
-      thing: {},
       addMode: Boolean,
       index: ''
     },
@@ -99,16 +112,21 @@
           { text: 'control_panel', value: 'control_panel' },
           { text: 'automations', value: 'automations' }
         ],
-        selectedSection: 'properties',
-        UUID: this.getThingFromStore.uuid,
-        name: this.getThingFromStore.name,
-        description: this.getThingFromStore.description,
-        protocol: this.getThingFromStore.protocol,
-        address: this.getThingFromStore.address
+        selectedSection: 'control_panel',
+        UUID: '',
+        name: '',
+        description: '',
+        protocol: '',
+        address: ''
       }
     },
     mounted () {
       this.$store.dispatch('getThingTemplatesList')
+      this.UUID = this.getThingFromStore.uuid
+      this.name = this.getThingFromStore.name
+      this.description = this.getThingFromStore.description
+      this.protocol = this.getThingFromStore.protocol
+      this.address = this.getThingFromStore.address
     },
     computed: {
       getThingTemplatesList: function () {
