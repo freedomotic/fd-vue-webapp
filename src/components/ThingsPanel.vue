@@ -7,8 +7,8 @@
           <h3 class="md-title">{{$t('things').toUpperCase()}}</h3>
         </md-toolbar>
      <div class="parent-box">
-       <div class="item" v-for="thing in getThingsList">
-         <thing :thing="thing"></thing>
+       <div class="item" v-for="(thing, index) in getThingsList">
+         <thing :thing="thing" :index="index"></thing>
       </div>
     </div>     
     </div>    

@@ -115,7 +115,6 @@ export const setPluginsList = (state, {list}) => {
 
 export const updatePlugin = (state, plugin) => {
   var idx
-  console.log(plugin.pluginName)
   idx = state.pluginsList.findIndex(item => item.pluginName === plugin.pluginName)
   state.pluginsList[idx] = plugin
 }
@@ -132,6 +131,12 @@ export const setMarketplaceCategoryPluginsList = (state, {list}) => {
 // THINGS
 export const setThingsList = (state, {list}) => {
   state.thingsList = list
+}
+
+export const updateThing = (state, thing) => {
+  var idx
+  idx = state.thingList.findIndex(item => item.name === thing.name)
+  state.thingsList[idx] = thing
 }
 
 export const setThingTemplatesList = (state, {list}) => {
