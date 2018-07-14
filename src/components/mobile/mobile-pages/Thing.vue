@@ -57,7 +57,7 @@
       <v-ons-button modifier="large">{{$t('create_copy')}}</v-ons-button>
      </v-ons-list-item>
      <v-ons-list-item>
-      <v-ons-button @click="deleteThing(thing.name, thing.uuid)" modifier="large">{{$t('delete_thing')}}</v-ons-button>   
+      <v-ons-button @click="deleteThing(getThingFromStore.name, getThingFromStore.uuid)" modifier="large">{{$t('delete_thing')}}</v-ons-button>   
      </v-ons-list-item>
     </v-ons-list>
    </v-ons-card>
@@ -86,7 +86,8 @@
   export default {
     props: {
       thing: {},
-      addMode: Boolean
+      addMode: Boolean,
+      index: ''
     },
     data () {
       return {
@@ -99,11 +100,11 @@
           { text: 'automations', value: 'automations' }
         ],
         selectedSection: 'properties',
-        UUID: this.thing.uuid,
-        name: this.thing.name,
-        description: this.thing.description,
-        protocol: this.thing.protocol,
-        address: this.thing.address
+        UUID: this.getThingFromStore.uuid,
+        name: this.getThingFromStore.name,
+        description: this.getThingFromStore.description,
+        protocol: this.getThingFromStore.protocol,
+        address: this.getThingFromStore.address
       }
     },
     mounted () {
@@ -112,6 +113,9 @@
     computed: {
       getThingTemplatesList: function () {
         return this.$store.state.thingTemplatesList
+      },
+      getThingFromStore: function () {
+        return this.$store.state.thingsList[this.index]
       }
     },
     methods: {
