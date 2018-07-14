@@ -8,7 +8,14 @@
         @click="transition('default', thing, false, index)"
         tappable
       >
-        {{ thing.name }}
+        <div class="left">{{ thing.name }}</div>
+        <div class="right" v-if="thing.type.includes('ElectricDevice')">
+          <img v-if="thing.behaviors[0].value == true" class="center" src="../../../assets/icons/led-green.png"/>
+          <img v-else class="center" src="../../../assets/icons/led-grey.png"/>
+        </div>
+        <div class="right" v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
+           {{thing.behaviors[0].value/thing.behaviors[0].scale}}°
+</div>  
       </v-ons-list-item>
     </v-ons-list>
     <v-ons-fab position="bottom right" @click="transition('default', null, true, index)">
@@ -24,13 +31,13 @@ const transitionPage = {
       <custom-toolbar backLabel="All Things">
         {{ thing.name }}
       </custom-toolbar>
-      <mobile-thing :thing="thing" :addMode="false" :index="index"></mobile-thing>
+      <mobile-thing :addMode="false" :index="index"></mobile-thing>
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="All Things">
         {{$t('add_new_thing')}}
       </custom-toolbar>
-      <mobile-thing :thing="thing" :addMode="true" :index="index"></mobile-thing>
+      <mobile-thing :addMode="true" :index="index"></mobile-thing>
     </v-ons-page>
     `
 }
