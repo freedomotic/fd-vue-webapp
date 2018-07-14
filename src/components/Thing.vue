@@ -3,8 +3,8 @@
   <md-card md-with-hover>
       <md-card-header>
         <md-card-header-text>
-          <div class="md-title">{{thing.name}}</div>
-          <div class="md-subhead">{{thing.type.split(/[. ]+/).pop()}}</div>
+          <div class="md-title">{{getThingFromStore.name}}</div>
+          <div class="md-subhead">{{getThingFromStore.type.split(/[. ]+/).pop()}}</div>
         </md-card-header-text>
 
         <md-card-media>
@@ -12,22 +12,22 @@
         </md-card-media>
       </md-card-header>
       
-      <div v-if="thing.type.includes('ElectricDevice')">
-          <img v-if="thing.behaviors[0].value == true" class="center" src="../assets/icons/led-green.png"/>
+      <div v-if="getThingFromStore.type.includes('ElectricDevice')">
+          <img v-if="getThingFromStore.behaviors[0].value == true" class="center" src="../assets/icons/led-green.png"/>
           <img v-else class="center" src="../assets/icons/led-grey.png"/>
-          <div v-if="thing.type.includes('Light')" class="behavior">brightness {{thing.behaviors[1].value}}%</div>
+          <div v-if="getThingFromStore.type.includes('Light')" class="behavior">brightness {{getThingFromStore.behaviors[1].value}}%</div>
       </div>
 
-      <div class="setpoint" v-if="thing.type =='EnvObject.Thermostat'">
-           Set point {{thing.behaviors[1].value}}°
+      <div class="setpoint" v-if="getThingFromStore.type =='EnvObject.Thermostat'">
+           Set point {{getThingFromStore.behaviors[1].value}}°
       </div>
 
-      <div class="temperature" v-if="thing.type =='EnvObject.Thermometer' || thing.type =='EnvObject.Thermostat'">
-           {{thing.behaviors[0].value/thing.behaviors[0].scale}}°
+      <div class="temperature" v-if="getThingFromStore.type =='EnvObject.Thermometer' || getThingFromStore.type =='EnvObject.Thermostat'">
+           {{getThingFromStore.behaviors[0].value/getThingFromStore.behaviors[0].scale}}°
       </div>
 
-      <div class="sensor" v-if="thing.type.includes('GenericSensor')">
-           {{thing.behaviors[0].value/thing.behaviors[0].scale}}
+      <div class="sensor" v-if="getThingFromStore.type.includes('GenericSensor')">
+           {{getThingFromStore.behaviors[0].value/getThingFromStore.behaviors[0].scale}}
       </div>
       
       <md-card-expand>
@@ -45,7 +45,7 @@
 
         <md-card-expand-content>
           <md-card-content>
-            <div v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
+            <div v-for="behavior in getThingFromStore.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               {{behavior.name}}
             </div> 
           </md-card-content>
@@ -59,9 +59,14 @@
 import ThingsEditor from './ThingsEditor.vue'
 
 export default {
-  props: [ 'thing' ],
+  props: [ 'thing', 'index' ],
   components: {
     ThingsEditor
+  },
+  computed: {
+    getThingFromStore: function () {
+      return this.$store.state.thingsList[this.index]
+    }
   },
   methods: {
     showThingsEditorModal () {
