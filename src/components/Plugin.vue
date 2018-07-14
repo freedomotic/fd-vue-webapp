@@ -2,21 +2,21 @@
  <md-card>
   <md-card-header>
     <md-card-media>
-     <img :src="getPluginIcon(plugin.uuid + '-' + plugin.currentPluginStatus.toLowerCase() + '.png')">
+     <img :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')">
     </md-card-media>  
   </md-card-header>
       
   <md-card-header>    
     <md-card-header-text>
-      <div class="md-title">{{ plugin.pluginName }}</div>
-      <div class="md-subhead">{{ plugin.description }}</div>
+      <div class="md-title">{{ getPluginFromStore.pluginName }}</div>
+      <div class="md-subhead">{{ getPluginFromStore.description }}</div>
     </md-card-header-text>
   </md-card-header>
   <md-card-actions>
-     <md-button class="md-icon-button" v-if="isPluginRunning(plugin.currentPluginStatus)" @click="stopPlugin(plugin.uuid)">
+     <md-button class="md-icon-button" v-if="isPluginRunning(getPluginFromStore.currentPluginStatus)" @click="stopPlugin(getPluginFromStore.uuid)">
        <md-icon>pause</md-icon>
      </md-button>
-     <md-button class="md-icon-button" v-else @click="startPlugin(plugin.uuid)">
+     <md-button class="md-icon-button" v-else @click="startPlugin(getPluginFromStore.uuid)">
        <md-icon>play_arrow</md-icon>
      </md-button>
      <md-button class="md-icon-button" >
@@ -32,7 +32,12 @@
 <script>
   export default {
     props: {
-      plugin: {}
+      index: ''
+    },
+    computed: {
+      getPluginFromStore: function () {
+        return this.$store.state.pluginsList[this.index]
+      }
     },
     methods: {
       isPluginRunning: function (currentStatus) {

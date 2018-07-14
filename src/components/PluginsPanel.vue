@@ -15,8 +15,8 @@
        </md-button>
     </div>         
     <div class="parent-box">
-       <div class="item" v-for="plugin in getPluginsList">
-         <plugin :plugin="plugin"></plugin>
+       <div class="item" v-for="(plugin, index) in getPluginsList">
+         <plugin :index="index"></plugin>
       </div>
     </div>  
    </div>    
