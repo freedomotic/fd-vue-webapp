@@ -18,7 +18,7 @@
 </div>  
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right" @click="transition('default', null, true, index)">
+    <v-ons-fab position="bottom right" @click="transition('default', null, true, 0)">
         <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
