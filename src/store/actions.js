@@ -263,8 +263,11 @@ export const moveThing = (context, thingId, x, y) => {
 }
 
 export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) => {
-  // mapped to  API /things/{thingId}/behaviorchange/{behaviorId}/{newBehaviorValue} - POST
-  console.log('Executing moveThing ' + thingId)
+  axios.post('/things/' + thingId + '/behaviorchange/' + behaviorId + '/' + newBehaviorValue).then((response) => {
+    console.log('Updating behavior ' + behaviorId + ' of Thing ' + thingId + ' to value ' + newBehaviorValue)
+  }, (err) => {
+    console.log(err)
+  })
 }
 // END THINGS
 
