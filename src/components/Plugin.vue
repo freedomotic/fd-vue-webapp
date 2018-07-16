@@ -3,6 +3,7 @@
   <md-card-header>
     <md-card-media>
      <img :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')">
+     <img :src="image">
     </md-card-media>  
   </md-card-header>
       
@@ -34,6 +35,11 @@
     props: {
       index: ''
     },
+    data () {
+      return {
+        image: ''
+      }
+    },
     computed: {
       getPluginFromStore: function () {
         return this.$store.state.pluginsList[this.index]
@@ -50,7 +56,11 @@
         this.$store.dispatch('stopPlugin', pluginId)
       },
       getPluginIcon: function (pluginIcon) {
-        return this.$store.dispatch('getResource', pluginIcon)
+        this.$store.dispatch('getResource', pluginIcon).then((data) => {
+          this.image = data
+          return (data)
+        }).catch(() => {
+        })
       }
     }
   }
