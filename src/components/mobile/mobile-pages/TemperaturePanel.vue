@@ -2,17 +2,17 @@
   <v-ons-page>
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <v-ons-list>
-      <v-ons-list-item v-for="temperature in getThingsList" 
+      <v-ons-list-item v-for="(temperature, index) in getThingsList" 
         v-if="searchType(temperature.type)" 
         :key="temperature.uuid"
         modifier="chevron"
-        @click="transition('default', temperature, false)"
+        @click="transition('default', temperature, false, index)"
         tappable
       >
         {{ temperature.name }}
       </v-ons-list-item>
     </v-ons-list>
-    <v-ons-fab position="bottom right" @click="transition('default', null, true)">
+    <v-ons-fab position="bottom right" @click="transition('default', null, true, 0)">
         <v-ons-icon icon="md-plus"></v-ons-icon>
     </v-ons-fab>
   </v-ons-page>
@@ -25,13 +25,13 @@ const transitionPage = {
       <custom-toolbar backLabel="Temperature">
         {{ temperature.name }}
       </custom-toolbar>
-      <mobile-thing :thing="temperature" :addMode="false"></mobile-thing>
+      <mobile-thing :thing="temperature" :addMode="false" :index="index"></mobile-thing>
     </v-ons-page>
     <v-ons-page v-else>
       <custom-toolbar backLabel="All Things">
         {{$t('add_new_thing')}}
       </custom-toolbar>
-      <mobile-thing :thing="temperature" :addMode="true"></mobile-thing>
+      <mobile-thing :thing="temperature" :addMode="true" :index="index"></mobile-thing>
     </v-ons-page>
     `
 }
@@ -54,11 +54,12 @@ export default {
       var match = thingType.match(/Thermometer|Thermostat/)
       return match
     },
-    transition (name, item, addMode) {
+    transition (name, item, addMode, index) {
       this.setOptions({
         animation: name,
         temperature: item,
         addMode: addMode,
+        index: index,
         callback: () => this.setOptions({})
       })
 
@@ -68,7 +69,8 @@ export default {
           return {
             animation: name,
             temperature: item,
-            addMode: addMode
+            addMode: addMode,
+            index: index
           }
         }
       })
