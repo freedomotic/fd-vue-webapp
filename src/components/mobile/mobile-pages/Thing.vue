@@ -156,6 +156,9 @@
       },
       addNewThing: function (template) {
         return this.$store.dispatch('addNewThing', template)
+      },
+      changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
+        return this.$store.dispatch('changeBehavior', thingId, behaviorId, newBehaviorValue)
       }
     }
 }
