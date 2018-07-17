@@ -63,7 +63,7 @@
    </v-ons-card>
    <v-ons-card v-if="selectedSection ==='control_panel'">
      <v-ons-list>
-      <v-ons-list-item v-for="behavior in getThingFromStore.behaviors" :key="behavior.name">
+      <v-ons-list-item v-for="behavior in getThingFromStore.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
         <div class="left">{{behavior.name}} ({{behavior.value}})</div>
         <div class="right" v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">
            <v-ons-range v-model="behavior.value"></v-ons-range>
