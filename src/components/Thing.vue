@@ -46,7 +46,8 @@
         <md-card-expand-content>
           <md-card-content>
             <div v-for="behavior in getThingFromStore.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
-              {{behavior.name}}
+              {{behavior.name}} 
+              <md-switch v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'" v-model="behavior.value" @change="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"></md-switch>
             </div> 
           </md-card-content>
         </md-card-expand-content>
@@ -80,6 +81,10 @@ export default {
         width: '50%',
         height: 'auto'
       })
+    },
+    changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
+      const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
+      this.$store.dispatch('changeBehavior', payload)
     }
   }
 }
