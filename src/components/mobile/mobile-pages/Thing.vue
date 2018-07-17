@@ -92,13 +92,14 @@
   </div> 
   <div v-else>
    <v-ons-list>
-      <v-ons-list-item v-for="templateThing in getThingTemplatesList" :key="templateThing.name"
+      <v-ons-list-item v-for="(templateThing, index) in getThingTemplatesList" :key="templateThing.name"
         modifier="chevron"
         tappable
         @click="addNewThing(templateThing.name)"
       >
        <div class="left">
-         <img src="../../../assets/plugin-running.png" class="template-icon" alt="templateThing.name">
+         {{getThingIcon(templateThing.representation[0].icon, index)}}
+         <img class="template-icon" :src="images[index]">  
        </div>
         <div class="center">{{templateThing.name}}</div>
       </v-ons-list-item>
@@ -127,6 +128,7 @@
           { text: 'automations', value: 'automations' }
         ],
         selectedSection: 'control_panel',
+        images: [],
         UUID: '',
         name: '',
         description: '',
@@ -186,11 +188,31 @@
         })
       },
       addNewThing: function (template) {
-        return this.$store.dispatch('addNewThing', template)
+        const self = this
+        this.$ons.notification.confirm({
+          title: 'Add new thing',
+          message: 'Do you want to add a new thing "' + template + '"?',
+          buttonLabels: ['Cancel', 'Add'],
+          callback: function (idx) {
+            switch (idx) {
+              case 0:
+                break
+              case 1:
+                self.$store.dispatch('addNewThing', template)
+                break
+            }
+          }
+        })
       },
       changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
         const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
         this.$store.dispatch('changeBehavior', payload)
+      },
+      getThingIcon: function (thingIcon, index) {
+        this.$store.dispatch('getResource', thingIcon).then((data) => {
+          this.images[index] = data
+        }).catch(() => {
+        })
       }
     }
 }
