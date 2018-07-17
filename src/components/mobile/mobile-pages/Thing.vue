@@ -54,7 +54,7 @@
        </div>
      </v-ons-list-item>
      <v-ons-list-item>
-      <v-ons-button modifier="large">{{$t('create_copy')}}</v-ons-button>
+      <v-ons-button @click="cloneThing(getThingFromStore.name, getThingFromStore.uuid)" modifier="large">{{$t('create_copy')}}</v-ons-button>
      </v-ons-list-item>
      <v-ons-list-item>
       <v-ons-button @click="deleteThing(getThingFromStore.name, getThingFromStore.uuid)" modifier="large">{{$t('delete_thing')}}</v-ons-button>   
@@ -72,6 +72,20 @@
           <v-ons-switch v-model="behavior.value" @change="changeBehavior(getThingFromStore.uuid, behavior.name, !behavior.value)"></v-ons-switch>
         </div>
 
+      </v-ons-list-item>
+    </v-ons-list>
+   </v-ons-card>
+   <v-ons-card v-if="selectedSection ==='data_source'">
+     <v-ons-list>
+      <v-ons-list-item v-for="(value, key) in getThingFromStore.triggers.propertyList" :key="key">
+        <div class="left">{{value}}</div>
+      </v-ons-list-item>
+    </v-ons-list>
+   </v-ons-card>
+   <v-ons-card v-if="selectedSection ==='actions'">
+     <v-ons-list>
+      <v-ons-list-item v-for="(value, key) in getThingFromStore.actions.propertyList" :key="key">
+        <div class="left">{{key}}</div>
       </v-ons-list-item>
     </v-ons-list>
    </v-ons-card>
@@ -141,7 +155,7 @@
         const self = this
         this.$ons.notification.confirm({
           title: 'Delete thing',
-          message: 'Do you want to delete "' + thingName + "'?",
+          message: 'Do you want to delete "' + thingName + '"?',
           buttonLabels: ['Cancel', 'Delete'],
           callback: function (idx) {
             switch (idx) {
@@ -149,6 +163,23 @@
                 break
               case 1:
                 self.$store.dispatch('deleteThing', thingId)
+                break
+            }
+          }
+        })
+      },
+      cloneThing: function (thingName, thingId) {
+        const self = this
+        this.$ons.notification.confirm({
+          title: 'Create a copy',
+          message: 'Do you want to create a copy of "' + thingName + '"?',
+          buttonLabels: ['Cancel', 'Create a copy'],
+          callback: function (idx) {
+            switch (idx) {
+              case 0:
+                break
+              case 1:
+                self.$store.dispatch('cloneThing', thingId)
                 break
             }
           }
