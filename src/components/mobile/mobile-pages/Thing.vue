@@ -66,10 +66,10 @@
       <v-ons-list-item v-for="behavior in getThingFromStore.behaviors" :key="behavior.name">
         <div class="left">{{behavior.name}} ({{behavior.value}})</div>
         <div class="right" v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">
-           <v-ons-range v-model="behavior.value" style="width: 100%;"></v-ons-range>
+           <v-ons-range v-model="behavior.value"></v-ons-range>
         </div>
         <div class="right" v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">
-          <v-ons-switch v-model="behavior.value"></v-ons-switch>
+          <v-ons-switch v-model="behavior.value" @change="changeBehavior(getThingFromStore.uuid, behavior.name, !behavior.value)"></v-ons-switch>
         </div>
 
       </v-ons-list-item>
@@ -158,7 +158,8 @@
         return this.$store.dispatch('addNewThing', template)
       },
       changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
-        return this.$store.dispatch('changeBehavior', thingId, behaviorId, newBehaviorValue)
+        const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
+        this.$store.dispatch('changeBehavior', payload)
       }
     }
 }
