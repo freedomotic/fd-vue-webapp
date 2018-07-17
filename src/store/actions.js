@@ -262,9 +262,9 @@ export const moveThing = (context, thingId, x, y) => {
   console.log('Executing moveThing ' + thingId)
 }
 
-export const changeBehavior = (context, thingId, behaviorId, newBehaviorValue) => {
-  axios.post('/things/' + thingId + '/behaviorchange/' + behaviorId + '/' + newBehaviorValue).then((response) => {
-    console.log('Updating behavior ' + behaviorId + ' of Thing ' + thingId + ' to value ' + newBehaviorValue)
+export const changeBehavior = (context, payload) => {
+  axios.post('/things/' + payload.thingId + '/behaviorchange/' + payload.behaviorId + '/' + payload.newBehaviorValue).then((response) => {
+    console.log('Updating behavior ' + payload.behaviorId + ' of Thing ' + payload.thingId + ' to value ' + payload.newBehaviorValue)
   }, (err) => {
     console.log(err)
   })
