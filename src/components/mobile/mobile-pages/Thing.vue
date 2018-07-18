@@ -27,29 +27,29 @@
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
-         <label v-if="this.$ons.platform.isIOS()" for="Name">Name</label>
-         <v-ons-input input-id="Name" v-model="name" placeholder="Name" float>
+         <label v-if="this.$ons.platform.isIOS()" for="Name">{{$t('name')}}</label>
+         <v-ons-input input-id="Name" v-model="name" :placeholder="$t('name')" float>
          </v-ons-input>
        </div> 
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
-         <label v-if="this.$ons.platform.isIOS()" for="Description">Description</label> 
-         <v-ons-input input-id="Description" v-model="description" placeholder="Description" float>
+         <label v-if="this.$ons.platform.isIOS()" for="Description">{{$t('description')}}</label> 
+         <v-ons-input input-id="Description" v-model="description" :placeholder="$t('description')" float>
          </v-ons-input>
        </div>
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
-         <label v-if="this.$ons.platform.isIOS()" for="Protocol">Protocol</label> 
-         <v-ons-input input-id="Protocol" v-model="protocol" placeholder="Protocol" float>
+         <label v-if="this.$ons.platform.isIOS()" for="Protocol">{{$t('protocol')}}</label> 
+         <v-ons-input input-id="Protocol" v-model="protocol" :placeholder="$t('protocol')" float>
          </v-ons-input>
        </div>
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
-         <label v-if="this.$ons.platform.isIOS()" for="Address">Address</label> 
-         <v-ons-input input-id="Address" v-model="address" placeholder="Address" float>
+         <label v-if="this.$ons.platform.isIOS()" for="Address">{{$t('address')}}</label> 
+         <v-ons-input input-id="Address" v-model="address" :placeholder="$t('address')" float>
          </v-ons-input>
        </div>
      </v-ons-list-item>
@@ -89,9 +89,13 @@
       </v-ons-list-item>
     </v-ons-list>
    </v-ons-card>
+   <v-ons-fab position="bottom right">
+        <v-ons-icon icon="md-check"></v-ons-icon>
+   </v-ons-fab>
   </div> 
   <div v-else>
    <v-ons-list>
+      <v-ons-list-header>{{$t('click_thing_template')}}</v-ons-list-header>
       <v-ons-list-item v-for="(templateThing, index) in getThingTemplatesList" :key="templateThing.name"
         modifier="chevron"
         tappable
@@ -105,9 +109,6 @@
       </v-ons-list-item>
     </v-ons-list>
   </div>
-  <v-ons-fab position="bottom right">
-        <v-ons-icon icon="md-check"></v-ons-icon>
-  </v-ons-fab>
  </v-ons-page> 
 </template>
 
@@ -156,9 +157,9 @@
       deleteThing: function (thingName, thingId) {
         const self = this
         this.$ons.notification.confirm({
-          title: 'Delete thing',
+          title: this.$t('delete_thing'),
           message: 'Do you want to delete "' + thingName + '"?',
-          buttonLabels: ['Cancel', 'Delete'],
+          buttonLabels: [this.$t('cancel'), this.$t('delete')],
           callback: function (idx) {
             switch (idx) {
               case 0:
@@ -173,9 +174,9 @@
       cloneThing: function (thingName, thingId) {
         const self = this
         this.$ons.notification.confirm({
-          title: 'Create a copy',
-          message: 'Do you want to create a copy of "' + thingName + '"?',
-          buttonLabels: ['Cancel', 'Create a copy'],
+          title: this.$t('create_copy'),
+          message: this.$t('create_copy_message') + ' "' + thingName + '"?',
+          buttonLabels: [this.$t('cancel'), this.$t('create_copy')],
           callback: function (idx) {
             switch (idx) {
               case 0:
@@ -190,9 +191,9 @@
       addNewThing: function (template) {
         const self = this
         this.$ons.notification.confirm({
-          title: 'Add new thing',
-          message: 'Do you want to add a new thing "' + template + '"?',
-          buttonLabels: ['Cancel', 'Add'],
+          title: this.$t('add_new_thing'),
+          message: this.$t('add_new_thing_message') + ' "' + template + '"?',
+          buttonLabels: [this.$t('cancel'), this.$t('add')],
           callback: function (idx) {
             switch (idx) {
               case 0:
