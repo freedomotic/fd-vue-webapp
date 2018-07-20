@@ -21,21 +21,21 @@
      <v-ons-list-item>
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="UUID">UUID</label>
-         <v-ons-input input-id="UUID" v-model="UUID" placeholder="UUID" float>
+         <v-ons-input input-id="UUID" v-model="UUID" size="50" placeholder="UUID" disabled float>
          </v-ons-input>
      </div> 
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="Name">{{$t('name')}}</label>
-         <v-ons-input input-id="Name" v-model="name" :placeholder="$t('name')" float>
+         <v-ons-input input-id="Name" v-model="name" size="50" :placeholder="$t('name')" float>
          </v-ons-input>
        </div> 
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="Description">{{$t('description')}}</label> 
-         <v-ons-input input-id="Description" v-model="description" :placeholder="$t('description')" float>
+         <v-ons-input input-id="Description" v-model="description" size="50" :placeholder="$t('description')" float>
          </v-ons-input>
        </div>
      </v-ons-list-item>
@@ -49,7 +49,7 @@
      <v-ons-list-item>
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="Address">{{$t('address')}}</label> 
-         <v-ons-input input-id="Address" v-model="address" :placeholder="$t('address')" float>
+         <v-ons-input input-id="Address" v-model="address" size="25" :placeholder="$t('address')" float>
          </v-ons-input>
        </div>
      </v-ons-list-item>
@@ -74,6 +74,53 @@
 
       </v-ons-list-item>
     </v-ons-list>
+   </v-ons-card>
+   <v-ons-card v-if="selectedSection ==='appearance'">
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="positionX">{{$t('position_x')}}</label>
+         <v-ons-input input-id="PositionX" v-model="positionX" :placeholder="$t('position_x')" float>
+         </v-ons-input>
+       </div> 
+     </v-ons-list-item>
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="positionY">{{$t('position_y')}}</label>
+         <v-ons-input input-id="PositionY" v-model="positionY" :placeholder="$t('position_y')" float>
+         </v-ons-input>
+       </div> 
+     </v-ons-list-item>
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="rotation">{{$t('rotation')}}</label>
+         <v-ons-input input-id="rotation" v-model="rotation" :placeholder="$t('rotation')" float>
+         </v-ons-input>
+       </div> 
+     </v-ons-list-item>
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="width">{{$t('width')}}</label>
+         <v-ons-input input-id="width" v-model="width" :placeholder="$t('width')" float>
+         </v-ons-input>
+       </div> 
+     </v-ons-list-item>
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="height">{{$t('height')}}</label>
+         <v-ons-input input-id="height" v-model="height" :placeholder="$t('height')" float>
+         </v-ons-input>
+       </div> 
+     </v-ons-list-item>
+     <v-ons-list-item>
+       <div class="center">
+         <label v-if="this.$ons.platform.isIOS()" for="environment">{{$t('environment')}}</label>
+         <v-ons-select v-model="environment" name="environment">
+            <option v-for="env in getEnvironmentsList" :value="env.uuid">
+              {{ env.name }}
+            </option>
+          </v-ons-select>
+       </div> 
+     </v-ons-list-item>
    </v-ons-card>
    <v-ons-card v-if="selectedSection ==='data_source'">
      <v-ons-list>
@@ -139,11 +186,19 @@
     },
     mounted () {
       this.$store.dispatch('getThingTemplatesList')
+      // Properties section
       this.UUID = this.getThingFromStore.uuid
       this.name = this.getThingFromStore.name
       this.description = this.getThingFromStore.description
       this.protocol = this.getThingFromStore.protocol
       this.address = this.getThingFromStore.address
+      // Appearance section
+      this.positionX = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.x
+      this.positionY = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.y
+      this.rotation = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].rotation
+      this.width = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleX
+      this.height = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleY
+      this.environment = this.getThingFromStore.envUUID
     },
     computed: {
       getThingTemplatesList: function () {
@@ -151,6 +206,9 @@
       },
       getThingFromStore: function () {
         return this.$store.state.thingsList[this.index]
+      },
+      getEnvironmentsList: function () {
+        return this.$store.state.environmentsList
       }
     },
     methods: {

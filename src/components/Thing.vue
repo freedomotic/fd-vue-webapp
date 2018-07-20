@@ -8,7 +8,9 @@
         </md-card-header-text>
 
         <md-card-media>
-          <img src="../assets/plugin-running.png" alt="People">
+          <img v-if="!getThingFromStore.type.includes('Gate')" :src="image">
+          <img v-if="getThingFromStore.type.includes('Gate')" src="../assets/icons/door.png">
+          <img v-else :src="getThingIcon(getThingFromStore.representation[0].icon)">
         </md-card-media>
       </md-card-header>
       
@@ -29,7 +31,13 @@
       <div class="sensor" v-if="getThingFromStore.type.includes('GenericSensor')">
            {{getThingFromStore.behaviors[0].value/getThingFromStore.behaviors[0].scale}}
       </div>
-      
+
+      <div class="sensor" v-if="getThingFromStore.type.includes('Gate')">
+           <span v-if="getThingFromStore.behaviors[0].value == false">closed</span>
+           <span v-else>open</span>
+      </div>
+
+     
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
          <md-button class="md-icon-button" @click="showThingsEditorModal">
@@ -64,6 +72,11 @@ export default {
   components: {
     ThingsEditor
   },
+  data () {
+    return {
+      image: ''
+    }
+  },
   computed: {
     getThingFromStore: function () {
       return this.$store.state.thingsList[this.index]
@@ -85,6 +98,13 @@ export default {
     changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
       const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
       this.$store.dispatch('changeBehavior', payload)
+    },
+    getThingIcon: function (pluginIcon) {
+      this.$store.dispatch('getResource', pluginIcon).then((data) => {
+        this.image = data
+        return (data)
+      }).catch(() => {
+      })
     }
   }
 }
