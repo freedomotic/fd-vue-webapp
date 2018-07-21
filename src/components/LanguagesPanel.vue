@@ -9,16 +9,20 @@
           </md-content> 
           <h3 class="md-title">{{$t('languages').toUpperCase()}}</h3>
         </md-toolbar>
-        <div>
-		    	 <button type="submit" @click="changeLanguage('en')">Set EN</button>
-		    	 <button type="submit" @click="changeLanguage('it')">Set IT</button>
+          <div class='button-flags-set'>
+            <country-flag country='gb' @click.native="changeLanguage('en')"/>
+            <country-flag country='it' @click.native="changeLanguage('it')"/>
+          </div>
 			     <p>{{$t('current_language')}}: {{ $i18n.locale() }}</p>
-        </div>
     </div>    
 </template>
 
 <script>
+import CountryFlag from 'vue-country-flag'
 export default {
+  components: {
+    CountryFlag
+  },
   computed: {
     languagesOpen: function () {
       return this.$store.state.languagesOpen
@@ -71,4 +75,9 @@ export default {
       cursor: pointer;
       background:transparent;
    } 
+
+   #button-flags-set {
+     margin: auto;
+     width: 100%;
+   }
 </style>
