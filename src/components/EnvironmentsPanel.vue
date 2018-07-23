@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="environment in getEnvironmentsList">
+    <div v-for="environment in getEnvironmentsList" :key="environment.uuid">
          <environment :environment="environment"></environment>
     </div>
   </div>  
