@@ -1,14 +1,9 @@
 <template>
-  <div>
-    <div style="z-index:100;">
+  <div class='environment-container'>
+    <div style="z-index:1;">
        <h4 id="envname">{{environment.name}}</h4>
     </div>
-    <canvas ref="canvas" 
-            width="850" 
-            height="750" 
-    >
-    </canvas>
-    
+    <canvas ref='canvas' class='environment-canvas' width="700" height="550"/>    
   </div>  
 </template>
 
@@ -29,13 +24,22 @@ export default {
     return {
       canvas: {},
       context: {},
-      backgroundImg: new Image(850, 750)
+      backgroundImg: new Image(this.environment.width, this.environment.height)
     }
   },
   methods: {
     canvasImage: function () {
       this.backgroundImg.addEventListener('load', function () {
-        this.context.drawImage(this.backgroundImg, 0, 0)
+        var wrh = this.backgroundImg.width / this.backgroundImg.height
+        var newWidth = this.canvas.width
+        var newHeight = newWidth / wrh
+        if (newHeight > this.canvas.height) {
+          newHeight = this.canvas.height
+          newWidth = newHeight * wrh
+        }
+        var xOffset = newWidth < this.canvas.width ? ((this.canvas.width - newWidth) / 2) : 0
+        var yOffset = newHeight < this.canvas.height ? ((this.canvas.height - newHeight) / 2) : 0
+        this.context.drawImage(this.backgroundImg, xOffset, yOffset, newWidth, newHeight)
       }.bind(this), false)
     }
   },
@@ -43,18 +47,26 @@ export default {
     this.canvas = this.$refs.canvas
     this.context = this.canvas.getContext('2d')
     this.backgroundImg.src = require('../assets/map2.png')
+    this.backgroundImg.className = 'environment-image'
     this.canvasImage()
   }
 }
 </script>
 
 <style scoped>
-      canvas {
-        position: absolute;
-        background-color: white;
-        z-index: 11;
+      .environment-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
       }
-      
+
+      .environment-canvas {
+        position: absolute;
+        margin-top: 4%;
+        background-color: white;
+        z-index: 1;
+      }
+
       .thing {
         display: block;
         position: absolute;
@@ -63,10 +75,12 @@ export default {
       }
       
       #envname {
-        margin: 10px;
+        margin: 2%;
         padding: 0 5px;
         background-color: rgba(120, 120, 120, 0.5);
         color: white;
+        left: 15%;
+        position: absolute;
       }
       
 </style>
