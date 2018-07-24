@@ -116,9 +116,15 @@ export default {
   .md-card {
     width: 350px;
     height: 230px;
+    margin-bottom: 2%;
     display: inline-block;
     vertical-align: top;
     background-color: #ededed
+  }
+
+  .md-card-content {
+    background-color: #B3B3B3;
+    margin-top: 24%;
   }
   
   .md-card-media {
