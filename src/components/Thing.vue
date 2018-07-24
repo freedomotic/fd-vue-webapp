@@ -1,45 +1,48 @@
 <template>
  <div>    
-  <md-card md-with-hover>
-      <md-card-header>
-        <md-card-header-text>
-          <div class="md-title">{{getThingFromStore.name}}</div>
-          <div class="md-subhead">{{getThingFromStore.type.split(/[. ]+/).pop()}}</div>
-        </md-card-header-text>
+  <md-card md-with-hover class='card-block'>
+     <div class='card-header'>
+        <md-card-header>
+          <md-card-header-text>
+           <div class="md-title">{{getThingFromStore.name}}</div>
+           <div class="md-subhead">{{getThingFromStore.type.split(/[. ]+/).pop()}}</div>
+          </md-card-header-text>
 
-        <md-card-media>
-          <img v-if="!getThingFromStore.type.includes('Gate')" :src="image">
-          <img v-if="getThingFromStore.type.includes('Gate')" src="../assets/icons/door.png">
-          <img v-else :src="getThingIcon(getThingFromStore.representation[0].icon)">
-        </md-card-media>
-      </md-card-header>
+          <md-card-media>
+            <img v-if="!getThingFromStore.type.includes('Gate')" :src="image">
+            <img v-if="getThingFromStore.type.includes('Gate')" src="../assets/icons/door.png">
+            <img v-else :src="getThingIcon(getThingFromStore.representation[0].icon)">
+          </md-card-media>
+        </md-card-header>
+      </div>
       
-      <div v-if="getThingFromStore.type.includes('ElectricDevice')">
+      <div class='card-content'>
+        <div v-if="getThingFromStore.type.includes('ElectricDevice')">
           <img v-if="getThingFromStore.behaviors[0].value == true" class="center" src="../assets/icons/led-green.png"/>
           <img v-else class="center" src="../assets/icons/led-grey.png"/>
           <div v-if="getThingFromStore.type.includes('Light')" class="behavior">brightness {{getThingFromStore.behaviors[1].value}}%</div>
-      </div>
+        </div>
 
-      <div class="setpoint" v-if="getThingFromStore.type =='EnvObject.Thermostat'">
+        <div class="setpoint" v-if="getThingFromStore.type =='EnvObject.Thermostat'">
            Set point {{getThingFromStore.behaviors[1].value}}°
-      </div>
+        </div>
 
-      <div class="temperature" v-if="getThingFromStore.type =='EnvObject.Thermometer' || getThingFromStore.type =='EnvObject.Thermostat'">
+        <div class="temperature" v-if="getThingFromStore.type =='EnvObject.Thermometer' || getThingFromStore.type =='EnvObject.Thermostat'">
            {{getThingFromStore.behaviors[0].value/getThingFromStore.behaviors[0].scale}}°
-      </div>
+        </div>
 
-      <div class="sensor" v-if="getThingFromStore.type.includes('GenericSensor')">
+        <div class="sensor" v-if="getThingFromStore.type.includes('GenericSensor')">
            {{getThingFromStore.behaviors[0].value/getThingFromStore.behaviors[0].scale}}
-      </div>
+        </div>
 
-      <div class="sensor" v-if="getThingFromStore.type.includes('Gate')">
+        <div class="sensor" v-if="getThingFromStore.type.includes('Gate')">
            <span v-if="getThingFromStore.behaviors[0].value == false">closed</span>
            <span v-else>open</span>
+        </div>
       </div>
-
      
       <md-card-expand>
-        <md-card-actions md-alignment="space-between">
+        <md-card-actions md-alignment="space-between" class="card-footer">
          <md-button class="md-icon-button" @click="showThingsEditorModal">
             <md-icon>settings</md-icon>
          </md-button>
@@ -114,36 +117,37 @@ export default {
 </script>
 <style scoped>
   .md-card {
-    width: 350px;
-    height: 230px;
+    width: 300px;
     margin-bottom: 2%;
     display: inline-block;
     vertical-align: top;
     background-color: #ededed
   }
-
-  .md-card-content {
-    background-color: #B3B3B3;
-    margin-top: 24%;
+  /*setting up card leyout */
+  .card-header {
+    height: 100px;
   }
-  
+  .card-content {
+    height: 120px;
+  }
+  .card-block {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+  }
+  .card-footer {
+        align-self: flex-end;
+        flex: 1 1 auto;
+  }
+  /*end of card layout*/
   .md-card-media {
       width: 64px;
       height: 64px;
   }
-
-  .md-card-actions {
-    position: absolute;
-    height: 50px;
-    width: 100%;
-    bottom: 0;
-  }
-
   .setpoint {
       text-align: center;
       font-size: 12px;
   }
-
   .temperature {
       position: relative;
       width: 90px;
