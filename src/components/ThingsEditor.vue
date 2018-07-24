@@ -90,11 +90,11 @@
        </v-tab>
        <v-tab :title="$t('control_panel')">
           <md-list>
-            <md-list-item v-for="behavior in thing.behaviors" :key="behavior.name">
+            <md-list-item v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               <span class="md-list-item-text">{{behavior.name}} ({{behavior.value}})</span>
-              <span class="md-list-item-text" v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'">add slider</span>
+              <vue-slider v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'" ref="thing.name + '-' + behavior.name" v-model="behavior.value" :min="Number(behavior.min/behavior.scale)" :max="Number(behavior.max/behavior.scale)" :interval="Number(behavior.step)" @click.native="changeBehavior(thing.uuid, behavior.name, behavior.value)" tooltip="false" show="true"></vue-slider>
               <span class="md-list-item-text" v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">
-                <md-button class="md-dense md-raised">Set {{behavior.name}} True</md-button>
+                <md-switch v-model="behavior.value" @change="changeBehavior(thing.uuid, behavior.name, !!behavior.value)"></md-switch>
               </span>
             </md-list-item>
           </md-list>
@@ -113,13 +113,15 @@
 
 <script>
 import {VueTabs, VTab} from 'vue-nav-tabs'
+import vueSlider from 'vue-slider-component'
 
 export default {
   name: 'ThingsEditor',
   props: [ 'thing' ],
   components: {
     VueTabs,
-    VTab
+    VTab,
+    vueSlider
   },
   computed: {
     getEnvironmentsList: function () {
@@ -174,6 +176,10 @@ export default {
     },
     cloneThing () {
       this.$store.dispatch('cloneThing', this.thing.uuid)
+    },
+    changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
+      const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
+      this.$store.dispatch('changeBehavior', payload)
     },
     showDeleteThingDialog (event) {
       var name = event.target.getAttribute('name')
