@@ -63,7 +63,7 @@ export default {
     .parent-box {
        display: flex;
        flex-flow: row wrap;
-       justify-content: space-evenly;
+       justify-content: space-around;
        padding: 1em;
        margin: 1em auto;
     }
