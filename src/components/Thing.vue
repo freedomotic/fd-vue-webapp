@@ -56,6 +56,7 @@
             <div v-for="behavior in getThingFromStore.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               {{behavior.name}} 
               <md-switch v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'" v-model="behavior.value" @change="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"></md-switch>
+              <vue-slider v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'" ref="getThingFromStore.name + '-' + behavior.name" v-model="behavior.value" :min="Number(behavior.min/behavior.scale)" :max="Number(behavior.max/behavior.scale)" @click.native="changeBehavior(getThingFromStore.uuid, behavior.name, behavior.value)" tooltip="false"></vue-slider>
             </div> 
           </md-card-content>
         </md-card-expand-content>
@@ -66,11 +67,13 @@
 
 <script>
 import ThingsEditor from './ThingsEditor.vue'
+import vueSlider from 'vue-slider-component'
 
 export default {
   props: [ 'thing', 'index' ],
   components: {
-    ThingsEditor
+    ThingsEditor,
+    vueSlider
   },
   data () {
     return {
