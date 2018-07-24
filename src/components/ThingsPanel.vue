@@ -7,9 +7,9 @@
           <h3 class="md-title">{{$t('things').toUpperCase()}}</h3>
         </md-toolbar>
      <div class="parent-box">
-       <div class="item" v-for="(thing, index) in getThingsList">
+       <div class="item" v-for="(thing, index) in getThingsList" :key="thing.uuid">
          <thing :thing="thing" :index="index"></thing>
-      </div>
+       </div>
     </div>     
     </div>    
 </template>
@@ -51,22 +51,27 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        overflow-y: scroll;
+        overflow-y: auto;
         margin: auto;
       }
       
     .item {
-	    flex-grow: 1;
-        width: 30%;
-        margin: 5px;
+        padding: 0.5em;
+        width: 25%;
       }
 
     .parent-box {
        display: flex;
-       flex-direction: row;
-       align-items: center;
-       flex-wrap: wrap;
-      }
+       flex-flow: row wrap;
+       justify-content: space-evenly;
+       padding: 1em;
+       margin: 1em auto;
+    }
+     /*this helps in having the last line of the flex grid properly aligned*/
+    .parent-box:after {
+      content: "";
+      flex: auto;
+    }
 
    #action-container {
        text-align: center;

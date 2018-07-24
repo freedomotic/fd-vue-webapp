@@ -54,9 +54,8 @@
         <md-card-expand-content>
           <md-card-content>
             <div v-for="behavior in getThingFromStore.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
-              {{behavior.name}}
+              {{behavior.name}} 
               <md-switch v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'" v-model="behavior.value" @change="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"></md-switch>
-              <vue-slider v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'" ref="getThingFromStore.name + '-' + behavior.name" v-model="behavior.value" :min="Number(behavior.min/behavior.scale)" :max="Number(behavior.max/behavior.scale)" @click.native="changeBehavior(getThingFromStore.uuid, behavior.name, behavior.value)" tooltip="false"></vue-slider>
             </div> 
           </md-card-content>
         </md-card-expand-content>
@@ -67,13 +66,11 @@
 
 <script>
 import ThingsEditor from './ThingsEditor.vue'
-import vueSlider from 'vue-slider-component'
 
 export default {
   props: [ 'thing', 'index' ],
   components: {
-    ThingsEditor,
-    vueSlider
+    ThingsEditor
   },
   data () {
     return {
@@ -115,7 +112,7 @@ export default {
 <style scoped>
   .md-card {
     width: 350px;
-    margin: 4px;
+    height: 230px;
     display: inline-block;
     vertical-align: top;
     background-color: #ededed
@@ -124,6 +121,13 @@ export default {
   .md-card-media {
       width: 64px;
       height: 64px;
+  }
+
+  .md-card-actions {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
   }
 
   .setpoint {
