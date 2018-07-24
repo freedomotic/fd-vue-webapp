@@ -6,20 +6,22 @@
           </md-content> 
           <h3 class="md-title">{{$t('things').toUpperCase()}}</h3>
         </md-toolbar>
-     <div class="parent-box">
+     <grid-container>
        <div class="item" v-for="(thing, index) in getThingsList" :key="thing.uuid">
          <thing :thing="thing" :index="index"></thing>
        </div>
-    </div>     
+     </grid-container>     
     </div>    
 </template>
 
 <script>
 import Thing from './Thing.vue'
+import GridContainer from './common/GridContainer.vue'
 
 export default {
   components: {
-    'thing': Thing
+    Thing,
+    GridContainer
   },
   computed: {
     getThingsList: function () {
@@ -55,24 +57,6 @@ export default {
         margin: auto;
       }
       
-    .item {
-        padding: 0.5em;
-        width: 25%;
-      }
-
-    .parent-box {
-       display: flex;
-       flex-flow: row wrap;
-       justify-content: space-around;
-       padding: 1em;
-       margin: 1em auto;
-    }
-     /*this helps in having the last line of the flex grid properly aligned*/
-    .parent-box:after {
-      content: "";
-      flex: auto;
-    }
-
    #action-container {
        text-align: center;
        cursor: pointer;

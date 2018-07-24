@@ -14,22 +14,24 @@
         <md-icon>add</md-icon>
        </md-button>
     </div>         
-    <div class="parent-box">
-       <div class="item" v-for="(plugin, index) in getPluginsList">
+    <grid-container>
+       <div class="item" v-for="(plugin, index) in getPluginsList" :key="plugin.uuid">
          <plugin :index="index"></plugin>
       </div>
-    </div>  
+    </grid-container>  
    </div>    
 </template>
 
 <script>
 import Plugin from './Plugin.vue'
 import Marketplace from './Marketplace.vue'
+import GridContainer from './common/GridContainer.vue'
 
 export default {
   components: {
     'plugin': Plugin,
-    'marketplace': Marketplace
+    'marketplace': Marketplace,
+    GridContainer
   },
   mounted: function () {
     this.$store.dispatch('getPluginsList')
@@ -83,7 +85,7 @@ export default {
         right: 1%;
         background: white;
         border-radius: 4px;
-        z-index: 130;
+        z-index: 10;
         color: black;
         display: flex;
         flex-direction: column;
@@ -92,19 +94,6 @@ export default {
         margin: auto;
       }
  
-   .item {
-	      flex-grow: 1;
-        width: 30%;
-        margin: 5px;
-      }
-
-   .parent-box {
-       display: flex;
-       flex-direction: row;
-       align-items: center;
-       flex-wrap: wrap;
-      }
-   
    #action-container {
        text-align: center;
        cursor: pointer;

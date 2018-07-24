@@ -84,9 +84,16 @@
    
    .md-theme-default.md-card {
     width: 300px;
-    min-height: 250px;
+    height: 300px;
     background-color: #8bae2d;
    }
+
+  .md-card-actions {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+  }
 
    .md-card .md-card-header .md-card-media {
       width: 64px;
