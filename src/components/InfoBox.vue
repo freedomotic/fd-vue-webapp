@@ -30,7 +30,6 @@ export default {
 
 <style scoped>
   .md-card {
-    width: 98%;
     margin: auto;
     background-color: #222222;
     text-transform: uppercase;
@@ -40,12 +39,12 @@ export default {
   .inner-text {
     text-align: center;
     position: sticky;
-    top: 20%;
+    top: 0%;
     cursor: pointer;
   }
   
   .md-icon.md-theme-default.md-icon-font {
-   color: inherit;
+    color: inherit;
   } 
 </style>
 

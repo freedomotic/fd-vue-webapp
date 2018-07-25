@@ -1,16 +1,21 @@
 <template>
+    
+       
     <div id="settings-area">
-    <close-button class="color-red"/>
+     <close-button class="color-red"/>
+    
     <div id="flex-container">    
         <div class="settings-boxes">
-         <info-box color="ff6666" icon="dashboard" action="Plugins" :title="$t('plugins')"/>
-         <info-box color="eeee77" icon="extension" action="Automations" :title="$t('automations')"/>   
-         <info-box color="ffffff" icon="settings_applications" action="System" :title="$t('system')"/>
+         <info-box class='settings-box' color="ff6666" icon="dashboard" action="Plugins" :title="$t('plugins')"/>
+         <info-box class='settings-box' color="eeee77" icon="extension" action="Automations" :title="$t('automations')"/>   
         </div>
         <div class="settings-boxes">
-         <info-box color="77dd77" icon="perm_identity" action="Users" :title="$t('users')"/>
-         <info-box color="ffbbff" icon="supervisor_account" action="Roles" :title="$t('roles')"/>
-         <info-box color="5291ef" icon="language" action="Languages" :title="$t('languages')"/>
+         <info-box class='settings-box' color="77dd77" icon="perm_identity" action="Users" :title="$t('users')"/>
+         <info-box class='settings-box' color="ffffff" icon="settings_applications" action="System" :title="$t('system')"/>
+        </div>
+        <div class="settings-boxes">
+         <info-box class='settings-box' color="ffbbff" icon="supervisor_account" action="Roles" :title="$t('roles')"/>
+         <info-box class='settings-box' color="5291ef" icon="language" action="Languages" :title="$t('languages')"/>
         </div>
     </div>
     </div>
@@ -32,7 +37,6 @@ export default {
 </script>
 
 <style scoped>
-
     .md-content,
     .md-icon.md-theme-default {
         background-color: transparent;
@@ -48,23 +52,29 @@ export default {
     }
 
     #settings-area {
-        width: 100%;
         height: 100%;
     }
 
     #flex-container {
         display: flex;
-        width: 100%;
-        height: 100%;
-        align-items: flex-start;
+        align-items: center;
+        flex-flow: column wrap;
+        align-content: space-around;
     }
 
     .settings-boxes {
-        flex-direction: column;
-        justify-content: space-around;
-        width: inherit;
-        height: inherit;
+        flex-direction: row;
+        justify-content: space-evenly;
         display: flex;
+        width: 100%;
+        height: 50%;
     } 
+
+    .settings-box {
+        flex-grow: 1;
+        margin: 0.5em;
+        width: 40%;
+        height: 30%;
+    }
 </style>
 
