@@ -92,9 +92,11 @@ function hideAllDashboardDisplays (state) {
 
 // Mutations for API
 
+// ENVIRONMENTS
 export const setEnvironmentsList = (state, {list}) => {
   state.environmentsList = list
 }
+// END ENVIRONMENTS
 
 export const setCommandsList = (state, {list}) => {
   state.commandsList = list
