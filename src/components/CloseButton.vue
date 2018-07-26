@@ -39,6 +39,10 @@ export default {
   .md-icon.md-theme-default.md-icon-font {
     color: white;
    }
+
+   .md-content.close-button.color-red.md-theme-default {
+     background-color: red;
+   }
 </style>
 
         
