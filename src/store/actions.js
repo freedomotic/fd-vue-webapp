@@ -46,14 +46,24 @@ export const setAdvancedMode = (context) => {
 
 // ENVIRONMENTS
 export const getEnvironmentsList = (context) => {
-  // mapped to /environments
-  // commit setEnvironmentsList mutation
+  axios.get('/environments').then((response) => {
+    console.log('Retrieving Environments list')
+    // commit setEnvironments mutation
+    context.commit('setEnvironmentsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
   console.log('Executing getEnvironmentsList')
 }
 
 export const getEnvironmentThingsList = (context, envId) => {
-  // mapped to /environments/{{envId}}/things
-  // commit setEnvironmentThingsList mutation
+  axios.get('/environments/' + envId + '/things').then((response) => {
+    console.log('Retrieving Things list of current environment')
+    // commit setEnvironmentThingsList mutation
+    context.commit('setEnvironmentThingsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
   console.log('Executing getEnvironmentThingsList')
 }
 // END ENVIRONMENTS
