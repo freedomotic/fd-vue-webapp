@@ -295,24 +295,6 @@ export const getSystemInfo = (context) => {
 
 // AUTHENTICATION
 
-// simulate login
-export const pretendLogin = (context, payload) => {
-  return new Promise((resolve, reject) => {
-    // mapped to  API
-    if (payload.username === 'admin' && payload.password === 'admin') {
-      // create token
-      var token = btoa(payload.username + ':' + payload.password)
-      localStorage.setItem('token', token)
-      context.commit('authSuccess', token)
-      resolve()
-    } else {
-      context.commit('authError')
-      localStorage.removeItem('token')
-      reject()
-    }
-  })
-}
-
 export const login = (context, payload) => {
   return new Promise((resolve, reject) => {
     var body = new URLSearchParams()
@@ -337,14 +319,6 @@ export const login = (context, payload) => {
       reject()
     })
   })
-}
-
-// simulate logout
-export const pretendLogout = (context) => {
-  // mapped to  API
-  console.log('Executing logout ')
-  context.commit('authLogout')
-  localStorage.removeItem('token')
 }
 
 export const logout = (context) => {
