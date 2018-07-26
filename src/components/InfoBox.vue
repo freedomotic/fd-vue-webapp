@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style scoped>
+   .md-card.md-theme-default {
+    background-color: #222222;
+  }
+
   .md-card {
     margin: auto;
     background-color: #222222;
