@@ -96,6 +96,10 @@ function hideAllDashboardDisplays (state) {
 export const setEnvironmentsList = (state, {list}) => {
   state.environmentsList = list
 }
+
+export const setEnvironmentRoomsList = (state, {list}) => {
+  state.roomsList = list
+}
 // END ENVIRONMENTS
 
 export const setCommandsList = (state, {list}) => {

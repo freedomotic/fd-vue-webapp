@@ -3,9 +3,9 @@
     <custom-toolbar v-bind="toolbarInfo"></custom-toolbar>
     <v-ons-list>
       <v-ons-list-header>{{$t('select_environment')}}</v-ons-list-header>
-      <v-ons-list-item v-for="(environment, $index) in environments" :key="environment"
+      <v-ons-list-item v-for="(environment, $index) in getEnvironmentsList" :key="environment.uuid"
         tappable
-        :modifier="($index === environments.length - 1) ? 'longdivider' : ''"
+        :modifier="($index === getEnvironmentsList.length - 1) ? 'longdivider' : ''"
       >
         <label class="left">
           <v-ons-radio
@@ -16,7 +16,7 @@
           </v-ons-radio>
         </label>
         <label :for="'radio-' + $index" class="center">
-          {{ environment }}
+          {{ environment.name }}
         </label>
       </v-ons-list-item>
       <v-ons-list-item>
@@ -33,8 +33,12 @@
 export default {
   data () {
     return {
-      environments: ['Ground Floor', 'Second Floor'],
-      selectedEnvironment: 'Ground Floor'
+      selectedEnvironment: ''
+    }
+  },
+  computed: {
+    getEnvironmentsList: function () {
+      return this.$store.state.environmentsList
     }
   }
 }

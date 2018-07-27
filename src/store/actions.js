@@ -66,6 +66,17 @@ export const getEnvironmentThingsList = (context, envId) => {
   })
   console.log('Executing getEnvironmentThingsList')
 }
+
+export const getEnvironmentRoomsList = (context, envId) => {
+  axios.get('/environments/' + envId + '/rooms').then((response) => {
+    console.log('Retrieving Rooms list of current environment')
+    // commit setEnvironmentRoomsList mutation
+    context.commit('setEnvironmentRoomsList', { list: response.data })
+  }, (err) => {
+    console.log(err)
+  })
+  console.log('Executing getEnvironmentThingsList')
+}
 // END ENVIRONMENTS
 
 export const getCommandsList = (context) => {
@@ -281,7 +292,7 @@ export const changeBehavior = (context, payload) => {
 }
 // END THINGS
 
-// SYSTEM INFO
+// SYSTEM
 export const getSystemInfo = (context) => {
   axios.get('/system/info/framework').then((response) => {
     console.log('Retrieving System info')
@@ -291,7 +302,15 @@ export const getSystemInfo = (context) => {
     console.log(err)
   })
 }
-// END SYSTEM INFO
+
+export const systemShutdown = (context) => {
+  axios.post('/system/exit').then((response) => {
+    console.log('System shutdown')
+  }, (err) => {
+    console.log(err)
+  })
+}
+// END SYSTEM
 
 // AUTHENTICATION
 
