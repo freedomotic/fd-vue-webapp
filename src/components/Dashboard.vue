@@ -89,6 +89,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getThingsList')
+    this.$store.dispatch('getEnvironmentsList')
   },
   computed: {
     displaySettings () {

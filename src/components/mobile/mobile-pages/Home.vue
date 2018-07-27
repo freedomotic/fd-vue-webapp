@@ -60,6 +60,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getThingsList')
+    this.$store.dispatch('getEnvironmentsList')
   },
   methods: {
     push (page, key) {
