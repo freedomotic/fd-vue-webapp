@@ -57,7 +57,7 @@ export default {
     },
     showDynamicComponentModal () {
       this.$modal.show(Marketplace, {
-        text: 'This text is passed as a property'
+        text: ''
       },
         {
           name: 'marketplaceModal',
@@ -68,7 +68,6 @@ export default {
           clickToClose: false,
           width: '65%',
           height: 'auto',
-          minHeight: 300,
           minWidth: 500
         })
     }
