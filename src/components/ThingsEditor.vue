@@ -79,8 +79,15 @@
         </md-field>
        </v-tab>
        <v-tab :title="$t('data_source')">
-        <div v-for="(value, key) in thing.triggers.propertyList">
-           {{value}}
+        <div v-for="trigger in thing.triggers.propertyList">
+           {{trigger}}
+        <span>
+         <select>
+            <option v-for="trg in getTriggersList" :key="trg.name">
+              {{ trg.name}}
+            </option>
+         </select> 
+        </span>
         </div>
        </v-tab>
        <v-tab :title="$t('actions')">
@@ -126,6 +133,9 @@ export default {
   computed: {
     getEnvironmentsList: function () {
       return this.$store.state.environmentsList
+    },
+    getTriggersList: function () {
+      return this.$store.state.triggersList
     }
   },
   created () {
