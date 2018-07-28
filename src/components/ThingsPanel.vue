@@ -10,7 +10,10 @@
        <div class="item" v-for="(thing, index) in getThingsList" :key="thing.uuid">
          <thing :thing="thing" :index="index"></thing>
        </div>
-     </grid-container>     
+     </grid-container>
+     <md-button class="md-fab md-primary md-fab-bottom-right md-fixed" >
+        <md-icon>add</md-icon>
+     </md-button>     
     </div>    
 </template>
 
