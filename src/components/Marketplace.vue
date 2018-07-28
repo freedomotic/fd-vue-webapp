@@ -6,23 +6,23 @@
        </md-content> 
           <h4 class="md-title">Freedomotic Official Marketplace</h4>
     </md-toolbar>
+    <br>
      <!-- This should be replaced by md-select components -->
-     <select v-model="selectedCategory">
-        <option v-for="category in getMarketplaceCategoriesList" v-bind:value="category.name" 
-        v-on:change="getMarketplaceCategoryPluginsList(category.name)" 
-        >
-           {{ category.name }}
+     <div>{{$t('select_category')}}</div>
+     <select v-model="selectedCategory" @change="getMarketplaceCategoryPluginsList()">
+        <option v-for="category in getMarketplaceCategoriesList" :key="category.id">
+              {{ category.name}}
         </option>
      </select>
+     <br><br>
      <div>
        <md-list class="md-triple-line">
-         <md-list-item v-for="plugin in getMarketplaceCategoryPluginsList" :key="plugin.uuid">
+         <md-list-item v-for="plugin in getMarketplaceCategoryPlugins" :key="plugin.uuid">
             <md-avatar>
               <img :src="plugin.field_icon[0].filepath" :alt="plugin.title">
             </md-avatar>
             <div class="md-list-item-text">
             <span>{{plugin.title}}</span>
-            <span>{{plugin.field_description[0].value}}</span
             <span>{{plugin.field_category[0].value}}</span>
             </div>
             <md-button class="md-icon-button md-list-action">
@@ -41,22 +41,28 @@ export default {
     getMarketplaceCategoriesList: function () {
       return this.$store.state.marketplaceCategoriesList
     },
-    getMarketplaceCategoryPluginsList: function (category) {
-      return this.$store.state.marketplaceCategoriesPluginsList
+    getMarketplaceCategoryPlugins: function () {
+      return this.$store.state.marketplaceCategoryPluginsList
     }
   },
   data () {
     return {
-      selectedCategory: null
+      selectedCategory: ''
     }
   },
   methods: {
+    getMarketplaceCategoryPluginsList: function () {
+      console.log('Request for ' + this.selectedCategory)
+      this.$store.dispatch('getMarketplaceCategoryPluginsList', this.selectedCategory)
+    }
   }
 }
 </script>
 
 <style scoped>
-  
+  .md-menu-content {
+     z-index: 150;
+  }
 </style>
 
 
