@@ -21,13 +21,13 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Triggers">
+      <custom-toolbar backLabel={{$t('triggers')}}>
         {{ trigger.name }}
       </custom-toolbar>
       <mobile-trigger :trigger="trigger" :addMode="addMode"></mobile-trigger>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="Triggers">
+      <custom-toolbar backLabel={{$t('triggers')}}>
         {{$t('add_new_trigger')}}
       </custom-toolbar>
       <mobile-trigger :trigger="trigger" :addMode="addMode"></mobile-trigger>

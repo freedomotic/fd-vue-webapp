@@ -21,13 +21,13 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Automations">
+      <custom-toolbar backLabel={{$t('automations')}}>
         {{ automation.shortDescription }}
       </custom-toolbar>
       <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="Automations">
+      <custom-toolbar backLabel={{$t('automations')}}>
         {{$t('add_new_automation')}}
       </custom-toolbar>
       <mobile-automation :automation="automation" :addMode="addMode"></mobile-automation>

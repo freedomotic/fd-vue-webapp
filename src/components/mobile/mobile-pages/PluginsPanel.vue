@@ -26,13 +26,13 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Plugins">
+      <custom-toolbar backLabel={{$t('plugins')}}>
         {{ plugin.pluginName }}
       </custom-toolbar>
       <mobile-plugin :addMode="addMode" :index="index"></mobile-plugin>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="Plugins">
+      <custom-toolbar backLabel={{$t('plugins')}}>
         {{$t('install_plugin_from_marketplace')}}
       </custom-toolbar>
       <mobile-plugin :addMode="addMode" :index="index"></mobile-plugin>

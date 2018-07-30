@@ -22,13 +22,13 @@
 const transitionPage = {
   template: `
      <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel="Temperature">
+      <custom-toolbar backLabel={{$t('temperature')}}>
         {{ temperature.name }}
       </custom-toolbar>
       <mobile-thing :thing="temperature" :addMode="false" :index="index"></mobile-thing>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel="All Things">
+      <custom-toolbar backLabel={{$t('all_things')}}>
         {{$t('add_new_thing')}}
       </custom-toolbar>
       <mobile-thing :thing="temperature" :addMode="true" :index="index"></mobile-thing>

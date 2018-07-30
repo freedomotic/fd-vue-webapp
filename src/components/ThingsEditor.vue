@@ -83,7 +83,7 @@
            {{trigger}}
         <span>
          <select>
-            <option v-for="trg in getTriggersList" :key="trg.name">
+            <option v-for="trg in getHardwareTriggersList" :key="trg.name">
               {{ trg.name}}
             </option>
          </select> 
@@ -134,8 +134,10 @@ export default {
     getEnvironmentsList: function () {
       return this.$store.state.environmentsList
     },
-    getTriggersList: function () {
-      return this.$store.state.triggersList
+    getHardwareTriggersList: function () {
+      return this.$store.state.triggersList.filter(function (item) {
+        return item.hardwareLevel === true
+      })
     }
   },
   created () {
