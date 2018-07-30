@@ -1,4 +1,4 @@
-/* globals localStorage */
+/* globals sessionStorage */
 
 // import store from '../store'
 
