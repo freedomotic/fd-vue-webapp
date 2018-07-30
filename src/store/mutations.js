@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const hideAll = state => {
   hideAllDashboardDisplays(state)
 }
@@ -119,10 +121,11 @@ export const setPluginsList = (state, {list}) => {
   state.pluginsList = list
 }
 
-export const updatePlugin = (state, plugin) => {
+export const updatePluginFromWS = (state, plugin) => {
   var idx
   idx = state.pluginsList.findIndex(item => item.pluginName === plugin.pluginName)
-  state.pluginsList[idx] = plugin
+  // state.pluginsList[idx] = plugin
+  Vue.set(state.pluginsList, idx, plugin)
 }
 
 export const setMarketplaceCategoriesList = (state, {list}) => {
@@ -139,10 +142,11 @@ export const setThingsList = (state, {list}) => {
   state.thingsList = list
 }
 
-export const updateThing = (state, thing) => {
+export const updateThingFromWS = (state, thing) => {
   var idx
   idx = state.thingList.findIndex(item => item.name === thing.name)
-  state.thingsList[idx] = thing
+  // state.thingsList[idx] = thing
+  Vue.set(state.thingsList, idx, thing)
 }
 
 export const setThingTemplatesList = (state, {list}) => {

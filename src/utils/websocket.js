@@ -41,15 +41,15 @@ export default {
           }
           break
         case 'plugin-started':
-          // store.dispatch('updatePlugin', JSON.parse(payload))
-          store.dispatch('getPluginsList')
+          store.dispatch('updatePluginFromWS', JSON.parse(payload))
+          // store.dispatch('getPluginsList')
           break
         case 'plugin-stopped':
-          // store.dispatch('updatePlugin', JSON.parse(payload))
-          store.dispatch('getPluginsList')
+          store.dispatch('updatePluginFromWS', JSON.parse(payload))
+          // store.dispatch('getPluginsList')
           break
         case 'object-changed':
-          // store.dispatch('updateThing', JSON.parse(payload))
+          // store.dispatch('updateThingFromWS', JSON.parse(payload))
           store.dispatch('getThingsList')
           break
       }
