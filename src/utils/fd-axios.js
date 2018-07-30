@@ -1,4 +1,4 @@
-/* global localStorage */
+/* global sessionStorage */
 
 import axios from 'axios'
 

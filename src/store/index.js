@@ -12,7 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // Authentication state
-    token: localStorage.getItem('token') || '',
+    token: sessionStorage.getItem('token') || '',
     status: '',
     // end of Authentication state
     // System state

@@ -332,14 +332,14 @@ export const login = (context, payload) => {
       var token = btoa(payload.username + ':' + payload.password)
       // add axios default header
       axios.defaults.headers.common['Authorization'] = 'Basic ' + token
-      localStorage.setItem('token', token)
+      sessionStorage.setItem('token', token)
       context.commit('authSuccess', token)
       resolve()
     })
     .catch(e => {
       console.log(e)
       context.commit('authError')
-      localStorage.removeItem('token')
+      sessionStorage.removeItem('token')
       reject()
     })
   })

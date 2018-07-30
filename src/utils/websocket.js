@@ -1,4 +1,4 @@
-/* globals localStorage */
+/* globals sessionStorage */
 
 import EventBus from '@/utils/event-bus'
 import store from '../store'
