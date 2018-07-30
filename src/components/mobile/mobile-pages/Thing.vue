@@ -209,6 +209,11 @@
       },
       getEnvironmentsList: function () {
         return this.$store.state.environmentsList
+      },
+      getHardwareTriggersList: function () {
+        return this.$store.state.triggersList.filter(function (item) {
+          return item.hardwareLevel === true
+        })
       }
     },
     methods: {
