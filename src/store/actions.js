@@ -158,9 +158,9 @@ export const getPluginsList = (context) => {
   })
 }
 
-export const updatePlugin = (context, plugin) => {
-  // commit updatePlugin mutation
-  context.commit('updatePlugin', plugin)
+export const updatePluginFromWS = (context, plugin) => {
+  // commit updatePluginFromWS mutation
+  context.commit('updatePluginFromWS', plugin)
 }
 
 export const startPlugin = (context, pluginId) => {
@@ -247,6 +247,11 @@ export const getThingTemplatesList = (context) => {
   }, (err) => {
     console.log(err)
   })
+}
+
+export const updateThingFromWS = (context, thing) => {
+  // commit updateThingFromWS mutation
+  context.commit('updateThingFromWS', thing)
 }
 
 export const addNewThing = (context, template) => {
