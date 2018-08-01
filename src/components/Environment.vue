@@ -1,9 +1,9 @@
 <template>
-  <div class='environment-container'>
+  <div class="external-container" ref="container">
     <div style="z-index:1;">
-       <h4 id="envname">{{environment.name}}</h4>
+       <h3 id="envname">{{environment.name}}</h3>
     </div>
-    <canvas ref='environmentCanvas' class='environment-canvas' width="700" height="550"/>
+    <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height"/>
     <div v-for="thing in getEnvironmentThingsList">
       <img v-if="!moveEnabled" class="thing" :id="thing.uuid" src="../assets/icons/led-green.png"
        :style="objPosition(thing.representation[0].offset)"></img>
@@ -26,10 +26,23 @@ export default {
       return this.$store.state.environmentThingsList
     }
   },
+  watch: {
+    scaleFactor () {
+      console.log('Current scale factor ' + this.scaleFactor)
+      var scaleStr = 'scale(' + this.scaleFactor + ',' + this.scaleFactor + ')'
+      var element = this.$refs.container
+      element.style.transform = scaleStr
+      element.style.WebkitTransform = scaleStr
+      element.style.msTransform = scaleStr
+      var verticalOffset = -(this.environment.height * (1 - this.scaleFactor)) / 2 + 5
+      element.style.top = verticalOffset + 'px'
+    }
+  },
   data () {
     return {
       showZones: false,
       scaleFactor: 1.0,
+      sizing: 'contain',
       moveEnabled: false,
       canvas: {},
       context: {},
@@ -54,6 +67,22 @@ export default {
     objPosition: function (offset) {
       console.log('left:' + offset.x + 'px;' + 'top:' + offset.y + 'px;')
       return 'left:' + offset.x + 'px;' + 'top:' + offset.y + 'px;'
+    },
+    resize: function () {
+     // set this.scaleFactor and let scaleFactorChanged() do the rest
+      this.scaleFactor = this.getScaleFactor()
+    },
+    getScaleFactor: function () {
+      var scaleFactor = 1
+      var scaleFactorX = (window.innerWidth - 50) / this.environment.width
+      var scaleFactorY = (window.innerHeight - 50) / this.environment.height
+      console.log(scaleFactorX + ':' + scaleFactorY)
+      if (this.sizing === 'contain') {
+        scaleFactor = Math.min(scaleFactorX, scaleFactorY)
+      } else if (this.sizing === 'cover') {
+        scaleFactor = Math.max(scaleFactorX, scaleFactorY)
+      }
+      return scaleFactor
     },
     dragStartHandler: function (e) {
       // set avatar icon
@@ -80,6 +109,19 @@ export default {
       // var url = 'things/' + thing.uuid + '/move/' + Math.floor(newPos.x) + '/' + Math.floor(newPos.y)
       //  dragInfo.moveService.fdtype = url;
       //  dragInfo.moveService.go();
+    },
+    toggleMove: function () {
+      this.moveEnabled = !this.moveEnabled
+    },
+    doCopy: function () {
+    },
+    doDelete: function () {
+    },
+    getResource: function (resourceId) {
+      this.$store.dispatch('getResource', resourceId).then((data) => {
+        return (data)
+      }).catch(() => {
+      })
     }
   },
   mounted: function () {
@@ -88,12 +130,17 @@ export default {
     this.backgroundImg.src = require('../assets/map2.png')
     this.backgroundImg.className = 'environment-image'
     this.canvasImage()
+    this.resize()
+    var element = this
+    window.addEventListener('resize', function (event) {
+      element.resize()
+    })
   }
 }
 </script>
 
 <style scoped>
-      .environment-container {
+      .external-container {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -102,7 +149,7 @@ export default {
       .environment-canvas {
         position: absolute;
         margin-top: 4%;
-        background-color: white;
+        background-color: red;
         z-index: 1;
       }
 
