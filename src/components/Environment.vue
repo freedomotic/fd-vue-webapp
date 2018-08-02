@@ -105,8 +105,7 @@ export default {
       //  x: f.x / dragInfo.scaleFactor,
       //  y: f.y / dragInfo.scaleFactor
       // }
-      // POST updated data.
-      // var url = 'things/' + thing.uuid + '/move/' + Math.floor(newPos.x) + '/' + Math.floor(newPos.y)
+      // CALL moveThing(thing.uuid, Math.floor(newPos.x), Math.floor(newPos.y))
       //  dragInfo.moveService.fdtype = url;
       //  dragInfo.moveService.go();
     },
@@ -116,6 +115,10 @@ export default {
     doCopy: function () {
     },
     doDelete: function () {
+    },
+    moveThing: function (thingId, x, y) {
+      const payload = {'thingId': thingId, 'x': x, 'y': y}
+      this.$store.dispatch('moveThing', payload)
     },
     getResource: function (resourceId) {
       this.$store.dispatch('getResource', resourceId).then((data) => {
