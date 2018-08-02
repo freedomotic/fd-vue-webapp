@@ -120,6 +120,9 @@ export default {
       const payload = {'thingId': thingId, 'x': x, 'y': y}
       this.$store.dispatch('moveThing', payload)
     },
+    sendClickEvent: function (thingId) {
+      this.$store.dispatch('sendObjectClickEvent', thingId)
+    },
     getResource: function (resourceId) {
       this.$store.dispatch('getResource', resourceId).then((data) => {
         return (data)
