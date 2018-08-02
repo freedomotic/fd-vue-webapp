@@ -18,7 +18,7 @@ To have a broad idea about its features you can have a look at our [YouTube chan
 
 ## Live demo
 
-A live demo of this client is available at http://fd-vue-webapp.herokuapp.com/. Check it out!
+A live demo of this client is available at http://fd-vue-webapp.herokuapp.com/. Check it out using admin/admin as credentials!
 
 ## Prerequirements
 
