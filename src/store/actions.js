@@ -291,6 +291,14 @@ export const moveThing = (context, payload) => {
   })
 }
 
+export const sendObjectClickEvent = (context, thingId) => {
+  axios.post('/things/' + thingId + '/click').then((response) => {
+    console.log('Sending click event to Thing ' + thingId)
+  }, (err) => {
+    console.log(err)
+  })
+}
+
 export const changeBehavior = (context, payload) => {
   axios.post('/things/' + payload.thingId + '/behaviorchange/' + payload.behaviorId + '/' + payload.newBehaviorValue).then((response) => {
     console.log('Updating behavior ' + payload.behaviorId + ' of Thing ' + payload.thingId + ' to value ' + payload.newBehaviorValue)
