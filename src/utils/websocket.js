@@ -11,10 +11,10 @@ export default {
 
   openWebSockets () {
     console.log('Opening websockets ' + host)
-    if (process.env.NODE_ENV === 'development' || window.location.host === 'fd-vue-webapp.herokuapp.com') {
+    if (window.location.host === 'fd-vue-webapp.herokuapp.com') {
       url = 'ws://174.138.4.3:9111/v3/ws/event/'
     } else {
-      url = 'ws://localhost:9111/v3/ws/event/'
+      url = 'ws://' + host + ':9111/v3/ws/event/'
     }
     eventWS = new WebSocket(url)
     eventWS.addEventListener('open', function (e) {
@@ -26,7 +26,7 @@ export default {
       } else {
         console.log('desktop')
       }
-      // Process message
+      // Process incoming messages
       var data = event.data.split('|').pop()
       data = data.split('#')
       var messageType = data[0]

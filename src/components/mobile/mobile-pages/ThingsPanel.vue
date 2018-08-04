@@ -28,13 +28,13 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel={{$t('all_things')}}>
+      <custom-toolbar :backLabel="$t('all_things')">
         {{ thing.name }}
       </custom-toolbar>
       <mobile-thing :addMode="false" :index="index"></mobile-thing>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel={{$t('all_things')}}>
+      <custom-toolbar :backLabel="$t('all_things')">
         {{$t('add_new_thing')}}
       </custom-toolbar>
       <mobile-thing :addMode="true" :index="index"></mobile-thing>

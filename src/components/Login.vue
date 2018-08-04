@@ -13,14 +13,6 @@
         </p>
         <form @submit.prevent="login" autocomplete="off">
           <md-field>
-            <label>{{$t('server_address')}}</label>
-            <md-input required v-model="serverAddress"></md-input>
-          </md-field>
-          <md-field>
-            <label>{{$t('server_port')}}</label>
-            <md-input required v-model="serverPort"></md-input>
-          </md-field>
-          <md-field>
             <label>{{$t('username')}}</label>
             <md-input required v-model="username"></md-input>
           </md-field>
@@ -41,14 +33,6 @@
   <v-ons-page>
     <div class="login-form">
      <v-ons-card>
-      <label>{{$t('server_address')}}</label>
-      <br>
-      <v-ons-input v-model="serverAddress"></v-ons-input>
-      <br><br>
-      <label>{{$t('server_port')}}</label>
-      <br>
-      <v-ons-input v-model="serverPort"></v-ons-input>
-      <br><br>
       <label>{{$t('username')}}</label>
       <br>
       <v-ons-input v-model="username"></v-ons-input>
@@ -58,8 +42,6 @@
       <v-ons-input type="password" v-model="password"></v-ons-input>
       <br><br>
       <v-ons-button modifier="large" @click="login" class="login-button">{{$t('login')}}</v-ons-button>
-      <br>
-      <v-ons-button modifier="quiet" class="forgot-password">Forgot password?</v-ons-button>
      </v-ons-card>  
     </div>
   </v-ons-page>
@@ -76,8 +58,6 @@
     },
     data () {
       return {
-        serverAddress: 'localhost',
-        serverPort: '9111',
         username: '',
         password: '',
         ssl: false,

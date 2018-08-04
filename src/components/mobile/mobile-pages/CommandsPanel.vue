@@ -21,13 +21,13 @@
 const transitionPage = {
   template: `
     <v-ons-page v-if="addMode === false">
-      <custom-toolbar backLabel={{$t('commands')}}>
+      <custom-toolbar :backLabel="$t('commands')">
         {{ command.name }}
       </custom-toolbar>
       <mobile-command :command="command" :addMode="addMode"></mobile-command>
     </v-ons-page>
     <v-ons-page v-else>
-      <custom-toolbar backLabel={{$t('commands')}}>
+      <custom-toolbar :backLabel="$t('commands')">
         {{$t('add_new_command')}}
       </custom-toolbar>
       <mobile-command :command="command" :addMode="addMode"></mobile-command>
