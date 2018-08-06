@@ -6,7 +6,7 @@
     <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height"/>
     <div v-for="thing in getEnvironmentThingsList">
       <img v-if="!moveEnabled" class="thing" :id="thing.uuid" src="../assets/icons/led-green.png"
-       :style="objPosition(thing.representation[0].offset)"></img>
+       :style="objPosition(thing.representation[0].offset)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"></img>
       <img v-else class="thing movable" :id="thing.uuid" src="../assets/icons/led-green.png"
        :style="objPosition(thing.representation[0].offset)" draggable="true"></img>
     </div>    
@@ -15,10 +15,15 @@
 
 <script>
 /* global Image */
+import ThingsEditor from './ThingsEditor.vue'
+
 export default {
   name: 'Environment',
   props: {
     environment: {}
+  },
+  components: {
+    ThingsEditor
   },
   computed: {
     getEnvironmentThingsList: function (envId) {
@@ -122,6 +127,18 @@ export default {
     },
     sendClickEvent: function (thingId) {
       this.$store.dispatch('sendObjectClickEvent', thingId)
+    },
+    openThingEditor: function (thing) {
+      this.$modal.show(ThingsEditor, {
+        thing: thing
+      }, {
+        adaptive: true,
+        resizable: true,
+        clickToClose: false,
+        scrollable: true,
+        width: '50%',
+        height: 'auto'
+      })
     },
     getResource: function (resourceId) {
       this.$store.dispatch('getResource', resourceId).then((data) => {
