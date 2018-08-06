@@ -17,7 +17,7 @@
        <v-tab :title="$t('properties')">
         <md-field>
             <label>{{$t('uuid')}}</label>
-            <md-input v-model="uuid" readonly></md-input>
+            <md-input v-model="uuid" placeholder="thing.uuid" readonly></md-input>
         </md-field>
         <md-field>
             <label>{{$t('name')}}</label>
@@ -41,7 +41,7 @@
         </md-field>
         <div id="properties-tab-buttons">
            <md-button id="create-copy-button" class="md-raised"
-           @click="cloneThing(thing.uuid)"
+           @click="showCloneThingDialog"
            >{{$t('create_copy')}}</md-button>
            <md-button id="delete-thing-button" class="md-raised"
            @click="showDeleteThingDialog"
@@ -97,16 +97,13 @@
           <md-list>
             <md-list-item v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               <span class="md-list-item-text">{{behavior.name}} ({{behavior.value}})</span>
-              <vue-slider v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'" ref="thing.name + '-' + behavior.name" v-model="behavior.value" :min="Number(behavior.min/behavior.scale)" :max="Number(behavior.max/behavior.scale)" :interval="Number(behavior.step)" @click.native="changeBehavior(thing.uuid, behavior.name, behavior.value)" tooltip="false" show="true"></vue-slider>
+             
               <span class="md-list-item-text" v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'">
                 <md-switch v-model="behavior.value" @change="changeBehavior(thing.uuid, behavior.name, !!behavior.value)"></md-switch>
               </span>
             </md-list-item>
           </md-list>
         </v-tab>
-       <v-tab :title="$t('automations')">
-        Third tab content
-       </v-tab>
       </vue-tabs>
      </form> 
     </div>
@@ -213,6 +210,35 @@ export default {
                 pauseOnHover: true
               })
               this.$store.dispatch('deleteThing', this.thing.uuid)
+              this.$modal.hide('dialog')
+              this.$emit('close')
+            }
+          }
+        ]
+      })
+    },
+    showCloneThingDialog () {
+      this.$modal.show('dialog', {
+        title: this.$t('create_copy'),
+        text: this.$t('create_copy_message') + ' "' + this.thing.name + '"?',
+        buttons: [
+          {
+            title: this.$t('cancel'),
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: this.$t('create_copy'),
+            default: true,
+            handler: () => {
+              this.$snotify.success('Thing "' + this.thing.name + '" duplicated', 'INFO', {
+                timeout: 3000,
+                showProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true
+              })
+              this.$store.dispatch('cloneThing', this.thing.uuid)
               this.$modal.hide('dialog')
               this.$emit('close')
             }
