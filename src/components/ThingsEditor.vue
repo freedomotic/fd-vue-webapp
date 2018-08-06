@@ -44,9 +44,7 @@
            @click="cloneThing(thing.uuid)"
            >{{$t('create_copy')}}</md-button>
            <md-button id="delete-thing-button" class="md-raised"
-           @click="showDeleteThingDialog($event)"
-           v-bind:uuid="thing.uuid"
-           v-bind:name="thing.name" 
+           @click="showDeleteThingDialog"
            >{{$t('delete_thing')}}</md-button>
         </div>
        </v-tab>
@@ -193,11 +191,10 @@ export default {
       const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
       this.$store.dispatch('changeBehavior', payload)
     },
-    showDeleteThingDialog (event) {
-      var name = event.target.getAttribute('name')
+    showDeleteThingDialog () {
       this.$modal.show('dialog', {
         title: this.$t('delete_thing'),
-        text: this.$t('delete_message') + ' " ' + name + '"?',
+        text: this.$t('delete_message') + ' "' + this.thing.name + '"?',
         buttons: [
           {
             title: this.$t('cancel'),
@@ -209,7 +206,7 @@ export default {
             title: this.$t('delete'),
             default: true,
             handler: () => {
-              this.$snotify.success('Thing "' + name + '" deleted', 'INFO', {
+              this.$snotify.success('Thing "' + this.thing.name + '" deleted', 'INFO', {
                 timeout: 3000,
                 showProgressBar: false,
                 closeOnClick: false,
