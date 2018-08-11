@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "express": "^4.16.3",
+    "v-tooltip": "^2.0.0-rc.33",
     "vue": "^2.5.13",
     "vue-axios": "^2.1.1",
     "vue-country-flag": "^1.0.0",
