@@ -8,8 +8,8 @@
       <img v-if="!moveEnabled" class="thing" :id="thing.uuid" src="../assets/icons/led-green.png"
        :style="objPosition(thing.representation[0].offset)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"
       v-tooltip="{
-       content: thing.name,
-       placement: 'right-start',
+       content: setThingTooltipContent(thing),
+       placement: 'right',
        offset: 10,
        delay: {
         show: 500,
@@ -136,6 +136,18 @@ export default {
     },
     doDelete: function () {
     },
+    setThingTooltipContent (thing) {
+      var behaviors = ''
+      thing.behaviors.forEach((behavior) => {
+        behaviors += behavior.name + ':' + ' ' + behavior.value
+        if (behavior.active) {
+          behaviors += ' [Active]' + '<br>'
+        } else {
+          behaviors += ' [Inactive]' + '<br>'
+        }
+      })
+      return thing.name + '<br>' + thing.description + '<br>' + behaviors
+    },
     moveThing: function (thingId, x, y) {
       const payload = {'thingId': thingId, 'x': x, 'y': y}
       this.$store.dispatch('moveThing', payload)
@@ -233,95 +245,6 @@ export default {
         margin: 5px;
         border-color: black;
       }
-
-      .tooltip[x-placement^="top"] {
-        margin-bottom: 5px;
-      }
-
-      .tooltip[x-placement^="top"] .tooltip-arrow {
-        border-width: 5px 5px 0 5px;
-        border-left-color: transparent !important;
-        border-right-color: transparent !important;
-        border-bottom-color: transparent !important;
-        bottom: -5px;
-        left: calc(50% - 5px);
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .tooltip[x-placement^="bottom"] {
-        margin-top: 5px;
-      }
-
-      .tooltip[x-placement^="bottom"] .tooltip-arrow {
-        border-width: 0 5px 5px 5px;
-        border-left-color: transparent !important;
-        border-right-color: transparent !important;
-        border-top-color: transparent !important;
-        top: -5px;
-        left: calc(50% - 5px);
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      .tooltip[x-placement^="right"] {
-        margin-left: 5px;
-      }
-
-      .tooltip[x-placement^="right"] .tooltip-arrow {
-        border-width: 5px 5px 5px 0;
-        border-left-color: transparent !important;
-        border-top-color: transparent !important;
-        border-bottom-color: transparent !important;
-        left: -5px;
-        top: calc(50% - 5px);
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .tooltip[x-placement^="left"] {
-        margin-right: 5px;
-      }
-
-      .tooltip[x-placement^="left"] .tooltip-arrow {
-        border-width: 5px 0 5px 5px;
-        border-top-color: transparent !important;
-        border-right-color: transparent !important;
-        border-bottom-color: transparent !important;
-        right: -5px;
-        top: calc(50% - 5px);
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .tooltip[aria-hidden='true'] {
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity .15s, visibility .15s;
-      }
-
-      .tooltip[aria-hidden='false'] {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity .15s;
-      }
-
-      .info { 
-        $color: rgba(#004499, .9); 
-          .tooltip-inner { 
-             background: $color;
-             color: white;
-             padding: 24px;
-             border-radius: 5px;
-             box-shadow: 0 5px 30px rgba(black, .1);
-             max-width: 250px;
-           } 
-
-          .tooltip-arrow { 
-             border-color: $color;
-          }
-       }
-      
 </style>
 
 
