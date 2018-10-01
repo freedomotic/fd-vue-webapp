@@ -95,4 +95,8 @@
         top: -53px;
         left: -90px;
       }
+      .md-fab.md-fab-bottom-right {
+        right: 25px;
+        bottom: 20px;
+      }
 </style>
