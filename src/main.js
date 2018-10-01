@@ -26,6 +26,7 @@ import vuexI18n from 'vuex-i18n'
 import en from './i18n/en.json'
 import it from './i18n/it_IT.json'
 import nl from './i18n/nl_NL.json'
+import ru from './i18n/ru_RU.json'
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -67,6 +68,7 @@ Vue.use(vuexI18n.plugin, store)
 Vue.i18n.add('en', en)
 Vue.i18n.add('it', it)
 Vue.i18n.add('nl', nl)
+Vue.i18n.add('ru', ru)
 
 // Set the start locale to use
 Vue.i18n.set('en')

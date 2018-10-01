@@ -12,6 +12,8 @@
           <div class='button-flags-set'>
             <country-flag country='gb' @click.native="changeLanguage('en')"/>
             <country-flag country='it' @click.native="changeLanguage('it')"/>
+            <country-flag country='nl' @click.native="changeLanguage('nl')"/>
+            <country-flag country='ru' @click.native="changeLanguage('ru')"/>
           </div>
 			     <p>{{$t('current_language')}}: {{ $i18n.locale() }}</p>
     </div>    
