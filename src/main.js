@@ -25,6 +25,7 @@ import vuexI18n from 'vuex-i18n'
 // Import translation files
 import en from './i18n/en.json'
 import it from './i18n/it_IT.json'
+import nl from './i18n/nl_NL.json'
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -65,6 +66,7 @@ Vue.use(vuexI18n.plugin, store)
 // Add translations directly to the application
 Vue.i18n.add('en', en)
 Vue.i18n.add('it', it)
+Vue.i18n.add('nl', nl)
 
 // Set the start locale to use
 Vue.i18n.set('en')
