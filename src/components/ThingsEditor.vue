@@ -77,7 +77,7 @@
         </md-field>
        </v-tab>
        <v-tab :title="$t('data_source')">
-        <div v-for="trigger in thing.triggers.propertyList">
+        <div v-for="trigger in thing.triggers.propertyList" :key="trigger.uuid">
            {{trigger}}
         <span>
          <select>
@@ -89,7 +89,7 @@
         </div>
        </v-tab>
        <v-tab :title="$t('actions')">
-        <div v-for="(value, key) in thing.actions.propertyList">
+        <div v-for="(value, key) in thing.actions.propertyList" :key="key">
            {{key}}
         </div>
        </v-tab>
