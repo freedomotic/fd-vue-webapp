@@ -24,6 +24,7 @@ import vuexI18n from 'vuex-i18n'
 
 // Import translation files
 import en from './i18n/en.json'
+import de from './i18n/de_DE.json'
 import it from './i18n/it_IT.json'
 import nl from './i18n/nl_NL.json'
 import ro from './i18n/ro_RO.json'
@@ -68,6 +69,7 @@ Vue.use(vuexI18n.plugin, store)
 
 // Add translations directly to the application
 Vue.i18n.add('en', en)
+Vue.i18n.add('de', de)
 Vue.i18n.add('it', it)
 Vue.i18n.add('nl', nl)
 Vue.i18n.add('ro', ro)
