@@ -4,33 +4,21 @@
        <h3 id="envname">{{environment.name}}</h3>
     </div>
     <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height"/>
-    <div v-for="thing in getEnvironmentThingsList">
-      <img v-if="!moveEnabled" class="thing" :id="thing.uuid" src="../assets/icons/led-green.png"
-       :style="objPosition(thing.representation[0].offset)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"
-      v-tooltip="{
-       content: setThingTooltipContent(thing),
-       placement: 'right',
-       offset: 10,
-       delay: {
-        show: 500,
-        hide: 300,
-       },
-      }"
-      ></img>
-      <img v-else class="thing movable" :id="thing.uuid" src="../assets/icons/led-green.png"
-       :style="objPosition(thing.representation[0].offset)" draggable="true"></img>
-    </div>    
+    <div v-for="thing in getEnvironmentThingsList" :key="thing.uuid">
+
+      <span v-if="!moveEnabled" class="thing" :style="objPosition(thing.representation[0].offset)">
+        <md-tooltip md-direction='right' class='pre-render-line'>{{setThingTooltipContent(thing)}}</md-tooltip>
+        <img :id="thing.uuid" src="../assets/icons/led-green.png"  @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
+      </span>
+      <span v-else class="thing movable" :style="objPosition(thing.representation[0].offset)">
+      <img :id="thing.uuid" src="../assets/icons/led-green.png" draggable="true"/>
+      </span>
+      </div>    
   </div>  
 </template>
 
 <script>
-/* global Image */
-import Vue from 'vue'
-import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
 import ThingsEditor from './ThingsEditor.vue'
-Vue.directive('tooltip', VTooltip)
-Vue.directive('close-popover', VClosePopover)
-Vue.component('v-popover', VPopover)
 
 export default {
   name: 'Environment',
@@ -48,7 +36,6 @@ export default {
   },
   watch: {
     scaleFactor () {
-      console.log('Current scale factor ' + this.scaleFactor)
       var scaleStr = 'scale(' + this.scaleFactor + ',' + this.scaleFactor + ')'
       var element = this.$refs.container
       element.style.transform = scaleStr
@@ -137,16 +124,19 @@ export default {
     doDelete: function () {
     },
     setThingTooltipContent (thing) {
-      var behaviors = ''
+      let behaviors = ''
       thing.behaviors.forEach((behavior) => {
         behaviors += behavior.name + ':' + ' ' + behavior.value
         if (behavior.active) {
-          behaviors += ' [Active]' + '<br>'
+          behaviors += ' [Active]' + '\n'
         } else {
-          behaviors += ' [Inactive]' + '<br>'
+          behaviors += ' [Inactive]' + '\n'
         }
       })
-      return thing.name + '<br>' + thing.description + '<br>' + behaviors
+
+      return `${thing.name}
+            ${thing.description}
+            ${behaviors}`
     },
     moveThing: function (thingId, x, y) {
       const payload = {'thingId': thingId, 'x': x, 'y': y}
@@ -225,25 +215,9 @@ export default {
         position: absolute;
       }
 
-      .tooltip {
-        display: block !important;
-        z-index: 10000;
-      }
-
-      .tooltip .tooltip-inner {
-        background: black;
-        color: white;
-        border-radius: 16px;
-        padding: 5px 10px 4px;
-      }
-
-      .tooltip .tooltip-arrow {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        position: absolute;
-        margin: 5px;
-        border-color: black;
+      .pre-render-line {
+        white-space: pre;
+        height: auto;
       }
 </style>
 
