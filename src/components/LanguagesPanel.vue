@@ -11,6 +11,7 @@
         </md-toolbar>
           <div class='button-flags-set'>
             <country-flag country='gb' @click.native="changeLanguage('en')"/>
+            <country-flag country='de' @click.native="changeLanguage('de')"/>
             <country-flag country='it' @click.native="changeLanguage('it')"/>
             <country-flag country='nl' @click.native="changeLanguage('nl')"/>
             <country-flag country='ro' @click.native="changeLanguage('ro')"/>
