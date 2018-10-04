@@ -31,6 +31,7 @@ import ro from './i18n/ro_RO.json'
 import ru from './i18n/ru_RU.json'
 import sk from './i18n/sk_SK.json'
 import es from './i18n/es_ES.json'
+import fr from './i18n/fr_FR.json'
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -71,12 +72,13 @@ Vue.use(vuexI18n.plugin, store)
 // Add translations directly to the application
 Vue.i18n.add('en', en)
 Vue.i18n.add('de', de)
+Vue.i18n.add('es', es)
+Vue.i18n.add('fr', fr)
 Vue.i18n.add('it', it)
 Vue.i18n.add('nl', nl)
 Vue.i18n.add('ro', ro)
 Vue.i18n.add('ru', ru)
 Vue.i18n.add('sk', sk)
-Vue.i18n.add('es', es)
 
 // Set the start locale to use
 Vue.i18n.set('en')
