@@ -11,7 +11,7 @@
       <v-ons-list-item>
         <div class="center">
           <select id="trigger" v-model="selectedTrigger">
-              <option v-for="trigger in getTriggersList" :value="trigger">
+              <option v-for="trigger in getTriggersList" :value="trigger"  :key='trigger.uuid'>
                   {{ trigger.name }}
               </option>
           </select>
@@ -24,7 +24,7 @@
       <v-ons-list-item>
         <div class="center">
           <select v-model="selectedCommands" multiple style="width: 40%">
-            <option v-for="command in getCommandsList" :value="command">
+            <option v-for="command in getCommandsList" :value="command" :key='command.uuid'>
               {{ command.name}}
             </option>
           </select>
@@ -34,7 +34,7 @@
     <br>
     <div>Selected trigger: {{ selectedTrigger}}</div>
         <div>Selected commands: 
-          <li v-for="command in selectedCommands">
+          <li v-for="command in selectedCommands" :key='command.uuid'>
              {{ command.name }}
           </li>
         </div>  

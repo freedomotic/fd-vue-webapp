@@ -11,7 +11,7 @@
         <div>
            <!-- This should be replaced by md-select component -->
            <select id="trigger" v-model="selectedTrigger">
-              <option v-for="trigger in getTriggersList" v-bind:value="trigger">
+              <option v-for="trigger in getTriggersList" v-bind:value="trigger" :key='trigger.uuid'>
                   {{ trigger.name }}
               </option>
            </select>
@@ -34,7 +34,7 @@
       <md-step id="third" :md-label="$t('review_confirm')" :md-done.sync="third">
         <div>Selected trigger: {{ selectedTrigger['name'] }}</div>
         <div>Selected commands: 
-          <li v-for="command in selectedCommands">
+          <li v-for="command in selectedCommands" :key='command.uuid'>
              {{ command['name'] }}
           </li>
         </div>  

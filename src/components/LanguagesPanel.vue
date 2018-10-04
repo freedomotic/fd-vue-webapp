@@ -11,9 +11,14 @@
         </md-toolbar>
           <div class='button-flags-set'>
             <country-flag country='gb' @click.native="changeLanguage('en')"/>
+            <country-flag country='de' @click.native="changeLanguage('de')"/>
+            <country-flag country='es' @click.native="changeLanguage('es')"/>
+            <country-flag country='fr' @click.native="changeLanguage('fr')"/> 
             <country-flag country='it' @click.native="changeLanguage('it')"/>
             <country-flag country='nl' @click.native="changeLanguage('nl')"/>
+            <country-flag country='ro' @click.native="changeLanguage('ro')"/>
             <country-flag country='ru' @click.native="changeLanguage('ru')"/>
+            <country-flag country='sk' @click.native="changeLanguage('sk')"/>
           </div>
 			     <p>{{$t('current_language')}}: {{ $i18n.locale() }}</p>
     </div>    

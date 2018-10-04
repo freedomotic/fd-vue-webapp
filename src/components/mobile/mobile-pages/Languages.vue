@@ -5,7 +5,7 @@
     <v-ons-list>
      
       <v-ons-list-header>{{$t('select_language')}}</v-ons-list-header>
-      <v-ons-list-item v-for="(language, $index) in languages" :key="language"
+      <v-ons-list-item v-for="(language, $index) in availableLanguages" :key="language"
         tappable
         :modifier="($index === languages.length - 1) ? 'longdivider' : ''"
       >
@@ -38,6 +38,11 @@ export default {
     return {
       languages: ['en', 'it'],
       selectedLanguage: this.$i18n.locale()
+    }
+  },
+  computed: {
+    availableLanguages () {
+      return this.$i18n.locales()
     }
   },
   methods: {

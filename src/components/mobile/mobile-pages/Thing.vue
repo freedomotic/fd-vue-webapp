@@ -8,7 +8,7 @@
           <v-ons-select style="width: 40%"
             v-model="selectedSection"
           >
-            <option v-for="section in sections" :value="section.value">
+            <option v-for="(section, key) in sections" :value="section.value" :key='key'>
               {{ $t(section.text) }}
             </option>
           </v-ons-select>
@@ -115,7 +115,7 @@
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="environment">{{$t('environment')}}</label>
          <v-ons-select v-model="environment" name="environment">
-            <option v-for="env in getEnvironmentsList" :value="env.uuid">
+            <option v-for="env in getEnvironmentsList" :value="env.uuid" :key='env.uuid'>
               {{ env.name }}
             </option>
           </v-ons-select>
