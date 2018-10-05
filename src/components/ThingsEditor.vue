@@ -8,13 +8,8 @@
     </md-toolbar>
     <div>
      <form>    
-      <vue-tabs active-tab-color="#8bae2d" 
-            active-text-color="#ededed"
-            type="pills"
-            :start-index="1"
-            direction="vertical"
-      >
-       <v-tab :title="$t('properties')">
+      <md-tabs> 
+       <md-tab :md-label="$t('properties')">
         <md-field>
             <label>{{$t('uuid')}}</label>
             <md-input v-model="uuid" placeholder="thing.uuid" readonly></md-input>
@@ -47,8 +42,8 @@
            @click="showDeleteThingDialog"
            >{{$t('delete_thing')}}</md-button>
         </div>
-       </v-tab>
-       <v-tab :title="$t('appearance')">
+       </md-tab>
+       <md-tab :md-label="$t('appearance')">
         <md-field>
          <label>{{$t('position_x')}}</label>
          <md-input v-model="positionX" type="number"></md-input>
@@ -75,8 +70,8 @@
             <md-option v-for="env in getEnvironmentsList" :value="env.uuid" :key="env.uuid">{{env.name}}</md-option>
           </md-select>
         </md-field>
-       </v-tab>
-       <v-tab :title="$t('data_source')">
+       </md-tab>
+       <md-tab :md-label="$t('data_source')">
         <div v-for="trigger in thing.triggers.propertyList" :key="trigger.uuid">
            {{trigger}}
         <span>
@@ -87,13 +82,13 @@
          </select> 
         </span>
         </div>
-       </v-tab>
-       <v-tab :title="$t('actions')">
+       </md-tab>
+       <md-tab :md-label="$t('actions')">
         <div v-for="(value, key) in thing.actions.propertyList" :key="key">
            {{key}}
         </div>
-       </v-tab>
-       <v-tab :title="$t('control_panel')">
+       </md-tab>
+       <md-tab :md-label="$t('control_panel')">
           <md-list>
             <md-list-item v-for="behavior in thing.behaviors" v-if="behavior.readOnly == false" :key="behavior.name">
               <span class="md-list-item-text">{{behavior.name}} ({{behavior.value}})</span>
@@ -103,8 +98,8 @@
               </span>
             </md-list-item>
           </md-list>
-        </v-tab>
-      </vue-tabs>
+        </md-tab>
+       </md-tabs>
      </form> 
     </div>
     <md-toolbar class="md-dense md-toolbar-section-end" md-elevation="1">
