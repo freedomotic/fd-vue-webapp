@@ -8,10 +8,10 @@
 
       <span v-if="!moveEnabled" class="thing" :style="objPosition(thing.representation[0].offset)">
         <md-tooltip md-direction='right' class='pre-render-line'>{{setThingTooltipContent(thing)}}</md-tooltip>
-        <img :id="thing.uuid" src="../assets/icons/led-green.png"  @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
+        <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
       </span>
       <span v-else class="thing movable" :style="objPosition(thing.representation[0].offset)">
-      <img :id="thing.uuid" src="../assets/icons/led-green.png" draggable="true"/>
+      <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon) draggable="true"/>
       </span>
       </div>    
   </div>  
@@ -157,11 +157,8 @@ export default {
         height: 'auto'
       })
     },
-    getResource: function (resourceId) {
-      this.$store.dispatch('getResource', resourceId).then((data) => {
-        return (data)
-      }).catch(() => {
-      })
+    getThingIcon: function (resourceId) {
+      return this.axios.defaults.baseURL + '/resources/' + resourceId
     }
   },
   mounted: function () {
