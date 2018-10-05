@@ -149,8 +149,7 @@
         @click="addNewThing(templateThing.name)"
       >
        <div class="left">
-         {{getThingIcon(templateThing.representation[0].icon, index)}}
-         <img class="template-icon" :src="images[index]">  
+         <img class="template-icon" :src="getThingIcon(templateThing.representation[0].icon)">  
        </div>
         <div class="center">{{templateThing.name}}</div>
       </v-ons-list-item>
@@ -272,14 +271,11 @@
         const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
         this.$store.dispatch('changeBehavior', payload)
       },
-      getThingIcon: function (thingIcon, index) {
-        this.$store.dispatch('getResource', thingIcon).then((data) => {
-          this.images[index] = data
-        }).catch(() => {
-        })
+      getThingIcon: function (thingIcon) {
+        return this.axios.defaults.baseURL + '/resources/' + thingIcon
       }
     }
-}
+  }
 </script>
 <style scoped>
   .template-icon {

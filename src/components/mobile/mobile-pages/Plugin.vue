@@ -2,6 +2,8 @@
  <v-ons-page> 
   <div v-if="addMode === false">
    <v-ons-card>
+     <img :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')">
+    <img :src="image">
     <div>{{getPluginFromStore.description}}</div>
     <br><br>
     <v-ons-button v-if="!isPluginRunning(getPluginFromStore.currentPluginStatus)" @click="startPlugin(getPluginFromStore.uuid)" modifier="large">{{$t('start')}}</v-ons-button>
@@ -50,7 +52,8 @@
     },
     data () {
       return {
-        selectedCategory: ''
+        selectedCategory: '',
+        image: ''
       }
     },
     computed: {
@@ -96,6 +99,13 @@
       },
       getMarketplaceCategoryPluginsList: function () {
         this.$store.dispatch('getMarketplaceCategoryPluginsList', this.selectedCategory)
+      },
+      getPluginIcon: function (pluginIcon) {
+        this.$store.dispatch('getResource', pluginIcon).then((data) => {
+          this.image = data
+          return (data)
+        }).catch(() => {
+        })
       }
     }
 }
