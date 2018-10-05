@@ -212,19 +212,7 @@ export const getMarketplaceCategoriesList = (context) => {
 
 // RESOURCES
 export const getResource = (context, resourceId) => {
-  return new Promise((resolve, reject) => {
-    axios.get('/resources/' + resourceId, {
-      responseType: 'arraybuffer'
-    }).then(response => {
-      let image = btoa(
-      new Uint8Array(response.data)
-         .reduce((data, byte) => data + String.fromCharCode(byte), '')
-      )
-      resolve(`data:${response.headers['content-type'].toLowerCase()};base64,${image}`)
-    }, (err) => {
-      console.log(err)
-    })
-  })
+  return axios.defaults.baseURL + '/resources/' + resourceId
 }
 // END RESOURCES
 
