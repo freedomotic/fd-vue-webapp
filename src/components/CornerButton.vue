@@ -12,18 +12,7 @@
     props: {
       tooltip: String,
       tooltipDirection: String,
-      icon: String,
-      action: String
-    },
-    methods: {
-      test: function () {
-        alert('Test')
-      },
-      orientationChanged: function () {
-        if (this.orientation) {
-          this.$.corner.classList.add(this.orientation)
-        }
-      }
+      icon: String
     }
 }
 </script>
