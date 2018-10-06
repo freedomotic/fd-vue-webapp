@@ -133,10 +133,7 @@ export default {
           behaviors += ' [Inactive]' + '\n'
         }
       })
-
-      return `${thing.name}
-            ${thing.description}
-            ${behaviors}`
+      return thing.name + '\n' + thing.description + '\n' + behaviors
     },
     moveThing: function (thingId, x, y) {
       const payload = {'thingId': thingId, 'x': x, 'y': y}
