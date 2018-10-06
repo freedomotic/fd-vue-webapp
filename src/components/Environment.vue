@@ -3,7 +3,7 @@
     <div style="z-index:1;">
        <h3 id="envname">{{environment.name}}</h3>
     </div>
-    <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height"/>
+    <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height" :style="{'min-width': environment.width + 'px', 'min-height': environment.height + 'px'}"/>
     <div v-for="thing in getEnvironmentThingsList" :key="thing.uuid">
 
       <span v-if="!moveEnabled" class="thing" :style="objPosition(thing.representation[0].offset)">
@@ -11,10 +11,10 @@
         <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
       </span>
       <span v-else class="thing movable" :style="objPosition(thing.representation[0].offset)">
-      <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon) draggable="true"/>
+      <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" draggable="true"/>
       </span>
-      </div>    
-  </div>  
+      </div>
+  </div>
 </template>
 
 <script>
@@ -41,8 +41,8 @@ export default {
       element.style.transform = scaleStr
       element.style.WebkitTransform = scaleStr
       element.style.msTransform = scaleStr
-      var verticalOffset = -(this.environment.height * (1 - this.scaleFactor)) / 2 + 5
-      element.style.top = verticalOffset + 'px'
+      var horizontalOffset = (window.innerWidth - this.environment.width * this.scaleFactor) / 2
+      element.style.left = horizontalOffset + 'px'
     }
   },
   data () {
@@ -83,7 +83,7 @@ export default {
       var scaleFactor = 1
       var scaleFactorX = (window.innerWidth - 50) / this.environment.width
       var scaleFactorY = (window.innerHeight - 50) / this.environment.height
-      console.log(scaleFactorX + ':' + scaleFactorY)
+      console.log(scaleFactorX + ':' + scaleFactorY, window.innerWidth, window.innerHeight)
       if (this.sizing === 'contain') {
         scaleFactor = Math.min(scaleFactorX, scaleFactorY)
       } else if (this.sizing === 'cover') {
@@ -175,9 +175,16 @@ export default {
 
 <style scoped>
       .external-container {
-        display: flex;
-        flex-flow: row wrap;
+        nonodisplay: flex;
+        nonoflex-flow: row wrap;
         justify-content: center;
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        transform-origin: top left;
+        top: 25px;
       }
 
       .environment-canvas {
@@ -193,13 +200,13 @@ export default {
         z-index: 1000;
         transition: all 1s ease-in-out;
       }
-   
+
       .movable {
         border: 3px solid black;
         border-radius: 0 50px 50px 50px;
         background-color: rgba(200, 200, 200, 0.3);
       }
-      
+
       #envname {
         margin: 2%;
         padding: 0 5px;
@@ -214,5 +221,3 @@ export default {
         height: auto;
       }
 </style>
-
-
