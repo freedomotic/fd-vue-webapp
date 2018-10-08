@@ -184,13 +184,13 @@ export default {
         width: 100%;
         height: 100%;
         transform-origin: top left;
-        top: 25px;
+        top: 5px;
       }
 
       .environment-canvas {
         position: absolute;
-        margin-top: 4%;
-        background-color: red;
+        margin-top: 2%;
+        background-color: white;
         z-index: 1;
       }
 
@@ -208,12 +208,13 @@ export default {
       }
 
       #envname {
-        margin: 2%;
+        margin: 4%;
         padding: 0 5px;
+        right: 15%;
         background-color: rgba(120, 120, 120, 0.5);
         color: white;
-        left: 15%;
         position: absolute;
+        z-index: 1000;
       }
 
       .pre-render-line {

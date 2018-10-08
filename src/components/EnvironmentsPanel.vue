@@ -88,7 +88,7 @@ export default {
         margin-right: auto; 
         background-color: rgba(80,80,80,0.7); 
         cursor: pointer;
-        color:#fafafa;
+        color: #fafafa;
         border-radius: 50%;
         z-index: 7;
      }
