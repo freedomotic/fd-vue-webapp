@@ -29,9 +29,9 @@ export default {
     ThingsEditor
   },
   computed: {
-    getEnvironmentThingsList: function (envId) {
-      // should be mapped to action getEnvironmentThingsList
-      return this.$store.state.environmentThingsList
+    getEnvironmentThingsList (envId) {
+      // should filter the things belonged to this environment
+      return this.$store.state.thingsList
     }
   },
   watch: {
