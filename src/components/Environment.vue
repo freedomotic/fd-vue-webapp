@@ -29,9 +29,11 @@ export default {
     ThingsEditor
   },
   computed: {
-    getEnvironmentThingsList (envId) {
-      // should filter the things belonged to this environment
-      return this.$store.state.thingsList
+    getEnvironmentThingsList () {
+      let envId = this.environment.uuid
+      return this.$store.state.thingsList.filter(function (item) {
+        return item.envUUID === envId
+      })
     }
   },
   watch: {
