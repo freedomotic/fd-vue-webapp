@@ -8,9 +8,19 @@
     </custom-toolbar>
 
     <v-ons-tabbar position="auto"
-      :tabs="tabs"
-      :index.sync="index"
-    ></v-ons-tabbar>
+      :index.sync="index">
+
+      <template slot="pages">
+        <component v-for="tab in tabs" :key="tab.key"
+          :is="tab.page" v-bind="tab.props">
+        </component>
+      </template>
+
+      <v-ons-tab v-for="tab in tabs" :key="tab.key"
+        :icon="tab.icon"
+        :label="$t(tab.key)">
+      </v-ons-tab>
+    </v-ons-tabbar>
   </v-ons-page>
 </template>
 
@@ -23,23 +33,30 @@ import Logout from '../mobile/mobile-pages/Logout.vue'
 export default {
   props: ['pageStack', 'setOptions', 'toggleMenu', 'setIndex'],
 
+  components: {
+    Home,
+    PluginsPanel,
+    Settings,
+    Logout
+  },
+
   data () {
     return {
       tabs: [
         {
-          label: 'home',
+          key: 'home',
           icon: this.md() ? null : 'ion-home',
           page: Home,
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'settings',
+          key: 'settings',
           icon: this.md() ? null : 'ion-gear-b',
           page: Settings,
           props: { pageStack: this.pageStack }
         },
         {
-          label: 'plugins',
+          key: 'plugins',
           icon: this.md() ? null : 'ion-cube',
           page: PluginsPanel,
           props: {
@@ -48,7 +65,7 @@ export default {
           }
         },
         {
-          label: 'logout',
+          key: 'logout',
           icon: this.md() ? null : 'ion-information-circled',
           page: Logout,
           props: {
@@ -79,5 +96,6 @@ export default {
       }
     }
   }
+
 }
 </script>
