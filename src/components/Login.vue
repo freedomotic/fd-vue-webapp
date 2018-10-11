@@ -31,7 +31,11 @@
 <!-- Mobile Login -->
 <div v-else>
   <v-ons-page>
-    <div class="login-form">
+   <div id="mobile-login-box">
+    <div id="login-header">
+        <img alt="freedomotic" v-bind:src="logoImg">
+    </div>
+    <div class="mobile-login-form">
      <v-ons-card>
       <label>{{$t('username')}}</label>
       <br>
@@ -44,12 +48,13 @@
       <v-ons-button modifier="large" @click="login" class="login-button">{{$t('login')}}</v-ons-button>
      </v-ons-card>  
     </div>
+  </div> 
   </v-ons-page>
 </div>
 </template>
 
 <script>
-  import logoImg from '../assets/freedomotic-logo-light-transparent.png'
+  import logoImg from '../assets/freedomotic-logo.png'
   import Background from './Background.vue'
 
   export default {
@@ -112,7 +117,6 @@
 
   #login-header {
     padding: 10px;
-    background-color: #555;
   }
 
   #login-header img {
@@ -125,10 +129,18 @@
     padding: 1em 2em;
   }
 
-  .login-form {
+  #mobile-login-box {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+  }
+
+  .mobile-login-form {
     text-align: left;
     width: 80%;
-    margin: 60px auto 0;
+    margin: 20px auto 0;
    }
 
    input[type=email], input[type=password] {
