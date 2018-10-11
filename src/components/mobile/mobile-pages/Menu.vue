@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <div class="profile-pic">
-      <img src="../../../assets/freedomotic-logo-light-transparent.png">
+      <img src="../../../assets/freedomotic-logo.png">
     </div>
 
     <v-ons-list>
@@ -104,7 +104,6 @@ export default {
 <style scoped>
 .profile-pic {
   width: 200px;
-  background-color: #555;
   margin: 20px auto 10px;
 }
 
