@@ -37,11 +37,11 @@
     </div>
     <div class="mobile-login-form">
      <v-ons-card>
-      <!--<label>{{$t('username')}}</label>-->
+      <label>{{$t('username')}}</label>
       <br>
       <v-ons-input  modifier="underbar" placeholder="Username" v-model="username"></v-ons-input>
       <br><br>
-      <!--<label>{{$t('password')}}</label>-->
+      <label>{{$t('password')}}</label>
       <br>
       <v-ons-input modifier="underbar" placeholder="password" type="password" v-model="password"></v-ons-input>
       <br><br>
