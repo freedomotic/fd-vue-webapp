@@ -37,13 +37,13 @@
     </div>
     <div class="mobile-login-form">
      <v-ons-card>
-      <label>{{$t('username')}}</label>
+      <!--<label>{{$t('username')}}</label>-->
       <br>
-      <v-ons-input v-model="username"></v-ons-input>
+      <v-ons-input  modifier="underbar" placeholder="Username" v-model="username"></v-ons-input>
       <br><br>
-      <label>{{$t('password')}}</label>
+      <!--<label>{{$t('password')}}</label>-->
       <br>
-      <v-ons-input type="password" v-model="password"></v-ons-input>
+      <v-ons-input modifier="underbar" placeholder="password" type="password" v-model="password"></v-ons-input>
       <br><br>
       <v-ons-button modifier="large" @click="login" class="login-button">{{$t('login')}}</v-ons-button>
      </v-ons-card>  
@@ -131,7 +131,7 @@
 
   #mobile-login-box {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
     width: 400px;
     transform: translate(-50%, -50%);
@@ -161,5 +161,15 @@
     display: block;
     margin: 8px auto 0 auto;
     font-size: 14px;
+  }
+  .card{
+    box-shadow: unset;
+    background-color: unset;
+  }
+  .button{
+    background-color:#9CBA7F;
+  }
+  ons-input{
+    width: 100%;
   }
 </style>
