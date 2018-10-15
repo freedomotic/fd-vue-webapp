@@ -1,19 +1,34 @@
 <template>
   <div class="external-container" ref="container">
-    <div style="z-index:1;">
-       <h3 id="envname">{{environment.name}}</h3>
-    </div>
-    <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height" :style="{'min-width': environment.width + 'px', 'min-height': environment.height + 'px'}"/>
-    <div v-for="thing in getEnvironmentThingsList" :key="thing.uuid">
 
-      <span v-if="!moveEnabled" class="thing" :style="objPosition(thing.representation[0].offset)">
-        <md-tooltip md-direction='right' class='pre-render-line'>{{setThingTooltipContent(thing)}}</md-tooltip>
-        <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
-      </span>
-      <span v-else class="thing movable" :style="objPosition(thing.representation[0].offset)">
-      <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" draggable="true"/>
-      </span>
+    <div class="test">
+
+    <div class="top-nav">
+      <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+      <div >
+         <h3 id="envname">{{environment.name}}</h3>
+      </div>
+    </div>
+
+    <div class="display">
+      <canvas ref='environmentCanvas' class='environment-canvas' :width="environment.width" :height="environment.height" :style="{'min-width': environment.width + 'px', 'min-height': environment.height + 'px'}"/>
+      <div v-for="thing in getEnvironmentThingsList" :key="thing.uuid">
+
+        <span v-if="!moveEnabled" class="thing" :style="objPosition(thing.representation[0].offset)">
+          <md-tooltip md-direction='right' class='pre-render-line'>{{setThingTooltipContent(thing)}}</md-tooltip>
+          <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" @contextmenu="openThingEditor(thing)" @click="sendClickEvent(thing.uuid)"/>
+        </span>
+
+        <span v-else class="thing movable" :style="objPosition(thing.representation[0].offset)">
+        <img :id="thing.uuid" :src="getThingIcon(thing.representation[thing.currentRepresentation].icon)" draggable="true"/>
+        </span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,13 +53,13 @@ export default {
   },
   watch: {
     scaleFactor () {
-      var scaleStr = 'scale(' + this.scaleFactor + ',' + this.scaleFactor + ')'
+      var scaleStr = 'scale(' + this.scaleFactor + ',' + this.scaleFactor + ') translateX(-50%)'
       var element = this.$refs.container
       element.style.transform = scaleStr
       element.style.WebkitTransform = scaleStr
       element.style.msTransform = scaleStr
-      var horizontalOffset = (window.innerWidth - this.environment.width * this.scaleFactor) / 2
-      element.style.left = horizontalOffset + 'px'
+      // var horizontalOffset = (window.innerWidth - this.environment.width * this.scaleFactor) / 2
+      // element.style.left = horizontalOffset + 'px'
     }
   },
   data () {
@@ -182,18 +197,29 @@ export default {
         justify-content: center;
         position: absolute;
         top: 0;
-        left:0;
+        left:50%;
         width: 100%;
+        min-width: 1500px;
+        max-width: 1078px;
         height: 100%;
         transform-origin: top left;
-        top: 5px;
+        background-color: white;
+        /*top: 10%;*/
+
       }
 
+      @media(max-width:900px){
+        .external-container{
+          top: 10%;
+        }
+      }
       .environment-canvas {
         position: absolute;
         margin-top: 2%;
         background-color: white;
         z-index: 1;
+        width: 100%;
+        height: 100%;
       }
 
       .thing {
@@ -209,18 +235,47 @@ export default {
         background-color: rgba(200, 200, 200, 0.3);
       }
 
-      #envname {
-        margin: 4%;
-        padding: 0 5px;
-        right: 15%;
-        background-color: rgba(120, 120, 120, 0.5);
-        color: white;
-        position: absolute;
-        z-index: 1000;
-      }
 
       .pre-render-line {
         white-space: pre;
         height: auto;
       }
+      .top-nav{
+        position: absolute;
+        width: 100%;
+        height: 10%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .display{
+        position: absolute;
+        width: 100%;
+        height: 90%;
+        bottom: 0;
+      }
+      .menu{
+        max-width: 100px;
+        width: 100%;
+        margin: 2rem 0 0 2rem;
+      }
+      .menu div{
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+      }
+      #envname {
+        padding: 20px;
+        background-color: rgba(120, 120, 120, 0.5);
+        color: white;
+        z-index: 1000;
+        margin: 2rem 2rem 0 0;
+      }
+      /*.test{*/
+        /*position: relative;*/
+        /*width: 100%;*/
+        /*height: 100%;*/
+      /*}*/
+
 </style>
