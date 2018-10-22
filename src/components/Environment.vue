@@ -161,10 +161,12 @@ export default {
     }
   },
   mounted: function () {
+    this.$store.dispatch('getResource', 'map2.png').then((data) => {
+      this.backgroundImg.src = data
+      this.backgroundImg.className = 'environment-image'
+    })
     this.canvas = this.$refs.environmentCanvas
     this.context = this.canvas.getContext('2d')
-    this.backgroundImg.src = require('../assets/map2.png')
-    this.backgroundImg.className = 'environment-image'
     this.canvasImage()
     this.resize()
     var element = this
