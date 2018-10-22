@@ -1,25 +1,29 @@
 <template>
- <md-card>
-  <md-card-header>
-    <md-card-media>
-    </md-card-media>  
-  </md-card-header>
-      
-  <md-card-header>    
-    <md-card-header-text>
-      <div class="md-title">{{ getUserFromStore.name }}</div>
-      <div class="md-subhead">{{ getUserFromStore.roles }}</div>
-    </md-card-header-text>
-  </md-card-header>
-  <md-card-actions>
-     <md-button class="md-icon-button" >
-       <md-icon>settings</md-icon>
-     </md-button>
-     <md-button class="md-icon-button">
-       <md-icon>delete</md-icon>
-     </md-button>
-  </md-card-actions> 
- </md-card>
+  <div class="flex-container">
+    <div class="flex-row-container">
+      <md-card>
+        <md-card-header>
+          <md-card-media>
+          </md-card-media>
+        </md-card-header>
+
+        <md-card-header>
+          <md-card-header-text>
+            <div class="md-title">{{ getUserFromStore.name }}</div>
+            <div class="md-subhead">{{ getUserFromStore.roles }}</div>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-actions>
+          <md-button class="md-icon-button" >
+            <md-icon>settings</md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+            <md-icon>delete</md-icon>
+          </md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,6 +45,18 @@
   }
 </script>
 <style scoped>
+  .flex-container {
+    display: flex;
+    padding-left: 2px;
+    width: 100%;
+    justify-items: center;
+  }
+  .flex-row-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+  }
   .md-card .md-title {
     font-size: 32px;
     color: #ffffff;
@@ -55,7 +71,7 @@
     line-height: 20px;
     text-align: center;
    }
-   
+
    .md-theme-default.md-card {
     width: 300px;
     height: 300px;
@@ -74,7 +90,7 @@
       height: 64px;
       margin: auto;
     }
-    
+
     .md-card .md-card-actions {
       background-color: #ffffff;
     }
