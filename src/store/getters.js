@@ -1,4 +1,4 @@
-export const authStatus = (state) => {
+export const authStatus = state => {
   state.status
 }
 
@@ -10,4 +10,12 @@ export const availableProtocols = state => {
     }
   })
   return protocols
+}
+
+export const getHardwareTriggers = state => {
+  return state.triggersList.filter(trigger => {
+    if (trigger.hardwareLevel === true) {
+      return trigger
+    }
+  })
 }

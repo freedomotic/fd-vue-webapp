@@ -45,7 +45,7 @@ export default new Vuex.Store({
     roomsList: '',
     thingsList: [],
     thingTemplatesList: '',
-    triggersList: '',
+    triggersList: [],
     usersList: ''
   },
   actions,
