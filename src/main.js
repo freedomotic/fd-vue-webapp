@@ -32,6 +32,7 @@ import ru from './i18n/ru_RU.json'
 import sk from './i18n/sk_SK.json'
 import es from './i18n/es_ES.json'
 import fr from './i18n/fr_FR.json'
+import tr from './i18n/tr_TR.json'
 
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -79,6 +80,7 @@ Vue.i18n.add('nl', nl)
 Vue.i18n.add('ro', ro)
 Vue.i18n.add('ru', ru)
 Vue.i18n.add('sk', sk)
+Vue.i18n.add('tr', tr)
 
 // Set the start locale to use
 Vue.i18n.set('en')
