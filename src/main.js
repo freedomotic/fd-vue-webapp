@@ -53,7 +53,10 @@ import MobileCommand from './components/mobile/mobile-pages/Command.vue'
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
-Vue.use(VModal, { dialog: true, dynamic: true })
+Vue.use(VModal, {
+  dialog: true,
+  dynamic: true
+})
 Vue.use(VueTabs)
 
 // VueOnsen components
@@ -98,6 +101,21 @@ if (token) {
   console.log('No authentication token found')
 }
 
+// Map of navigator language with the corresponding value
+
+const mapLanguage = {
+  'it-it': 'it',
+  'en-en': 'en',
+  'en': 'en',
+  'nl': 'nl',
+  'nl-be': 'nl',
+  'ro': 'ro',
+  'ro-mo': 'ro',
+  'ru': 'ru',
+  'ru-mo': 'ru',
+  'sk': 'sk'
+}
+
 Vue.config.productionTip = false
 
 Vue.directive('focus', {
@@ -114,5 +132,14 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  },
+  mounted () {
+    // lowercase for new and old browser
+    const language = window.navigator.language.toLocaleLowerCase()
+    if (!(mapLanguage[language] === undefined)) {
+      this.$i18n.set(mapLanguage[language])
+    }
+  }
 })
