@@ -173,10 +173,18 @@ export default {
     },
     getThingIcon: function (resourceId) {
       return this.axios.defaults.baseURL + '/resources/' + resourceId
+    },
+    basename (path) {
+      let separator = '/'
+      const windowsSeparator = '\\'
+      if (path.includes(windowsSeparator)) {
+        separator = windowsSeparator
+      }
+      return path.slice(path.lastIndexOf(separator) + 1)
     }
   },
   mounted: function () {
-    this.$store.dispatch('getResource', 'map2.png').then((data) => {
+    this.$store.dispatch('getResource', this.basename(this.environment.backgroundImage)).then((data) => {
       this.backgroundImg.src = data
       this.backgroundImg.className = 'environment-image'
     })
