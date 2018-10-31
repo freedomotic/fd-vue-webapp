@@ -3,7 +3,13 @@ export const authStatus = state => {
 }
 
 export const availableProtocols = state => {
-  console.log('availableProtocols getter')
+  const protocols = []
+  state.thingsList.filter(trigger => {
+    if (protocols.indexOf(trigger.protocol) === -1) {
+      protocols.push(trigger.protocol)
+    }
+  })
+  return protocols
 }
 
 export const getHardwareTriggers = state => {
