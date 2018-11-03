@@ -53,6 +53,7 @@ export default {
 
     #settings-area {
         height: 100%;
+        overflow-y: scroll;
     }
 
     #flex-container {
