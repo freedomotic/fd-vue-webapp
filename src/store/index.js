@@ -40,7 +40,7 @@ export default new Vuex.Store({
     environmentsList: '',
     marketplaceCategoriesList: '',
     marketplaceCategoryPluginsList: '',
-    pluginsList: '',
+    pluginsList: [],
     rolesList: '',
     roomsList: '',
     thingsList: [],

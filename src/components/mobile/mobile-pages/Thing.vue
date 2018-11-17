@@ -41,9 +41,12 @@
      </v-ons-list-item>
      <v-ons-list-item>
        <div class="center">
-         <label v-if="this.$ons.platform.isIOS()" for="Protocol">{{$t('protocol')}}</label> 
-         <v-ons-input input-id="Protocol" v-model="protocol" :placeholder="$t('protocol')" float>
-         </v-ons-input>
+         <label v-if="this.$ons.platform.isIOS()" for="Protocol">{{$t('protocol')}}</label>
+         <v-ons-select v-model="protocol" name="protocol">
+            <option v-for="prot in availableProtocols" :value="prot" :key='prot'>
+              {{ prot }}
+            </option>
+         </v-ons-select>
        </div>
      </v-ons-list-item>
      <v-ons-list-item>
@@ -159,123 +162,128 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      addMode: Boolean,
-      index: ''
+import { mapGetters } from 'vuex'
+
+export default {
+  props: {
+    addMode: Boolean,
+    index: ''
+  },
+  data () {
+    return {
+      sections: [
+        { text: 'properties', value: 'properties' },
+        { text: 'appearance', value: 'appearance' },
+        { text: 'data_source', value: 'data_source' },
+        { text: 'actions', value: 'actions' },
+        { text: 'control_panel', value: 'control_panel' },
+        { text: 'automations', value: 'automations' }
+      ],
+      selectedSection: 'control_panel',
+      images: [],
+      UUID: '',
+      name: '',
+      description: '',
+      protocol: '',
+      address: ''
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getThingTemplatesList')
+    // Properties section
+    this.UUID = this.getThingFromStore.uuid
+    this.name = this.getThingFromStore.name
+    this.description = this.getThingFromStore.description
+    this.protocol = this.getThingFromStore.protocol
+    this.address = this.getThingFromStore.address
+    // Appearance section
+    this.positionX = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.x
+    this.positionY = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.y
+    this.rotation = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].rotation
+    this.width = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleX
+    this.height = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleY
+    this.environment = this.getThingFromStore.envUUID
+  },
+  computed: {
+    ...mapGetters({
+      availableProtocols: 'getAvailableProtocols'
+    }),
+    getThingTemplatesList: function () {
+      return this.$store.state.thingTemplatesList
     },
-    data () {
-      return {
-        sections: [
-          { text: 'properties', value: 'properties' },
-          { text: 'appearance', value: 'appearance' },
-          { text: 'data_source', value: 'data_source' },
-          { text: 'actions', value: 'actions' },
-          { text: 'control_panel', value: 'control_panel' },
-          { text: 'automations', value: 'automations' }
-        ],
-        selectedSection: 'control_panel',
-        images: [],
-        UUID: '',
-        name: '',
-        description: '',
-        protocol: '',
-        address: ''
-      }
+    getThingFromStore: function () {
+      return this.$store.state.thingsList[this.index]
     },
-    mounted () {
-      this.$store.dispatch('getThingTemplatesList')
-      // Properties section
-      this.UUID = this.getThingFromStore.uuid
-      this.name = this.getThingFromStore.name
-      this.description = this.getThingFromStore.description
-      this.protocol = this.getThingFromStore.protocol
-      this.address = this.getThingFromStore.address
-      // Appearance section
-      this.positionX = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.x
-      this.positionY = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].offset.y
-      this.rotation = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].rotation
-      this.width = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleX
-      this.height = this.getThingFromStore.representation[this.getThingFromStore.currentRepresentation].scaleY
-      this.environment = this.getThingFromStore.envUUID
+    getEnvironmentsList: function () {
+      return this.$store.state.environmentsList
     },
-    computed: {
-      getThingTemplatesList: function () {
-        return this.$store.state.thingTemplatesList
-      },
-      getThingFromStore: function () {
-        return this.$store.state.thingsList[this.index]
-      },
-      getEnvironmentsList: function () {
-        return this.$store.state.environmentsList
-      },
-      getHardwareTriggersList: function () {
-        return this.$store.state.triggersList.filter(function (item) {
-          return item.hardwareLevel === true
-        })
-      }
-    },
-    methods: {
-      deleteThing: function (thingName, thingId) {
-        const self = this
-        this.$ons.notification.confirm({
-          title: this.$t('delete_thing'),
-          message: 'Do you want to delete "' + thingName + '"?',
-          buttonLabels: [this.$t('cancel'), this.$t('delete')],
-          callback: function (idx) {
-            switch (idx) {
-              case 0:
-                break
-              case 1:
-                self.$store.dispatch('deleteThing', thingId)
-                break
-            }
+    getHardwareTriggersList: function () {
+      return this.$store.state.triggersList.filter(function (item) {
+        return item.hardwareLevel === true
+      })
+    }
+  },
+  methods: {
+    deleteThing: function (thingName, thingId) {
+      const self = this
+      this.$ons.notification.confirm({
+        title: this.$t('delete_thing'),
+        message: 'Do you want to delete "' + thingName + '"?',
+        buttonLabels: [this.$t('cancel'), this.$t('delete')],
+        callback: function (idx) {
+          switch (idx) {
+            case 0:
+              break
+            case 1:
+              self.$store.dispatch('deleteThing', thingId)
+              break
           }
-        })
-      },
-      cloneThing: function (thingName, thingId) {
-        const self = this
-        this.$ons.notification.confirm({
-          title: this.$t('create_copy'),
-          message: this.$t('create_copy_message') + ' "' + thingName + '"?',
-          buttonLabels: [this.$t('cancel'), this.$t('create_copy')],
-          callback: function (idx) {
-            switch (idx) {
-              case 0:
-                break
-              case 1:
-                self.$store.dispatch('cloneThing', thingId)
-                break
-            }
+        }
+      })
+    },
+    cloneThing: function (thingName, thingId) {
+      const self = this
+      this.$ons.notification.confirm({
+        title: this.$t('create_copy'),
+        message: this.$t('create_copy_message') + ' "' + thingName + '"?',
+        buttonLabels: [this.$t('cancel'), this.$t('create_copy')],
+        callback: function (idx) {
+          switch (idx) {
+            case 0:
+              break
+            case 1:
+              self.$store.dispatch('cloneThing', thingId)
+              break
           }
-        })
-      },
-      addNewThing: function (template) {
-        const self = this
-        this.$ons.notification.confirm({
-          title: this.$t('add_new_thing'),
-          message: this.$t('add_new_thing_message') + ' "' + template + '"?',
-          buttonLabels: [this.$t('cancel'), this.$t('add')],
-          callback: function (idx) {
-            switch (idx) {
-              case 0:
-                break
-              case 1:
-                self.$store.dispatch('addNewThing', template)
-                break
-            }
+        }
+      })
+    },
+    addNewThing: function (template) {
+      const self = this
+      this.$ons.notification.confirm({
+        title: this.$t('add_new_thing'),
+        message: this.$t('add_new_thing_message') + ' "' + template + '"?',
+        buttonLabels: [this.$t('cancel'), this.$t('add')],
+        callback: function (idx) {
+          switch (idx) {
+            case 0:
+              break
+            case 1:
+              self.$store.dispatch('addNewThing', template)
+              break
           }
-        })
-      },
-      changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
-        const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
-        this.$store.dispatch('changeBehavior', payload)
-      },
-      getThingIcon: function (thingIcon) {
-        return this.axios.defaults.baseURL + '/resources/' + thingIcon
-      }
+        }
+      })
+    },
+    changeBehavior: function (thingId, behaviorId, newBehaviorValue) {
+      const payload = {'thingId': thingId, 'behaviorId': behaviorId, 'newBehaviorValue': newBehaviorValue}
+      this.$store.dispatch('changeBehavior', payload)
+    },
+    getThingIcon: function (thingIcon) {
+      return this.axios.defaults.baseURL + '/resources/' + thingIcon
     }
   }
+}
 </script>
 <style scoped>
   .template-icon {

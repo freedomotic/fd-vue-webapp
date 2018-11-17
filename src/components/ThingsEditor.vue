@@ -111,6 +111,7 @@
 <script>
 import {VueTabs, VTab} from 'vue-nav-tabs'
 import vueSlider from 'vue-slider-component'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ThingsEditor',
@@ -121,6 +122,9 @@ export default {
     vueSlider
   },
   computed: {
+    ...mapGetters({
+      availableProtocols: 'getAvailableProtocols'
+    }),
     getEnvironmentsList: function () {
       return this.$store.state.environmentsList
     },
