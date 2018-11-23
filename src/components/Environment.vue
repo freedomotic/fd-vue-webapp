@@ -1,14 +1,14 @@
 <template>
   <div class="external-container" ref="container">
-
-    <div class="test">
-
     <div class="top-nav">
-      <div class="menu">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <md-menu class="menu">
+       <md-button md-menu-trigger><i class="material-icons">menu</i></md-button>
+        <md-menu-content>
+         <md-menu-item>{{$t('move_things')}}</md-menu-item>
+         <md-menu-item>{{$t('duplicate_environment')}}</md-menu-item>
+         <md-menu-item>{{$t('delete_environment')}}</md-menu-item>
+        </md-menu-content>
+      </md-menu>
       <div >
          <h3 id="envname">{{environment.name}}</h3>
       </div>
@@ -201,6 +201,7 @@ export default {
 </script>
 
 <style scoped>
+
       .external-container {
         nonodisplay: flex;
         nonoflex-flow: row wrap;
@@ -214,8 +215,6 @@ export default {
         height: 100%;
         transform-origin: top left;
         background-color: white;
-        /*top: 10%;*/
-
       }
 
       @media(max-width:900px){
@@ -223,6 +222,7 @@ export default {
           top: 10%;
         }
       }
+
       .environment-canvas {
         position: absolute;
         margin-top: 2%;
@@ -245,11 +245,11 @@ export default {
         background-color: rgba(200, 200, 200, 0.3);
       }
 
-
       .pre-render-line {
         white-space: pre;
         height: auto;
       }
+
       .top-nav{
         position: absolute;
         width: 100%;
@@ -258,23 +258,27 @@ export default {
         display: flex;
         justify-content: space-between;
       }
+
       .display{
         position: absolute;
         width: 100%;
         height: 90%;
         bottom: 0;
       }
+
       .menu{
         max-width: 100px;
         width: 100%;
         margin: 2rem 0 0 2rem;
       }
+
       .menu div{
         width: 35px;
         height: 5px;
         background-color: black;
         margin: 6px 0;
       }
+
       #envname {
         padding: 20px;
         background-color: rgba(120, 120, 120, 0.5);
@@ -282,10 +286,4 @@ export default {
         z-index: 1000;
         margin: 2rem 2rem 0 0;
       }
-      /*.test{*/
-        /*position: relative;*/
-        /*width: 100%;*/
-        /*height: 100%;*/
-      /*}*/
-
 </style>
