@@ -23,8 +23,10 @@
             <md-input v-model="description"></md-input>
         </md-field>
         <md-field>
-            <label>{{$t('protocol')}}</label>
-            <md-input v-model="protocol"></md-input>
+          <label for="font">{{$t('protocol')}}</label>
+          <md-select v-model="protocol" name="protocol" id="protocol">
+            <md-option v-for="prot in getAvailableProtocols" :value="prot" :key="prot">{{prot}}</md-option>
+          </md-select>
         </md-field>
         <md-field>
             <label>{{$t('address')}}</label>
@@ -123,7 +125,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      availableProtocols: 'getAvailableProtocols'
+      getAvailableProtocols: 'getAvailableProtocols'
     }),
     getEnvironmentsList: function () {
       return this.$store.state.environmentsList
@@ -251,10 +253,11 @@ export default {
 
 <style scoped>
 .md-list {
-    width: 450px;
-    max-width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    border: 1px solid rgba(#000, .12);
-  }  
+  width: 450px;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid rgba(#000, .12);
+}
+
 </style>
