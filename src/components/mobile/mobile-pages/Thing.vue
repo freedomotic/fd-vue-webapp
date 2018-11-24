@@ -43,7 +43,7 @@
        <div class="center">
          <label v-if="this.$ons.platform.isIOS()" for="Protocol">{{$t('protocol')}}</label>
          <v-ons-select v-model="protocol" name="protocol">
-            <option v-for="prot in availableProtocols" :value="prot" :key='prot'>
+            <option v-for="prot in getAvailableProtocols" :value="prot" :key='prot'>
               {{ prot }}
             </option>
          </v-ons-select>
@@ -206,7 +206,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      availableProtocols: 'getAvailableProtocols'
+      getAvailableProtocols: 'getAvailableProtocols'
     }),
     getThingTemplatesList: function () {
       return this.$store.state.thingTemplatesList

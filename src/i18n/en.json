@@ -35,6 +35,7 @@
   "disable": "Disable",
   "docs": "Docs",
   "duplicate_environment": "Duplicate environment",
+  "edit_environment": "Edit environment", 
   "enable": "Enable",
   "environment" : "Environment",
   "environments": "Environments",

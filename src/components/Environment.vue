@@ -4,9 +4,11 @@
       <md-menu class="menu">
        <md-button md-menu-trigger><i class="material-icons">menu</i></md-button>
         <md-menu-content>
-         <md-menu-item>{{$t('move_things')}}</md-menu-item>
-         <md-menu-item>{{$t('duplicate_environment')}}</md-menu-item>
-         <md-menu-item>{{$t('delete_environment')}}</md-menu-item>
+         <md-menu-item @click="toggleMove" v-if="!moveEnabled">{{$t('enable')}} {{$t('move_things').toLowerCase()}}</md-menu-item>
+         <md-menu-item @click="toggleMove" v-else>{{$t('disable')}} {{$t('move_things').toLowerCase()}}</md-menu-item> 
+         <md-menu-item @click="editEnvironment">{{$t('edit_environment')}}</md-menu-item>
+         <md-menu-item @click="duplicateEnvironment">{{$t('duplicate_environment')}}</md-menu-item>
+         <md-menu-item @click="deleteEnvironment">{{$t('delete_environment')}}</md-menu-item>
         </md-menu-content>
       </md-menu>
       <div >
@@ -136,9 +138,11 @@ export default {
     toggleMove: function () {
       this.moveEnabled = !this.moveEnabled
     },
-    doCopy: function () {
+    duplicateEnvironment: function () {
     },
-    doDelete: function () {
+    deleteEnvironment: function () {
+    },
+    editEnvironment: function () {
     },
     setThingTooltipContent (thing) {
       let behaviors = ''
