@@ -60,8 +60,6 @@ export default {
       element.style.transform = scaleStr
       element.style.WebkitTransform = scaleStr
       element.style.msTransform = scaleStr
-      // var horizontalOffset = (window.innerWidth - this.environment.width * this.scaleFactor) / 2
-      // element.style.left = horizontalOffset + 'px'
     }
   },
   data () {
