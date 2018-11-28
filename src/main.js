@@ -15,10 +15,6 @@ import Snotify from 'vue-snotify'
 // Manage modal components
 import VModal from 'vue-js-modal'
 
-// Manage tabs
-import VueTabs from 'vue-nav-tabs'
-import 'vue-nav-tabs/themes/vue-tabs.css'
-
 // Load vuex i18n module
 import vuexI18n from 'vuex-i18n'
 
@@ -55,7 +51,6 @@ Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(Snotify)
 Vue.use(VModal, { dialog: true, dynamic: true })
-Vue.use(VueTabs)
 
 // VueOnsen components
 Vue.use(VueOnsen)
