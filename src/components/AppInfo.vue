@@ -1,30 +1,33 @@
 <template>
     <div id="info-area">
-    <close-button class="color-red"/>
-    <div id="info-flex-container">    
+     <close-button class="color-red"/>
+     <div id="info-flex-container">    
         <md-content class="info-text">
-            <div class="bold-title">Freedomotic Vue Dashboard 0.0.1</div>
+            <div class="bold-title">Freedomotic Vue Dashboard 0.0.1 (Beta)</div>
         </md-content>
 
         <md-content class="info-text">
             <div class="bold-title">Main contributors</div>
-            <div>Mauro Cicolella</div>
+            <div>Mauro Cicolella &lt;mcicolella@libero.it&gt;</div>
             <div>P3trur0</div>
             <a href="https://github.com/freedomotic/fd-vue-webapp/graphs/contributors" target="_blank">GitHub contributors</a>
         </md-content>
 
         <md-content class="info-text">
-            <div class="bold-title">{{$t('connection_parameters')}}</div>
-        </md-content>
-
-        <md-content class="info-text">
             <div class="bold-title">{{$t('freedomotic_information')}}</div>
+            <div><b>Release:</b> v5.6 Commander</div>
+            <div><b>Author:</b> Freedomotic Team</div>
+            <div><b>License:</b> GNU GPLv2</div>
         </md-content>
 
         <md-content class="info-text">
             <div class="bold-title">{{$t('credits')}}</div>
+            <div>Published under the the AGPL-3.0 license</div>
+            <div><a href="https://github.com/freedomotic/fd-vue-webapp" target="_blank">Source code</a></div> 
+            <div>Built using <a href="https://vuejs.org/" target="_blank">Vue.js</a>, <a href="https://vuematerial.io/" target="_blank">Vue Material</a></div>
+            <div>Icons by <a href="https://material.io/tools/icons/?style=baseline" target="_blank">Material Design</a></div>
         </md-content>
-    </div>
+     </div>
     </div>
 </template>
 
