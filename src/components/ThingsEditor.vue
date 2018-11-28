@@ -23,10 +23,10 @@
             <md-input v-model="description"></md-input>
         </md-field>
         <md-field>
-          <label for="font">{{$t('protocol')}}</label>
-          <md-select v-model="protocol" name="protocol" id="protocol">
-            <md-option v-for="prot in getAvailableProtocols" :value="prot" :key="prot">{{prot}}</md-option>
-          </md-select>
+          <div>{{$t('protocol')}}</div>
+          <div><select v-model="protocol" name="protocol" id="protocol">
+            <option v-for="prot in getAvailableProtocols" :value="prot" :key="prot">{{prot}}</option>
+          </select></div>
         </md-field>
         <md-field>
             <label>{{$t('address')}}</label>

@@ -170,7 +170,7 @@ export default {
         clickToClose: false,
         scrollable: true,
         width: '50%',
-        height: 'auto'
+        height: '65%'
       })
     },
     getThingIcon: function (resourceId) {
