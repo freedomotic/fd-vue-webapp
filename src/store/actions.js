@@ -56,6 +56,14 @@ export const getEnvironmentsList = (context) => {
   console.log('Executing getEnvironmentsList')
 }
 
+export const duplicateEnvironment = (context, envId) => {
+  axios.post('/environments/' + envId + '/copy').then((response) => {
+    console.log('Duplicating Environment ' + envId)
+  }, (err) => {
+    console.log(err)
+  })
+}
+
 export const getEnvironmentThingsList = (context, envId) => {
   axios.get('/environments/' + envId + '/things').then((response) => {
     console.log('Retrieving Things list of current environment')
