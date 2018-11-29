@@ -64,6 +64,14 @@ export const duplicateEnvironment = (context, envId) => {
   })
 }
 
+export const deleteEnvironment = (context, envId) => {
+  axios.delete('/environments/' + envId).then((response) => {
+    console.log('Deleting Environment ' + envId)
+  }, (err) => {
+    console.log(err)
+  })
+}
+
 export const getEnvironmentThingsList = (context, envId) => {
   axios.get('/environments/' + envId + '/things').then((response) => {
     console.log('Retrieving Things list of current environment')

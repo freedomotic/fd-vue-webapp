@@ -137,9 +137,14 @@ export default {
       this.moveEnabled = !this.moveEnabled
     },
     duplicateEnvironment: function () {
-      this.$store.dispatch('duplicateEnvironment', this.environment.uuid)
+      this.$store.dispatch('duplicateEnvironment', this.environment.uuid).then(() => {
+        this.$store.dispatch('getEnvironmentsList')
+      })
     },
     deleteEnvironment: function () {
+      this.$store.dispatch('deleteEnvironment', this.environment.uuid).then(() => {
+        this.$store.dispatch('getEnvironmentsList')
+      })
     },
     editEnvironment: function () {
     },
