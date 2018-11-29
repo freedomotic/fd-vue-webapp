@@ -137,6 +137,7 @@ export default {
       this.moveEnabled = !this.moveEnabled
     },
     duplicateEnvironment: function () {
+      this.$store.dispatch('duplicateEnvironment', this.environment.uuid)
     },
     deleteEnvironment: function () {
     },
