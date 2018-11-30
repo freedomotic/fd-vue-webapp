@@ -31,15 +31,7 @@ export default {
   components: {
     Environment
   },
-  created () {
-    if (this.currShowing > 0) {
-      this.prevExists = true
-    }
-    if (this.currShowing < this.getEnvironmentsList.length - 1) {
-      this.nextExists = true
-    }
-    console.log('Created ' + this.prevExists + ' ' + this.nextExists + ' current ' + this.currShowing)
-  },
+  mounted () {},
   computed: {
     getEnvironmentsList: function () {
       return this.$store.state.environmentsList
@@ -50,6 +42,15 @@ export default {
       this.prevExists = (this.currShowing > 0)
       this.nextExists = (this.currShowing < this.getEnvironmentsList.length - 1)
       console.log('Current floor ' + this.getEnvironmentsList[this.currShowing].name)
+    },
+    getEnvironmentsList () {
+      console.log('Number of environments ' + this.getEnvironmentsList.length)
+      if (this.currShowing > 0) {
+        this.prevExists = true
+      }
+      if (this.currShowing < this.getEnvironmentsList.length - 1) {
+        this.nextExists = true
+      }
     }
   },
   methods: {

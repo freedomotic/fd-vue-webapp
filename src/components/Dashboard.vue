@@ -133,6 +133,9 @@ export default {
       } else {
         this.$store.commit('showAlerts')
       }
+    },
+    forceEnvironmentsRerender () {
+      this.environmentsKey += 1
     }
   }
 }
