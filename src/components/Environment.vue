@@ -7,8 +7,8 @@
          <md-menu-item @click="toggleMove" v-if="!moveEnabled">{{$t('enable')}} {{$t('move_things').toLowerCase()}}</md-menu-item>
          <md-menu-item @click="toggleMove" v-else>{{$t('disable')}} {{$t('move_things').toLowerCase()}}</md-menu-item> 
          <md-menu-item @click="editEnvironment">{{$t('edit_environment')}}</md-menu-item>
-         <md-menu-item @click="duplicateEnvironment">{{$t('duplicate_environment')}}</md-menu-item>
-         <md-menu-item @click="deleteEnvironment">{{$t('delete_environment')}}</md-menu-item>
+         <md-menu-item @click="showDuplicateEnvironmentDialog">{{$t('duplicate_environment')}}</md-menu-item>
+         <md-menu-item @click="showDeleteEnvironmentDialog">{{$t('delete_environment')}}</md-menu-item>
         </md-menu-content>
       </md-menu>
       <div >
@@ -51,6 +51,9 @@ export default {
       return this.$store.state.thingsList.filter(function (item) {
         return item.envUUID === envId
       })
+    },
+    getEnvironmentsList: function () {
+      return this.$store.state.environmentsList
     }
   },
   watch: {
@@ -139,6 +142,64 @@ export default {
     duplicateEnvironment: function () {
       this.$store.dispatch('duplicateEnvironment', this.environment.uuid).then(response => {
         this.$store.dispatch('getEnvironmentsList')
+      })
+    },
+    showDuplicateEnvironmentDialog () {
+      this.$modal.show('dialog', {
+        title: this.$t('duplicate_environment'),
+        text: this.$t('duplicate_message') + ' "' + this.environment.name + '"?',
+        buttons: [
+          {
+            title: this.$t('cancel'),
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: this.$t('duplicate'),
+            default: true,
+            handler: () => {
+              this.$snotify.success('Environment "' + this.environment.name + '" duplicated', 'INFO', {
+                timeout: 3000,
+                showProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true
+              })
+              this.duplicateEnvironment()
+              this.$modal.hide('dialog')
+              this.$emit('close')
+            }
+          }
+        ]
+      })
+    },
+    showDeleteEnvironmentDialog () {
+      this.$modal.show('dialog', {
+        title: this.$t('delete_environment'),
+        text: this.$t('delete_message') + ' "' + this.environment.name + '"?',
+        buttons: [
+          {
+            title: this.$t('cancel'),
+            handler: () => {
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: this.$t('delete'),
+            default: true,
+            handler: () => {
+              this.$snotify.success('Environment "' + this.environment.name + '" deleted', 'INFO', {
+                timeout: 3000,
+                showProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true
+              })
+              this.deleteEnvironment()
+              this.$modal.hide('dialog')
+              this.$emit('close')
+            }
+          }
+        ]
       })
     },
     deleteEnvironment: function () {
