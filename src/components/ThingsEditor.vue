@@ -111,7 +111,6 @@
 </template>
 
 <script>
-import {VueTabs, VTab} from 'vue-nav-tabs'
 import vueSlider from 'vue-slider-component'
 import { mapGetters } from 'vuex'
 
@@ -119,8 +118,6 @@ export default {
   name: 'ThingsEditor',
   props: [ 'thing' ],
   components: {
-    VueTabs,
-    VTab,
     vueSlider
   },
   computed: {
