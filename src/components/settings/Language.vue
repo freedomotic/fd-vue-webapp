@@ -28,12 +28,12 @@ export default {
       {code: 'es', label: 'Spanish'},
       {code: 'fr', label: 'France'},
       {code: 'it', label: 'Italy'},
-      {code: 'no', label: ''},
+      {code: 'no', label: 'Norway'},
       {code: 'nl', label: 'Netherland'},
-      {code: 'ro', label: ''},
+      {code: 'ro', label: 'Romania'},
       {code: 'ru', label: 'Russia'},
-      {code: 'sk', label: ''},
-      {code: 'tr', label: ''}
+      {code: 'sk', label: 'Slovakia'},
+      {code: 'tr', label: 'Turkey'}
     ]
   })
 }

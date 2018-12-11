@@ -68,7 +68,8 @@ module.exports = function (ctx) {
         'QInput',
         'QCheckbox',
         'QAlert',
-        'QScrollArea'
+        'QScrollArea',
+        'QActionSheet'
       ],
       directives: [
         'Ripple'
