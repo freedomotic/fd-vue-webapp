@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import example from './module-example'
+import session from './session'
 
 Vue.use(Vuex)
 
@@ -13,9 +13,16 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      example
+      session
     }
   })
+
+  if (process.env.DEV && module.hot) {
+    module.hot.accept(['./session'], () => {
+      const session = require('./session').default
+      Store.hotUpdate({modules: {session}})
+    })
+  }
 
   return Store
 }

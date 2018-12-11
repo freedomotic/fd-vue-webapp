@@ -1,20 +1,16 @@
+import router from 'v-routes-builder'
 
-const routes = [
-  {
-    path: '/',
-    component: () => import('layouts/MyLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue') }
-    ]
-  }
-]
+router.path('/')
+  .component(() => import('pages/Login.vue'))
+
+router.path('/home')
+  .name('home')
+  .component(() => import('pages/Home.vue'))
 
 // Always leave this as last one
 if (process.env.MODE !== 'ssr') {
-  routes.push({
-    path: '*',
-    component: () => import('pages/Error404.vue')
-  })
+  router.path('*')
+    .component(() => import('pages/Error404.vue'))
 }
 
-export default routes
+export default router.getRoutes()

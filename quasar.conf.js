@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'axios'
+      'axios',
+      'validation'
     ],
     css: [
       'app.styl'
@@ -20,7 +21,7 @@ module.exports = function (ctx) {
     supportIE: true,
     build: {
       scopeHoisting: true,
-      // vueRouterMode: 'history',
+      vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
@@ -42,20 +43,30 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
-        'QLayout',
-        'QLayoutHeader',
-        'QLayoutDrawer',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
+        // 'QLayout',
+        // 'QLayoutHeader',
+        // 'QLayoutDrawer',
+        // 'QPageContainer',
+        // 'QPage',
+        // 'QToolbar',
+        // 'QToolbarTitle',
         'QBtn',
-        'QIcon',
-        'QList',
-        'QListHeader',
-        'QItem',
-        'QItemMain',
-        'QItemSide'
+        // 'QIcon',
+        // 'QList',
+        // 'QListHeader',
+        // 'QItem',
+        // 'QItemMain',
+        // 'QItemSide',
+        'QCard',
+        'QCardMain',
+        'QCardMedia',
+        'QCardTitle',
+        'QCardActions',
+        'QCardSeparator',
+        'QField',
+        'QInput',
+        'QCheckbox',
+        'QAlert'
       ],
       directives: [
         'Ripple'
@@ -68,7 +79,10 @@ module.exports = function (ctx) {
       // i18n: 'de' // Quasar language
     },
     // animations: 'all' --- includes all animations
-    animations: [],
+    animations: [
+      'fadeIn',
+      'fadeOut'
+    ],
     ssr: {
       pwa: false
     },
