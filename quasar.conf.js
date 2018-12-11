@@ -43,20 +43,21 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
-        // 'QLayout',
-        // 'QLayoutHeader',
-        // 'QLayoutDrawer',
-        // 'QPageContainer',
-        // 'QPage',
-        // 'QToolbar',
-        // 'QToolbarTitle',
+        'QLayout',
+        'QLayoutHeader',
+        'QLayoutDrawer',
+        'QPageContainer',
+        'QPage',
+        'QToolbar',
+        'QToolbarTitle',
         'QBtn',
         // 'QIcon',
-        // 'QList',
+        'QList',
         // 'QListHeader',
-        // 'QItem',
-        // 'QItemMain',
-        // 'QItemSide',
+        'QItem',
+        'QItemMain',
+        'QItemSide',
+        'QItemTile',
         'QCard',
         'QCardMain',
         'QCardMedia',
@@ -66,14 +67,16 @@ module.exports = function (ctx) {
         'QField',
         'QInput',
         'QCheckbox',
-        'QAlert'
+        'QAlert',
+        'QScrollArea'
       ],
       directives: [
         'Ripple'
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Screen'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language

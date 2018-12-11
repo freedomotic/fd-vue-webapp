@@ -1,9 +1,9 @@
 <template>
-  <div class="window-height">
+  <div class="window-height bg-secondary">
     <div class="absolute-center full-width">
       <div class="row justify-center">
         <div class="col-xs-10 col-sm-6 col-md-5 col-lg-4">
-          <q-card>
+          <q-card color="white">
             <q-card-media class="q-pa-md">
               <div class="row justify-center">
                 <div class="col-auto">
@@ -53,6 +53,7 @@
               <q-checkbox
                 v-model="details.remember"
                 label="remember me"
+                class="text-tertiary"
                 :disable="isSubmitted"
               />
               <q-btn

@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { isDEV } from 'src/utils'
+import { noop } from 'quasar-framework'
+import createLogger from 'vuex/dist/logger'
 
 import session from './session'
 
@@ -12,6 +15,7 @@ Vue.use(Vuex)
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
+    plugins: [isDEV ? createLogger() : noop],
     modules: {
       session
     }

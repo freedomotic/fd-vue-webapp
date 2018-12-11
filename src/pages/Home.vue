@@ -1,10 +1,9 @@
 <template>
-  <div>
-    Hello Maniac
-    <!-- <q-page padding> -->
-      <!-- content -->
-    <!-- </q-page> -->
-  </div>
+  <q-page padding>
+    <div>
+      Hello Maniac
+    </div>
+  </q-page>
 </template>
 
 <script>
@@ -12,6 +11,3 @@ export default {
   // name: 'PageName',
 }
 </script>
-
-<style>
-</style>
