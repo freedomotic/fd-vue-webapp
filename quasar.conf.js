@@ -57,7 +57,6 @@ module.exports = function (ctx) {
         'QItem',
         'QItemMain',
         'QItemSide',
-        'QItemTile',
         'QCard',
         'QCardMain',
         'QCardMedia',
@@ -68,8 +67,8 @@ module.exports = function (ctx) {
         'QInput',
         'QCheckbox',
         'QAlert',
-        'QScrollArea',
-        'QActionSheet'
+        'QActionSheet',
+        'QPageSticky'
       ],
       directives: [
         'Ripple'
@@ -85,7 +84,10 @@ module.exports = function (ctx) {
     // animations: 'all' --- includes all animations
     animations: [
       'fadeIn',
-      'fadeOut'
+      'fadeOut',
+      'slideInUp',
+      'slideOutDown',
+      'slideOutLeft'
     ],
     ssr: {
       pwa: false

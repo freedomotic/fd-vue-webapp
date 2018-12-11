@@ -1,7 +1,9 @@
 <template>
   <q-page padding>
-    <div class="row gutter-md">
-      <div v-if="$q.screen.gt.sm" class="col-xs-12 col-lg-4">
+    <div class="row gutter-x-sm">
+      <div
+        class="gt-sm col-xs-12 col-sm-4 col-md-4 col-lg-4"
+      >
         <q-list link no-border separator>
           <q-item
             v-for="({to, icon, label}, index) in options"
@@ -13,20 +15,32 @@
           </q-item>
         </q-list>
       </div>
-      <div v-else class="col-12">
-        <q-btn
-          icon="more_vert"
-          label="select"
-          @click="actionSheet = true"
-        />
-      </div>
-      <div class="col-xs-12 col-lg-8">
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <router-view />
       </div>
     </div>
+
+    <transition
+      enter-active-class="animated slideInUp"
+      leave-active-class="animated slideOutDown"
+    >
+      <q-page-sticky
+        class="lt-md"
+        :offset="[10, 10]"
+        position="bottom-right"
+      >
+        <q-btn
+          color="primary"
+          icon="settings"
+          @click="actionSheet = true"
+          fab
+        />
+      </q-page-sticky>
+    </transition>
     <q-action-sheet
       title="Settings"
       v-model="actionSheet"
+      :grid="$q.screen.sm"
       :actions="options"
       @ok="ok"
     />
@@ -37,7 +51,10 @@
 import { options } from '../layer/settings'
 
 export default {
-  data: () => ({actionSheet: false}),
+  data: () => ({
+    isMoving: false,
+    actionSheet: false
+  }),
   computed: {
     options() {
       return options
