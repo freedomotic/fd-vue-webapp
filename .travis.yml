@@ -1,5 +1,6 @@
 sudo: required
 dist: trusty
+group: edge
 cache:
   yarn: true
   directories:
@@ -7,10 +8,8 @@ cache:
 
 before_install:
   # Repo for Yarn
-  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
+  # - curl -o- -L https://yarnpkg.com/install.sh | bash
+  # - export PATH="$HOME/.yarn/bin:$PATH"
 
 language: node_js
 env:
@@ -29,7 +28,7 @@ addons:
 
 # Building for a specific set of node versions
 node_js:
-          - '8'
+  - '8'
 
 # the following step should start the virtual X frame buffer: Xvfb process
 before_script:
