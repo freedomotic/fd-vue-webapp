@@ -3,6 +3,10 @@ dist: trusty
 cache:
   directories:
     - node_modules
+
+before_install:
+  - npm i -g yarn
+
 language: node_js
 env:
   global:
@@ -22,7 +26,7 @@ addons:
 node_js:
           - '8'
 
-# the following step should start the virtual X frame buffer: Xvfb process         
+# the following step should start the virtual X frame buffer: Xvfb process
 before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 #wait a while before xvfb to start
