@@ -1,54 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as actions from './actions'
-import * as mutations from './mutations'
-import * as getters from './getters'
+import { isDEV } from 'src/utils'
+import { noop } from 'quasar-framework'
+import createLogger from 'vuex/dist/logger'
+
+import session from './session'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-    // Authentication state
-    token: sessionStorage.getItem('token') || '',
-    status: '',
-    // end of Authentication state
-    // System state
-    systemInfo: {},
-    // end system state
-    // Dashboard state
-    isMobile: '',
-    displaySettings: false,
-    displayInfo: false,
-    displayAlerts: false,
-    displayLogout: false,
-    displayThings: false,
-    blur: false,
-    // end of Dashboard state
-    language: 'en',
-    // Settings state
-    systemOpen: false,
-    automationsOpen: false,
-    languagesOpen: false,
-    pluginsOpen: false,
-    rolesOpen: false,
-    usersOpen: false,
-    // end of Settings state
-    advancedMode: false,
-    // API state
-    automationsList: '',
-    commandsList: '',
-    environmentsList: '',
-    marketplaceCategoriesList: '',
-    marketplaceCategoryPluginsList: '',
-    pluginsList: [],
-    rolesList: '',
-    roomsList: '',
-    thingsList: [],
-    thingTemplatesList: '',
-    triggersList: [],
-    usersList: ''
-  },
-  actions,
-  mutations,
-  getters
-})
+/*
+ * If not building with SSR mode, you can
+ * directly export the Store instantiation
+ */
+
+export default function (/* { ssrContext } */) {
+  const Store = new Vuex.Store({
+    plugins: [isDEV ? createLogger() : noop],
+    modules: {
+      session
+    }
+  })
+
+  if (process.env.DEV && module.hot) {
+    module.hot.accept(['./session'], () => {
+      const session = require('./session').default
+      Store.hotUpdate({modules: {session}})
+    })
+  }
+
+  return Store
+}
