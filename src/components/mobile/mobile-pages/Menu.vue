@@ -55,7 +55,7 @@ export default {
         {
           title: 'official_site',
           icon: 'ion-navigate',
-          url: 'http://www.freedomotic.com'
+          url: 'https://www.freedomotic-iot.com'
         },
         {
           title: 'docs',
