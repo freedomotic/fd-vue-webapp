@@ -97,9 +97,6 @@ Eventually, if you like, you can also run both unit and e2e tests with a single 
 ```bash
 npm test
 ```
-![alt tag](https://user-images.githubusercontent.com/4079634/35033806-4e478818-fb6c-11e7-904b-49fb072aa7ab.png)
-
-We have a free [Automate account](https://www.browserstack.com/automate) with [BrowserStack](https://www.browserstack.com) offered to us for free since we're an open source project. This makes it very easy for us to test the project on tons of different browsers on various platforms including real mobile devices.
 
 # Contributing
 
