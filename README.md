@@ -48,7 +48,6 @@ Polymer client source code is hosted [here](https://github.com/freedomotic/fd-po
 
 **WARNING**: At the moment that project is deprecated.
 
-## `fd-vue-webapp`
 
 ### Technical notes
 
