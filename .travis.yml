@@ -16,7 +16,7 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-      - oracle-java8-set-default
+      - oracle-java9-set-default
 
 # Building for a specific set of node versions
 node_js:
