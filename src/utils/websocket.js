@@ -12,7 +12,7 @@ export default {
   openWebSockets () {
     console.log('Opening websockets ' + host)
     if (window.location.host === 'fd-vue-webapp.herokuapp.com') {
-      url = 'ws://174.138.4.3:9111/v3/ws/event/'
+      url = 'ws://51.77.212.115:9111/v3/ws/event/'
     } else {
       url = 'ws://' + host + ':9111/v3/ws/event/'
     }
