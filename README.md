@@ -22,6 +22,8 @@ A live demo of this client is available at http://fd-vue-webapp.herokuapp.com/. 
 
 To view the mobile version (different for iOS and Android) visit the previous url from your smartphone or tablet.
 
+Thanks to our tech partner [Appcademy](https://appcademy.tech/)!
+
 ## Pre-requirements
 
 In order to execute this `fd-vue-webapp` client locally, first you need to download and launch an instance of Freedomotic on your machine.
