@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"'
-  , FD_API_URL: '"http://174.138.4.3:9111/v3"'
+  , FD_API_URL: '"http://51.77.212.115:9111/v3"'
 })
