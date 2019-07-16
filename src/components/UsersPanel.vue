@@ -6,18 +6,18 @@
           </md-content>
           <md-content class="small-icon" @click="closeWindow">
             <md-icon>clear</md-icon>
-          </md-content> 
+          </md-content>
           <h3 class="md-title">{{$t('users').toUpperCase()}}</h3>
         </md-toolbar>
         <grid-container>
-           <div class="item" v-for="(user, index) in getUsersList" :key="user.uuid">
+           <div class="card-container" v-for="(user, index) in getUsersList" :key="user.uuid">
              <user :index="index"></user>
            </div>
-        </grid-container>  
-        <md-button class="md-fab md-primary md-fab-bottom-right md-fixed" >
-        <md-icon>add</md-icon>
+        </grid-container>
+        <md-button class="md-fab md-primary md-fab-bottom-right md-fixed">
+          <md-icon>add</md-icon>
        </md-button>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -71,18 +71,23 @@ export default {
         overflow-y: scroll;
         margin: auto;
       }
- 
+
    #action-container {
        text-align: center;
        cursor: pointer;
        background-color: transparent;
        margin-top: 50%;
-   }  
+   }
    .small-icon {
       width: 24px;
       margin: 1%;
       cursor: pointer;
       background:transparent;
    }
-   
+   .card-container {
+     padding: 0.5em;
+   }
+   .md-fab-bottom-right {
+     right: 30px;
+   }
 </style>
