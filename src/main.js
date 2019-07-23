@@ -19,6 +19,7 @@ import VModal from 'vue-js-modal'
 import vuexI18n from 'vuex-i18n'
 
 // Import translation files
+import br from './i18n/pt_BR.json'
 import en from './i18n/en.json'
 import de from './i18n/de_DE.json'
 import it from './i18n/it_IT.json'
@@ -67,6 +68,7 @@ Vue.component('mobile-command', MobileCommand) // Mobile Command component
 Vue.use(vuexI18n.plugin, store)
 
 // Add translations directly to the application
+Vue.i18n.add('br', br)
 Vue.i18n.add('en', en)
 Vue.i18n.add('de', de)
 Vue.i18n.add('es', es)
