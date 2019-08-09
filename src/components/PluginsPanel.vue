@@ -9,11 +9,11 @@
           </md-content> 
           <h3 class="md-title">{{$t('plugins').toUpperCase()}}</h3>
         </md-toolbar>
-    <div>
+    <!-- div>
         <md-button class="md-fab md-primary md-fab-bottom-right md-fixed" @click="showDynamicComponentModal">
         <md-icon>add</md-icon>
        </md-button>
-    </div>         
+    </div -->         
     <grid-container>
        <div class="item" v-for="(plugin, index) in getPluginsList" :key="plugin.uuid">
          <plugin :index="index"></plugin>
