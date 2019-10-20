@@ -4,11 +4,10 @@
   </q-page>
 </template>
 
-<style>
-</style>
+<script lang="ts" lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-<script>
-export default {
-  name: 'PageIndex'
-}
+@Component
+export default class Index extends Vue {}
 </script>

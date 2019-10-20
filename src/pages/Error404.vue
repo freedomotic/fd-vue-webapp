@@ -10,13 +10,16 @@
     <q-btn
       color="secondary"
       style="width:200px;"
-      @click="$router.push('/')"
-    >Go back</q-btn>
+      to="/"
+      label="Go back"
+    />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Error404'
-}
+<script lang="ts" lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class Error404 extends Vue {}
 </script>

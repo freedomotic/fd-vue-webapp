@@ -1,82 +1,104 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header>
-      <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
-      >
+    <q-header elevated>
+      <q-toolbar>
         <q-btn
           flat
           dense
           round
           @click="leftDrawerOpen = !leftDrawerOpen"
+          icon="menu"
           aria-label="Menu"
-        >
-          <q-icon name="menu" />
-        </q-btn>
+        />
 
         <q-toolbar-title>
           Quasar App
-          <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
         </q-toolbar-title>
-      </q-toolbar>
-    </q-layout-header>
 
-    <q-layout-drawer
+        <div>Quasar v{{ $q.version }}</div>
+      </q-toolbar>
+    </q-header>
+
+    <q-drawer
       v-model="leftDrawerOpen"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
+      show-if-above
+      bordered
+      content-class="bg-grey-2"
     >
-      <q-list
-        no-border
-        link
-        inset-delimiter
-      >
-        <q-list-header>Essential Links</q-list-header>
-        <q-item @click.native="openURL('http://quasar-framework.org')">
-          <q-item-side icon="school" />
-          <q-item-main label="Docs" sublabel="quasar-framework.org" />
+      <q-list>
+        <q-item-label header>Essential Links</q-item-label>
+        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Docs</q-item-label>
+            <q-item-label caption>quasar.dev</q-item-label>
+          </q-item-section>
         </q-item>
-        <q-item @click.native="openURL('https://github.com/quasarframework/')">
-          <q-item-side icon="code" />
-          <q-item-main label="GitHub" sublabel="github.com/quasarframework" />
+        <q-item clickable tag="a" target="_blank" href="https://github.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Github</q-item-label>
+            <q-item-label caption>github.com/quasarframework</q-item-label>
+          </q-item-section>
         </q-item>
-        <q-item @click.native="openURL('https://discord.gg/5TDhbDg')">
-          <q-item-side icon="chat" />
-          <q-item-main label="Discord Chat Channel" sublabel="https://discord.gg/5TDhbDg" />
+        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="chat" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Discord Chat Channel</q-item-label>
+            <q-item-label caption>chat.quasar.dev</q-item-label>
+          </q-item-section>
         </q-item>
-        <q-item @click.native="openURL('http://forum.quasar-framework.org')">
-          <q-item-side icon="record_voice_over" />
-          <q-item-main label="Forum" sublabel="forum.quasar-framework.org" />
+        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="record_voice_over" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Forum</q-item-label>
+            <q-item-label caption>forum.quasar.dev</q-item-label>
+          </q-item-section>
         </q-item>
-        <q-item @click.native="openURL('https://twitter.com/quasarframework')">
-          <q-item-side icon="rss feed" />
-          <q-item-main label="Twitter" sublabel="@quasarframework" />
+        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="rss_feed" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Twitter</q-item-label>
+            <q-item-label caption>@quasarframework</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="public" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Facebook</q-item-label>
+            <q-item-label caption>@QuasarFramework</q-item-label>
+          </q-item-section>
         </q-item>
       </q-list>
-    </q-layout-drawer>
+    </q-drawer>
 
     <q-page-container>
+      <div class="bg-red">
+        Hello
+      </div>
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
-<script>
-import { openURL } from 'quasar'
+<script lang="ts" lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-export default {
-  name: 'MyLayout',
-  data () {
-    return {
-      leftDrawerOpen: this.$q.platform.is.desktop
-    }
-  },
-  methods: {
-    openURL
-  }
+@Component
+export default class MyLayout extends Vue {
+  leftDrawerOpen = false
 }
 </script>
-
-<style>
-</style>

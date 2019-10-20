@@ -1,28 +1,19 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env", {
-        "modules": false,
-        "loose": false,
-        "useBuiltIns": "usage"
-      }
-    ],
-    [
-      "@babel/preset-stage-2", {
-        "modules": false,
-        "loose": false,
-        "useBuiltIns": true,
-        "decoratorsLegacy": true
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "@babel/transform-runtime", {
-        "polyfill": false,
-        "regenerator": false
-      }
-    ]
-  ],
-  "comments": false
+  "plugins": ["@babel/plugin-syntax-dynamic-import"],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "commonjs",
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }

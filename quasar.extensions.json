@@ -1,0 +1,23 @@
+{
+  "@quasar/typescript": {
+    "webpack": "plugin",
+    "rename": true,
+    "vscode": true,
+    "prettier": true
+  },
+  "@quasar/testing": {
+    "harnesses": [
+      "unit-jest",
+      "e2e-cypress"
+    ]
+  },
+  "@quasar/testing-unit-jest": {
+    "babel": "babelrc",
+    "options": [
+      "majestic"
+    ]
+  },
+  "@quasar/testing-e2e-cypress": {
+    "options": []
+  }
+}

@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "esnext"
-    ],
     "allowJs": true,
+    "sourceMap": true,
+    "target": "es6",
+    "strict": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "src/*": [
         "src/*"
       ],
       "components/*": [
-          "src/components/*"
+        "src/components/*"
       ]
     }
   },
-  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
