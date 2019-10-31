@@ -16,6 +16,17 @@ The aim of this project is to reproduce all features already integrated in our J
 
 To have a broad idea about its features you can have a look at our [YouTube channel](https://www.youtube.com/freedomotic).
 
+## Screenshoot
+# Login Page
+![Login](/img/login-fd-vue.png)
+
+# Dashboard Page
+![Dashboard](/img/fd-vue-dashboard1.png)
+
+# THINGS Page
+![THINGS](/img/fd-vue-things.png)
+
+
 ## Live demo
 
 A live demo of this client is available at http://fd-vue-webapp.herokuapp.com/. Check it out using *admin/admin* as credentials!
