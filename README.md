@@ -17,13 +17,13 @@ The aim of this project is to reproduce all features already integrated in our J
 To have a broad idea about its features you can have a look at our [YouTube channel](https://www.youtube.com/freedomotic).
 
 ## Screenshoot
-# Login Page
+### Login Page
 ![Login](/img/login-fd-vue.png)
 
-# Dashboard Page
+### Dashboard Page
 ![Dashboard](/img/fd-vue-dashboard1.png)
 
-# THINGS Page
+### THINGS Page
 ![THINGS](/img/fd-vue-things.png)
 
 
