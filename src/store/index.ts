@@ -1,25 +1,30 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import createLogger from 'vuex/dist/logger';
+import session from './session';
+import { noop, isDEV } from 'src/utils';
 
-// import example from './module-example'
-
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation
  */
 
-export default function (/* { ssrContext } */) {
+export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
+    plugins: [isDEV ? createLogger() : noop],
     modules: {
-      // example
-    },
+      session
+    }
+  });
 
-    // enable strict mode (adds overhead!)
-    // for dev mode only
-    strict: process.env.DEV
-  })
+  if (process.env.DEV && module.hot) {
+    module.hot.accept(['./session'], () => {
+      const session = require('./session').default;
+      Store.hotUpdate({ modules: { session } });
+    });
+  }
 
-  return Store
+  return Store;
 }

@@ -1,3 +1,3 @@
 import InputMixin from './input'
 
-export {InputMixin}
+export { InputMixin }

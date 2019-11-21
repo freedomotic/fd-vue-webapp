@@ -8,14 +8,13 @@
     "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": ".",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      "src/*": [
-        "src/*"
-      ],
-      "components/*": [
-        "src/components/*"
-      ]
+      "src/*": ["src/*"],
+      "components/*": ["src/components/*"]
     }
   },
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
