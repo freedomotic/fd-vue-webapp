@@ -22,6 +22,11 @@ addons:
 node_js:
           - '8'
 
+before_install:
+  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+  - unzip chromedriver_linux64.zip -d ~/bin
+
 # the following step should start the virtual X frame buffer: Xvfb process         
 before_script:
   - "sh -e /etc/init.d/xvfb start"
