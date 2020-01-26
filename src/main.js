@@ -37,6 +37,9 @@ import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
 import 'vue-snotify/styles/material.css'
 
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
 import 'onsenui/css/onsenui.css'
 import 'onsenui/css/onsen-css-components.css'
 
@@ -50,6 +53,7 @@ import MobileCommand from './components/mobile/mobile-pages/Command.vue'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
+Vue.use(Vuetify)
 Vue.use(Snotify)
 Vue.use(VModal, { dialog: true, dynamic: true })
 
