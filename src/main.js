@@ -10,7 +10,7 @@ import axios from './utils/fd-axios'
 // This already imports 'onsenui'
 import VueOnsen from 'vue-onsenui'
 
-import Snotify from 'vue-snotify'
+import Snotify from 'vue-snotify/vue-snotify.min.js'
 
 // Manage modal components
 import VModal from 'vue-js-modal'
