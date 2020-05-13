@@ -22,7 +22,7 @@ node_js:
           - '8'
 
 before_install:
-  - sudo apt-get install -y dpkg
+  - sudo apt-get install -y --allow-unauthenticated dpkg
   - sudo apt-get --only-upgrade install google-chrome-stable
   - google-chrome --version
   - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
