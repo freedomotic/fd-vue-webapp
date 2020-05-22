@@ -35,3 +35,6 @@ before_script:
   - sleep 3 #wait a while before xvfb to start
 after_script:
   - "sh -e /etc/init.d/xvfb stop"
+script:
+- echo "skipping tests"
+
