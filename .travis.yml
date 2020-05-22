@@ -31,7 +31,7 @@ before_install:
 
 # the following step should start the virtual X frame buffer: Xvfb process         
 before_script:
-#  - "sh -e /etc/init.d/xvfb start"
-#  - sleep 3 #wait a while before xvfb to start
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 #wait a while before xvfb to start
 after_script:
-#  - "sh -e /etc/init.d/xvfb stop"
+  - "sh -e /etc/init.d/xvfb stop"
