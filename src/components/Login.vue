@@ -12,13 +12,14 @@
                   </q-card-section>
 
                   <q-card-section>
-                    <q-input label="Username" v-model="username" />
+                    <q-input :label="$t('username')" v-model="username" />
 
-                    <q-input label="Password" type="password" v-model="password" />
+                    <q-input :label="$t('password')" type="password" v-model="password" />
                   </q-card-section>
                   <q-card-actions class="q-pa-md" align="between">
-                    <q-checkbox v-model="rememberMe" label="remember me" class="text-tertiary" />
-                    <q-btn icon="check" label="sign in" color="positive" @click="login" />
+                    <q-checkbox v-model="rememberMe" :label="$t('remember_me')" class="text-tertiary" />
+                    <q-checkbox v-model="useSSL" :label="$t('use_ssl')" class="text-tertiary" />
+                    <q-btn icon="check" :label="$t('login')" color="positive" @click="login" />
                   </q-card-actions>
                 </q-card>
               </div>
@@ -79,7 +80,7 @@ export default {
     return {
       username: "",
       password: "",
-      ssl: false,
+      useSSL: false,
       rememberMe: false,
       logoImg: logoImg
     };
@@ -150,20 +151,6 @@ export default {
   padding: 1em 2em;
 }
 
-#mobile-login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  transform: translate(-50%, -50%);
-}
-
-.mobile-login-form {
-  text-align: left;
-  width: 80%;
-  margin: 20px auto 0;
-}
-
 input[type="email"],
 input[type="password"] {
   display: block;
@@ -172,27 +159,6 @@ input[type="password"] {
   outline: none;
   padding-top: 24px;
   padding-bottom: 24px;
-}
-
-.login-button {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.forgot-password {
-  display: block;
-  margin: 8px auto 0 auto;
-  font-size: 14px;
-}
-.card {
-  box-shadow: unset;
-  background-color: unset;
-}
-.button {
-  background-color: #9cba7f;
-}
-ons-input {
-  width: 100%;
 }
 
 .q-card {
