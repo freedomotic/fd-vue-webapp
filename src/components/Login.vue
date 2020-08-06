@@ -104,6 +104,7 @@ export default {
           this.$router.replace(this.$route.query.redirect || "/");
         })
         .catch(() => {
+          this.$q.notify(this.$t('bad_login_information'))
           //if (!(this.$ons.platform.isAndroid() || this.$ons.platform.isIOS())) {
           //this.$snotify.error(this.$t('bad_login_information'), 'ERROR', {
           //timeout: 0,
