@@ -1,7 +1,0 @@
-return {
-  framework: {
-    plugins: [
-      'Dialog'
-    ]
-  }
-}
