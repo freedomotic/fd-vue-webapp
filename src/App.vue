@@ -52,7 +52,7 @@ export default {
 <style>
   html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #2c3e50;
+    color: #8BAE2D;
     margin: 0;
     height: 100%;
   }
@@ -67,19 +67,5 @@ export default {
     width: 100%;
     top: 0;
     position: absolute;
-  }
-  ul {
-    line-height: 1.5em;
-    padding-left: 1.5em;
-  }
-  a {
-    color: #7f8c8d;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #4fc08d;
-  }
-  .md-menu-content {
-    z-index: 1000;
   }
 </style>

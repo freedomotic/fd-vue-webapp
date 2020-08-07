@@ -2,7 +2,7 @@
   <div>
     <q-layout>
       <q-page-container>
-        <q-page class="bg-secondary flex flex-center" v-if="$q.platform.is.desktop">
+        <q-page class="bg-primary flex flex-center" v-if="$q.platform.is.desktop">
           <div class="full-width">
             <div class="row justify-center">
               <div class="col-xs-10 col-sm-6 col-md-5 col-lg-4">
@@ -28,7 +28,7 @@
         </q-page>
         <q-page
           v-else-if="$q.platform.is.mobile"
-          class="bg-light-green window-height window-width row justify-center items-center"
+          class="bg-primary window-height window-width row justify-center items-center"
         >
           <div class="column">
             <div class="row">
@@ -105,17 +105,6 @@ export default {
         })
         .catch(() => {
           this.$q.notify(this.$t('bad_login_information'))
-          //if (!(this.$ons.platform.isAndroid() || this.$ons.platform.isIOS())) {
-          //this.$snotify.error(this.$t('bad_login_information'), 'ERROR', {
-          //timeout: 0,
-          //showProgressBar: false,
-          //closeOnClick: true,
-          //pauseOnHover: true)
-          console.log("Errore");
-          //} else {
-          //this.$ons.notification.alert(this.$t('bad_login_information'))
-          // this.$ons.notification.toast(this.$t('bad_login_information'), {timeout: 5000})
-          //}
         });
     }
   }
@@ -126,40 +115,6 @@ export default {
 #body {
   position: relative;
   height: 100%;
-}
-
-#login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 5px 5px 50px 0 rgba(0, 0, 0, 0.6);
-}
-
-#login-header {
-  padding: 10px;
-}
-
-#login-header img {
-  height: 80px;
-  display: block;
-  margin: 0 auto;
-}
-
-#login-body {
-  padding: 1em 2em;
-}
-
-input[type="email"],
-input[type="password"] {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  outline: none;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .q-card {

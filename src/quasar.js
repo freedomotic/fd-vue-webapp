@@ -8,7 +8,7 @@ import { Quasar, Notify } from 'quasar'
 Vue.use(Quasar, {
   config: {
     brand: {
-      primary: '#027BE3',
+      primary: ' #8BAE2D',
       secondary: '#26A69A',
       accent: '#9C27B0',
 
