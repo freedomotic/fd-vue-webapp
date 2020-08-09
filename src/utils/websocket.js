@@ -32,11 +32,7 @@ export default {
       console.log(messageType + ' ' + payload)
       switch (messageType) {
         case 'message-callout':
-          if (store.isMobile) {
-            EventBus.$emit('mobileNotification', JSON.parse(payload).message)
-          } else {
-            EventBus.$emit('snotifyMessage', JSON.parse(payload).message)
-          }
+            EventBus.$emit('notifyMessage', 'info', JSON.parse(payload).message)
           break
         case 'plugin-started':
           store.dispatch('updatePluginFromWS', JSON.parse(payload))

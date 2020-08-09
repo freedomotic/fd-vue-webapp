@@ -171,12 +171,7 @@ export default {
             title: this.$t('duplicate'),
             default: true,
             handler: () => {
-              this.$snotify.success('Environment "' + this.environment.name + '" duplicated', 'INFO', {
-                timeout: 3000,
-                showProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true
-              })
+              EventBus.$emit('notifyMessage', 'info', 'Environment "' + this.environment.name + '" duplicated')
               this.duplicateEnvironment()
               this.$modal.hide('dialog')
               this.$emit('close')
@@ -200,12 +195,7 @@ export default {
             title: this.$t('delete'),
             default: true,
             handler: () => {
-              this.$snotify.success('Environment "' + this.environment.name + '" deleted', 'INFO', {
-                timeout: 3000,
-                showProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true
-              })
+              EventBus.$emit('notifyMessage', 'info', 'Environment "' + this.environment.name + '" deleted')
               this.deleteEnvironment()
               this.$modal.hide('dialog')
               this.$emit('close')

@@ -24,7 +24,6 @@ export default {
     return {}
   },
   created () {
-    //this.$store.isMobile = this.$ons.platform.isAndroid() || this.$ons.platform.isIOS()
     console.log('Created ' + this.$store.isMobile)
   },
   computed: {
@@ -33,17 +32,12 @@ export default {
     }
   },
   updated () {
-    EventBus.$on('snotifyMessage', function (message) {
-      this.$q.notify(message)
-      //this.$snotify.success(message, {
-      //  timeout: 5000,
-      //  showProgressBar: false,
-      //  closeOnClick: false,
-      //  pauseOnHover: true
-      //})
-    //})
-    //EventBus.$on('mobileNotification', function (message) {
-      //this.$ons.notification.toast(message, {timeout: 2000})
+    EventBus.$on('notifyMessage', function (type, message) {
+      switch (type) {
+        case 'info':
+            this.$q.notify(message)
+          break
+      }
     })
   }
 }
