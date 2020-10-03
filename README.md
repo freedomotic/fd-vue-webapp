@@ -71,3 +71,9 @@ npm run build
 
 If you like to contribute to this project, please follow our guidelines, available [here](https://github.com/freedomotic/fd-vue-webapp/blob/master/CONTRIBUTING.md).
 
+
+# Partners
+
+This project is supported by:
+
+<img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px">
