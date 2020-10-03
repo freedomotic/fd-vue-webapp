@@ -3,7 +3,7 @@ import axios from 'axios'
 let FD_API_URL
 
 if (window.location.host === 'fd-vue-webapp.herokuapp.com') {
-  FD_API_URL = 'http://51.77.212.115:9111/v3'
+  FD_API_URL = 'http://165.227.172.191:9111/v3'
 } else {
   FD_API_URL = 'http://' + window.location.hostname + ':9111/v3'
 }
