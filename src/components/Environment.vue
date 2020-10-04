@@ -42,6 +42,23 @@
         </span>
         </div>
       </div>
+
+      <q-dialog v-model="thingsEditor" full-width>
+      <q-layout view="Lhh lpR fff" container class="bg-white">
+        <q-header class="bg-primary">
+          <q-toolbar>
+            <q-toolbar-title>{{$t('things_editor').toUpperCase()}}</q-toolbar-title>
+            <q-btn flat v-close-popup round dense icon="close" />
+          </q-toolbar>
+        </q-header>
+        <things-editor :thing="thing" />
+
+        <q-page-container>
+          <q-page padding></q-page>
+        </q-page-container>
+      </q-layout>
+    </q-dialog>
+
     </div>
   
 </template>
@@ -83,6 +100,8 @@ export default {
       scaleFactor: 1.0,
       sizing: 'contain',
       moveEnabled: false,
+      thingsEditor: false,
+      thing: {},
       canvas: {},
       context: {},
       backgroundImg: new Image(this.environment.width, this.environment.height)
@@ -231,16 +250,8 @@ export default {
       this.$store.dispatch('sendObjectClickEvent', thingId)
     },
     openThingEditor: function (thing) {
-      this.$modal.show(ThingsEditor, {
-        thing: thing
-      }, {
-        adaptive: true,
-        resizable: true,
-        clickToClose: false,
-        scrollable: true,
-        width: '50%',
-        height: '65%'
-      })
+      this.thing = thing;
+     this.thingsEditor = true;
     },
     getThingIcon: function (resourceId) {
       return this.axios.defaults.baseURL + '/resources/' + resourceId
