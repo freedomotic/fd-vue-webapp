@@ -7,7 +7,7 @@
             :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')"
             style="height: 64px; max-width: 64px"
           />
-          <img :src="image" style="height: 64px; max-width: 64px" />
+          <img :src="image" style="height: 64px; max-width: 64px; position: absolute" />
         </q-item-section>
 
         <q-item-section>
