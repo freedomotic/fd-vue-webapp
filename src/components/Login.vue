@@ -2,7 +2,7 @@
   <div>
     <q-layout>
       <q-page-container>
-        <q-page class="bg-primary flex flex-center" v-if="$q.platform.is.desktop">
+        <q-page class="flex flex-center" v-if="$q.platform.is.desktop" v-bind:style="{ backgroundImage: 'url(' + bkg + ')' }">
           <div class="full-width">
             <div class="row justify-center">
               <div class="col-xs-10 col-sm-6 col-md-5 col-lg-4">
@@ -73,6 +73,7 @@
 
 <script>
 import logoImg from "../assets/freedomotic-logo.png";
+import bkg from '../assets/bkgnd.jpg'
 
 export default {
   components: {},
@@ -82,7 +83,8 @@ export default {
       password: "",
       useSSL: false,
       rememberMe: false,
-      logoImg: logoImg
+      logoImg: logoImg,
+      bkg: bkg
     };
   },
   created() {
