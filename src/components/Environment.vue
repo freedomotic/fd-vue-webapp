@@ -13,6 +13,9 @@
             <q-item clickable v-close-popup @click.native="editEnvironment">
               <q-item-section>{{$t('edit_environment')}}</q-item-section>
             </q-item>
+            <q-item clickable v-close-popup @click.native="editZones">
+              <q-item-section>{{$t('edit_zones')}}</q-item-section>
+            </q-item>
             <q-item clickable v-close-popup @click="showDuplicateEnvironmentDialog">
               <q-item-section>{{$t('duplicate_environment')}}</q-item-section>
             </q-item>
@@ -104,6 +107,7 @@ export default {
       thing: {},
       canvas: {},
       context: {},
+      zones: this.environment.zones,
       backgroundImg: new Image(this.environment.width, this.environment.height)
     }
   },
@@ -229,6 +233,9 @@ export default {
       })
     },
     editEnvironment: function () {
+    },
+    editZones: function () {
+       console.log('ZONES ' + JSON.stringify(this.zones))
     },
     setThingTooltipContent (thing) {
       let behaviors = ''
