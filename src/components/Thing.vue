@@ -50,6 +50,7 @@
           round
           flat
           dense
+          :disable="expandBehaviorsDisabled"
           :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
           @click="expanded = !expanded"
         />
@@ -235,6 +236,18 @@ export default {
   computed: {
     getThingFromStore: function() {
       return this.$store.state.thingsList[this.index];
+    },
+
+    expandBehaviorsDisabled: function() {
+      let isDisabled = false;
+
+      if (!this.getThingFromStore.behaviors || !this.getThingFromStore.behaviors.length) {
+        isDisabled = true;
+      } else {
+        isDisabled = this.getThingFromStore.behaviors.filter(b => !b.readOnly).length <= 0;
+      }
+
+      return isDisabled;
     }
   },
   methods: {
