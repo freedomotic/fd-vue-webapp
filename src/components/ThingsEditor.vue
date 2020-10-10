@@ -25,7 +25,7 @@
           <q-tab-panel name="properties">
             <div class="text-h4 q-mb-md">{{$t('properties').toUpperCase()}}</div>
             <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-              <q-input filled v-model="uuid" :label="$t('uuid')" />
+              <q-input filled v-model="uuid" :label="$t('uuid')" :disable="true"/>
               <q-input filled v-model="name" :label="$t('name')" />
               <q-input filled v-model="description" :label="$t('description')" />
               <q-select
@@ -64,11 +64,11 @@
           </q-tab-panel>
 
           <q-tab-panel name="actions">
-            <div class="text-h4 q-mb-md">{{$t('actions').toUpperCase()}}</div>
+            <div class="text-h4 q-mb-md">{{$t('actions').toUpperCase()}}</div>TO BE DEFINED
           </q-tab-panel>
 
-          <q-tab-panel name="control_panel">
-            <div class="text-h4 q-mb-md">{{$t('control_panel').toUpperCase()}}</div>
+          <q-tab-panel name="controlPanel">
+            <div class="text-h4 q-mb-md">{{$t('control_panel').toUpperCase()}}</div>TO BE DEFINED
           </q-tab-panel>
         </q-tab-panels>
       </template>
