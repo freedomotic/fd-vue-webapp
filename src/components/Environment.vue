@@ -3,24 +3,59 @@
     <div class="top-nav">
        <q-btn icon="menu" size="lg" class="menu">
          <q-menu>
-          <q-list style="min-width: 100px">
-            <q-item clickable v-close-popup @click="toggleMove" v-if="!moveEnabled">
-              <q-item-section>{{$t('enable')}} {{$t('move_things').toLowerCase()}}</q-item-section>
+          <q-list dense style="min-width: 100px">
+            <q-item clickable>
+              <q-item-section>Environments</q-item-section>
+              <q-item-section side>
+                <q-icon name="keyboard_arrow_right" />
+              </q-item-section>
+              <q-menu anchor="top right" self="top left">
+                <q-list>
+                    <q-item clickable v-close-popup @click.native="editEnvironment">
+                       <q-item-section>{{$t('edit_environment')}}</q-item-section>
+                    </q-item>
+                    <q-item clickable v-close-popup @click="showDuplicateEnvironmentDialog">
+                       <q-item-section>{{$t('duplicate_environment')}}</q-item-section>
+                    </q-item>
+                    <q-item clickable v-close-popup @click="showDeleteEnvironmentDialog">
+                       <q-item-section>{{$t('delete_environment')}}</q-item-section>
+                    </q-item>
+                </q-list>
+              </q-menu>
             </q-item>
-            <q-item clickable v-close-popup @click="toggleMove" v-if="moveEnabled">
-              <q-item-section>{{$t('disable')}} {{$t('move_things').toLowerCase()}}</q-item-section>
+            <q-item clickable>
+              <q-item-section>Zones</q-item-section>
+              <q-item-section side>
+                <q-icon name="keyboard_arrow_right" />
+              </q-item-section>
+              <q-menu anchor="top right" self="top left">
+                <q-list>
+                    <q-item clickable v-close-popup @click.native="editZones">
+                      <q-item-section>{{$t('edit_zones')}}</q-item-section>
+                    </q-item>
+                </q-list>
+              </q-menu>
             </q-item>
-            <q-item clickable v-close-popup @click.native="editEnvironment">
-              <q-item-section>{{$t('edit_environment')}}</q-item-section>
+            <q-item clickable>
+              <q-item-section>Things</q-item-section>
+              <q-item-section side>
+                <q-icon name="keyboard_arrow_right" />
+              </q-item-section>
+              <q-menu anchor="top right" self="top left">
+                <q-list>
+                    <q-item clickable v-close-popup @click="toggleMove" v-if="!moveEnabled">
+                      <q-item-section>{{$t('enable')}} {{$t('move_things').toLowerCase()}}</q-item-section>
+                    </q-item>
+                    <q-item clickable v-close-popup @click="toggleMove" v-if="moveEnabled">
+                      <q-item-section>{{$t('disable')}} {{$t('move_things').toLowerCase()}}</q-item-section>
+                    </q-item>
+                </q-list>
+              </q-menu>
             </q-item>
-            <q-item clickable v-close-popup @click.native="editZones">
-              <q-item-section>{{$t('edit_zones')}}</q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup @click="showDuplicateEnvironmentDialog">
-              <q-item-section>{{$t('duplicate_environment')}}</q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup @click="showDeleteEnvironmentDialog">
-              <q-item-section>{{$t('delete_environment')}}</q-item-section>
+            
+            <q-separator />
+            <q-item clickable v-close-popup>
+              <q-item-section>AVAILABLE</q-item-section>
             </q-item>
           </q-list>
         </q-menu>
