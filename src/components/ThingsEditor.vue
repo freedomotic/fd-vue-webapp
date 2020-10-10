@@ -5,11 +5,11 @@
     <q-splitter v-model="splitterModel">
       <template v-slot:before>
         <q-tabs v-model="tab" vertical class="text-teal">
-          <q-tab name="properties" icon="mail" label="Properties" />
-          <q-tab name="appearance" icon="alarm" label="Appearance" />
-          <q-tab name="dataSource" icon="movie" label="Data Source" />
-          <q-tab name="actions" icon="movie" label="Actions" />
-          <q-tab name="controlPanel" icon="movie" label="Control Panel" />
+          <q-tab name="properties" icon="list_alt" label="Properties" />
+          <q-tab name="appearance" icon="brush" label="Appearance" />
+          <q-tab name="dataSource" icon="storage" label="Data Source" />
+          <q-tab name="actions" icon="touch_app" label="Actions" />
+          <q-tab name="controlPanel" icon="tune" label="Control Panel" />
         </q-tabs>
       </template>
 
