@@ -28,7 +28,11 @@ export default {
     EventBus.$on('notifyMessage', function (type, message) {
       switch (type) {
         case 'info':
-            this.$q.notify(message)
+            this.$q.notify({
+              message,
+              color: 'green',
+              position: 'top'
+            });
           break
       }
     })
