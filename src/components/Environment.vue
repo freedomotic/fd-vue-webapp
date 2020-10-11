@@ -62,7 +62,7 @@
 
        </q-btn>
       <div >
-         <h3 id="envname">{{environment.name}}</h3>
+         <h4 id="envname">{{environment.name}}</h4>
       </div>
     </div>
 

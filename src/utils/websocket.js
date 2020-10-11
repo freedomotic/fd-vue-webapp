@@ -29,7 +29,6 @@ export default {
       data = data.split('#')
       var messageType = data[0]
       var payload = data[1]
-      console.log(messageType + ' ' + payload)
       switch (messageType) {
         case 'message-callout':
             EventBus.$emit('notifyMessage', 'info', JSON.parse(payload).message)

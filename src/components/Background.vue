@@ -1,20 +1,17 @@
 <template>
   <div>
-    <bugs v-if="$q.platform.is.desktop"/>
     <div id="img-background" :style="backgroundStyle" :class="{active: !!backgroundStyle.backgroundImage}"/>
     <bottom-menu/>
   </div>
 </template>
 
 <script>
-import Bugs from './Bugs.vue'
 import bkg from '../assets/bkgnd.jpg'
 import BottomMenu from './BottomMenu.vue'
 
 export default {
   name: 'Background',
   components: {
-    'bugs': Bugs,
     'bottom-menu': BottomMenu
   },
   data () {
