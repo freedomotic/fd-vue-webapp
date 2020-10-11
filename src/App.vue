@@ -25,13 +25,6 @@ export default {
   },
   created () {
     console.log('Created ' + this.$store.isMobile)
-  },
-  computed: {
-    loggedIn () {
-      return !!this.$store.state.token
-    }
-  },
-  updated () {
     EventBus.$on('notifyMessage', function (type, message) {
       switch (type) {
         case 'info':
@@ -39,7 +32,13 @@ export default {
           break
       }
     })
-  }
+  },
+  computed: {
+    loggedIn () {
+      return !!this.$store.state.token
+    }
+  },
+  updated () {}
 }
 </script>
 
