@@ -444,24 +444,8 @@ export default {
       this.$store.commit("closeSection");
     },
     ready: function() {},
-    updateToast: function(e) {
-      var msg = e.detail;
-      this.setToast(msg.message);
-    },
-    setToast: function(msg) {
-      this.$.toast.text = msg;
-      this.$.toast.opened = true;
-    },
     setMobileSection: function(section) {
       this.$store.commit("setMobileSection", section);
-    },
-    showAlerts: function() {
-      this.hideAll();
-      if (!("webkitSpeechRecognition" in window)) {
-        this.setToast("Current browser doesn't support WebSpeech API");
-      } else {
-        this.$store.commit("showAlerts");
-      }
     },
     forceEnvironmentsRerender() {
       this.environmentsKey += 1;
