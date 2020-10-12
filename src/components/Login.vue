@@ -72,7 +72,8 @@
 
 
 <script>
-import logoImg from "../assets/freedomotic-logo.png";
+import EventBus from '@/utils/event-bus'
+import logoImg from "../assets/freedomotic-logo.png"
 import bkg from '../assets/bkgnd.jpg'
 
 export default {
@@ -106,7 +107,7 @@ export default {
           this.$router.replace(this.$route.query.redirect || "/");
         })
         .catch(() => {
-          this.$q.notify(this.$t('bad_login_information'))
+          EventBus.$emit('notifyMessage', 'error', this.$t('bad_login_information'))
         });
     }
   }

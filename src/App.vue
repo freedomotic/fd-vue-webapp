@@ -33,7 +33,14 @@ export default {
               color: 'green',
               position: 'top'
             });
-          break
+            break
+        case 'error':
+            this.$q.notify({
+              message,
+              color: 'red',
+              position: 'top'
+            });
+        break
       }
     })
   },
