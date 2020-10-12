@@ -3,11 +3,7 @@
     <q-card class="my-card" flat bordered>
       <q-item>
         <q-item-section>
-          <img
-            :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')"
-            style="height: 64px; max-width: 64px"
-          />
-          <img :src="image" style="height: 64px; max-width: 64px" />
+          <img :src="image" style="height: 64px; max-width: 64px; position: absolute; top: 5px; left: 5px;" :placeholder="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')" />
         </q-item-section>
 
         <q-item-section>
