@@ -61,8 +61,7 @@
           <q-separator />
           <q-card-section class="text-subitle2">
             <div
-              v-for="behavior in getThingFromStore.behaviors"
-              v-if="behavior.readOnly == false"
+              v-for="behavior in editableBehaviors"
               :key="behavior.name"
             >
               {{behavior.name}}
@@ -72,7 +71,7 @@
               <q-toggle
                 v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'"
                 v-model="behavior.value"
-                @change="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"
+                @input="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"
               ></q-toggle>
               <q-slider
                 v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'"
@@ -169,8 +168,7 @@
           <q-separator />
           <q-card-section class="text-subitle2">
             <div
-              v-for="behavior in getThingFromStore.behaviors"
-              v-if="behavior.readOnly == false"
+              v-for="behavior in editableBehaviors"
               :key="behavior.name"
             >
               {{behavior.name}}
@@ -180,7 +178,7 @@
               <q-toggle
                 v-if="behavior['@class'] == 'com.freedomotic.model.object.BooleanBehavior'"
                 v-model="behavior.value"
-                @change="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"
+                @input="changeBehavior(getThingFromStore.uuid, behavior.name, !!behavior.value)"
               ></q-toggle>
               <q-slider
                 v-if="behavior['@class'] == 'com.freedomotic.model.object.RangedIntBehavior'"
@@ -244,10 +242,16 @@ export default {
       if (!this.getThingFromStore.behaviors || !this.getThingFromStore.behaviors.length) {
         isDisabled = true;
       } else {
-        isDisabled = this.getThingFromStore.behaviors.filter(b => !b.readOnly).length <= 0;
+        isDisabled = this.editableBehaviors.length <= 0;
       }
 
       return isDisabled;
+    },
+
+    editableBehaviors: function() {
+      let editableBehaviors = this.getThingFromStore.behaviors;
+      editableBehaviors = editableBehaviors.filter(b => !b.readOnly);
+      return editableBehaviors;
     }
   },
   methods: {
