@@ -5,6 +5,7 @@
         <q-toolbar>
           <q-btn flat round dense icon="undo" class="q-mr-sm" @click="openSettings" />
           <q-toolbar-title>{{$t('automations').toUpperCase()}}</q-toolbar-title>
+          <q-btn color="secondary" label="Add new automation" @click='addNewAutomation = true' />
           <q-btn flat round dense icon="close" @click="closeWindow" />
         </q-toolbar>
       </q-header>
@@ -42,8 +43,10 @@
         </q-list>
       </q-page-container>
     </q-layout>
+    <add-new-automation v-model='addNewAutomation' /> 
   </div>
-  <div v-else-if="$q.platform.is.mobile">
+  <div v-else-if="$q.platform.is.mobile" class='column'>
+    <q-btn class="self-center q-my-sm" color="secondary" label="Add new automation" @click='addNewAutomation = true' />
     <q-card
       v-for="automation in getAutomationsList"
       :key="automation.uuid"
@@ -72,11 +75,12 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
+    <add-new-automation v-model='addNewAutomation' />
   </div>
 </template>
 
 <script>
-import AddAutomation from "./AddAutomation.vue";
+import AddNewAutomation from "./AddAutomationDialog.vue";
 
 export default {
   computed: {
@@ -93,11 +97,12 @@ export default {
     this.$store.dispatch("getCommandsList");
   },
   components: {
-    AddAutomation
+    AddNewAutomation
   },
   data() {
     return {
-      confirmDelete: false
+      confirmDelete: false,
+      addNewAutomation: false
     };
   },
   methods: {
@@ -150,24 +155,6 @@ export default {
           }
         ]
       });
-    },
-    showDynamicComponentModal() {
-      this.$modal.show(
-        AddAutomation,
-        {
-          text: ""
-        },
-        {
-          name: "addAutomationModal",
-          draggable: true,
-          adaptive: true,
-          resizable: true,
-          scrollable: true,
-          clickToClose: false,
-          width: "65%",
-          height: "auto"
-        }
-      );
     }
   }
 };
