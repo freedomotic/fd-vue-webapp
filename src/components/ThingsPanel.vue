@@ -4,6 +4,7 @@
       <q-header elevated>
         <q-toolbar>
           <q-toolbar-title>{{$t('things').toUpperCase()}}</q-toolbar-title>
+          <q-btn color="secondary" label="Add new thing" @click='addNewThing = true' />
           <q-btn flat round dense icon="close" @click="closeWindow" />
         </q-toolbar>
       </q-header>
@@ -13,14 +14,16 @@
             <thing :thing="thing" :index="index"></thing>
           </div>
         </grid-container>
-       
       </q-page-container>
     </q-layout>
+    <add-new-thing v-model='addNewThing' />
   </div>
-  <div v-else-if="$q.platform.is.mobile">
+  <div v-else-if="$q.platform.is.mobile" class='column'>
+    <q-btn class="self-center q-my-sm" color="secondary" label="Add new thing" @click='addNewThing = true' />
     <div v-for="(thing, index) in getThingsList" :key="thing.uuid">
       <thing :thing="thing" :index="index" />
     </div>
+    <add-new-thing v-model='addNewThing' />
   </div>
 </template>
 
@@ -31,7 +34,8 @@ import GridContainer from "./common/GridContainer.vue";
 export default {
   components: {
     Thing,
-    GridContainer
+    GridContainer,
+    AddNewThing: () => import('./AddThingDialog')
   },
   computed: {
     getThingsList: function() {
@@ -40,7 +44,8 @@ export default {
   },
   data() {
     return {
-      thingsDetail: false
+      thingsDetail: false,
+      addNewThing: false
     };
   },
   methods: {
