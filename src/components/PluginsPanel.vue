@@ -1,22 +1,22 @@
 <template>
- <div v-if="pluginsOpen && $q.platform.is.desktop" class="current-section">
-  <q-layout>    
+  <div v-if="pluginsOpen && $q.platform.is.desktop" class="current-section">
+    <q-layout>
       <q-header elevated>
-            <q-toolbar>
-              <q-btn flat round dense icon="undo" class="q-mr-sm" @click="openSettings"/>
-               <q-toolbar-title>{{$t('plugins').toUpperCase()}}</q-toolbar-title>
-             <q-btn flat round dense icon="close" @click="closeWindow"/>
-          </q-toolbar>
+        <q-toolbar>
+          <q-btn flat round dense icon="undo" class="q-mr-sm" @click="openSettings"/>
+          <q-toolbar-title>{{$t('plugins').toUpperCase()}}</q-toolbar-title>
+          <q-btn flat round dense icon="close" @click="closeWindow"/>
+        </q-toolbar>
       </q-header>
-  <q-page-container>
-    <grid-container>
-       <div class="item" v-for="(plugin, index) in getPluginsList" :key="plugin.uuid">
-         <plugin :index="index"></plugin>
-      </div>
-    </grid-container>
-          </q-page-container>
-  </q-layout>   
-   </div>    
+      <q-page-container>
+        <grid-container>
+          <div class="item" v-for="plugin in getPluginsList" :key="plugin.uuid">
+            <plugin :plugin="plugin"></plugin>
+          </div>
+        </grid-container>
+      </q-page-container>
+    </q-layout>
+  </div>
   <div v-else-if="$q.platform.is.mobile">
     <q-list bordered>
       <q-item v-for="plugin in getPluginsList" :key="plugin.uuid" class="q-my-sm" clickable v-ripple>
@@ -35,9 +35,8 @@
           <q-icon name="keyboard_arrow_right" color="green" />
         </q-item-section>
       </q-item>
-     
     </q-list>
-    </div> 
+  </div>
 </template>
 
 <script>
@@ -60,11 +59,18 @@ export default {
       return this.$store.state.pluginsOpen
     },
     getPluginsList: function () {
-      return this.$store.state.pluginsList
+      return this.$store.state.pluginsList.filter((plugin) => {
+        return this.undesiredPlugins.indexOf(plugin.pluginName) === -1
+      })
     }
   },
   data () {
-    return {}
+    return {
+      undesiredPlugins: [
+        'RestAPI v3',
+        'Scheduler'
+      ]
+    }
   },
   methods: {
     openSettings: function () {
@@ -110,13 +116,13 @@ export default {
         overflow-y: scroll;
         margin: auto;
       }
- 
+
    #action-container {
        text-align: center;
        cursor: pointer;
        background-color: transparent;
        margin-top: 50%;
-   }  
+   }
 
    .small-icon {
       width: 24px;
@@ -124,5 +130,5 @@ export default {
       cursor: pointer;
       background:transparent;
    }
-   
+
 </style>

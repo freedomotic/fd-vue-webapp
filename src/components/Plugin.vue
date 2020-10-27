@@ -3,12 +3,12 @@
     <q-card class="my-card" flat bordered>
       <q-item>
         <q-item-section>
-          <img :src="image" style="height: 64px; max-width: 64px; position: absolute; top: 5px; left: 5px;" :placeholder="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')" />
+          <img :src="image" style="height: 64px; max-width: 64px; position: absolute; top: 5px; left: 5px;" :placeholder="getPluginIcon(plugin.uuid + '-' + plugin.currentPluginStatus.toLowerCase() + '.png')" />
         </q-item-section>
 
         <q-item-section>
-          <q-item-label class="title">{{ getPluginFromStore.pluginName }}</q-item-label>
-          <q-item-label caption class="caption">{{ getPluginFromStore.description }}</q-item-label>
+          <q-item-label class="title">{{ plugin.pluginName }}</q-item-label>
+          <q-item-label caption class="caption">{{ plugin.description }}</q-item-label>
         </q-item-section>
       </q-item>
 
@@ -17,12 +17,12 @@
       <q-card-actions>
         <q-btn flat round color="white" icon="settings" @click="pluginsEditor=true" />
         <q-btn
-          v-if="isPluginRunning(getPluginFromStore.currentPluginStatus)"
+          v-if="isPluginRunning(plugin.currentPluginStatus)"
           flat
           round
           color="white"
           icon="pause"
-          @click="stopPlugin(getPluginFromStore.uuid)"
+          @click="stopPlugin(plugin.uuid)"
         />
         <q-btn
           v-else
@@ -30,7 +30,7 @@
           round
           color="white"
           icon="play_arrow"
-          @click="startPlugin(getPluginFromStore.uuid)"
+          @click="startPlugin(plugin.uuid)"
         />
       </q-card-actions>
     </q-card>
@@ -54,15 +54,15 @@
       <q-item>
         <q-item-section>
           <img
-            :src="getPluginIcon(getPluginFromStore.uuid + '-' + getPluginFromStore.currentPluginStatus.toLowerCase() + '.png')"
+            :src="getPluginIcon(plugin.uuid + '-' + plugin.currentPluginStatus.toLowerCase() + '.png')"
             style="height: 64px; max-width: 64px"
           />
           <img :src="image" style="height: 64px; max-width: 64px" />
         </q-item-section>
 
         <q-item-section>
-          <q-item-label class="title">{{ getPluginFromStore.pluginName }}</q-item-label>
-          <q-item-label caption class="caption">{{ getPluginFromStore.description }}</q-item-label>
+          <q-item-label class="title">{{ plugin.pluginName }}</q-item-label>
+          <q-item-label caption class="caption">{{ plugin.description }}</q-item-label>
         </q-item-section>
       </q-item>
 
@@ -71,12 +71,12 @@
       <q-card-actions>
         <q-btn flat round color="white" icon="settings" @click="pluginsEditor=true" />
         <q-btn
-          v-if="isPluginRunning(getPluginFromStore.currentPluginStatus)"
+          v-if="isPluginRunning(plugin.currentPluginStatus)"
           flat
           round
           color="white"
           icon="pause"
-          @click="stopPlugin(getPluginFromStore.uuid)"
+          @click="stopPlugin(plugin.uuid)"
         />
         <q-btn
           v-else
@@ -84,7 +84,7 @@
           round
           color="white"
           icon="play_arrow"
-          @click="startPlugin(getPluginFromStore.uuid)"
+          @click="startPlugin(plugin.uuid)"
         />
       </q-card-actions>
     </q-card>
@@ -94,7 +94,10 @@
 <script>
 export default {
   props: {
-    index: ""
+    plugin: {
+      type: Object,
+      required: true,
+    }
   },
   data() {
     return {
@@ -103,9 +106,6 @@ export default {
     };
   },
   computed: {
-    getPluginFromStore: function() {
-      return this.$store.state.pluginsList[this.index];
-    }
   },
   methods: {
     isPluginRunning: function(currentStatus) {
