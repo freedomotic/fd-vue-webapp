@@ -60,15 +60,19 @@ export default {
     },
     getPluginsList: function () {
       return this.$store.state.pluginsList.filter((plugin) => {
-        return this.undesiredPlugins.indexOf(plugin.pluginName) === -1
+        return this.hiddenPlugins.indexOf(plugin.pluginName) === -1
       })
     }
   },
   data () {
     return {
-      undesiredPlugins: [
+      hiddenPlugins: [
+        'Application Server',
+        'Delayer', 
+        'Plugins Remote Controller',
         'RestAPI v3',
-        'Scheduler'
+        'Scheduler',
+        'Successful Test' 
       ]
     }
   },
