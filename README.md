@@ -10,7 +10,7 @@ A Vue.js client for [Freedomotic](https://www.freedomotic-iot.com) framework.
 
 ## Scope of the project
 
-This repository contains the implementation of a front end client for [Freedomotic](https://www.freedomotic-iot.com).  
+This repository contains the implementation of a front end client for [Freedomotic](https://www.freedomotic-iot.com).
 The aim of this project is to reproduce all features already integrated in our Java frontend, that's available [here](https://github.com/freedomotic/freedomotic/tree/master/plugins/devices/frontend-java).
 
 To have a broad idea about its features you can have a look at our [YouTube channel](https://www.youtube.com/freedomotic).
@@ -18,8 +18,27 @@ To have a broad idea about its features you can have a look at our [YouTube chan
 ## Screenshoot
 
 ### Dashboard Page
-![Dashboard](/img/fd-vue-dashboard1.png)
+![Dashboard page](/img/fd-vue-dashboard1.png)
+![Dashboard page with environment menu open](/img/fd-vue-dashboard2.png)
 
+### Things Panel
+
+![Things Panel](/img/fd-vue-things-panel.png)
+
+### Plugins Panel
+
+![Plugins Panel](/img/fd-vue-plugins-panel.png)
+
+### Automations Panel
+
+![Automations Panel](/img/fd-vue-automations-panel.png)
+
+### Mobile
+
+![Mobile home page](/img/fd-vue-mobile-home.png)
+![Mobile things page](/img/fd-vue-mobile-things.png)
+![Mobile plugins page](/img/fd-vue-mobile-plugins.png)
+![Mobile automations page](/img/fd-vue-mobile-automations.png)
 
 ## Pre-requirements
 
@@ -42,8 +61,8 @@ Once launched, a local setup of Freedomotic RESTful APIs will be available at `l
 
 ### Freedomotic Polymer client, an inspiration
 
-Some time ago we developed a first client prototype using Polymer (here it is a [brief video](https://www.youtube.com/watch?v=0pN-8mbNuQk) showing its features). 
-Polymer client source code is hosted [here](https://github.com/freedomotic/fd-polymer-webapp) on GitHub: maybe you can look at it to have some inspiration. 
+Some time ago we developed a first client prototype using Polymer (here it is a [brief video](https://www.youtube.com/watch?v=0pN-8mbNuQk) showing its features).
+Polymer client source code is hosted [here](https://github.com/freedomotic/fd-polymer-webapp) on GitHub: maybe you can look at it to have some inspiration.
 
 **WARNING**: At the moment that project is deprecated.
 
