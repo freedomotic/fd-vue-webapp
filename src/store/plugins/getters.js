@@ -1,7 +1,3 @@
-export const authStatus = state => {
-  state.status
-}
-
 export const getAvailableProtocols = state => {
   const protocols = []
   state.pluginsList.filter(plug => {
@@ -13,12 +9,4 @@ export const getAvailableProtocols = state => {
   })
   protocols.push('unknown')
   return protocols
-}
-
-export const getHardwareTriggers = state => {
-  return state.triggersList.filter(trigger => {
-    if (trigger.hardwareLevel === true) {
-      return trigger
-    }
-  })
 }

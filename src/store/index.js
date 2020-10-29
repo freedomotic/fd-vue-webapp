@@ -1,54 +1,88 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as actions from './actions'
-import * as mutations from './mutations'
-import * as getters from './getters'
+
+import authentication from './authentication'
+import automations from './automations'
+import commands from './commands'
+import dashboard from './dashboard'
+import environments from './environments'
+import plugins from './plugins'
+import resources from './resources'
+import roles from './roles'
+import system from './system'
+import things from './things'
+import triggers from './triggers'
+import users from './users'
 
 Vue.use(Vuex)
 
+const state = {};
+const actions = {};
+const mutations = {};
+const getters = {};
+
+Object.assign(state,
+  authentication.state,
+  automations.state,
+  commands.state,
+  dashboard.state,
+  environments.state,
+  plugins.state,
+  resources.state,
+  roles.state,
+  system.state,
+  things.state,
+  triggers.state,
+  users.state
+);
+
+Object.assign(actions,
+  authentication.actions,
+  automations.actions,
+  commands.actions,
+  dashboard.actions,
+  environments.actions,
+  plugins.actions,
+  resources.actions,
+  roles.actions,
+  system.actions,
+  things.actions,
+  triggers.actions,
+  users.actions
+);
+
+Object.assign(mutations,
+  authentication.mutations,
+  automations.mutations,
+  commands.mutations,
+  dashboard.mutations,
+  environments.mutations,
+  plugins.mutations,
+  resources.mutations,
+  roles.mutations,
+  system.mutations,
+  things.mutations,
+  triggers.mutations,
+  users.mutations
+);
+
+Object.assign(getters,
+  authentication.getters,
+  automations.getters,
+  commands.getters,
+  dashboard.getters,
+  environments.getters,
+  plugins.getters,
+  resources.getters,
+  roles.getters,
+  system.getters,
+  things.getters,
+  triggers.getters,
+  users.getters
+);
+
 export default new Vuex.Store({
-  state: {
-    // Authentication state
-    token: sessionStorage.getItem('token') || '',
-    status: '',
-    // end of Authentication state
-    // System state
-    systemInfo: {},
-    // end system state
-    // Dashboard state
-    isMobile: '', // REMOVE ME
-    mobileSection: 'home',
-    displaySettings: false,
-    displayInfo: false,
-    displayAlerts: false,
-    displayLogout: false,
-    displayThings: false,
-    blur: false,
-    // end of Dashboard state
-    language: 'en',
-    // Settings state
-    systemOpen: false,
-    automationsOpen: false,
-    languagesOpen: false,
-    pluginsOpen: false,
-    rolesOpen: false,
-    usersOpen: false,
-    // end of Settings state
-    advancedMode: false,
-    // API state
-    automationsList: '',
-    commandsList: '',
-    environmentsList: '',
-    marketplaceCategoriesList: '',
-    marketplaceCategoryPluginsList: '',
-    pluginsList: [],
-    rolesList: '',
-    roomsList: '',
-    thingsList: [],
-    thingTemplatesList: '',
-    triggersList: [],
-    usersList: ''
-  },
+  state,
   actions,
   mutations,
   getters
