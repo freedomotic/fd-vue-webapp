@@ -5,6 +5,7 @@
         <q-toolbar>
           <q-btn flat round dense icon="undo" class="q-mr-sm" @click="openSettings" />
           <q-toolbar-title>{{$t('users').toUpperCase()}}</q-toolbar-title>
+          <q-btn color="secondary" label="Add new user" @click='addNewUser = true' />
           <q-btn flat round dense icon="close" @click="closeWindow" />
         </q-toolbar>
       </q-header>
@@ -14,11 +15,9 @@
             <user :index="index"></user>
           </div>
         </grid-container>
-        <md-button class="md-fab md-primary md-fab-bottom-right md-fixed">
-          <md-icon>add</md-icon>
-        </md-button>
-      </q-page-container>
+       </q-page-container>
     </q-layout>
+    <add-new-user v-model='addNewUser' />
   </div>
   <div v-else-if="$q.platform.is.mobile">
     <q-layout>
@@ -36,17 +35,20 @@
         </q-list>
       </q-page-container>
     </q-layout>
+    <add-new-user v-model='addNewUser' />
   </div>
 </template>
 
 <script>
 import GridContainer from "./common/GridContainer.vue";
 import User from "./User.vue";
+import AddNewUser from "./dialog/AddUserDialog.vue";
 
 export default {
   components: {
     User,
-    GridContainer
+    GridContainer,
+    AddNewUser
   },
   computed: {
     usersOpen: function() {
@@ -60,7 +62,9 @@ export default {
     this.$store.dispatch("getUsersList");
   },
   data() {
-    return {};
+    return {
+      addNewUser: false
+    };
   },
   methods: {
     openSettings: function() {

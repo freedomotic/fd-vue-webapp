@@ -5,6 +5,7 @@
         <q-toolbar>
           <q-btn flat round dense icon="undo" class="q-mr-sm" @click="openSettings" />
           <q-toolbar-title>{{$t('roles').toUpperCase()}}</q-toolbar-title>
+          <q-btn color="secondary" label="Add new role" @click='addNewRole = true' />
           <q-btn flat round dense icon="close" @click="closeWindow" />
         </q-toolbar>
       </q-header>
@@ -16,6 +17,7 @@
         </grid-container>
       </q-page-container>
     </q-layout>
+    <add-new-role v-model='addNewRole' />
   </div>
   <div v-else-if="$q.platform.is.mobile">
     <q-layout>
@@ -33,17 +35,20 @@
         </q-list>
       </q-page-container>
     </q-layout>
+    <add-new-role v-model='addNewRole' />
   </div>
 </template>
 
 <script>
 import GridContainer from "./common/GridContainer.vue";
 import Role from "./Role.vue";
+import AddNewRole from "./dialog/AddRoleDialog.vue";
 
 export default {
   components: {
     Role,
-    GridContainer
+    GridContainer,
+    AddNewRole
   },
   computed: {
     rolesOpen: function() {
@@ -57,7 +62,9 @@ export default {
     this.$store.dispatch("getRolesList");
   },
   data() {
-    return {};
+    return {
+      addNewRole: false
+    };
   },
   methods: {
     openSettings: function() {
