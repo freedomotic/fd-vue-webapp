@@ -35,7 +35,7 @@ export default {
   components: {
     Thing,
     GridContainer,
-    AddNewThing: () => import('./AddThingDialog')
+    AddNewThing: () => import('./dialog/AddThingDialog')
   },
   computed: {
     getThingsList: function() {

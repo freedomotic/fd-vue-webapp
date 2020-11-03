@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import AddNewAutomation from "./AddAutomationDialog.vue";
+import AddNewAutomation from "./dialog/AddAutomationDialog.vue";
 
 export default {
   computed: {
