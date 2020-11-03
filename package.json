@@ -14,11 +14,13 @@
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.4",
     "express": "^4.17.1",
+    "konva": "^7.1.4",
     "quasar": "^1.0.0",
     "serve-static": "^1.14.1",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-country-flag": "^2.0.1",
+    "vue-konva": "^2.1.6",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
     "vuex-i18n": "^1.13.1"
