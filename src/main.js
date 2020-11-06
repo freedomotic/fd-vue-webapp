@@ -6,6 +6,7 @@ import axios from './utils/fd-axios'
 import vuexI18n from 'vuex-i18n'
 import store from './store'
 import router from './router'
+import VueKonva from 'vue-konva'
 
 // Import translation files
 import br from './i18n/pt_BR.json'
@@ -50,6 +51,8 @@ Vue.i18n.set('en')
 
 // Set English also as fallback locale
 Vue.i18n.fallback('en')
+
+Vue.use(VueKonva)
 
 // Set authentication token
 const token = store.state.token

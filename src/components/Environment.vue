@@ -30,6 +30,12 @@
               </q-item-section>
               <q-menu anchor="top right" self="top left">
                 <q-list>
+                    <q-item clickable v-close-popup @click="showZones = !showZones" v-if="!showZones">
+                      <q-item-section>{{$t('show_zones')}}</q-item-section>
+                    </q-item>
+                    <q-item clickable v-close-popup @click="showZones = !showZones" v-if="showZones">
+                      <q-item-section>{{$t('hide_zones')}}</q-item-section>
+                    </q-item>
                     <q-item clickable v-close-popup @click.native="editZones">
                       <q-item-section>{{$t('edit_zones')}}</q-item-section>
                     </q-item>
@@ -80,7 +86,7 @@
         </span>
         </div>
       </div>
-
+      <zones-panel :environment="environment" v-if="showZones == true"/>
       <q-dialog v-model="thingsEditor" full-width>
       <q-layout view="Lhh lpR fff" container class="bg-white">
         <q-header class="bg-primary">
@@ -90,7 +96,6 @@
           </q-toolbar>
         </q-header>
         <things-editor :thing="thing" />
-
         <q-page-container>
           <q-page padding></q-page>
         </q-page-container>
@@ -103,6 +108,7 @@
 
 <script>
 import ThingsEditor from './ThingsEditor.vue'
+import ZonesPanel from './ZonesPanel.vue'
 
 export default {
   name: 'Environment',
@@ -110,7 +116,8 @@ export default {
     environment: {}
   },
   components: {
-    ThingsEditor
+    ThingsEditor,
+    ZonesPanel
   },
   computed: {
     getEnvironmentThingsList () {
@@ -394,6 +401,7 @@ export default {
         max-width: 100px;
         width: 100%;
         margin: 2rem 0 0 2rem;
+        z-index: 1000;
       }
 
       .menu div{
