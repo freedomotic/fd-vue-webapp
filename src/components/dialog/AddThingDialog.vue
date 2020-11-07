@@ -8,10 +8,19 @@
       <q-list bordered>
       <q-item clickable v-ripple v-for="template in getThingTemplatesList" :key="template.name">
         <q-item-section avatar>
-          <q-icon color="primary" name="bluetooth" />
+          <q-avatar color="primary" text-color="white">
+            I
+          </q-avatar>
         </q-item-section>
 
-        <q-item-section>{{template.name}}</q-item-section>
+        <q-item-section>
+          <q-item-label>{{ template.name }}</q-item-label>
+          <q-item-label caption lines="1">{{ template.description }}</q-item-label>
+        </q-item-section>
+
+        <q-item-section side>
+          <q-icon name="add" color="green" />
+        </q-item-section>
       </q-item>
 
       </q-list>
