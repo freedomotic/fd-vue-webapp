@@ -403,6 +403,7 @@ export default {
   mounted() {
     this.$store.dispatch("getThingsList");
     this.$store.dispatch("getEnvironmentsList");
+    this.$store.dispatch("getThingTemplatesList");
   },
   computed: {
     displaySettings() {

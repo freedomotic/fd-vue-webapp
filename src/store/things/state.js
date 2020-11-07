@@ -1,4 +1,4 @@
 export default {
   thingsList: [],
-  thingTemplatesList: ''
+  thingTemplatesList: []
 };
