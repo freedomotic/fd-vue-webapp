@@ -30,9 +30,11 @@
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-unit-jest": "^4.5.14",
     "@vue/cli-service": "~4.3.0",
+    "@vue/test-utils": "^1.2.2",
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-imports": "1.5.0",
     "eslint": "^6.7.2",
+    "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-cli-plugin-quasar": "~2.0.2",
     "vue-template-compiler": "^2.6.11"
@@ -40,6 +42,7 @@
   "eslintConfig": {
     "root": true,
     "env": {
+      "jest/globals": true,
       "node": true
     },
     "extends": [
@@ -49,6 +52,7 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
+    "plugins": ["jest"],
     "rules": {}
   },
   "browserslist": [
