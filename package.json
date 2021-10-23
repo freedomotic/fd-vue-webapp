@@ -28,16 +28,21 @@
     "vuex-i18n": "^1.13.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-unit-jest": "^4.5.14",
     "@vue/cli-service": "~4.3.0",
     "@vue/test-utils": "^1.2.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.3.1",
     "babel-plugin-transform-imports": "1.5.0",
     "eslint": "^6.7.2",
     "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-cli-plugin-quasar": "~2.0.2",
+    "vue-jest": "3.0.7",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -53,7 +58,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "plugins": ["jest"],
+    "plugins": [
+      "jest"
+    ],
     "rules": {}
   },
   "browserslist": [
