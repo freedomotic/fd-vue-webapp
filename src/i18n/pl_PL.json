@@ -1,4 +1,5 @@
-"actions": "Akcje",
+{ 
+  "actions": "Akcje",
   "actuators": "Actuators",
   "add": "Dodaj",
   "add_new_automation": "Stwórz nową automatyację",
@@ -95,3 +96,4 @@
   "username": "Nazwa użytkownika",
   "uuid" : "UUID",
   "width" : "Szerokość"
+}
