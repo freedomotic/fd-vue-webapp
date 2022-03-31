@@ -1,6 +1,6 @@
 # fd-vue-webapp
 
-A Vue.js client for [Freedomotic](https://www.freedomotic-iot.com) framework.
+A Vue.js client for [Freedomotic](https://www.freedomotic-platform.com) framework.
 
 ---
 
@@ -9,7 +9,7 @@ A Vue.js client for [Freedomotic](https://www.freedomotic-iot.com) framework.
 
 ## Scope of the project
 
-This repository contains the implementation of a front end client for [Freedomotic](https://www.freedomotic-iot.com).
+This repository contains the implementation of a front end client for [Freedomotic](https://www.freedomotic-platform.com).
 The aim of this project is to reproduce all features already integrated in our Java frontend, that's available [here](https://github.com/freedomotic/freedomotic/tree/master/plugins/devices/frontend-java).
 
 To have a broad idea about its features you can have a look at our [YouTube channel](https://www.youtube.com/freedomotic).
