@@ -26,8 +26,8 @@
     "vuex-i18n": "^1.13.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-service": "~5.0.8",
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-imports": "1.5.0",
     "eslint": "^6.7.2",
